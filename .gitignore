@@ -1,0 +1,19 @@
+# CAD lock, backup and temporary files
+~$*
+*.bak
+*.BAK
+*.tmp
+*.FCStd1
+*.FCBak
+*.lck
+*_backup*
+.~lock.*
+
+# Slicer output (export from the 3MF, do not commit machine code)
+*.gcode
+*.bgcode
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

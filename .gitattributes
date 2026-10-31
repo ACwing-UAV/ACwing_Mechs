@@ -1,0 +1,26 @@
+# Native CAD files and print exports are binary: Git LFS.
+# STEP, IGES and DXF are text and stay in plain Git (readable diffs).
+*.sldprt    filter=lfs diff=lfs merge=lfs -text
+*.SLDPRT    filter=lfs diff=lfs merge=lfs -text
+*.sldasm    filter=lfs diff=lfs merge=lfs -text
+*.SLDASM    filter=lfs diff=lfs merge=lfs -text
+*.slddrw    filter=lfs diff=lfs merge=lfs -text
+*.SLDDRW    filter=lfs diff=lfs merge=lfs -text
+*.f3d       filter=lfs diff=lfs merge=lfs -text
+*.f3z       filter=lfs diff=lfs merge=lfs -text
+*.ipt       filter=lfs diff=lfs merge=lfs -text
+*.iam       filter=lfs diff=lfs merge=lfs -text
+*.FCStd     filter=lfs diff=lfs merge=lfs -text
+*.3dm       filter=lfs diff=lfs merge=lfs -text
+*.stl       filter=lfs diff=lfs merge=lfs -text
+*.STL       filter=lfs diff=lfs merge=lfs -text
+*.3mf       filter=lfs diff=lfs merge=lfs -text
+*.blend     filter=lfs diff=lfs merge=lfs -text
+
+# Text CAD formats: normal Git, never touched by line-ending conversion.
+*.step      -text diff
+*.stp       -text diff
+*.STEP      -text diff
+*.STP       -text diff
+*.dxf       -text diff
+*.DXF       -text diff
