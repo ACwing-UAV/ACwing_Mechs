@@ -1,8 +1,8 @@
-# Mech A – checks
+# Mech A1 – checks
 
 ## Assembly checks
 
-Files: `ACwing_Mech_A_assembly_checks_<tray>.json`.
+Files: `ACwing_Mech_A1_assembly_checks_<tray>.json`.
 
 Each key is a pair of parts. The value is the overlap volume in mm³, sampled on the signed-distance models with
 h = 0.06–0.15 mm. `cables` gives the wire lengths between the plug housings, in mm.
@@ -18,7 +18,7 @@ of T400 apply to them too.
 
 ## Vibration
 
-Files: `ACwing_Mech_A_fe_modes_<case>.json`.
+Files: `ACwing_Mech_A1_fe_modes_<case>.json`.
 
 The model is a voxel FE: hex8 elements, h 0.8 mm, PETG with E 2000 MPa. Motors, stack, battery and flow board are
 lumped masses. `modes` gives the free-free frequencies after the 6 rigid modes, with the share of the motors and of
@@ -26,7 +26,7 @@ the hub in each mode.
 
 | Case | Saddle mode |
 |---|---|
-| C2 (reference) | 100.8 Hz |
-| C3 + T400 | 125.8 Hz |
-| C3 + T800 | 123.9 Hz |
-| C3 + T1200 | 102.6 Hz |
+| Preliminary draft (reference, bay fused to the frame) | 100.8 Hz |
+| A1 + T400 | 125.8 Hz |
+| A1 + T800 | 123.9 Hz |
+| A1 + T1200 | 102.6 Hz |

@@ -1,11 +1,11 @@
-# ACwing Mech A – print and build pack
+# ACwing Mech A1 – print and build pack
 
 **Project:** ACwing · **Author:** Andrea Cirillo · **Overview:** [repository README](../../README.md)
 
-![ACwing Mech A with tray T400](Renders/ACwing_Mech_A_T400_hero.png)
+![ACwing Mech A1 with tray T400](Renders/ACwing_Mech_A1_T400_hero.png)
 
-**Mech A** is the first released mechanics of the 1S mini drone. It contains:
-- the frame **C3 core**;
+**Mech A1** is the first released mechanics of the 1S mini drone. It contains:
+- the frame **A1 core**;
 - three interchangeable **battery trays** (T400 / T800 / T1200);
 - the printed **stack spacers**;
 - the **TPU motor sleeves**.
@@ -22,28 +22,28 @@ Baseline: indoor flight, no GPS.
 | Path | What |
 |---|---|
 | `Prints/` | **print-ready STL files**, already oriented and placed on the bed (z = 0). Written by the assembly macro. |
-| `ACwing_Mech_A_BoM.xlsx` / `.csv` | mechanical bill of materials per drone and per tray, masses, print settings (sheet `Print`) |
+| `ACwing_Mech_A1_BoM.xlsx` / `.csv` | mechanical bill of materials per drone and per tray, masses, print settings (sheet `Print`) |
 | `STEP/` | hardware, cables and battery of the assembly (one file per tray), written by the macro |
 | `Renders/` | assembly renders per tray |
 | `Checks/` | interference checks and vibration (FE) results |
-| `ACwing_frame_C3_mechanical_handoff.md` | design notes: interfaces, checks, vibration, masses |
+| `ACwing_frame_A1_mechanical_handoff.md` | design notes: interfaces, checks, vibration, masses |
 
 ## Regenerating the print files
 
 The source meshes live in `01 - Frame/` and `02 - Mounts/`. The macro
-`04 - Assembly/ACwing_Mech_A/ACwing_Mech_A.FCMacro` rewrites `Prints/` every time it runs
-(`EXPORT_PRINTS = True`). It also builds the assembly in FreeCAD. See [its README](../../04%20-%20Assembly/ACwing_Mech_A/README.md).
+`04 - Assembly/ACwing_Mech_A1/ACwing_Mech_A1.FCMacro` rewrites `Prints/` every time it runs
+(`EXPORT_PRINTS = True`). It also builds the assembly in FreeCAD. See [its README](../../04%20-%20Assembly/ACwing_Mech_A1/README.md).
 
 ## What to print
 
 | # | File (`Prints/`) | Material | Per drone | Mass |
 |---|---|---|---|---|
-| 1 | `ACwing_Mech_A_01_Frame_C3_core_PETG.stl` | PETG | 1 | 15.4 g |
-| 2 | `ACwing_Mech_A_02_Tray_C3_T400_PETG.stl` | PETG | 1 (400 mAh pack) | 3.4 g |
-| 2 | `ACwing_Mech_A_02_Tray_C3_T800_PETG.stl` | PETG | 1 (800 mAh pack) | 3.7 g |
-| 2 | `ACwing_Mech_A_02_Tray_C3_T1200_PETG.stl` | PETG | 1 (1200 mAh pack) | 4.2 g |
-| 3 | `ACwing_Mech_A_03_Stack_Spacers_S1x4_S2x4_PETG.stl` | PETG | 1 plate (4 × S1; the 4 × S2 only with GPS) | 0.4 g |
-| 4 | `ACwing_Mech_A_04_Motor_Sleeves_x4_TPU95A.stl` | TPU 95A | 1 plate (4 sleeves) | 2.2 g |
+| 1 | `ACwing_Mech_A1_01_Frame_core_PETG.stl` | PETG | 1 | 15.4 g |
+| 2 | `ACwing_Mech_A1_02_Tray_T400_PETG.stl` | PETG | 1 (400 mAh pack) | 3.4 g |
+| 2 | `ACwing_Mech_A1_02_Tray_T800_PETG.stl` | PETG | 1 (800 mAh pack) | 3.7 g |
+| 2 | `ACwing_Mech_A1_02_Tray_T1200_PETG.stl` | PETG | 1 (1200 mAh pack) | 4.2 g |
+| 3 | `ACwing_Mech_A1_03_Stack_Spacers_S1x4_S2x4_PETG.stl` | PETG | 1 plate (4 × S1; the 4 × S2 only with GPS) | 0.4 g |
+| 4 | `ACwing_Mech_A1_04_Motor_Sleeves_x4_TPU95A.stl` | TPU 95A | 1 plate (4 sleeves) | 2.2 g |
 
 Masses are for solid parts (mesh volume × density); the printed mass depends on walls and infill.
 
@@ -63,7 +63,7 @@ The 0.2 mm nozzle gives no gain at these wall thicknesses (rails 1.2 mm, arms Ø
 
 The files are exported in the orientation below. It comes from an overhang analysis of the meshes, so check the supports in your slicer.
 
-- **Core C3, upside down.** The tops of the propeller-guard rings sit on the bed and the deck is about 9 mm above it.
+- **Core A1, upside down.** The tops of the propeller-guard rings sit on the bed and the deck is about 9 mm above it.
   - Tree supports go under the deck, the stack bosses and the motor holders.
   - Upside down there is about 10 % less overhang than upright, and the supports are 9 mm tall instead of 28 mm.
 - **Trays, upright.** The two flow bosses sit on the bed.
@@ -78,7 +78,7 @@ The files are exported in the orientation below. It comes from an overhang analy
 
 ## Hardware (per drone)
 
-The full list is in `ACwing_Mech_A_BoM.xlsx`.
+The full list is in `ACwing_Mech_A1_BoM.xlsx`.
 
 | Part | Qty | Note |
 |---|---|---|
@@ -111,7 +111,7 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 
 ## Configurations
 
-| Tray | Pack | Drone mass* | T/W* | Flight time vs C2 + 400 mAh* | First frame mode (FE) |
+| Tray | Pack | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode (FE) |
 |---|---|---|---|---|---|
 | T400 | 400 mAh, 11.5 g | ≈ 62.5 g | 2.24 | × 0.90 | 126 Hz |
 | T800 | 800 mAh, ≈ 22 g | ≈ 73.3 g | 1.91 | × 1.41 | 124 Hz |
@@ -121,7 +121,7 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 - thrust ≈ 140 g;
 - hover power ∝ m^1.5;
 - tray hardware estimated at 1.2 g (BoM);
-- reference is C2 with the 400 mAh pack, ≈ 58 g.
+- reference is the preliminary draft (battery bay fused to the frame) with the 400 mAh pack, ≈ 58 g.
 
 ## Open points
 
@@ -129,5 +129,5 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
   - The tray works with both.
   - With 1.6 mm the lens sits 0.6 mm lower: 10.7 mm above the ground with T400 / T1200, 9.7 mm with T800.
   - The cable C end in the model is drawn for 1.0 mm.
-- **ELRS receiver.** In C2 it sat on the battery-bay rail; its mount on C3 is not modelled yet.
+- **ELRS receiver.** In the preliminary draft it sat on the battery-bay rail; its mount on A1 is not modelled yet.
 - **Tap test.** Do it on the first build and set the gyro notch from it. The frame modes are 103–126 Hz, inside the band that matters for the FC soft mount.

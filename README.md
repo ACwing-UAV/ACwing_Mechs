@@ -49,7 +49,7 @@ one folder per part family, `ACwing_<part>_<rev>` file names.
 
 ```
 00 - Docs/            per release: print-ready files, BoM, print settings, renders, handoff notes, assembly instructions
-01 - Frame/           frames, one subfolder per revision (Frame_C2, Frame_C3, …)
+01 - Frame/           frames, one subfolder per revision (Frame_A1, …)
 02 - Mounts/          board mounts, battery holders, sensor brackets
 03 - Prints/          print-ready exports of single parts outside a release
 04 - Assembly/        assembly macros, one subfolder per release, with the non-printed reference parts
@@ -66,15 +66,15 @@ the **STL/3MF** with material, layer height and orientation.
 
 | Release | Contents | Fits | Docs |
 |---|---|---|---|
-| **Mech A** | frame C3 core, battery trays T400 / T800 / T1200, stack spacers, TPU motor sleeves | ESC 1S rev A, FC rev A (layout 2026-10-24), Flow rev A, GPS rev A (option) | [`00 - Docs/00 - Mech_A_Docs`](00%20-%20Docs/00%20-%20Mech_A_Docs/README.md) · macro [`04 - Assembly/ACwing_Mech_A`](04%20-%20Assembly/ACwing_Mech_A/README.md) |
+| **Mech A1** | frame A1 core, battery trays T400 / T800 / T1200, stack spacers, TPU motor sleeves | ESC 1S rev A, FC rev A (layout 2026-10-24), Flow rev A, GPS rev A (option) | [`00 - Docs/00 - Mech_A1_Docs`](00%20-%20Docs/00%20-%20Mech_A1_Docs/README.md) · macro [`04 - Assembly/ACwing_Mech_A1`](04%20-%20Assembly/ACwing_Mech_A1/README.md) |
 
 ```
-00 - Docs/00 - Mech_A_Docs/        README (print + build guide), BoM (xlsx/csv), Prints/, STEP/, Renders/, Checks/, design notes
-01 - Frame/Frame_C3/               ACwing_Frame_C3_core.stl
-02 - Mounts/Battery_Trays_C3/      ACwing_Tray_C3_T400/T800/T1200.stl
-02 - Mounts/Stack_Spacers/         ACwing_Stack_Spacers_S1x4_S2x4.stl
-02 - Mounts/Motor_Sleeves/         ACwing_Motor_Sleeve_x4.stl
-04 - Assembly/ACwing_Mech_A/       ACwing_Mech_A.FCMacro, ACwing_Mech_A_data.json, reference/ (motors, props, leads)
+00 - Docs/00 - Mech_A1_Docs/       README (print + build guide), BoM (xlsx/csv), Prints/, STEP/, Renders/, Checks/, design notes
+01 - Frame/Frame_A1/               ACwing_Frame_A1_core.stl
+02 - Mounts/Battery_Trays_A1/      ACwing_Tray_A1_T400/T800/T1200.stl
+02 - Mounts/Stack_Spacers/         ACwing_Stack_Spacers_A1_S1x4_S2x4.stl
+02 - Mounts/Motor_Sleeves/         ACwing_Motor_Sleeve_A1_x4.stl
+04 - Assembly/ACwing_Mech_A1/      ACwing_Mech_A1.FCMacro, ACwing_Mech_A1_data.json, reference/ (motors, props, leads)
 ```
 
 ## Large files (Git LFS)

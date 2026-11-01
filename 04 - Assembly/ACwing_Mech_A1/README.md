@@ -1,17 +1,17 @@
-# ACwing Mech A – FreeCAD assembly macro
+# ACwing Mech A1 – FreeCAD assembly macro
 
-`ACwing_Mech_A.FCMacro` builds the Mech A assembly and writes the print files.
+`ACwing_Mech_A1.FCMacro` builds the Mech A1 assembly and writes the print files.
 
 ## Run it
 
 1. Open FreeCAD (0.21 or 1.0).
-2. Choose **Macro → Macros…**, select `ACwing_Mech_A.FCMacro` in this folder and click **Execute**.
+2. Choose **Macro → Macros…**, select `ACwing_Mech_A1.FCMacro` in this folder and click **Execute**.
    Keep the macro in this folder: it finds the repository root from here.
 
 The macro:
-- writes the **print-ready STL files** (oriented, on z = 0) to `00 - Docs/00 - Mech_A_Docs/Prints/` (all three trays);
+- writes the **print-ready STL files** (oriented, on z = 0) to `00 - Docs/00 - Mech_A1_Docs/Prints/` (all three trays);
 - builds the assembly with the selected tray in a new document (groups Frame, Propulsion, Electronics, Hardware, Cables);
-- writes the hardware, cables and battery as STEP to `00 - Docs/00 - Mech_A_Docs/STEP/`.
+- writes the hardware, cables and battery as STEP to `00 - Docs/00 - Mech_A1_Docs/STEP/`.
 
 ## Options (top of the macro)
 
@@ -24,7 +24,7 @@ The macro:
 | `HW_DIR` | `''` | path to an ACwing_HW clone; empty = look for `../ACwing_HW` or `../hw` next to this repository |
 | `EXPORT_PRINTS` | `True` | rewrite `Prints/` |
 | `EXPORT_STEP` | `True` | write `STEP/` |
-| `SAVE_FCSTD` | `False` | save the document to `00 - Docs/00 - Mech_A_Docs/CAD/` (large: it holds the meshes) |
+| `SAVE_FCSTD` | `False` | save the document to `00 - Docs/00 - Mech_A1_Docs/CAD/` (large: it holds the meshes) |
 
 ## Electronics
 
@@ -46,8 +46,8 @@ The Flow board is flipped (sensor side down) with its back face on the tray boss
 
 | File | What |
 |---|---|
-| `ACwing_Mech_A.FCMacro` | the macro |
-| `ACwing_Mech_A_data.json` | assembly data: stack heights, hardware positions, wires of every cable, per-tray battery and flow heights |
+| `ACwing_Mech_A1.FCMacro` | the macro |
+| `ACwing_Mech_A1_data.json` | assembly data: stack heights, hardware positions, wires of every cable, per-tray battery and flow heights |
 | `reference/` | non-printed parts for the assembly view: 8520 coreless motors, 55 mm propellers (front pair green), motor leads |
 
 The printed parts come from `01 - Frame/` and `02 - Mounts/`.

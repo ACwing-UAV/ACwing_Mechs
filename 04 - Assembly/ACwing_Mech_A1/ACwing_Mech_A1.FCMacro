@@ -1,25 +1,25 @@
 # -*- coding: utf-8 -*-
 # =====================================================================================================================
-#  ACwing Mech A  -  FreeCAD assembly macro (FreeCAD 0.21 / 1.0)
+#  ACwing Mech A1  -  FreeCAD assembly macro (FreeCAD 0.21 / 1.0)
 #  Repository: https://github.com/ACwing-UAV/ACwing_Mechs   -   Author: Andrea Cirillo (ACwing)
 # ---------------------------------------------------------------------------------------------------------------------
-#  Mech A = frame C3 core + interchangeable battery tray (T400 / T800 / T1200) + stack spacers + TPU motor sleeves,
+#  Mech A1 = frame A1 core + interchangeable battery tray (T400 / T800 / T1200) + stack spacers + TPU motor sleeves,
 #  for the 1S mini drone (indoor, no GPS by default) with ESC 1S rev A, FC rev A, Flow rev A (GPS rev A optional).
 #
 #  What it does (Macro > Macros... > select this file > Execute):
 #   1. EXPORT_PRINTS: writes every printable part, already oriented for printing and placed on z = 0, into
-#        00 - Docs/00 - Mech_A_Docs/Prints/
+#        00 - Docs/00 - Mech_A1_Docs/Prints/
 #      (all three trays are written, whatever TRAY is set to).
 #   2. Builds the assembly with the selected TRAY in a new document, in groups:
-#        Frame        core C3 + tray (meshes from 01 - Frame / 02 - Mounts), battery as a box
+#        Frame        core A1 + tray (meshes from 01 - Frame / 02 - Mounts), battery as a box
 #        Propulsion   TPU sleeves (02 - Mounts) + reference motors, propellers (front pair green), motor leads
 #        Electronics  ESC 1S rev A, FC rev A, GPS rev A (if WITH_GPS), Flow rev A: STEP models read from the
 #                     ACwing_HW repository (never copied here, see README). Not found -> boards skipped (flow board
 #                     drawn as a simple placeholder).
 #        Hardware     inserts, spacers S1/S2, damping balls, screws, washers, tray screws, flow inserts/screws
 #        Cables       every wire of cables A (ESC-FC), B (FC-GPS), C (FC-Flow), D (battery pigtail), plug housings
-#   3. EXPORT_STEP: hardware + cables + battery of the assembly to 00 - Docs/00 - Mech_A_Docs/STEP/.
-#   4. SAVE_FCSTD: saves the assembly document to 00 - Docs/00 - Mech_A_Docs/CAD/ (off by default: large file).
+#   3. EXPORT_STEP: hardware + cables + battery of the assembly to 00 - Docs/00 - Mech_A1_Docs/STEP/.
+#   4. SAVE_FCSTD: saves the assembly document to 00 - Docs/00 - Mech_A1_Docs/CAD/ (off by default: large file).
 #
 #  Frame coordinates: z = 0 propeller plane, +Y forward (green propellers), +X right.
 #  Board (u, v) -> frame: rotated +45 deg (x = (u - v)/sqrt2, y = (u + v)/sqrt2). KiCad STEP: u = X - 150, v = Y + 100.
@@ -35,22 +35,22 @@ WITH_GPS = False           # GPS rev A + cable B + S2 spacers (outdoor variant).
 WITH_FLOW = True           # Flow rev A board + cable C
 WITH_ELECTRONICS = True    # ESC / FC / GPS / Flow STEP models from the ACwing_HW repository
 HW_DIR = ''                # path to an ACwing_HW clone; '' = search next to this repository (../ACwing_HW, ../hw)
-EXPORT_PRINTS = True       # print-ready STL files -> 00 - Docs/00 - Mech_A_Docs/Prints
-EXPORT_STEP = True         # parametric parts -> 00 - Docs/00 - Mech_A_Docs/STEP
-SAVE_FCSTD = False         # assembly document -> 00 - Docs/00 - Mech_A_Docs/CAD
+EXPORT_PRINTS = True       # print-ready STL files -> 00 - Docs/00 - Mech_A1_Docs/Prints
+EXPORT_STEP = True         # parametric parts -> 00 - Docs/00 - Mech_A1_Docs/STEP
+SAVE_FCSTD = False         # assembly document -> 00 - Docs/00 - Mech_A1_Docs/CAD
 # ---------------------------------------------------------------------------------------------------------------------
 
-MECH = 'ACwing_Mech_A'
-DOCS_REL = os.path.join('00 - Docs', '00 - Mech_A_Docs')
-CORE = os.path.join('01 - Frame', 'Frame_A', 'ACwing_Frame_A_core.stl')
-TRAYS = {t: os.path.join('02 - Mounts', 'Battery_Trays_C3', 'ACwing_Tray_C3_%s.stl' % t) for t in ('T400', 'T800', 'T1200')}
-SPACERS = os.path.join('02 - Mounts', 'Stack_Spacers', 'ACwing_Stack_Spacers_S1x4_S2x4.stl')
-SLEEVES = os.path.join('02 - Mounts', 'Motor_Sleeves', 'ACwing_Motor_Sleeve_x4.stl')
-# (source, print file, flip upside down?) - orientation: see 00 - Docs/00 - Mech_A_Docs/README.md
-PRINTS = [(CORE, MECH + '_01_Frame_C3_core_PETG.stl', True),
-          (TRAYS['T400'], MECH + '_02_Tray_C3_T400_PETG.stl', False),
-          (TRAYS['T800'], MECH + '_02_Tray_C3_T800_PETG.stl', False),
-          (TRAYS['T1200'], MECH + '_02_Tray_C3_T1200_PETG.stl', False),
+MECH = 'ACwing_Mech_A1'
+DOCS_REL = os.path.join('00 - Docs', '00 - Mech_A1_Docs')
+CORE = os.path.join('01 - Frame', 'Frame_A1', 'ACwing_Frame_A1_core.stl')
+TRAYS = {t: os.path.join('02 - Mounts', 'Battery_Trays_A1', 'ACwing_Tray_A1_%s.stl' % t) for t in ('T400', 'T800', 'T1200')}
+SPACERS = os.path.join('02 - Mounts', 'Stack_Spacers', 'ACwing_Stack_Spacers_A1_S1x4_S2x4.stl')
+SLEEVES = os.path.join('02 - Mounts', 'Motor_Sleeves', 'ACwing_Motor_Sleeve_A1_x4.stl')
+# (source, print file, flip upside down?) - orientation: see 00 - Docs/00 - Mech_A1_Docs/README.md
+PRINTS = [(CORE, MECH + '_01_Frame_core_PETG.stl', True),
+          (TRAYS['T400'], MECH + '_02_Tray_T400_PETG.stl', False),
+          (TRAYS['T800'], MECH + '_02_Tray_T800_PETG.stl', False),
+          (TRAYS['T1200'], MECH + '_02_Tray_T1200_PETG.stl', False),
           (SPACERS, MECH + '_03_Stack_Spacers_S1x4_S2x4_PETG.stl', False),
           (SLEEVES, MECH + '_04_Motor_Sleeves_x4_TPU95A.stl', False)]
 REFERENCE = [('ACwing_Ref_motors_8520_x4.stl', 'Motors_8520', (0.72, 0.72, 0.72), 0),
@@ -88,7 +88,7 @@ def repo_root(start):
         if os.path.isdir(os.path.join(d, '00 - Docs')) and os.path.isdir(os.path.join(d, '01 - Frame')):
             return d
         d = os.path.dirname(d)
-    raise RuntimeError('ACwing_Mechs root not found above %s (the macro must stay in 04 - Assembly/ACwing_Mech_A)' % start)
+    raise RuntimeError('ACwing_Mechs root not found above %s (the macro must stay in 04 - Assembly/ACwing_Mech_A1)' % start)
 
 
 def find_hw(root):
@@ -252,8 +252,8 @@ def build(root, here, D, docs):
         G[g] = doc.addObject('App::DocumentObjectGroup', g)
     param = []
     # ---- printed parts and reference parts (meshes) ----
-    add_mesh(doc, G['Frame'], os.path.join(root, CORE), 'Frame_C3_core_PETG', (0.91, 0.89, 0.85))
-    add_mesh(doc, G['Frame'], os.path.join(root, TRAYS[TRAY]), 'Tray_C3_%s_PETG' % TRAY, (0.94, 0.79, 0.29))
+    add_mesh(doc, G['Frame'], os.path.join(root, CORE), 'Frame_A1_core_PETG', (0.91, 0.89, 0.85))
+    add_mesh(doc, G['Frame'], os.path.join(root, TRAYS[TRAY]), 'Tray_A1_%s_PETG' % TRAY, (0.94, 0.79, 0.29))
     W_, L_, H_, zb = TD['battery']
     param.append(add(doc, G['Frame'], 'Battery_1S_%dmAh' % TD['mAh'], Part.makeBox(W_, L_, H_, V(-W_ / 2, -L_ / 2, zb)), (0.35, 0.42, 0.48)))
     add_mesh(doc, G['Propulsion'], os.path.join(root, SLEEVES), 'Motor_sleeves_TPU95A', (0.20, 0.20, 0.22))
