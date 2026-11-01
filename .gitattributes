@@ -16,6 +16,14 @@
 *.STL       filter=lfs diff=lfs merge=lfs -text
 *.3mf       filter=lfs diff=lfs merge=lfs -text
 *.blend     filter=lfs diff=lfs merge=lfs -text
+*.glb       filter=lfs diff=lfs merge=lfs -text
+*.obj       filter=lfs diff=lfs merge=lfs -text
+*.png       filter=lfs diff=lfs merge=lfs -text
+*.PNG       filter=lfs diff=lfs merge=lfs -text
+*.jpg       filter=lfs diff=lfs merge=lfs -text
+*.xlsx      filter=lfs diff=lfs merge=lfs -text
+*.pdf       filter=lfs diff=lfs merge=lfs -text
+*.zip       filter=lfs diff=lfs merge=lfs -text
 
 # Text CAD formats: normal Git, never touched by line-ending conversion.
 *.step      -text diff
@@ -24,3 +32,10 @@
 *.STP       -text diff
 *.dxf       -text diff
 *.DXF       -text diff
+
+# Macros, data and docs: plain text, LF line endings
+*.FCMacro   text eol=lf
+*.py        text eol=lf
+*.json      text eol=lf
+*.csv       text eol=lf
+*.md        text eol=lf

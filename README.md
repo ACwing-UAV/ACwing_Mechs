@@ -48,15 +48,34 @@ Same convention as the other ACwing repositories: numbered top-level folders,
 one folder per part family, `ACwing_<part>_<rev>` file names.
 
 ```
-00 - Docs/            drawings (PDF), renders, handoff notes, assembly instructions
+00 - Docs/            per release: print-ready files, BoM, print settings, renders, handoff notes, assembly instructions
 01 - Frame/           frames, one subfolder per revision (Frame_C2, Frame_C3, …)
 02 - Mounts/          board mounts, battery holders, sensor brackets
-03 - Prints/          print-ready exports (STL / 3MF) with the print settings in the README
+03 - Prints/          print-ready exports of single parts outside a release
+04 - Assembly/        assembly macros, one subfolder per release, with the non-printed reference parts
 ```
+
+The print-ready files of a release are **generated** by its assembly macro into `00 - Docs/<release>_Docs/Prints/`
+(oriented for printing, on z = 0) from the source meshes in `01 - Frame/` and `02 - Mounts/`.
 
 For every part keep: the **native CAD file**, a **STEP export** (the neutral
 format the other repositories and the stack check read), and for printed parts
 the **STL/3MF** with material, layer height and orientation.
+
+## Releases
+
+| Release | Contents | Fits | Docs |
+|---|---|---|---|
+| **Mech A** | frame C3 core, battery trays T400 / T800 / T1200, stack spacers, TPU motor sleeves | ESC 1S rev A, FC rev A (layout 2026-10-24), Flow rev A, GPS rev A (option) | [`00 - Docs/00 - Mech_A_Docs`](00%20-%20Docs/00%20-%20Mech_A_Docs/README.md) · macro [`04 - Assembly/ACwing_Mech_A`](04%20-%20Assembly/ACwing_Mech_A/README.md) |
+
+```
+00 - Docs/00 - Mech_A_Docs/        README (print + build guide), BoM (xlsx/csv), Prints/, STEP/, Renders/, Checks/, design notes
+01 - Frame/Frame_C3/               ACwing_Frame_C3_core.stl
+02 - Mounts/Battery_Trays_C3/      ACwing_Tray_C3_T400/T800/T1200.stl
+02 - Mounts/Stack_Spacers/         ACwing_Stack_Spacers_S1x4_S2x4.stl
+02 - Mounts/Motor_Sleeves/         ACwing_Motor_Sleeve_x4.stl
+04 - Assembly/ACwing_Mech_A/       ACwing_Mech_A.FCMacro, ACwing_Mech_A_data.json, reference/ (motors, props, leads)
+```
 
 ## Large files (Git LFS)
 
@@ -69,7 +88,8 @@ git lfs install
 ```
 
 Without Git LFS, a clone gets small pointer files in place of the models.
-STEP and DXF are text and stay in plain Git, so their changes show in diffs.
+STEP and DXF are text and stay in plain Git, so their changes show in diffs. Renders (PNG), GLB views and
+spreadsheets (XLSX) go to Git LFS as well; Markdown, CSV, JSON and the FreeCAD macros are plain text.
 
 ## Author
 

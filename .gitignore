@@ -17,3 +17,10 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Python caches (macros)
+__pycache__/
+*.pyc
+
+# FreeCAD assembly documents saved by the macros (SAVE_FCSTD): large, regenerate them
+00 - Docs/*/CAD/
