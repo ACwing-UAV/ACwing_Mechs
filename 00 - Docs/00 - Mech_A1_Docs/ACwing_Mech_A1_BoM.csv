@@ -1,0 +1,26 @@
+Item,Group,Part,Specification,Material / standard,File / source,Unit mass (g),Mass basis,Qty T400,Qty T800,Qty T1200,Qty GPS add-on,Notes
+P1,Printed,Frame A1 core,"131.5 x 131.5 x 38 mm, 4 prop guards, 4 motor holders, deck, 4 tray lugs",PETG,ACwing_Mech_A1_01_Frame_core_PETG.stl,15.44,mesh volume x 1.27 g/cm3,1,1,1,0,print upside down (guard rings on the bed)
+P2,Printed,Battery tray T400,"400 mAh 1S, 20 x 40 x 8 pack; carries the flow board",PETG,ACwing_Mech_A1_02_Tray_T400_PETG.stl,3.36,mesh volume x 1.27 g/cm3,1,0,0,0,one tray per flight; spare trays optional
+P3,Printed,Battery tray T800,"800 mAh 1S, 25 x 45 x 9 pack",PETG,ACwing_Mech_A1_02_Tray_T800_PETG.stl,3.67,mesh volume x 1.27 g/cm3,0,1,0,0,
+P4,Printed,Battery tray T1200,"1200 mAh 1S, 30 x 64 x 8 pack",PETG,ACwing_Mech_A1_02_Tray_T1200_PETG.stl,4.18,mesh volume x 1.27 g/cm3,0,0,1,0,
+P5,Printed,Stack spacer S1,OD 4.5 / ID 2.3 x 2.57 mm (ESC top -> lower damping ball),PETG,ACwing_Mech_A1_03_Stack_Spacers_S1x4_S2x4_PETG.stl,0.038,mesh volume x 1.27 g/cm3,4,4,4,0,the print file holds 4 x S1 + 4 x S2
+P6,Printed,Stack spacer S2,OD 4.5 / ID 2.3 x 3.57 mm (upper ball -> GPS bottom),PETG,ACwing_Mech_A1_03_Stack_Spacers_S1x4_S2x4_PETG.stl,0.053,mesh volume x 1.27 g/cm3,0,0,0,4,GPS option only
+P7,Printed,Motor sleeve,"snap sleeve for 8.5 mm coreless motor, in the frame holder",TPU 95A,ACwing_Mech_A1_04_Motor_Sleeves_x4_TPU95A.stl,0.545,mesh volume x 1.21 g/cm3,4,4,4,0,the print file holds 4 sleeves
+H1,Hardware,Hot-melt insert M2 (stack bosses),"M2 x 3 x OD 3.0, seat 2.8 x 3.4","Brass, Hangtife HLTI-M2-001",-,0.1,estimate,4,4,4,0,"set with a soldering iron, 220-240 C"
+H2,Hardware,Hot-melt insert M2 (tray lugs),"M2 x 3 x OD 3.0, open downwards","Brass, Hangtife HLTI-M2-001",-,0.1,estimate,4,4,4,0,
+H3,Hardware,Hot-melt insert M2 (flow bosses),"M2 x 3 x OD 3.0, in each tray","Brass, Hangtife HLTI-M2-001",-,0.1,estimate,2,2,2,0,2 more for every spare tray
+H4,Hardware,Damping ball (FC soft mount),"M2, H 6, OD 4.9, slot OD 3.03 x 1.14","Rubber, QUARKZMAN M2",-,0.1,estimate,4,4,4,0,FC rev A sits in the ball slots
+H5,Hardware,Stack screw M2 x 12,"socket head, indoor stack (no GPS)",Titanium or A4 stainless,-,0.27,estimate (titanium),4,4,4,-4,replaced by H6 with the GPS option
+H6,Hardware,Stack screw M2 x 16,"socket head, stack with GPS",Titanium or A4 stainless,-,0.33,estimate (titanium),0,0,0,4,GPS option only
+H7,Hardware,Washer M2,OD 5 x 0.3 under the screw head on the upper ball,A4 stainless,-,0.04,estimate,4,4,4,-4,not used with the GPS option
+H8,Hardware,Tray screw M2 x 5,"button (ISO 7380) or socket head, from below into the lug inserts",A4 stainless or titanium,-,0.2,estimate (A4),4,4,4,0,2.4 mm engagement in the 3 mm insert
+H9,Hardware,Flow board screw M2 x 4,"pan head, from the sensor side into the tray inserts",Nylon (PA66),-,0.02,estimate,2,2,2,0,
+B1,Purchased,Battery 1S LiPo 400 mAh,"20 x 40 x 8 mm, JST-PH 2.0 lead",LiPo,-,11.5,user data,1,0,0,0,"slides in from the rear, snap latch"
+B2,Purchased,Battery 1S LiPo 800 mAh,"25 x 45 x 9 mm, JST-PH 2.0 lead",LiPo,-,22.0,estimate,0,1,0,0,
+B3,Purchased,Battery 1S LiPo 1200 mAh,"30 x 64 x 8 mm, JST-PH 2.0 lead",LiPo,-,30.0,estimate,0,0,1,0,
+M1,Purchased,Coreless motor 8520,"OD 8.5 x 20 mm, 2 CW + 2 CCW",-,reference mesh in 04 - Assembly/ACwing_Mech_A1,3.6,value used in the vibration model,4,4,4,0,
+M2,Purchased,Propeller 55 mm,2 CW + 2 CCW; front pair green,PC / PP,reference mesh in 04 - Assembly/ACwing_Mech_A1,,weigh,4,4,4,0,propeller disc r 27.5 inside guard r 28.5
+W1,Harness,"Cable A, ESC J1 -> FC J2","JST SH 8-pin 1:1, custom: route 17 mm of wire between the housings",-,ACwing_HW,,-,1,1,1,0,pre-crimped SH wires cut to 30 mm (electronics reply to the preliminary draft): slack for the FC float
+W2,Harness,"Cable C, FC J4 -> Flow J1","Qwiic (JST SH 4-pin) 1:1, route 37-42 mm, half twist",-,ACwing_HW,,-,1,1,1,0,standard 50 mm Qwiic cable
+W3,Harness,"Cable B, FC J3 -> GPS J1","Qwiic 1:1, route 13 mm (GPS J1 right above FC J3)",-,ACwing_HW,,-,0,0,0,1,GPS option only
+W4,Harness,Battery pigtail D,"JST-PH 2.0 on the ESC 1S pads, 25 mm (+) / 20 mm (-)",-,ACwing_HW,,-,1,1,1,0,plug the pack after inserting it

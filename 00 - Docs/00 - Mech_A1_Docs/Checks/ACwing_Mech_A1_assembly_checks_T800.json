@@ -1,0 +1,132 @@
+{
+ "checks": {
+  "frame x stack boards+parts": 0.0,
+  "frame x USB-C plugs (FC +X, ESC charge -X), overmold 13.2 mm": 0.0,
+  "frame x mated plug housings": 0.0,
+  "frame x wires (all cables)": 0.0,
+  "frame x hardware (spacers, grommets, heads, shanks)": 0.0,
+  "frame x flow board + parts": 0.0,
+  "props x stack (boards, parts)": 0.0,
+  "props x wires/housings": 0.0,
+  "wires x stack parts (pigtail on its own pads excluded)": 0.0,
+  "wires x hardware": 0.0,
+  "housings x stack parts": 0.0,
+  "hardware x stack parts": 0.0,
+  "battery x frame": 0.0,
+  "battery x screws/inserts": 0.0,
+  "tray x frame (lug faces touch)": 0.0,
+  "tray x battery": 0.031386337543053956,
+  "tray x wires": 0.0,
+  "tray x motor leads": 0.0,
+  "tray x flow board + parts": 0.0,
+  "tray x housings (PH, flow J1)": 0.0,
+  "tray x props": 0.0,
+  "insertion path x tray (latch bump excluded)": 0.0,
+  "insertion path x pigtail/PH (plug them after insertion)": 0.0,
+  "battery insertion path x frame": 0.0,
+  "optical cones x frame": 0.0,
+  "optical cones x wires/housings": 0.0,
+  "optical cones x flow screws": 0.0,
+  "optical cones x tray + battery": 0.0
+ },
+ "cables": {
+  "A  ESC J1 - FC J2": [
+   {
+    "pin": 1,
+    "sig": "GND",
+    "length_mm": 17.6
+   },
+   {
+    "pin": 2,
+    "sig": "VBAT",
+    "length_mm": 17.6
+   },
+   {
+    "pin": 3,
+    "sig": "CUR",
+    "length_mm": 17.6
+   },
+   {
+    "pin": 4,
+    "sig": "TLM",
+    "length_mm": 17.6
+   },
+   {
+    "pin": 5,
+    "sig": "M1",
+    "length_mm": 17.6
+   },
+   {
+    "pin": 6,
+    "sig": "M2",
+    "length_mm": 17.6
+   },
+   {
+    "pin": 7,
+    "sig": "M3",
+    "length_mm": 17.6
+   },
+   {
+    "pin": 8,
+    "sig": "M4",
+    "length_mm": 17.6
+   }
+  ],
+  "B  FC J3 - GPS J1": [
+   {
+    "pin": 1,
+    "sig": "GND",
+    "length_mm": 14.4
+   },
+   {
+    "pin": 2,
+    "sig": "3V3",
+    "length_mm": 14.4
+   },
+   {
+    "pin": 3,
+    "sig": "SDA",
+    "length_mm": 14.4
+   },
+   {
+    "pin": 4,
+    "sig": "SCL",
+    "length_mm": 14.4
+   }
+  ],
+  "C  FC J4 - Flow J1": [
+   {
+    "pin": 1,
+    "sig": "GND",
+    "length_mm": 42.9
+   },
+   {
+    "pin": 2,
+    "sig": "3V3",
+    "length_mm": 40.6
+   },
+   {
+    "pin": 3,
+    "sig": "SDA",
+    "length_mm": 39.2
+   },
+   {
+    "pin": 4,
+    "sig": "SCL",
+    "length_mm": 39.2
+   }
+  ],
+  "D  battery pigtail": [
+   {
+    "pin": 1,
+    "sig": "VBAT+",
+    "length_mm": 25.2
+   },
+   {
+    "pin": 2,
+    "sig": "GND",
+    "length_mm": 20.5
+   }
+  ]
+ }
+}

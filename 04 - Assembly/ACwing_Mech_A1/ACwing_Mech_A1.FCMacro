@@ -1,0 +1,354 @@
+# -*- coding: utf-8 -*-
+# =====================================================================================================================
+#  ACwing Mech A1  -  FreeCAD assembly macro (FreeCAD 0.21 / 1.0)
+#  Repository: https://github.com/ACwing-UAV/ACwing_Mechs   -   Author: Andrea Cirillo (ACwing)
+# ---------------------------------------------------------------------------------------------------------------------
+#  Mech A1 = frame A1 core + interchangeable battery tray (T400 / T800 / T1200) + stack spacers + TPU motor sleeves,
+#  for the 1S mini drone (indoor, no GPS by default) with ESC 1S rev A, FC rev A, Flow rev A (GPS rev A optional).
+#
+#  What it does (Macro > Macros... > select this file > Execute):
+#   1. EXPORT_PRINTS: writes every printable part, already oriented for printing and placed on z = 0, into
+#        00 - Docs/00 - Mech_A1_Docs/Prints/
+#      (all three trays are written, whatever TRAY is set to).
+#   2. Builds the assembly with the selected TRAY in a new document, in groups:
+#        Frame        core A1 + tray (meshes from 01 - Frame / 02 - Mounts), battery as a box
+#        Propulsion   TPU sleeves (02 - Mounts) + reference motors, propellers (front pair green), motor leads
+#        Electronics  ESC 1S rev A, FC rev A, GPS rev A (if WITH_GPS), Flow rev A: STEP models read from the
+#                     ACwing_HW repository (never copied here, see README). Not found -> boards skipped (flow board
+#                     drawn as a simple placeholder).
+#        Hardware     inserts, spacers S1/S2, damping balls, screws, washers, tray screws, flow inserts/screws
+#        Cables       every wire of cables A (ESC-FC), B (FC-GPS), C (FC-Flow), D (battery pigtail), plug housings
+#   3. EXPORT_STEP: hardware + cables + battery of the assembly to 00 - Docs/00 - Mech_A1_Docs/STEP/.
+#   4. SAVE_FCSTD: saves the assembly document to 00 - Docs/00 - Mech_A1_Docs/CAD/ (off by default: large file).
+#
+#  Frame coordinates: z = 0 propeller plane, +Y forward (green propellers), +X right.
+#  Board (u, v) -> frame: rotated +45 deg (x = (u - v)/sqrt2, y = (u + v)/sqrt2). KiCad STEP: u = X - 150, v = Y + 100.
+#  Electronics geometry: ACwing_HW stack data, layout of 2026-10-24 (FC rev A / GPS rev A).
+# =====================================================================================================================
+import os, math, json
+import FreeCAD as App
+import Part, Mesh
+
+# ------------------------------------------------ options ------------------------------------------------------------
+TRAY = 'T400'              # 'T400' (400 mAh, 20x40x8) | 'T800' (800 mAh, 25x45x9) | 'T1200' (1200 mAh, 30x64x8)
+WITH_GPS = False           # GPS rev A + cable B + S2 spacers (outdoor variant). Indoor baseline: False
+WITH_FLOW = True           # Flow rev A board + cable C
+WITH_ELECTRONICS = True    # ESC / FC / GPS / Flow STEP models from the ACwing_HW repository
+HW_DIR = ''                # path to an ACwing_HW clone; '' = search next to this repository (../ACwing_HW, ../hw)
+EXPORT_PRINTS = True       # print-ready STL files -> 00 - Docs/00 - Mech_A1_Docs/Prints
+EXPORT_STEP = True         # parametric parts -> 00 - Docs/00 - Mech_A1_Docs/STEP
+SAVE_FCSTD = False         # assembly document -> 00 - Docs/00 - Mech_A1_Docs/CAD
+# ---------------------------------------------------------------------------------------------------------------------
+
+MECH = 'ACwing_Mech_A1'
+DOCS_REL = os.path.join('00 - Docs', '00 - Mech_A1_Docs')
+CORE = os.path.join('01 - Frame', 'Frame_A1', 'ACwing_Frame_A1_core.stl')
+TRAYS = {t: os.path.join('02 - Mounts', 'Battery_Trays_A1', 'ACwing_Tray_A1_%s.stl' % t) for t in ('T400', 'T800', 'T1200')}
+SPACERS = os.path.join('02 - Mounts', 'Stack_Spacers', 'ACwing_Stack_Spacers_A1_S1x4_S2x4.stl')
+SLEEVES = os.path.join('02 - Mounts', 'Motor_Sleeves', 'ACwing_Motor_Sleeve_A1_x4.stl')
+# (source, print file, flip upside down?) - orientation: see 00 - Docs/00 - Mech_A1_Docs/README.md
+PRINTS = [(CORE, MECH + '_01_Frame_core_PETG.stl', True),
+          (TRAYS['T400'], MECH + '_02_Tray_T400_PETG.stl', False),
+          (TRAYS['T800'], MECH + '_02_Tray_T800_PETG.stl', False),
+          (TRAYS['T1200'], MECH + '_02_Tray_T1200_PETG.stl', False),
+          (SPACERS, MECH + '_03_Stack_Spacers_S1x4_S2x4_PETG.stl', False),
+          (SLEEVES, MECH + '_04_Motor_Sleeves_x4_TPU95A.stl', False)]
+REFERENCE = [('ACwing_Ref_motors_8520_x4.stl', 'Motors_8520', (0.72, 0.72, 0.72), 0),
+             ('ACwing_Ref_props_55mm_front_x2.stl', 'Props_front_green', (0.16, 0.67, 0.31), 40),
+             ('ACwing_Ref_props_55mm_rear_x2.stl', 'Props_rear', (0.50, 0.70, 0.90), 55),
+             ('ACwing_Ref_motor_leads_x4.stl', 'Motor_leads', (0.75, 0.22, 0.17), 0)]
+HW_FILES = {'ESC': os.path.join('00 - Docs', '01 - ESC_1S_Docs', 'ACwing_ESC1S_A.step'),
+            'FC': os.path.join('00 - Docs', '00 - FC_Docs', 'ACwing_FC_A.step'),
+            'GPS': os.path.join('00 - Docs', '02 - GPS_Docs', 'ACwing_GPS_A.step'),
+            'FLOW': os.path.join('00 - Docs', '03 - FLOW_Docs', 'ACwing_Flow_A.step')}
+KICAD_CENTRE = (150.0, -100.0)   # board centre in the KiCad STEP exports (X = 150 + u, Y = -(100 - v))
+
+
+def V(x, y, z):
+    return App.Vector(float(x), float(y), float(z))
+
+
+def msg(t):
+    App.Console.PrintMessage(t + '\n')
+
+
+def warn(t):
+    App.Console.PrintWarning(t + '\n')
+
+
+def here_dir():
+    if '__file__' in globals():
+        return os.path.dirname(os.path.abspath(__file__))
+    return App.getUserMacroDir(True)
+
+
+def repo_root(start):
+    d = os.path.abspath(start)
+    for _ in range(6):
+        if os.path.isdir(os.path.join(d, '00 - Docs')) and os.path.isdir(os.path.join(d, '01 - Frame')):
+            return d
+        d = os.path.dirname(d)
+    raise RuntimeError('ACwing_Mechs root not found above %s (the macro must stay in 04 - Assembly/ACwing_Mech_A1)' % start)
+
+
+def find_hw(root):
+    cands = [HW_DIR] if HW_DIR else []
+    up = os.path.dirname(root)
+    cands += [os.path.join(up, n) for n in ('ACwing_HW', 'acwing_hw', 'hw')] + [os.path.join(root, 'hw')]
+    for c in cands:
+        if c and os.path.exists(os.path.join(c, HW_FILES['FC'])):
+            return c
+    return None
+
+
+def mkdirs(p):
+    if not os.path.isdir(p):
+        os.makedirs(p)
+    return p
+
+
+# ------------------------------------------------ print files --------------------------------------------------------
+def export_prints(root, out):
+    mkdirs(out)
+    for src, dst, flip in PRINTS:
+        p = os.path.join(root, src)
+        if not os.path.exists(p):
+            warn('missing source mesh %s' % p)
+            continue
+        m = Mesh.Mesh(p)
+        if flip:
+            m.rotate(math.pi, 0.0, 0.0)              # 180 deg about X: printed upside down
+        bb = m.BoundBox
+        m.translate(-(bb.XMin + bb.XMax) / 2.0, -(bb.YMin + bb.YMax) / 2.0, -bb.ZMin)
+        m.write(os.path.join(out, dst))
+        msg('print file: %s' % dst)
+
+
+# ------------------------------------------------ document helpers ---------------------------------------------------
+def add(doc, grp, name, shape, color, transp=0):
+    o = doc.addObject('Part::Feature', name)
+    o.Shape = shape
+    if grp is not None:
+        grp.addObject(o)
+    if App.GuiUp:
+        o.ViewObject.ShapeColor = tuple(color)
+        o.ViewObject.Transparency = int(transp)
+    return o
+
+
+def add_mesh(doc, grp, path, name, color, transp=0):
+    if not os.path.exists(path):
+        warn('missing mesh %s' % path)
+        return None
+    m = doc.addObject('Mesh::Feature', name)
+    m.Mesh = Mesh.Mesh(path)
+    if grp is not None:
+        grp.addObject(m)
+    if App.GuiUp:
+        m.ViewObject.ShapeColor = tuple(color)
+        m.ViewObject.Transparency = int(transp)
+    return m
+
+
+def tube(pts, r):
+    """wire as a chain of cylinders with spheres at the joints (robust in every FreeCAD version)."""
+    sol = []
+    for i in range(len(pts) - 1):
+        a = V(*pts[i]); b = V(*pts[i + 1]); d = b - a
+        if d.Length < 1e-3:
+            continue
+        sol.append(Part.makeCylinder(r, d.Length, a, d))
+        sol.append(Part.makeSphere(r, b))
+    sol.append(Part.makeSphere(r, V(*pts[0])))
+    return Part.makeCompound(sol)
+
+
+def ring(r_out, r_in, z0, h, x, y):
+    return Part.makeCylinder(r_out, h, V(x, y, z0)).cut(Part.makeCylinder(r_in, h + 0.2, V(x, y, z0 - 0.1)))
+
+
+def revolve_profile(prof, x, y):
+    pts = [V(x + r, y, z) for r, z in prof]
+    pts.append(pts[0])
+    return Part.Face(Part.makePolygon(pts)).revolve(V(x, y, 0), V(0, 0, 1), 360)
+
+
+def prism(poly, z0, h):
+    pts = [V(px, py, z0) for px, py in poly]
+    pts.append(pts[0])
+    return Part.Face(Part.makePolygon(pts)).extrude(V(0, 0, h))
+
+
+def grommet(D, Z, x, y):
+    rb = D['grom']['OD'] / 2; rs = D['grom']['SLOT_D'] / 2; ri = D['grom']['ID'] / 2; bh = Z['BALL_H']
+    z0 = Z['FC_Z0'] - bh; f0, f1 = Z['FC_Z0'], Z['FC_Z1']
+    prof = [(ri, z0), (rb - 0.7, z0), (rb, z0 + 0.8), (rb, f0 - 0.7), (rs + 0.15, f0), (rs, f0), (rs, f1), (rs + 0.15, f1),
+            (rb, f1 + 0.7), (rb, f1 + bh - 0.8), (rb - 0.7, f1 + bh), (ri, f1 + bh)]
+    return revolve_profile(prof, x, y)
+
+
+# ------------------------------------------------ electronics (ACwing_HW STEP) ---------------------------------------
+def board_placement(z0):
+    """KiCad STEP (X, Y, Z) -> frame: centre to the origin, +45 deg about z, board bottom face to z0."""
+    return App.Placement(V(0, 0, z0), App.Rotation(V(0, 0, 1), 45)).multiply(
+        App.Placement(V(-KICAD_CENTRE[0], -KICAD_CENTRE[1], 0), App.Rotation()))
+
+
+def flow_placement(Z):
+    """Flow rev A: sensor side down, back face on the tray bosses, t axis forward; seen from above mirrored (x = -s)."""
+    return App.Placement(V(KICAD_CENTRE[0], -KICAD_CENTRE[1] + Z['FLOW_YC'], Z['FLOW_BACK_Z']), App.Rotation(V(0, 1, 0), 180))
+
+
+def pcb_thickness(shape):
+    sols = sorted(shape.Solids, key=lambda s: s.Volume)
+    return sols[-1].BoundBox.ZLength if sols else 1.0
+
+
+def insert_step(doc, grp, path, name, pl, color):
+    if App.GuiUp:
+        try:
+            import ImportGui
+            before = set(o.Name for o in doc.Objects)
+            ImportGui.insert(path, doc.Name)
+            new = [o for o in doc.Objects if o.Name not in before]
+            tops = [o for o in new if not any(p in new for p in o.InList)]
+            for o in tops:
+                if hasattr(o, 'Placement'):
+                    o.Placement = pl.multiply(o.Placement)
+                try:
+                    grp.addObject(o)
+                except Exception:
+                    pass
+            if len(tops) == 1:
+                tops[0].Label = name
+            return
+        except Exception as e:
+            warn('ImportGui failed for %s (%s): reading it without colours' % (name, e))
+    sh = Part.Shape()
+    sh.read(path)
+    o = add(doc, grp, name, sh, color)
+    o.Placement = pl
+
+
+def flow_placeholder(D, Z, t):
+    """simple stand-in for the flow board when the ACwing_HW models are not available (outline from the handoff)."""
+    yc = Z['FLOW_YC']; zb = Z['FLOW_BACK_Z']; zs = zb - t
+    board = Part.makeBox(21.0, 25.0, t, V(-10.5, yc - 12.5, zs))
+    for hx, hy in D['flow_holes']:
+        board = board.cut(Part.makeCylinder(1.1, t + 2, V(hx, hy, zs - 1)))
+    lens = Part.makeBox(6, 6, 2.28, V(-3, yc - 6.2 - 3, zs - 2.28))
+    tof = Part.makeBox(4.9, 2.5, 1.56, V(-2.45, yc + 0.8 - 1.25, zs - 1.56))
+    return Part.makeCompound([board, lens, tof])
+
+
+# ------------------------------------------------ assembly -----------------------------------------------------------
+def build(root, here, D, docs):
+    TD = D['trays'][TRAY]
+    Z = dict(D['z'])
+    Z['FLOW_BACK_Z'] = TD['FLOW_BACK_Z']
+    doc = App.newDocument('%s_%s' % (MECH, TRAY))
+    G = {}
+    for g in ('Frame', 'Propulsion', 'Electronics', 'Hardware', 'Cables'):
+        G[g] = doc.addObject('App::DocumentObjectGroup', g)
+    param = []
+    # ---- printed parts and reference parts (meshes) ----
+    add_mesh(doc, G['Frame'], os.path.join(root, CORE), 'Frame_A1_core_PETG', (0.91, 0.89, 0.85))
+    add_mesh(doc, G['Frame'], os.path.join(root, TRAYS[TRAY]), 'Tray_A1_%s_PETG' % TRAY, (0.94, 0.79, 0.29))
+    W_, L_, H_, zb = TD['battery']
+    param.append(add(doc, G['Frame'], 'Battery_1S_%dmAh' % TD['mAh'], Part.makeBox(W_, L_, H_, V(-W_ / 2, -L_ / 2, zb)), (0.35, 0.42, 0.48)))
+    add_mesh(doc, G['Propulsion'], os.path.join(root, SLEEVES), 'Motor_sleeves_TPU95A', (0.20, 0.20, 0.22))
+    for fn, nm, col, tr in REFERENCE:
+        add_mesh(doc, G['Propulsion'], os.path.join(here, 'reference', fn), nm, col, tr)
+    # ---- electronics ----
+    flow_t = 1.0
+    hw = find_hw(root) if WITH_ELECTRONICS else None
+    if WITH_ELECTRONICS and hw is None:
+        warn('ACwing_HW not found (set HW_DIR or clone it next to ACwing_Mechs): boards skipped, flow board as placeholder')
+    if hw:
+        msg('electronics from %s' % hw)
+        insert_step(doc, G['Electronics'], os.path.join(hw, HW_FILES['ESC']), 'ESC_1S_rev_A', board_placement(Z['ESC_Z0']), (0.12, 0.42, 0.23))
+        insert_step(doc, G['Electronics'], os.path.join(hw, HW_FILES['FC']), 'FC_rev_A', board_placement(Z['FC_Z0']), (0.12, 0.42, 0.23))
+        if WITH_GPS:
+            insert_step(doc, G['Electronics'], os.path.join(hw, HW_FILES['GPS']), 'GPS_rev_A', board_placement(Z['GPS_Z0']), (0.12, 0.42, 0.23))
+        if WITH_FLOW:
+            fp = os.path.join(hw, HW_FILES['FLOW'])
+            sh = Part.Shape(); sh.read(fp); flow_t = pcb_thickness(sh)
+            insert_step(doc, G['Electronics'], fp, 'Flow_rev_A', flow_placement(Z), (0.12, 0.42, 0.23))
+    elif WITH_FLOW:
+        param.append(add(doc, G['Electronics'], 'Flow_rev_A_placeholder', flow_placeholder(D, Z, flow_t), (0.12, 0.42, 0.23)))
+    # ---- hardware ----
+    ins, s1, s2, gr, sc, wa = [], [], [], [], [], []
+    for x, y in D['bosses']:
+        ins.append(ring(D['insert']['D'] / 2, 0.85, Z['BOSS_TOP'] - D['insert']['L'], D['insert']['L'], x, y))
+        s1.append(ring(2.25, 1.15, Z['ESC_Z1'], Z['FC_Z0'] - Z['BALL_H'] - Z['ESC_Z1'], x, y))
+        gr.append(grommet(D, Z, x, y))
+        top_ball = Z['FC_Z1'] + Z['BALL_H']
+        if WITH_GPS:
+            s2.append(ring(2.25, 1.15, top_ball, Z['GPS_Z0'] - top_ball, x, y))
+            head_z, L = Z['GPS_Z1'], 16.0
+        else:
+            wa.append(ring(2.5, 1.1, top_ball, 0.3, x, y))
+            head_z, L = top_ball + 0.3, 12.0
+        sc.append(Part.makeCylinder(1.0, L, V(x, y, head_z - L)).fuse(Part.makeCylinder(1.9, 2.0, V(x, y, head_z))))
+    hwl = [('Inserts_M2x3_brass_stack', ins, (0.79, 0.64, 0.15)), ('Spacers_S1_2p57_PETG', s1, (0.95, 0.94, 0.90)),
+           ('Damping_balls_M2', gr, (0.12, 0.12, 0.12)), ('Screws_M2x%d_titanium_or_A4' % (16 if WITH_GPS else 12), sc, (0.62, 0.62, 0.66))]
+    hwl.append(('Spacers_S2_3p57_PETG', s2, (0.95, 0.94, 0.90)) if WITH_GPS else ('Washers_M2', wa, (0.70, 0.70, 0.72)))
+    tz, tt = Z['TAB_Z1'], Z['TAB_T']
+    hwl.append(('Inserts_M2x3_brass_tray_lugs', [ring(1.5, 0.85, tz, 3.0, x, y) for x, y in D['lugs']], (0.79, 0.64, 0.15)))
+    hwl.append(('Screws_M2x5_A4_tray', [Part.makeCylinder(1.0, 5.0, V(x, y, tz - tt)).fuse(Part.makeCylinder(1.9, 1.3, V(x, y, tz - tt - 1.3)))
+                                       for x, y in D['lugs']], (0.72, 0.73, 0.75)))
+    if WITH_FLOW:
+        fb = Z['FLOW_BACK_Z']; fs = fb - flow_t
+        hwl.append(('Inserts_M2x3_brass_flow', [ring(1.5, 0.85, fb, 3.0, x, y) for x, y in D['flow_holes']], (0.79, 0.64, 0.15)))
+        hwl.append(('Screws_M2x4_nylon_flow', [Part.makeCylinder(1.0, 4.0, V(x, y, fs)).fuse(Part.makeCylinder(1.9, 1.3, V(x, y, fs - 1.3)))
+                                              for x, y in D['flow_holes']], (0.97, 0.97, 0.95)))
+    for nm, lst, col in hwl:
+        param.append(add(doc, G['Hardware'], nm, Part.makeCompound(lst), col))
+    # ---- cables ----
+    for h in D['housings']:
+        if h['gps'] and not WITH_GPS:
+            continue
+        param.append(add(doc, G['Cables'], h['name'], prism(h['poly'], h['z0'], h['h']), (0.94, 0.91, 0.85)))
+    ph = TD['ph']
+    param.append(add(doc, G['Cables'], 'PH2_battery_plug_pair', Part.makeBox(6.0, 10.0, 4.5, V(ph[0] - 3.0, ph[1] - 7.0, ph[2] - 2.25)), (0.94, 0.91, 0.85)))
+    for w in D['wires'] + TD['wiresC']:
+        if (w['cable'] == 'B' and not WITH_GPS) or (w['cable'] == 'C' and not WITH_FLOW):
+            continue
+        hx = w['col'].lstrip('#'); col = tuple(int(hx[i:i + 2], 16) / 255.0 for i in (0, 2, 4))
+        param.append(add(doc, G['Cables'], 'Cable_%s_pin%d_%s' % (w['cable'], w['pin'], w['sig']), tube(w['pts'], w['r']), col))
+    doc.recompute()
+    if EXPORT_STEP:
+        try:
+            p = os.path.join(mkdirs(os.path.join(docs, 'STEP')), '%s_%s_hardware_cables.step' % (MECH, TRAY))
+            Part.makeCompound([o.Shape for o in param]).exportStep(p)
+            msg('STEP: %s' % p)
+        except Exception as e:
+            warn('STEP export failed: %s' % e)
+    if SAVE_FCSTD:
+        try:
+            p = os.path.join(mkdirs(os.path.join(docs, 'CAD')), '%s_%s.FCStd' % (MECH, TRAY))
+            doc.saveAs(p)
+            msg('FCStd: %s' % p)
+        except Exception as e:
+            warn('FCStd save failed: %s' % e)
+    if App.GuiUp:
+        import FreeCADGui as Gui
+        Gui.activeDocument().activeView().viewIsometric()
+        Gui.SendMsgToActiveView('ViewFit')
+    return doc
+
+
+def main():
+    here = here_dir()
+    root = repo_root(here)
+    docs = os.path.join(root, DOCS_REL)
+    D = json.load(open(os.path.join(here, MECH + '_data.json')))
+    if TRAY not in D['trays']:
+        raise ValueError('TRAY must be one of %s' % sorted(D['trays']))
+    if EXPORT_PRINTS:
+        export_prints(root, os.path.join(docs, 'Prints'))
+    build(root, here, D, docs)
+    msg('%s assembly built (tray %s, GPS %s, flow %s, electronics %s)' % (MECH, TRAY, WITH_GPS, WITH_FLOW, WITH_ELECTRONICS))
+
+
+main()
