@@ -88,7 +88,7 @@ def repo_root(start):
         if os.path.isdir(os.path.join(d, '00 - Docs')) and os.path.isdir(os.path.join(d, '01 - Frame')):
             return d
         d = os.path.dirname(d)
-    raise RuntimeError('ACwing_Mechs root not found above %s (the macro must stay in 04 - Assembly/ACwing_Mech_A1)' % start)
+    raise RuntimeError('ACwing_Mechs root not found above %s (the macro must stay in 03 - Assembly/ACwing_Mech_A1)' % start)
 
 
 def find_hw(root):

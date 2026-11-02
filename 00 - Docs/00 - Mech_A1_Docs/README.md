@@ -31,8 +31,8 @@ Baseline: indoor flight, no GPS.
 ## Regenerating the print files
 
 The source meshes live in `01 - Frame/` and `02 - Mounts/`. The macro
-`04 - Assembly/ACwing_Mech_A1/ACwing_Mech_A1.FCMacro` rewrites `Prints/` every time it runs
-(`EXPORT_PRINTS = True`). It also builds the assembly in FreeCAD. See [its README](../../04%20-%20Assembly/ACwing_Mech_A1/README.md).
+`03 - Assembly/ACwing_Mech_A1/ACwing_Mech_A1.FCMacro` rewrites `Prints/` every time it runs
+(`EXPORT_PRINTS = True`). It also builds the assembly in FreeCAD. See [its README](../../03%20-%20Assembly/ACwing_Mech_A1/README.md).
 
 ## What to print
 
