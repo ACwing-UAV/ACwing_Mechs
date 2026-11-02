@@ -18,8 +18,8 @@ H9,Hardware,Flow board screw M2 x 4,"pan head, from the sensor side into the tra
 B1,Purchased,Battery 1S LiPo 400 mAh,"20 x 40 x 8 mm, JST-PH 2.0 lead",LiPo,-,11.5,user data,1,0,0,0,"slides in from the rear, snap latch"
 B2,Purchased,Battery 1S LiPo 800 mAh,"25 x 45 x 9 mm, JST-PH 2.0 lead",LiPo,-,22.0,estimate,0,1,0,0,
 B3,Purchased,Battery 1S LiPo 1200 mAh,"30 x 64 x 8 mm, JST-PH 2.0 lead",LiPo,-,30.0,estimate,0,0,1,0,
-M1,Purchased,Coreless motor 8520,"OD 8.5 x 20 mm, 2 CW + 2 CCW",-,reference mesh in 04 - Assembly/ACwing_Mech_A1,3.6,value used in the vibration model,4,4,4,0,
-M2,Purchased,Propeller 55 mm,2 CW + 2 CCW; front pair green,PC / PP,reference mesh in 04 - Assembly/ACwing_Mech_A1,,weigh,4,4,4,0,propeller disc r 27.5 inside guard r 28.5
+M1,Purchased,Coreless motor 8520,"OD 8.5 x 20 mm, 2 CW + 2 CCW",-,reference mesh in 03 - Assembly/ACwing_Mech_A1,3.6,value used in the vibration model,4,4,4,0,
+M2,Purchased,Propeller 55 mm,2 CW + 2 CCW; front pair green,PC / PP,reference mesh in 03 - Assembly/ACwing_Mech_A1,,weigh,4,4,4,0,propeller disc r 27.5 inside guard r 28.5
 W1,Harness,"Cable A, ESC J1 -> FC J2","JST SH 8-pin 1:1, custom: route 17 mm of wire between the housings",-,ACwing_HW,,-,1,1,1,0,pre-crimped SH wires cut to 30 mm (electronics reply to the preliminary draft): slack for the FC float
 W2,Harness,"Cable C, FC J4 -> Flow J1","Qwiic (JST SH 4-pin) 1:1, route 37-42 mm, half twist",-,ACwing_HW,,-,1,1,1,0,standard 50 mm Qwiic cable
 W3,Harness,"Cable B, FC J3 -> GPS J1","Qwiic 1:1, route 13 mm (GPS J1 right above FC J3)",-,ACwing_HW,,-,0,0,0,1,GPS option only
