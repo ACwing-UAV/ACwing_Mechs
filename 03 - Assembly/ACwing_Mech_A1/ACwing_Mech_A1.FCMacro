@@ -31,7 +31,7 @@ import Part, Mesh
 
 # ------------------------------------------------ options ------------------------------------------------------------
 TRAY = 'T400'              # 'T400' (400 mAh, 20x40x8) | 'T800' (800 mAh, 25x45x9) | 'T1200' (1200 mAh, 30x64x8)
-WITH_GPS = False           # GPS rev A + cable B + S2 spacers (outdoor variant). Indoor baseline: False
+WITH_GPS = True            # GPS rev A + cable B + S2 spacers (outdoor variant). Indoor baseline: False
 WITH_FLOW = True           # Flow rev A board + cable C
 WITH_ELECTRONICS = True    # ESC / FC / GPS / Flow STEP models from the ACwing_HW repository
 HW_DIR = ''                # path to an ACwing_HW clone; '' = search next to this repository (../ACwing_HW, ../hw)
