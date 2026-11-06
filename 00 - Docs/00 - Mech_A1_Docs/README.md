@@ -8,12 +8,15 @@
 - the frame **A1 core**;
 - three interchangeable **battery trays** (T400 / T800 / T1200);
 - the printed **stack spacers**;
-- the **TPU motor sleeves**.
+- the **TPU motor sleeves**;
+- the translucent PLA **electronics cover** with the ACwing logo (indoor and GPS versions).
 
-It fits:
-- **ESC 1S rev A** and **FC rev A** (layout 2026-10-24);
+It fits, all boards **1.6 mm** thick (2026-11-06):
+- **ESC 1S rev A** and **FC rev A** (connector layout 2026-11-02/03);
 - **Flow rev A**;
 - **GPS rev A** as an option (outdoor variant).
+
+![Stack with the cover](Renders/ACwing_Mech_A1_stack_cover.png)
 
 Baseline: indoor flight, no GPS.
 
@@ -24,7 +27,7 @@ Baseline: indoor flight, no GPS.
 | `Prints/` | **print-ready STL files**, already oriented and placed on the bed (z = 0). Written by the assembly macro. |
 | `ACwing_Mech_A1_BoM.xlsx` / `.csv` | mechanical bill of materials per drone and per tray, masses, print settings (sheet `Print`) |
 | `STEP/` | hardware, cables and battery of the assembly (one file per tray), written by the macro |
-| `Renders/` | assembly renders per tray |
+| `Renders/` | assembly renders per tray; stack and drone renders with the KiCad raytracer (same engine as the ACwing_HW board renders) |
 | `Checks/` | interference checks and vibration (FE) results |
 | `ACwing_frame_A1_mechanical_handoff.md` | design notes: interfaces, checks, vibration, masses |
 
@@ -44,6 +47,8 @@ The source meshes live in `01 - Frame/` and `02 - Mounts/`. The macro
 | 2 | `ACwing_Mech_A1_02_Tray_T1200_PETG.stl` | PETG | 1 (1200 mAh pack) | 4.2 g |
 | 3 | `ACwing_Mech_A1_03_Stack_Spacers_S1x4_S2x4_PETG.stl` | PETG | 1 plate (4 × S1; the 4 × S2 only with GPS) | 0.4 g |
 | 4 | `ACwing_Mech_A1_04_Motor_Sleeves_x4_TPU95A.stl` | TPU 95A | 1 plate (4 sleeves) | 2.2 g |
+| 5 | `ACwing_Mech_A1_05_Cover_indoor_PLA.stl` | PLA translucent | 1 (indoor) | 4.4 g |
+| 5 | `ACwing_Mech_A1_05_Cover_GPS_PLA.stl` | PLA translucent | 1 (GPS option, instead of the indoor one) | 5.6 g |
 
 Masses are for solid parts (mesh volume × density); the printed mass depends on walls and infill.
 
@@ -70,6 +75,8 @@ The files are exported in the orientation below. It comes from an overhang analy
   - Tree supports go under the flow plate (2.4 mm), under the rear ends of the rails and under the four outboard tabs.
   - This keeps the battery cavity free of supports, so the pack slides on clean surfaces.
 - **Spacers and sleeves:** flat, no supports.
+- **Cover, upright.** Open bottom on the bed, logo up. Tree supports from the bed under the roof (inside only), or a
+  bridged roof with slow bridge settings. Natural (translucent) PLA, walls fully solid (3 perimeters of 0.4 mm).
 
 ### Before the first full print
 
@@ -83,9 +90,8 @@ The full list is in `ACwing_Mech_A1_BoM.xlsx`.
 | Part | Qty | Note |
 |---|---|---|
 | Hot-melt insert M2 × 3 × Ø3.0 (Hangtife HLTI-M2-001) | 10 | 4 stack bosses, 4 tray lugs, 2 flow bosses (+ 2 per spare tray) |
-| Damping ball M2, H 6, OD 4.9, slot Ø3.03 × 1.14 | 4 | FC soft mount |
-| Stack screw M2 × 12, titanium or A4 | 4 | M2 × 16 with the GPS option |
-| Washer M2 Ø5 × 0.3, A4 | 4 | not with the GPS option |
+| Silicone grommet (bumper) M2, H 6.0, OD 5.0, groove Ø3.0 × 1.6, bore Ø2.0 | 4 | FC soft mount, for 1.6 mm boards (Ø3.2 holes) |
+| Stack screw M2 × 16 ISO 7380 (button head), titanium or A4 | 4 | from the cover top; M2 × 25 with the GPS option |
 | Tray screw M2 × 5, A4 or titanium | 4 | from below into the lug inserts |
 | Flow board screw M2 × 4, nylon | 2 | from the sensor side |
 
@@ -100,24 +106,29 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 2. **Motors.** Push the TPU sleeves on the motors and snap them into the holders (2 CW + 2 CCW).
    - Lead the M2 / M3 motor wires out on the side shown in the renders, then through the deck slots.
 3. **ESC 1S rev A** on the bosses.
-4. **Stack.** Per corner: S1 spacer, damping ball with the FC rev A in its slot, washer, M2 × 12 screw. Do not crush the balls.
+4. **Stack.** Per corner: S1 spacer (2.8 mm), silicone grommet with the FC rev A in its groove. With the GPS option:
+   S2 spacer (3.8 mm) and the GPS rev A on top.
 5. **Cables.**
-   - Cable A (ESC J1 → FC J2) in the rear corridor.
-   - Cable C (FC J4 → Flow J1) down through the Qwiic slot, outboard of the M2 knee brace and under it, then outside the tray rail.
-6. **Flow rev A on the tray**, sensor side down, with 2 nylon screws.
-7. **Tray on the core** with 4 × M2 × 5 screws from below. Plug cable C.
-8. **Battery.** Slide the pack in from the rear until the latch clicks, then plug the JST-PH lead.
-9. **Propellers.** The front pair is green.
+   - Cable A (ESC J1 rear edge → FC J2 front edge, 75 mm): up the rear corridor, crossed behind the FC rear edge, flat
+     over the FC top, U-loop down into FC J2.
+   - Cable C (FC J4 → Flow J1, 70 mm): down through the Qwiic slot, outboard of the M2 knee brace and under it, outside
+     the tray rail, under the flow plate to the front of the flow board.
+6. **Cover.** Put the cover on (posts on the grommets, or on the GPS board) and drive the four M2 × 16 (GPS: M2 × 25)
+   screws from the top into the boss inserts. Stop when the heads seat in the counterbores: do not crush the grommets.
+7. **Flow rev A on the tray**, sensor side down, with 2 nylon screws.
+8. **Tray on the core** with 4 × M2 × 5 screws from below. Plug cable C.
+9. **Battery.** Slide the pack in from the rear until the latch clicks, then plug the JST-PH lead.
+10. **Propellers.** The front pair is green.
 
 ## Configurations
 
 | Tray | Pack | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode (FE) |
 |---|---|---|---|---|---|
-| T400 | 400 mAh, 11.5 g | ≈ 62.5 g | 2.24 | × 0.90 | 126 Hz |
-| T800 | 800 mAh, ≈ 22 g | ≈ 73.3 g | 1.91 | × 1.41 | 124 Hz |
-| T1200 | 1200 mAh, ≈ 30 g | ≈ 81.8 g | 1.71 | × 1.79 | 103 Hz |
+| T400 | 400 mAh, 11.5 g | ≈ 71.1 g | 1.97 | × 0.74 | 126 Hz |
+| T800 | 800 mAh, ≈ 22 g | ≈ 81.9 g | 1.71 | × 1.19 | 124 Hz |
+| T1200 | 1200 mAh, ≈ 30 g | ≈ 90.4 g | 1.55 | × 1.54 | 103 Hz |
 
-\* Indoor (no GPS):
+\* Indoor (no GPS), 1.6 mm boards, with the cover (4.4 g; without it T400 is ≈ 66.7 g, × 0.81):
 - thrust ≈ 140 g;
 - hover power ∝ m^1.5;
 - tray hardware estimated at 1.2 g (BoM);
@@ -125,9 +136,9 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 
 ## Open points
 
-- **Flow rev A board thickness.** The STEP in ACwing_HW has a 1.6 mm PCB; the mechanical handoff says 1.0 mm.
-  - The tray works with both.
-  - With 1.6 mm the lens sits 0.6 mm lower: 10.7 mm above the ground with T400 / T1200, 9.7 mm with T800.
-  - The cable C end in the model is drawn for 1.0 mm.
+- **Board thickness: settled at 1.6 mm** for all boards (2026-11-06). Flow lens 10.7 mm above the ground with
+  T400 / T1200, 9.7 mm with T800.
+- **Weight.** The 1.6 mm boards and the cover add 8.6 g. The FE modes (§ handoff 5) were computed with the 1.0 mm stack:
+  the heavier stack lowers them slightly; the tap test settles it.
 - **ELRS receiver.** In the preliminary draft it sat on the battery-bay rail; its mount on A1 is not modelled yet.
 - **Tap test.** Do it on the first build and set the gyro notch from it. The frame modes are 103–126 Hz, inside the band that matters for the FC soft mount.
