@@ -6,7 +6,7 @@ A translucent PLA cover over the electronics stack, with the ACwing logo raised 
 | File | Variant | Size (board axes) | Height (frame z) | Mass (PLA, solid) | Stack screws |
 |---|---|---|---|---|---|
 | `ACwing_Cover_A1_indoor.stl` | ESC + FC | 52 × 52 mm | z 5.0 → 13.5 (8.5 mm) | 4.4 g | 4 × M2 × 16 ISO 7380 |
-| `ACwing_Cover_A1_gps.stl` | ESC + FC + GPS | 52 × 52 mm | z 5.0 → 22.7 (17.7 mm) | 5.6 g | 4 × M2 × 25 ISO 7380 |
+| `ACwing_Cover_A1_gps.stl` | ESC + FC + GPS | 52 × 52 mm | z 5.0 → 22.7 (17.7 mm) | 5.4 g | 4 × M2 × 25 ISO 7380 |
 
 The meshes are in assembly position (frame coordinates: z = 0 propeller plane, +Y forward). The print files, on z = 0,
 are written by the assembly macro to `00 - Docs/00 - Mech_A1_Docs/Prints/`.
@@ -21,7 +21,8 @@ are written by the assembly macro to `00 - Docs/00 - Mech_A1_Docs/Prints/`.
 - **USB-C notch.** At the frame +X corner, for the FC J1 USB-C plug.
 - **Posts.** Four Ø5 posts on the 20 × 20 stack columns.
   - Indoor: they sit on the upper silicone grommets (z 8.4).
-  - GPS: they sit on the GPS board (z 13.8).
+  - GPS: they sit on the GPS board (z 13.8) with a Ø3.8 foot, 3.2 mm tall, that clears the GPS J1 / J2 bodies next
+    to the columns; full Ø5 above it.
   - Each has a Ø2.3 bore and a Ø4.0 counterbore for the ISO 7380 button head (dk 3.5, k 1.1). The heads sit 0.1–0.2 mm
     below the roof top.
 - **Logo.** ACwing logo from the ACwing_HW footprint `ACwing_Logo_Full_10mm`, 24 mm wide, raised 0.6 mm, aligned
@@ -30,8 +31,8 @@ are written by the assembly macro to `00 - Docs/00 - Mech_A1_Docs/Prints/`.
 ## Dimensions: where they come from
 
 The size was set from the assembly (cables, plugs, screws), not from a free choice:
-- **Roof.** The roof underside is 0.85 mm above the top of cable A. Cable A runs flat over the FC at z 10.4; its top
-  is at 10.83.
+- **Roof.** The roof underside is 0.85 mm above the top of cable A. Cable A runs flat over the FC at z 10.4, between
+  the stack columns (posts and S2 spacers); its top is at 10.83.
   - With the GPS, the roof underside is 0.8 mm above the SAM-M10Q top (z 20.1).
 - **Width.** The plugs mated on the board edges end 25.3 mm from the board centre, so the inner wall is at 24.8 mm.
   They pass through the side openings.

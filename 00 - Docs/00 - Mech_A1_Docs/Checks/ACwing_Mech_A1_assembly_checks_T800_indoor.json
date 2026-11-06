@@ -1,4 +1,23 @@
 {
+ "cover": {
+  "post_z0": 8.399999999999999,
+  "open_top": 11.077600000000002,
+  "under": 11.677600000000002,
+  "top": 12.877600000000001,
+  "zb": 5.0,
+  "screw_L": 16,
+  "seat": 11.6,
+  "tip": -4.4,
+  "Z": {
+   "FC_Z1": 6.199999999999999,
+   "BALL_H": 2.2,
+   "GPS_Z1": 13.799999999999999,
+   "GPS_TOP_PARTS": 20.099999999999998,
+   "CABLE_TOP": 10.827600000000002,
+   "COVER_ZB": 5.0,
+   "USB_TOP": 11.1
+  }
+ },
  "checks": {
   "frame x stack boards+parts": 0.0,
   "frame x USB-C plugs (FC +X, ESC charge -X), overmold 13.2 mm": 0.0,
@@ -15,7 +34,7 @@
   "battery x frame": 0.0,
   "battery x screws/inserts": 0.0,
   "tray x frame (lug faces touch)": 0.0,
-  "tray x battery": 0.003483164602217083,
+  "tray x battery": 0.0363673469387755,
   "tray x wires": 0.0,
   "tray x motor leads": 0.0,
   "tray x flow board + parts": 0.0,
@@ -27,105 +46,93 @@
   "optical cones x frame": 0.0,
   "optical cones x wires/housings": 0.0,
   "optical cones x flow screws": 0.0,
-  "optical cones x tray + battery": 0.0
+  "optical cones x tray + battery": 0.0,
+  "cover x frame": 0.0,
+  "cover x props": 0.0,
+  "cover x stack boards+parts": 0.0,
+  "cover x FC board grown 0.8 mm (soft-mount float)": 0.0,
+  "cover x wires": 0.0,
+  "cover x mated plug housings": 0.0,
+  "cover x plug envelopes (USB-C narrowed to 13.2)": 0.0,
+  "cover x screws (shank in the bore, head in the counterbore)": 0.0,
+  "cover x grommets (posts rest on the upper ball)": 0.0,
+  "frame x ELRS / ESC-B plug envelopes (FC J5, J6)": 0.0
  },
  "cables": {
   "A  ESC J1 - FC J2": [
    {
     "pin": 1,
     "sig": "GND",
-    "length_mm": 17.6
+    "length_mm": 69.5
    },
    {
     "pin": 2,
     "sig": "VBAT",
-    "length_mm": 17.6
+    "length_mm": 68.7
    },
    {
     "pin": 3,
     "sig": "CUR",
-    "length_mm": 17.6
+    "length_mm": 68.0
    },
    {
     "pin": 4,
     "sig": "TLM",
-    "length_mm": 17.6
+    "length_mm": 67.4
    },
    {
     "pin": 5,
     "sig": "M1",
-    "length_mm": 17.6
+    "length_mm": 66.9
    },
    {
     "pin": 6,
     "sig": "M2",
-    "length_mm": 17.6
+    "length_mm": 67.1
    },
    {
     "pin": 7,
     "sig": "M3",
-    "length_mm": 17.6
+    "length_mm": 68.2
    },
    {
     "pin": 8,
     "sig": "M4",
-    "length_mm": 17.6
-   }
-  ],
-  "B  FC J3 - GPS J1": [
-   {
-    "pin": 1,
-    "sig": "GND",
-    "length_mm": 12.9
-   },
-   {
-    "pin": 2,
-    "sig": "3V3",
-    "length_mm": 12.9
-   },
-   {
-    "pin": 3,
-    "sig": "SDA",
-    "length_mm": 12.9
-   },
-   {
-    "pin": 4,
-    "sig": "SCL",
-    "length_mm": 12.9
+    "length_mm": 69.8
    }
   ],
   "C  FC J4 - Flow J1": [
    {
     "pin": 1,
     "sig": "GND",
-    "length_mm": 42.3
+    "length_mm": 63.6
    },
    {
     "pin": 2,
     "sig": "3V3",
-    "length_mm": 40.0
+    "length_mm": 59.0
    },
    {
     "pin": 3,
     "sig": "SDA",
-    "length_mm": 38.5
+    "length_mm": 55.1
    },
    {
     "pin": 4,
     "sig": "SCL",
-    "length_mm": 38.5
+    "length_mm": 53.3
    }
   ],
   "D  battery pigtail": [
    {
     "pin": 1,
     "sig": "VBAT+",
-    "length_mm": 25.2
+    "length_mm": 25.8
    },
    {
     "pin": 2,
     "sig": "GND",
-    "length_mm": 20.5
+    "length_mm": 21.1
    }
   ]
  }

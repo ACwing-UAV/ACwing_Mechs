@@ -48,7 +48,7 @@ The source meshes live in `01 - Frame/` and `02 - Mounts/`. The macro
 | 3 | `ACwing_Mech_A1_03_Stack_Spacers_S1x4_S2x4_PETG.stl` | PETG | 1 plate (4 × S1; the 4 × S2 only with GPS) | 0.4 g |
 | 4 | `ACwing_Mech_A1_04_Motor_Sleeves_x4_TPU95A.stl` | TPU 95A | 1 plate (4 sleeves) | 2.2 g |
 | 5 | `ACwing_Mech_A1_05_Cover_indoor_PLA.stl` | PLA translucent | 1 (indoor) | 4.4 g |
-| 5 | `ACwing_Mech_A1_05_Cover_GPS_PLA.stl` | PLA translucent | 1 (GPS option, instead of the indoor one) | 5.6 g |
+| 5 | `ACwing_Mech_A1_05_Cover_GPS_PLA.stl` | PLA translucent | 1 (GPS option, instead of the indoor one) | 5.4 g |
 
 Masses are for solid parts (mesh volume × density); the printed mass depends on walls and infill.
 
@@ -110,7 +110,7 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
    S2 spacer (3.8 mm) and the GPS rev A on top.
 5. **Cables.**
    - Cable A (ESC J1 rear edge → FC J2 front edge, 75 mm): up the rear corridor, crossed behind the FC rear edge, flat
-     over the FC top, U-loop down into FC J2.
+     over the FC top between the stack columns, U-loop down into FC J2.
    - Cable C (FC J4 → Flow J1, 70 mm): down through the Qwiic slot, outboard of the M2 knee brace and under it, outside
      the tray rail, under the flow plate to the front of the flow board.
 6. **Cover.** Put the cover on (posts on the grommets, or on the GPS board) and drive the four M2 × 16 (GPS: M2 × 25)

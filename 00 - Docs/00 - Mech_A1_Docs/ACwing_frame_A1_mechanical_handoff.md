@@ -79,23 +79,18 @@ Net mass overhead: **+4.5 g (T400), +4.8 g (T800), +5.3 g (T1200)**.
   tray, so it is plugged after the pack is inserted. The insertion path is clear of it.
 - **A (ESC J1 → FC J2).** ESC J1 is on the rear board edge, FC J2 on the front edge (rev A layout 2026-11-02). The
   cable rises in the rear corridor, crosses behind the FC rear edge as a round bundle (this reverses the pin order, so
-  the cable is 1:1 pin 1 → pin 1), runs flat over the FC top at z 10.4 under the cover, and turns down into FC J2 in a
-  U-loop. Wire lengths 64–67 mm: make all 8 wires 75 mm.
+  the cable is 1:1 pin 1 → pin 1), runs flat over the FC top at z 10.4 under the cover, centred at u = 2.9 so it passes between the stack columns
+  (cover posts, GPS S2 spacers), and turns down into FC J2 in a U-loop. Wire lengths 67–70 mm: make all 8 wires 75 mm.
 - **B (GPS option).** GPS rev A J1 sits right above FC J3 (layout 2026-10-24): short straight loop, 13 mm of wire.
 
 ## 4. Checks (SDF sampling, mm³, h = 0.06–0.15 mm)
 
-All three trays:
-- **0** for every pair:
-  - core × battery, core × insertion path, core × tray;
-  - tray × motor leads, wires, flow board, housings, propellers;
-  - optical cones × core, tray, battery, wires;
-  - frame × stack, plugs, wires, hardware;
-  - pigtail and PH pair × insertion path.
-- **Tray × battery: 0.003 (T400), 0.031 (T800), 0 (T1200) mm³.** This is the pack resting on the lips; a finer locator finds no
-  penetration.
-- Tray screws M2 × 5 × frame, tray, wires, battery, flow board, housings: 0 on all trays.
-- Details: `Checks/ACwing_Mech_A1_assembly_checks_<tray>.json`.
+Rerun on 2026-11-07 with the rev A stack (1.6 mm boards, layout 2026-11-02/03) and the electronics cover: T400 indoor,
+T400 GPS, T800 indoor, T1200 indoor.
+- **0** for every pair: frame, tray, battery, insertion path, propellers, stack boards and parts, plugs and plug
+  envelopes, wires, hardware, optical cones, cover.
+- **Tray × battery: 0.003 (T400), 0.036 (T800), 0 (T1200) mm³.** This is the pack resting on the lips.
+- Details: `Checks/ACwing_Mech_A1_assembly_checks_<tray>_<indoor|gps>.json` and `Checks/README.md`.
 
 ## 5. Vibration (voxel FE, hex8, h 0.8 mm, PETG E 2000 MPa, lumped motors / stack / battery / flow)
 
@@ -153,3 +148,51 @@ see `02 - Mounts/Electronics_Cover_A1/README.md`.
 | `02 - Mounts/Electronics_Cover_A1/ACwing_Cover_A1_indoor/gps.stl` | electronics cover, translucent PLA, source meshes |
 | `03 - Assembly/ACwing_Mech_A1/ACwing_Mech_A1.FCMacro` | FreeCAD assembly; writes the print files to `00 - Docs/00 - Mech_A1_Docs/Prints/` |
 | `00 - Docs/00 - Mech_A1_Docs/` | print files, BoM, STEP, renders, checks, this note |
+
+## 9. Rev A stack, 1.6 mm boards (ACwing_Mechs issue #2, 2026-11-06)
+
+**Boards.** All four rev A boards are 1.6 mm (ACwing_HW PR "Boards rev A: 1.6 mm PCB thickness"). Connector layout
+2026-11-02/03:
+- ESC J1 on the rear edge;
+- FC J2 and J6 on the front edge, J5 (ELRS) on the rear edge, J3 / J4 on the right edge, J1 USB-C at the chamfer;
+- GPS J1 / J2 on the right edge;
+- Flow J1 / J2 on the top edge.
+
+**Stack (frame z).**
+
+| Item | z | Note |
+|---|---|---|
+| ESC 1S | −2.0 … −0.4 | on the bosses (unchanged) |
+| S1 spacer | −0.4 … 2.4 | 2.8 mm (was 2.57) |
+| Silicone grommet | 2.4 … 8.4 | H 6.0, OD 5.0, groove Ø3.0 × 1.6, 2.2 mm above / below the board |
+| FC | 4.6 … 6.2 | 5.0 mm above the ESC (handoff: ≥ 4.5, 5 recommended) |
+| S2 spacer (GPS) | 8.4 … 12.2 | 3.8 mm (was 3.57) |
+| GPS | 12.2 … 13.8 | 6 mm above the FC |
+| Cover, indoor | 5.0 … 13.5 | screws M2 × 16, heads at 11.6, tips at −4.4 |
+| Cover, GPS | 5.0 … 22.7 | screws M2 × 25, heads at 20.9, tips at −4.1 |
+
+**Issue #2 checklist.**
+- *Import the frame: native CAD + STEP.* The frame A1 core, trays, spacers, sleeves and cover are in `01 - Frame/`
+  and `02 - Mounts/` (source meshes). Faceted STEP solids of the core, trays and covers are in `STEP/Parts/`. The
+  assembly STEP (hardware and cables) is in `STEP/`. The parts come from signed-distance models, so the native CAD is
+  the FreeCAD assembly macro with its data file.
+- *Holes, stack heights, connector access.* The 20 × 20 holes and the bosses are unchanged. The stack heights are in
+  the table above. Every connector stays reachable:
+  - USB-C FC J1 through the cover notch at +X; ESC J4 USB-C at −X, outside the cover;
+  - ESC link B (FC J6) on the front edge and FC J5 (ELRS) on the rear edge, through the cover openings, clear of the
+    frame;
+  - checks in §4.
+- *Flow board mount.* On the tray plate, as before. The 1.6 mm board puts the lens 0.6 mm lower (10.7 mm above the
+  ground, T400). Cable C now enters Flow J1 from the front of the board.
+- *Print and fit-check.* Still to do on the bench: print the core, a tray and the cover, fit the boards and check the
+  grommet preload, the screw lengths and the cable routing.
+
+**Frame.** No change to the core and trays: all checks pass with the rev A stack. Only the spacers changed (S1, S2),
+plus the new cover.
+
+**Cables.** A: 67–70 mm of wire, make 75 mm (§3). C: 53–64 mm, make 70 mm. B: 13.5 mm. D: unchanged.
+
+**Mass.** +8.6 g in the indoor configuration (boards +4.2 g, cover 4.4 g, screws). Drone T400 ≈ 71.1 g (66.7 g
+without the cover). The FE modes in §5 were computed with the 1.0 mm stack; the heavier stack lowers them slightly.
+The tap test on the first build settles it.
+
