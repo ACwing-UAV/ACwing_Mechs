@@ -27,7 +27,7 @@ Baseline: indoor flight, no GPS.
 | `Prints/` | **print-ready STL files**, already oriented and placed on the bed (z = 0). Written by the assembly macro. |
 | `ACwing_Mech_A1_BoM.xlsx` / `.csv` | mechanical bill of materials per drone and per tray, masses, print settings (sheet `Print`) |
 | `STEP/` | hardware, cables and battery of the assembly (one file per tray), written by the macro |
-| `Renders/` | KiCad raytracer renders (same engine as the ACwing_HW board renders, one light, 2026-11-07): drone T400, stack with the indoor / GPS cover and without it. The older per-tray renders (`*_hero`, `*_top`, …) show the frame at RM 51 |
+| `Renders/` | KiCad raytracer renders (same engine as the ACwing_HW board renders, one light, 2026-11-07): drone T400, stack with the indoor / GPS cover and without it. The older per-tray renders (`*_hero`, `*_top`, …) show the earlier cable routes |
 | `Checks/` | interference checks and vibration (FE) results |
 | `ACwing_frame_A1_mechanical_handoff.md` | design notes: interfaces, checks, vibration, masses |
 
@@ -41,7 +41,7 @@ The source meshes live in `01 - Frame/` and `02 - Mounts/`. The macro
 
 | # | File (`Prints/`) | Material | Per drone | Mass |
 |---|---|---|---|---|
-| 1 | `ACwing_Mech_A1_01_Frame_core_PETG.stl` | PETG | 1 | 15.1 g |
+| 1 | `ACwing_Mech_A1_01_Frame_core_PETG.stl` | PETG | 1 | 15.0 g |
 | 2 | `ACwing_Mech_A1_02_Tray_T400_PETG.stl` | PETG | 1 (400 mAh pack) | 3.4 g |
 | 2 | `ACwing_Mech_A1_02_Tray_T800_PETG.stl` | PETG | 1 (800 mAh pack) | 3.7 g |
 | 2 | `ACwing_Mech_A1_02_Tray_T1200_PETG.stl` | PETG | 1 (1200 mAh pack) | 4.2 g |
@@ -109,7 +109,7 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 4. **Stack.** Per corner: S1 spacer (2.8 mm), silicone grommet with the FC rev A in its groove. With the GPS option:
    S2 spacer (3.8 mm) and the GPS rev A on top.
 5. **Cables.**
-   - Cable A (ESC J1 → FC J2, both on the front edge, 20 mm, 1:1): plug ESC J1, rise right behind the plug under
+   - Cable A (ESC J1 → FC J2, both on the front edge, 20 mm, 1:1): plug ESC J1 (toward the front corner), rise right behind the plug under
      the front-left guard ring, out over the ring, into FC J2.
    - Cable C (FC J4 → Flow J1, 60 mm, wires twisted): back along the FC right edge, down through the deck slot behind
      the rear grommets, outside the tray rail and past the front tray tab, into Flow J1 (its connector edge faces +X).
@@ -124,11 +124,11 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 
 | Tray | Pack | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode (FE) |
 |---|---|---|---|---|---|
-| T400 | 400 mAh, 11.5 g | ≈ 71.3 g | 1.96 | × 0.73 | 121 Hz |
-| T800 | 800 mAh, ≈ 22 g | ≈ 82.0 g | 1.71 | × 1.19 | (124 Hz, RM 51) |
-| T1200 | 1200 mAh, ≈ 30 g | ≈ 90.5 g | 1.55 | × 1.54 | (103 Hz, RM 51) |
+| T400 | 400 mAh, 11.5 g | ≈ 71.1 g | 1.97 | × 0.74 | 127 Hz |
+| T800 | 800 mAh, ≈ 22 g | ≈ 81.8 g | 1.71 | × 1.19 | (124 Hz, 1.0 mm stack) |
+| T1200 | 1200 mAh, ≈ 30 g | ≈ 90.3 g | 1.55 | × 1.54 | (103 Hz, 1.0 mm stack) |
 
-\* Indoor (no GPS), 1.6 mm boards, motors at RM 53, with the cover (2.8 g). Mass budget and lightening options:
+\* Indoor (no GPS), 1.6 mm boards, with the cover (2.8 g). Mass budget and lightening options:
 `ACwing_Mech_A1_weight_study.md`.
 - thrust ≈ 140 g;
 - hover power ∝ m^1.5;
@@ -137,7 +137,8 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 
 ## Open points
 
-- **2026-11-07: ESC 1S J1 on the front edge** → motors at RM 53, new cables A / C, flow board turned (handoff §10).
+- **2026-11-07: ESC 1S J1 on the front edge, toward the front corner** → new cables A / C, flow board turned,
+  motors kept at RM 51 (handoff §10).
 - **Board thickness: settled at 1.6 mm** for all boards (2026-11-06). Flow lens 10.7 mm above the ground with
   T400 / T1200, 9.7 mm with T800.
 - **Weight.** The 1.6 mm boards and the cover add 8.6 g. The FE modes (§ handoff 5) were computed with the 1.0 mm stack:

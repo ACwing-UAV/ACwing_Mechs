@@ -6,7 +6,8 @@
 
 **Author:** Andrea Cirillo (ACwing). **From:** mechanical / frame design. **To:** electronics design and build.
 **Date:** 2026-11-01, **updated 2026-11-06** (§9: rev A stack with 1.6 mm boards, ACwing_Mechs issue #2; electronics cover)
-and **2026-11-07** (§10: ESC J1 on the front edge, motors at RM 53, cable C and flow board per the HW handoff §0.14; weight study).
+and **2026-11-07** (§10: ESC J1 on the front edge then toward the front corner, cable C and flow board per the HW handoff §0.14–§0.17,
+motors back at RM 51; weight study).
 **Follows:** the preliminary-draft mechanical answer and electronics reply, in ACwing_HW `00 - Docs/04 - System_Docs`. The stack
 (ESC 1S rev A / FC rev A / GPS rev A option), the bosses, the inserts, the corner columns and cables A/B come from
 the preliminary draft unchanged.
@@ -20,23 +21,23 @@ not a new frame.
 
 | Tray | Battery (1S LiPo) | Battery size W × L × H | Tray mass | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode |
 |---|---|---|---|---|---|---|---|
-| T400 | 400 mAh, 11.5 g | 20 × 40 × 8 | 3.44 g | ≈ 71.3 g | 1.96 | × 0.73 | 121 Hz |
-| T800 | 800 mAh, ≈ 22 g | 25 × 45 × 9 | 3.61 g | ≈ 82.0 g | 1.71 | × 1.19 | (124 Hz)** |
-| T1200 | 1200 mAh, ≈ 30 g | 30 × 64 × 8 | 4.11 g | ≈ 90.5 g | 1.55 | × 1.54 | (103 Hz)** |
+| T400 | 400 mAh, 11.5 g | 20 × 40 × 8 | 3.44 g | ≈ 71.1 g | 1.97 | × 0.74 | 127 Hz |
+| T800 | 800 mAh, ≈ 22 g | 25 × 45 × 9 | 3.61 g | ≈ 81.8 g | 1.71 | × 1.19 | (124 Hz)** |
+| T1200 | 1200 mAh, ≈ 30 g | 30 × 64 × 8 | 4.11 g | ≈ 90.3 g | 1.55 | × 1.54 | (103 Hz)** |
 
 \* Indoor configuration (ESC 1S rev A + FC rev A + Flow rev A, no GPS), boards 1.6 mm, electronics cover (2.8 g),
-motors at RM 53 (2026-11-07). Mass budget and lightening options: `ACwing_Mech_A1_weight_study.md`.
-\** T800 / T1200 modes from the 1.0 mm stack at RM 51 (§5); only T400 was rerun on 2026-11-07.
+2026-11-07. Mass budget and lightening options: `ACwing_Mech_A1_weight_study.md`.
+\** T800 / T1200 modes from the 1.0 mm stack (§5); only T400 was rerun on 2026-11-07.
 - Thrust ≈ 140 g.
 - Hover power ∝ m^1.5, with the same usable fraction of the capacity.
 - The reference is the preliminary draft (battery bay fused to the frame) with the 400 mAh pack, ≈ 58 g.
 
 Cost of interchangeability, compared with the preliminary draft (frame 15.55 g):
-- core 15.13 g (RM 53, thinner motor holders; 15.44 g at RM 51);
+- core 14.95 g (thinner motor holders since 2026-11-07; 15.44 g before);
 - tray as in the table above;
 - 4 brass inserts + 4 M2 × 5 A4 screws ≈ 1.2 g (estimate, see the BoM; ≈ 0.85 g with titanium screws).
 
-Net mass overhead: **+4.3 g (T400), +4.4 g (T800), +4.9 g (T1200)**.
+Net mass overhead: **+4.1 g (T400), +4.3 g (T800), +4.8 g (T1200)**.
 
 ## 1. Core A1 (changes from the preliminary draft)
 
@@ -47,13 +48,13 @@ Net mass overhead: **+4.3 g (T400), +4.4 g (T800), +4.9 g (T1200)**.
 | Tray lugs | 4 bosses Ø6 from the deck down to a flat face at **z −9.0**, at frame **(±20.0, −6.0)** and **(±20.0, +3.5)**. Each has a Hangtife HLTI-M2-001 insert in a Ø2.8 seat, open downwards. |
 | Knee braces | blade braces Ø2.4 × 3 mm from each arm (radius 25, z −15) to the nearest lug. They give back the stiffness the bay rails provided in the preliminary draft. |
 | Side spars | 3 mm wide spar on each side, joining the two lugs of that side to the deck |
-| Motors | at **RM 53** from the frame centre (frame (±37.48, ±37.48)), since 2026-11-07; was 51 (§10) |
+| Motors | at RM 51 from the frame centre (frame (±36.06, ±36.06)); RM 53 for a few hours on 2026-11-07, dropped when ESC J1 moved toward the corner (§10) |
 | Arms | start at radius 23.5, 10 / 3.5 mm deep |
 | Rear spokes | the inner spokes of the rear rings are at 75° / −75°, clear of the T1200 corners |
 | Motor leads M2 / M3 | they leave the holder on the other side of the arm (`LEAD_SIDE`) and enter the deck slot from below. Lead z under the deck is −8.65. The ESC pads are unchanged. |
-| Deck | no rear notch; cable C slot behind the rear grommets, board (u 21.0 … 24.2, v −13.0 … −9.6) |
+| Deck | no rear notch; cable C slot behind the rear grommets, board (u 20.5 … 23.7, v −13.5 … −10.1) |
 | Motor holders | walls 0.8 mm, floor 1.0 mm (weight study, 2026-11-07) |
-| Mass | 15.13 g PETG, watertight mesh; 134.4 × 134.4 × 37.8 mm |
+| Mass | 14.95 g PETG, watertight mesh; 131.5 × 131.5 × 37.8 mm |
 
 ## 2. Trays
 
@@ -80,23 +81,23 @@ Net mass overhead: **+4.3 g (T400), +4.4 g (T800), +4.9 g (T1200)**.
   The cable runs back along the FC right edge and drops through the deck slot behind the rear grommets as a round,
   twisted 4-wire bundle. It goes down outside the tray rail, past the front tray tab, and into Flow J1, which faces
   +X. Wire lengths between housings: 49–53 mm, make the cable 60 mm.
-  - Distance from the M2 motor pads: ≥ 10.6 mm.
+  - Distance from the M2 motor pads: ≥ 10 mm.
   - Distance from the M2 leads where they rise beside the ESC edge: 6.4 mm. This is the limit set by the FC J1 USB-C
     plug envelope at the rear-right corner.
 - **D (battery pigtail).** Leaves the core past the rear deck tip. The JST-PH pair is at (0, −40.5, −9.6), behind the
   tray, so it is plugged after the pack is inserted. The insertion path is clear of it.
-- **A (ESC J1 → FC J2).** Both connectors are on the front board edge, with pin 1 at the +u end (ESC layout
-  2026-11-06), so the cable is a 1:1 U-loop.
+- **A (ESC J1 → FC J2).** Both connectors are on the front board edge, with pin 1 at the +u end, so the cable is a 1:1
+  U-loop. ESC J1 is at (+13.3, +16.08) since the ESC change of 2026-11-07, toward the front corner.
   - It rises right behind the ESC plug, below the front-left guard top ring, bulges 2.5 mm out above the ring and
-    enters FC J2 from the front. It shifts 6 mm along u on the way up.
-  - Wire 12 mm between the housings; make all 8 wires 20 mm.
-  - Propeller disc clearance 2.9 mm (with RM 53, §10).
+    enters FC J2 from the front. It shifts 9.7 mm along u, in the upper half.
+  - Wire 15.4 mm between the housings; make all 8 wires 20 mm.
+  - Clearances: guard ring 0.42 mm, propeller disc 2.8 mm.
 - **B (GPS option).** GPS rev A J1 sits right above FC J3 (layout 2026-10-24): short straight loop, 13 mm of wire.
 
 ## 4. Checks (SDF sampling, mm³, h = 0.06–0.15 mm)
 
-Rerun on 2026-11-07 (§10: RM 53, ESC J1 front, new cable C, turned flow board, 0.8 mm cover): T400 indoor, T400 GPS,
-T800 indoor, T1200 indoor.
+Rerun on 2026-11-07 (§10: RM 51, ESC J1 toward the front corner, new cable C, turned flow board, 0.8 mm cover):
+T400 indoor, T400 GPS, T800 indoor, T1200 indoor.
 - **0** for every pair: frame, tray, battery, insertion path, propellers, stack boards and parts, plugs and plug
   envelopes, wires, hardware, optical cones, cover.
 - **Tray × battery: 0.003 (T400), 0.036 (T800), 0 (T1200) mm³.** This is the pack resting on the lips.
@@ -110,9 +111,10 @@ T800 indoor, T1200 indoor.
 | A1 + T400 | 18.3 g | 125.8 Hz |
 | A1 + T800 | 17.8 g | 123.9 Hz |
 | A1 + T1200 | 18.5 g | 102.6 Hz |
-| **A1, RM 53, rev A stack 1.6 mm + cover (19 g lumped), T400 (2026-11-07)** | **18.6 g** | **121.2 Hz** |
+| **A1, 0.8 mm motor holders, rev A stack 1.6 mm + cover (19 g lumped), T400 (2026-11-07)** | **18.4 g** | **127.0 Hz** |
 
-The 2026-11-07 run has a heavier stack (19 g instead of 12 g) and arms 2 mm longer: −4.6 Hz for T400. Weight variants
+The 2026-11-07 run has a heavier stack (19 g instead of 12 g) and lighter motor holders: +1.2 Hz for T400. With the
+motors at RM 53 it was 121.2 Hz. Weight variants
 are in `ACwing_Mech_A1_weight_study.md`. Local motor-holder / leg modes sit at about 123 Hz in all cases. Everything is far below the propeller bands (≥ 326 Hz).
 
 The first modes still fall inside the 60–130 Hz band that matters for the FC soft mount. Do a bench **tap test** on the
@@ -159,7 +161,6 @@ see `02 - Mounts/Electronics_Cover_A1/README.md`.
 | `02 - Mounts/Stack_Spacers/`, `02 - Mounts/Motor_Sleeves/` | spacers S1/S2 (1.6 mm boards), TPU sleeves (A1) |
 | `02 - Mounts/Electronics_Cover_A1/ACwing_Cover_A1_indoor/gps.stl` | electronics cover, translucent PLA, source meshes |
 | `03 - Assembly/ACwing_Mech_A1/ACwing_Mech_A1.FCMacro` | FreeCAD assembly; writes the print files to `00 - Docs/00 - Mech_A1_Docs/Prints/` |
-| `03 - Assembly/ACwing_Mech_A1/reference/` | motors, motor leads, propellers at RM 53 (reference meshes) |
 | `00 - Docs/00 - Mech_A1_Docs/` | print files, BoM, STEP, renders, checks, weight study, this note |
 
 ## 9. Rev A stack, 1.6 mm boards (ACwing_Mechs issue #2, 2026-11-06)
@@ -212,42 +213,33 @@ The tap test on the first build settles it.
 
 ## 10. ESC J1 on the front edge, cable C, flow board, weight (2026-11-07)
 
-Answer to the ACwing_HW mechanical handoff §0.14 / §0.15 (ESC 1S J1 moved to the front edge, cable C route, flow board
-connector edge to the right).
+Answer to the ACwing_HW mechanical handoff §0.14–§0.17: ESC 1S J1 on the front edge, then moved toward the front corner;
+cable C route; flow board connector edge to the right.
 
-**Motors at RM 53.** The board front edge faces the front-left motor. At RM 51 the top ring of its prop guard (z 2.5 …
-3.9, radius 28.5 … 29.5 from the motor axis) passed right above the ESC J1 plug back:
+**Guard ring and RM.** The board front edge faces the front-left motor. With J1 at (+9.6, +16.88), the top ring of its
+prop guard (z 2.5 … 3.9, radius 28.5 … 29.5 from the motor axis) passed right above the J1 plug back:
 - the plug fitted under the ring with 0 mm to spare;
-- the 8 wires had no room to rise between the plug and the ring;
-- under the ring they were 0.5 mm from the propeller disc.
+- the 8 wires had no room to rise between the plug and the ring.
 
-The motors are now at **RM 53** (+2 mm): the ring clears the cable by 0.5 mm. The rest stays the same: propellers,
-guards, arms from radius 23.5, lugs, trays. The frame grows to 134.4 mm (+2.8 mm) and gains 0.24 g. The TPU sleeves,
-motors, leads and propellers move with the motors (new reference meshes).
+A first answer moved the motors out to RM 53. The electronics then moved **J1 toward the front corner, to (+13.3,
++16.08)** (HW handoff §0.17). There the ring is further from the plug, so **the frame goes back to RM 51**: 131.5 mm,
+lighter and stiffer than at RM 53. Cable A clears the ring by 0.42 mm.
 
 **Cable A and cable C:** see §3. **Flow board:** see §2.
 
-**Cover:** the indoor roof is 0.6 mm lower, because no cable crosses the FC any more. The roof clears the FC L3
-inductor (z 10.2) by 0.85 mm. Walls and roof are 0.8 mm (weight study). Stack screws: M2 × 14 indoor, M2 × 25 GPS.
+**Cover:** the indoor roof is 0.6 mm lower, because no cable crosses the FC any more. It clears the FC L3 inductor
+(z 10.2) by 0.85 mm. Walls and roof are 0.8 mm (weight study). Stack screws: M2 × 14 indoor, M2 × 25 GPS.
 
-**Checks:** all zero (§4). Cable A clearances:
-- propeller disc 2.9 mm;
-- frame (guard ring) 0.5 mm.
+**Checks:** all zero (§4). Smallest clearances:
 
-Cable C clearances:
-- frame (deck slot) 0.5 mm;
-- tray 0.6 mm;
-- FC J1 USB-C plug envelope 2.5 mm;
-- motor leads 6.4 mm.
+| Cable | Clearance |
+|---|---|
+| A | guard ring 0.42 mm, propeller disc 2.8 mm |
+| C | frame 0.49 mm, tray 0.69 mm, FC J1 USB-C plug envelope 2.4 mm, M2 motor leads 6.4 mm |
 
-**Weight:** −2.0 g against 2026-11-06:
-- motor holders −0.51 g;
-- cover −1.6 g;
-- shorter screws −0.1 g;
-- RM 53 +0.24 g.
+**Frame:** first free-free mode with T400 **127 Hz**, against 121 Hz at RM 53.
 
-The other options and their effect on the first frame mode are in `ACwing_Mech_A1_weight_study.md`.
+**Weight:** −2.2 g against 2026-11-06 (motor holders −0.5 g, cover −1.6 g, shorter screws −0.1 g). The other options
+and their effect on the first mode are in `ACwing_Mech_A1_weight_study.md`.
 
-**For HW rev B:** the board edge centres face the guard rings. A plug at the edge centre of the ESC (bottom board) sits
-under the ring top. Keep low connectors toward the board corners, where the rings are further away.
-
+**For HW rev B:** the board edge centres face the guard rings. Keep low connectors on the ESC toward the board corners.
