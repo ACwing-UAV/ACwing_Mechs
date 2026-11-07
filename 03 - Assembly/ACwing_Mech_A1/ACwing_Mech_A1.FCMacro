@@ -202,8 +202,10 @@ def board_placement(z0):
 
 
 def flow_placement(Z):
-    """Flow rev A: sensor side down, back face on the tray bosses, t axis forward; seen from above mirrored (x = -s)."""
-    return App.Placement(V(KICAD_CENTRE[0], -KICAD_CENTRE[1] + Z['FLOW_YC'], Z['FLOW_BACK_Z']), App.Rotation(V(0, 1, 0), 180))
+    """Flow rev A: sensor side down, back face on the tray bosses, connector (top) edge toward the frame right (+X,
+    since 2026-11-07): frame x = FLOW_XC + t, y = FLOW_YC + s."""
+    rot = App.Rotation(V(0, 0, 1), -90).multiply(App.Rotation(V(0, 1, 0), 180))
+    return App.Placement(V(Z['FLOW_XC'] - KICAD_CENTRE[1], Z['FLOW_YC'] - KICAD_CENTRE[0], Z['FLOW_BACK_Z']), rot)
 
 
 def pcb_thickness(shape):
@@ -239,12 +241,12 @@ def insert_step(doc, grp, path, name, pl, color):
 
 def flow_placeholder(D, Z, t):
     """simple stand-in for the flow board when the ACwing_HW models are not available (outline from the handoff)."""
-    yc = Z['FLOW_YC']; zb = Z['FLOW_BACK_Z']; zs = zb - t
-    board = Part.makeBox(21.0, 25.0, t, V(-10.5, yc - 12.5, zs))
+    xc = Z['FLOW_XC']; yc = Z['FLOW_YC']; zb = Z['FLOW_BACK_Z']; zs = zb - t
+    board = Part.makeBox(25.0, 21.0, t, V(xc - 12.5, yc - 10.5, zs))
     for hx, hy in D['flow_holes']:
         board = board.cut(Part.makeCylinder(1.1, t + 2, V(hx, hy, zs - 1)))
-    lens = Part.makeBox(6, 6, 2.28, V(-3, yc - 6.2 - 3, zs - 2.28))
-    tof = Part.makeBox(4.9, 2.5, 1.56, V(-2.45, yc + 0.8 - 1.25, zs - 1.56))
+    lens = Part.makeBox(6, 6, 2.28, V(xc - 6.2 - 3, yc - 3, zs - 2.28))
+    tof = Part.makeBox(2.5, 4.9, 1.56, V(xc + 0.8 - 1.25, yc - 2.45, zs - 1.56))
     return Part.makeCompound([board, lens, tof])
 
 

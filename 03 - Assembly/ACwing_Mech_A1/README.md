@@ -19,7 +19,7 @@ The macro:
 | Option | Default | Meaning |
 |---|---|---|
 | `TRAY` | `'T400'` | `'T400'` / `'T800'` / `'T1200'` |
-| `WITH_GPS` | `True` | GPS rev A, cable B, S2 spacers, GPS cover, M2 × 25 screws (outdoor variant). `False`: indoor cover, M2 × 16 |
+| `WITH_GPS` | `True` | GPS rev A, cable B, S2 spacers, GPS cover, M2 × 25 screws (outdoor variant). `False`: indoor cover, M2 × 14 |
 | `WITH_FLOW` | `True` | Flow rev A board and cable C |
 | `WITH_ELECTRONICS` | `True` | board STEP models from ACwing_HW |
 | `HW_DIR` | `''` | path to an ACwing_HW clone; empty = look for `../ACwing_HW` or `../hw` next to this repository |
@@ -44,7 +44,8 @@ Placement: KiCad STEP centre (X 150, Y −100) → frame origin, rotated +45° a
 All boards are 1.6 mm (ACwing_HW, 2026-11-06). The FC sits in silicone grommets (2.2 mm above and below the board),
 on S1 spacers of 2.8 mm; the GPS sits on S2 spacers of 3.8 mm.
 
-The Flow board is flipped (sensor side down) with its back face on the tray bosses.
+The Flow board is flipped (sensor side down) with its back face on the tray bosses, and turned so that its
+connector edge faces the frame right (+X, since 2026-11-07).
 
 ## Files
 

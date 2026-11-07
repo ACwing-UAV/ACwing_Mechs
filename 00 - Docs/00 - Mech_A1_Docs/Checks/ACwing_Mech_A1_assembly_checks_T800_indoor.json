@@ -1,19 +1,19 @@
 {
  "cover": {
   "post_z0": 8.399999999999999,
-  "open_top": 11.077600000000002,
-  "under": 11.677600000000002,
-  "top": 12.877600000000001,
+  "open_top": 10.45,
+  "under": 11.049999999999999,
+  "top": 11.85,
   "zb": 5.0,
-  "screw_L": 16,
-  "seat": 11.6,
-  "tip": -4.4,
+  "screw_L": 14,
+  "seat": 9.9,
+  "tip": -4.1,
   "Z": {
    "FC_Z1": 6.199999999999999,
    "BALL_H": 2.2,
    "GPS_Z1": 13.799999999999999,
    "GPS_TOP_PARTS": 20.099999999999998,
-   "CABLE_TOP": 10.827600000000002,
+   "CABLE_TOP": 10.2,
    "COVER_ZB": 5.0,
    "USB_TOP": 11.1
   }
@@ -63,64 +63,64 @@
    {
     "pin": 1,
     "sig": "GND",
-    "length_mm": 69.5
+    "length_mm": 12.0
    },
    {
     "pin": 2,
     "sig": "VBAT",
-    "length_mm": 68.7
+    "length_mm": 12.0
    },
    {
     "pin": 3,
     "sig": "CUR",
-    "length_mm": 68.0
+    "length_mm": 12.0
    },
    {
     "pin": 4,
     "sig": "TLM",
-    "length_mm": 67.4
+    "length_mm": 12.0
    },
    {
     "pin": 5,
     "sig": "M1",
-    "length_mm": 66.9
+    "length_mm": 12.0
    },
    {
     "pin": 6,
     "sig": "M2",
-    "length_mm": 67.1
+    "length_mm": 12.0
    },
    {
     "pin": 7,
     "sig": "M3",
-    "length_mm": 68.2
+    "length_mm": 12.0
    },
    {
     "pin": 8,
     "sig": "M4",
-    "length_mm": 69.8
+    "length_mm": 12.0
    }
   ],
   "C  FC J4 - Flow J1": [
    {
     "pin": 1,
     "sig": "GND",
-    "length_mm": 63.6
+    "length_mm": 50.5
    },
    {
     "pin": 2,
     "sig": "3V3",
-    "length_mm": 59.0
+    "length_mm": 50.8
    },
    {
     "pin": 3,
     "sig": "SDA",
-    "length_mm": 55.1
+    "length_mm": 52.1
    },
    {
     "pin": 4,
     "sig": "SCL",
-    "length_mm": 53.3
+    "length_mm": 53.2
    }
   ],
   "D  battery pigtail": [
