@@ -63,64 +63,64 @@
    {
     "pin": 1,
     "sig": "GND",
-    "length_mm": 12.0
+    "length_mm": 15.4
    },
    {
     "pin": 2,
     "sig": "VBAT",
-    "length_mm": 12.0
+    "length_mm": 15.4
    },
    {
     "pin": 3,
     "sig": "CUR",
-    "length_mm": 12.0
+    "length_mm": 15.4
    },
    {
     "pin": 4,
     "sig": "TLM",
-    "length_mm": 12.0
+    "length_mm": 15.4
    },
    {
     "pin": 5,
     "sig": "M1",
-    "length_mm": 12.0
+    "length_mm": 15.4
    },
    {
     "pin": 6,
     "sig": "M2",
-    "length_mm": 12.0
+    "length_mm": 15.4
    },
    {
     "pin": 7,
     "sig": "M3",
-    "length_mm": 12.0
+    "length_mm": 15.4
    },
    {
     "pin": 8,
     "sig": "M4",
-    "length_mm": 12.0
+    "length_mm": 15.4
    }
   ],
   "C  FC J4 - Flow J1": [
    {
     "pin": 1,
     "sig": "GND",
-    "length_mm": 50.1
+    "length_mm": 51.1
    },
    {
     "pin": 2,
     "sig": "3V3",
-    "length_mm": 50.4
+    "length_mm": 51.4
    },
    {
     "pin": 3,
     "sig": "SDA",
-    "length_mm": 51.8
+    "length_mm": 52.7
    },
    {
     "pin": 4,
     "sig": "SCL",
-    "length_mm": 52.9
+    "length_mm": 53.9
    }
   ],
   "D  battery pigtail": [

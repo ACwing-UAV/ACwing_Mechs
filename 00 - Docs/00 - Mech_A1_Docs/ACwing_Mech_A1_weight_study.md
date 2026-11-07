@@ -1,7 +1,7 @@
 # Mech A1 – weight study (2026-11-07)
 
-Mass budget of the drone with the rev A stack (1.6 mm boards, ESC J1 on the front edge, frame RM 53) and a list of what
-could make the structure lighter. Each frame option was checked with a voxel FE model of core + T400 tray (hex8, h 0.8 mm,
+Mass budget of the drone with the rev A stack (1.6 mm boards, ESC J1 toward the front corner, frame RM 51) and a list of
+what could make the structure lighter. Each frame option was checked with a voxel FE model of core + T400 tray (hex8, h 0.8 mm,
 PETG E 2000 MPa; motors + propellers, stack, battery and flow board as lumped masses). Scripts and raw results:
 `Checks/ACwing_Mech_A1_fe_weight_study.json`.
 
@@ -9,13 +9,13 @@ PETG E 2000 MPa; motors + propellers, stack, battery and flow board as lumped ma
 
 | Group | Part | Mass (g) | Basis |
 |---|---|---|---|
-| Structure | Frame A1 core (RM 53, 0.8 mm motor-holder walls) | 15.13 | mesh × 1.27 g/cm³ |
+| Structure | Frame A1 core (RM 51, 0.8 mm motor-holder walls) | 14.95 | mesh × 1.27 g/cm³ |
 | | Tray T400 | 3.44 | mesh |
 | | Electronics cover, indoor (0.8 mm walls) | 2.81 | mesh × 1.24 g/cm³ |
 | | Motor sleeves TPU ×4 | 2.18 | mesh × 1.21 g/cm³ |
 | | Spacers S1 ×4 | 0.17 | volume |
 | | Inserts ×10, grommets ×4, screws (stack Ti M2 × 14, tray A4 M2 × 5, flow nylon) | 3.2 | estimates |
-| | **Structure total** | **26.9** | **38 %** |
+| | **Structure total** | **26.8** | **38 %** |
 | Propulsion | Motors 8520 ×4 | 14.4 | |
 | | Propellers 55 mm ×4 | ≈ 2.0 | estimate, weigh |
 | Electronics | FC rev A, 1.6 mm, with parts | ≈ 6.8 | HW handoff |
@@ -23,9 +23,10 @@ PETG E 2000 MPa; motors + propellers, stack, battery and flow board as lumped ma
 | | Flow rev A, 1.6 mm | ≈ 2.1 | HW handoff |
 | | Cables A, C, pigtail | ≈ 1.0 | estimate |
 | Battery | 1S 400 mAh | 11.5 | |
-| | **Drone** | **≈ 71.3** | T/W 1.96 with 140 g of thrust |
+| | **Drone** | **≈ 71.1** | T/W 1.97 with 140 g of thrust |
 
-Where the core mass sits (voxel breakdown, groups overlap slightly in the blends):
+Where the core mass sits (voxel breakdown at RM 53, groups overlap slightly in the blends; at RM 51 the arms are 2 mm
+shorter, −0.2 g):
 
 | Group | Mass (g) | Share |
 |---|---|---|
@@ -43,6 +44,9 @@ Where the core mass sits (voxel breakdown, groups overlap slightly in the blends
 \* After the 0.8 mm wall change (2.76 g before).
 
 ## 2. Frame options (FE, core + T400)
+
+The options were compared on 2026-11-07 with the motors at RM 53, the RM of that moment. The chosen design (RM 51,
+0.8 mm holders) was then run again: core 14.83 g (voxels), **first mode 127.0 Hz**.
 
 The first free-free mode is the "saddle" mode: diagonal motors in phase, the guard rings bending. It sets the frame
 stiffness that matters for the FC soft mount and for the gyro notch.
@@ -83,11 +87,14 @@ Changes adopted on 2026-11-07, against the A1 design for the rev A stack of 2026
 
 | Change | Δ mass (g) |
 |---|---|
-| Motors moved out to RM 53 (needed for ESC J1, see the handoff §10) | +0.24 |
-| Thinner motor holders | −0.51 |
+| Thinner motor holders | −0.5 |
 | Cover 0.8 mm walls, lower roof | −1.6 |
 | Stack screws M2 × 16 → M2 × 14 | −0.1 |
-| **Total** | **−2.0** |
+| Motors at RM 51 (RM 53 not needed once ESC J1 moved toward the corner) | 0 |
+| **Total** | **−2.2** |
+
+The first frame mode goes from 125.8 Hz (1.0 mm stack, 12 g) to 127.0 Hz with the heavier 1.6 mm stack and the cover
+(19 g), thanks to the lighter holders.
 
 The battery dominates everything else: T800 adds 10.6 g over T400, and T1200 adds 18.5 g. For a light indoor drone,
 the next steps are titanium screws (−0.6 g) and weighing the printed parts.

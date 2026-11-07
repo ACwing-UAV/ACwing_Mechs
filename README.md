@@ -14,6 +14,13 @@
 
 ---
 
+<p align="center">
+  <img alt="ACwing Mech A1, 1S indoor drone with battery tray T400 and the translucent electronics cover (KiCad raytracer render)" src="00%20-%20Docs/00%20-%20Mech_A1_Docs/Renders/ACwing_Mech_A1_T400_drone_raytrace.png" width="720">
+  <br>
+  <em>Mech A1 with tray T400, the rev A stack (ESC 1S + FC, 1.6 mm) and the translucent electronics cover.
+  KiCad raytracer render, the same engine as the ACwing_HW board renders.</em>
+</p>
+
 **ACwing** is an open project for small multirotors. This repository holds the
 mechanical design. The other parts of the project:
 

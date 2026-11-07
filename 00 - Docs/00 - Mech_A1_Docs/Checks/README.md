@@ -9,8 +9,8 @@ with h = 0.06–0.15 mm, only in the cells where both parts can be inside. `cabl
 plug housings, in mm. `cover` gives the cover heights and the stack screw (length, head seat, tip).
 
 **Inputs:**
-- ACwing_HW rev A boards, all 1.6 mm, with ESC 1S J1 on the front edge (layout 2026-11-06);
-- frame A1 with motors at RM 53 and the new cable C slot;
+- ACwing_HW rev A boards, all 1.6 mm (ESC layout of branch `esc-j1-corner`, 2026-11-07);
+- frame A1 (motors at RM 51) with the new cable C slot; ESC 1S J1 at (+13.3, +16.08), toward the front corner;
 - flow board turned 90° (connectors toward +X);
 - electronics cover A1 with 0.8 mm walls (indoor or GPS);
 - silicone grommets H 6.0 with a 1.6 mm groove.
@@ -32,8 +32,8 @@ The checks include:
 
 | Cable | Clearance |
 |---|---|
-| A | propeller disc 2.9 mm, frame (guard ring) 0.5 mm, cover 1.25 mm |
-| C | frame (deck slot) 0.5 mm, tray 0.6 mm, FC J1 USB-C plug 2.5 mm, motor leads 6.4 mm |
+| A | propeller disc 2.8 mm, frame (guard ring) 0.42 mm, cover 1.25 mm |
+| C | frame 0.49 mm, tray 0.69 mm, FC J1 USB-C plug 2.4 mm, motor leads 6.4 mm |
 
 ## Weight study
 
@@ -54,6 +54,7 @@ the hub in each mode.
 | A1 + T400 | 125.8 Hz |
 | A1 + T800 | 123.9 Hz |
 | A1 + T1200 | 102.6 Hz |
-| A1 at RM 53 + T400, 1.6 mm stack + cover lumped at 19 g (2026-11-07, in `ACwing_Mech_A1_fe_weight_study.json`) | 121.2 Hz |
+| A1 + T400, 0.8 mm motor holders, 1.6 mm stack + cover lumped at 19 g (2026-11-07) | 127.0 Hz |
+| same at RM 53 (weight study, `ACwing_Mech_A1_fe_weight_study.json`) | 121.2 Hz |
 
 The A1 rows above were computed at RM 51 with the 1.0 mm stack (12 g).
