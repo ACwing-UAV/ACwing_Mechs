@@ -10,7 +10,8 @@
 
 The macro:
 - writes the **print-ready STL files** (oriented, on z = 0) to `00 - Docs/00 - Mech_A1_Docs/Prints/` (all three trays);
-- builds the assembly with the selected tray in a new document (groups Frame, Propulsion, Electronics, Hardware, Cables);
+- builds the assembly with the selected tray in a new document (groups Frame, Propulsion, Electronics, Hardware, Cables,
+  Cover);
 - writes the hardware, cables and battery as STEP to `00 - Docs/00 - Mech_A1_Docs/STEP/`.
 
 ## Options (top of the macro)
@@ -18,7 +19,7 @@ The macro:
 | Option | Default | Meaning |
 |---|---|---|
 | `TRAY` | `'T400'` | `'T400'` / `'T800'` / `'T1200'` |
-| `WITH_GPS` | `False` | GPS rev A, cable B, S2 spacers, M2 × 16 screws (outdoor variant) |
+| `WITH_GPS` | `True` | GPS rev A, cable B, S2 spacers, GPS cover, M2 × 25 screws (outdoor variant). `False`: indoor cover, M2 × 14 |
 | `WITH_FLOW` | `True` | Flow rev A board and cable C |
 | `WITH_ELECTRONICS` | `True` | board STEP models from ACwing_HW |
 | `HW_DIR` | `''` | path to an ACwing_HW clone; empty = look for `../ACwing_HW` or `../hw` next to this repository |
@@ -37,20 +38,24 @@ If the models are not found, the boards are skipped and the flow board is drawn 
 
 Placement: KiCad STEP centre (X 150, Y −100) → frame origin, rotated +45° about z. The bottom faces sit at:
 - ESC −2.0;
-- FC 4.0;
-- GPS 11.0.
+- FC 4.6;
+- GPS 12.2.
 
-The Flow board is flipped (sensor side down) with its back face on the tray bosses.
+All boards are 1.6 mm (ACwing_HW, 2026-11-06). The FC sits in silicone grommets (2.2 mm above and below the board),
+on S1 spacers of 2.8 mm; the GPS sits on S2 spacers of 3.8 mm.
+
+The Flow board is flipped (sensor side down) with its back face on the tray bosses, and turned so that its
+connector edge faces the frame right (+X, since 2026-11-07).
 
 ## Files
 
 | File | What |
 |---|---|
 | `ACwing_Mech_A1.FCMacro` | the macro |
-| `ACwing_Mech_A1_data.json` | assembly data: stack heights, hardware positions, wires of every cable, per-tray battery and flow heights |
+| `ACwing_Mech_A1_data.json` | assembly data: stack heights, hardware positions, wires of every cable (with lengths), plug housings, cover screw lengths and seats, per-tray battery and flow heights |
 | `reference/` | non-printed parts for the assembly view: 8520 coreless motors, 55 mm propellers (front pair green), motor leads |
 
-The printed parts come from `01 - Frame/` and `02 - Mounts/`.
+The printed parts come from `01 - Frame/` and `02 - Mounts/` (cover: `02 - Mounts/Electronics_Cover_A1/`).
 
 Frame coordinates:
 - z = 0 is the propeller plane;
