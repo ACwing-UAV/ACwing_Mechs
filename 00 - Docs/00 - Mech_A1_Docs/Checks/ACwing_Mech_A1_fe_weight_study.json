@@ -1,0 +1,123 @@
+{
+ "model": "voxel FE, hex8 h 0.8 mm, PETG E 2000 MPa, core + T400 tray, lumped motors+props 4 x 4.0 g, stack 19.0 g (ESC + FC 1.6 mm, cover, hardware), battery 11.5 g, flow 2.1 g; core mass from voxels h 0.35",
+ "date": "2026-11-07",
+ "variants": {
+  "arm_lite": {
+   "core_g_voxel": 15.203,
+   "modes_hz": [
+    118.0,
+    131.6,
+    146.1,
+    149.2,
+    169.1,
+    174.6,
+    193.4,
+    194.5,
+    203.5,
+    223.1
+   ]
+  },
+  "base": {
+   "core_g_voxel": 15.559,
+   "modes_hz": [
+    121.3,
+    136.3,
+    151.1,
+    154.1,
+    172.1,
+    179.7,
+    194.1,
+    201.0,
+    205.6,
+    224.4
+   ]
+  },
+  "combo": {
+   "core_g_voxel": 14.058,
+   "modes_hz": [
+    95.8,
+    119.1,
+    125.2,
+    125.8,
+    133.1,
+    147.8,
+    163.9,
+    176.4,
+    198.0,
+    211.8
+   ]
+  },
+  "deck_lite": {
+   "core_g_voxel": 15.425,
+   "modes_hz": [
+    122.6,
+    136.4,
+    151.1,
+    154.0,
+    172.2,
+    179.9,
+    194.1,
+    201.0,
+    205.6,
+    224.5
+   ]
+  },
+  "holder_lite": {
+   "core_g_voxel": 15.046,
+   "modes_hz": [
+    121.2,
+    134.3,
+    148.4,
+    151.6,
+    169.6,
+    176.5,
+    193.8,
+    196.8,
+    200.2,
+    217.7
+   ]
+  },
+  "ribs4": {
+   "core_g_voxel": 15.454,
+   "modes_hz": [
+    119.2,
+    120.3,
+    124.2,
+    134.8,
+    145.5,
+    153.2,
+    161.0,
+    164.3,
+    167.1,
+    172.8
+   ]
+  },
+  "ring_lite": {
+   "core_g_voxel": 14.77,
+   "modes_hz": [
+    96.8,
+    119.1,
+    126.1,
+    130.3,
+    134.5,
+    148.4,
+    168.9,
+    180.8,
+    203.6,
+    220.5
+   ]
+  }
+ },
+ "core_breakdown_g": {
+  "guard rings (top + bottom)": 2.62,
+  "guard ribs": 0.28,
+  "ring bridges": 0.2,
+  "motor holders": 2.76,
+  "motor legs": 0.42,
+  "spokes": 1.7,
+  "arms": 2.5,
+  "deck + stack bosses": 3.46,
+  "tray lugs + knees + spars": 1.46,
+  "clips": 0.13
+ }
+}
