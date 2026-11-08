@@ -38,11 +38,11 @@ If the models are not found, the boards are skipped and the flow board is drawn 
 
 Placement: KiCad STEP centre (X 150, Y −100) → frame origin, rotated +45° about z. The bottom faces sit at:
 - ESC −2.0;
-- FC 4.6;
-- GPS 12.2.
+- FC 4.0;
+- GPS 11.0.
 
-All boards are 1.6 mm (ACwing_HW, 2026-11-06). The FC sits in silicone grommets (2.2 mm above and below the board),
-on S1 spacers of 2.8 mm; the GPS sits on S2 spacers of 3.8 mm.
+All boards are 1.0 mm (ACwing_HW handoff §0.19–§0.20, 2026-11-08). The FC sits in M2 damping balls (2.43 mm above and
+below the board), on S1 spacers of 2.57 mm; the GPS sits on S2 spacers of 3.57 mm.
 
 The Flow board is flipped (sensor side down) with its back face on the tray bosses, and turned so that its
 connector edge faces the frame right (+X, since 2026-11-07).
@@ -53,7 +53,7 @@ connector edge faces the frame right (+X, since 2026-11-07).
 |---|---|
 | `ACwing_Mech_A1.FCMacro` | the macro |
 | `ACwing_Mech_A1_data.json` | assembly data: stack heights, hardware positions, wires of every cable (with lengths), plug housings, cover screw lengths and seats, per-tray battery and flow heights |
-| `reference/` | non-printed parts for the assembly view: 8520 coreless motors, 55 mm propellers (front pair green), motor leads |
+| `reference/` | non-printed parts for the assembly view, motors at RM 52: 8520 coreless motors, 55 mm propeller discs (front pair green), motor leads |
 
 The printed parts come from `01 - Frame/` and `02 - Mounts/` (cover: `02 - Mounts/Electronics_Cover_A1/`).
 

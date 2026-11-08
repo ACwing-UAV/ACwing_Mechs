@@ -15,10 +15,10 @@
 ---
 
 <p align="center">
-  <img alt="ACwing Mech A1, 1S indoor drone with battery tray T400 and the translucent electronics cover (KiCad raytracer render)" src="00%20-%20Docs/00%20-%20Mech_A1_Docs/Renders/ACwing_Mech_A1_T400_drone_raytrace.png" width="720">
+  <img alt="ACwing Mech A1, 1S indoor drone with the A2 guard rings, battery tray T400 and the translucent electronics cover (path-traced render)" src="00%20-%20Docs/00%20-%20Mech_A1_Docs/Renders/ACwing_Mech_A1_T400_drone_raytrace.png" width="720">
   <br>
-  <em>Mech A1 with tray T400, the rev A stack (ESC 1S + FC, 1.6 mm) and the translucent electronics cover.
-  KiCad raytracer render, the same engine as the ACwing_HW board renders.</em>
+  <em>Mech A1 with the A2 guard rings, tray T400, the rev A stack (ESC 1S + FC, 1.0 mm) and the translucent electronics
+  cover. Path-traced render (Mitsuba 3, one light).</em>
 </p>
 
 **ACwing** is an open project for small multirotors. This repository holds the
@@ -72,7 +72,7 @@ the **STL/3MF** with material, layer height and orientation.
 
 | Release | Contents | Fits | Docs |
 |---|---|---|---|
-| **Mech A1** | frame A1 core, battery trays T400 / T800 / T1200, stack spacers, TPU motor sleeves, translucent electronics cover | ESC 1S rev A, FC rev A (layout 2026-11-02/03, 1.6 mm boards), Flow rev A, GPS rev A (option) | [`00 - Docs/00 - Mech_A1_Docs`](00%20-%20Docs/00%20-%20Mech_A1_Docs/README.md) · macro [`03 - Assembly/ACwing_Mech_A1`](03%20-%20Assembly/ACwing_Mech_A1/README.md) |
+| **Mech A1** | frame A1 core, battery trays T400 / T800 / T1200, stack spacers, TPU motor sleeves, translucent electronics cover | ESC 1S rev A, FC rev A (layout 2026-11-08, 1.0 mm boards), Flow rev A, GPS rev A (option); frame RM 52 with the A2 guard rings | [`00 - Docs/00 - Mech_A1_Docs`](00%20-%20Docs/00%20-%20Mech_A1_Docs/README.md) · macro [`03 - Assembly/ACwing_Mech_A1`](03%20-%20Assembly/ACwing_Mech_A1/README.md) |
 
 ```
 00 - Docs/00 - Mech_A1_Docs/       README (print + build guide), BoM (xlsx/csv), Prints/, STEP/, Renders/, Checks/, design notes
