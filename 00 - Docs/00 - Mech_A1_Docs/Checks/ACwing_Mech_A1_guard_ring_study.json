@@ -1,0 +1,105 @@
+{
+ "date": "2026-11-08",
+ "what": "guard-ring variants on the 2026-11-01 A1 core (RM 51), all four rings modified",
+ "variants": {
+  "V0_current": "closed top ring 1.0 x 1.4, 6 ribs, top bridges front/rear",
+  "VA_sketch": "top ring open for |phi| < 90 deg (phi = 0 toward the frame centre), ramps 1.0 x 1.4 from phi 90 (top ring) down to phi 32 (bottom ring), ribs at +-30 removed, top bridges removed",
+  "VB_compact": "top ring kept to phi 46 (top bridges kept), steep ramps down to phi 28",
+  "VA2_adopted": "as VA, ramps 1.2 x 1.68 mm"
+ },
+ "fe": {
+  "model": "voxel hex8 h 0.6 mm, PETG E 2000 MPa, core + T400 tray, motors 4 x 4.0 g, stack 15.4 g, battery 11.5 g, flow 1.5 g lumped; free-free, modes after the 6 rigid ones",
+  "results": {
+   "V0_current": {
+    "core_g": 15.44,
+    "modes_Hz": [
+     118.5,
+     152.3,
+     169.6,
+     183.2,
+     187.4,
+     190.8,
+     197.0,
+     226.2
+    ]
+   },
+   "VA_sketch": {
+    "core_g": 15.102,
+    "modes_Hz": [
+     116.7,
+     145.0,
+     156.7,
+     166.0,
+     177.1,
+     188.2,
+     192.1,
+     221.5
+    ]
+   },
+   "VB_compact": {
+    "core_g": 15.219,
+    "modes_Hz": [
+     117.4,
+     147.8,
+     161.0,
+     171.5,
+     181.2,
+     189.1,
+     193.7,
+     220.4
+    ]
+   },
+   "VA2_adopted": {
+    "core_g": 15.273,
+    "modes_Hz": [
+     117.1,
+     146.0,
+     159.9,
+     169.7,
+     182.8,
+     190.7,
+     197.1,
+     226.2
+    ]
+   }
+  }
+ },
+ "static": {
+  "model": "same mesh, stack bosses clamped, 5 N spread on a 1.6 mm patch of the front-left ring (phi: 180 outer side, 90 side, 60 ramp), or 2 N motor thrust; value = deflection at the load in mm",
+  "results": {
+   "V0_current": {
+    "outer_side_push_5N": 9.027,
+    "outer_side_push_bottom_5N": 1.639,
+    "side90_push_5N": 8.953,
+    "side90_down_5N": 13.727,
+    "side60_down_5N": 8.07,
+    "motor_thrust_2N": 1.038
+   },
+   "VA_sketch": {
+    "outer_side_push_5N": 9.071,
+    "outer_side_push_bottom_5N": 1.678,
+    "side90_push_5N": 12.883,
+    "side90_down_5N": 15.851,
+    "side60_down_5N": 4.402,
+    "motor_thrust_2N": 1.076
+   },
+   "VB_compact": {
+    "outer_side_push_5N": 9.039,
+    "outer_side_push_bottom_5N": 1.698,
+    "side90_push_5N": 9.555,
+    "side90_down_5N": 15.839,
+    "side60_down_5N": 8.522,
+    "motor_thrust_2N": 1.068
+   },
+   "VA2_adopted": {
+    "outer_side_push_5N": 8.726,
+    "outer_side_push_bottom_5N": 1.632,
+    "side90_push_5N": 8.474,
+    "side90_down_5N": 14.327,
+    "side60_down_5N": 4.055,
+    "motor_thrust_2N": 1.069
+   }
+  }
+ },
+ "adopted": "VA2 on all four rings, motors at RM 52 (2026-11-08)"
+}

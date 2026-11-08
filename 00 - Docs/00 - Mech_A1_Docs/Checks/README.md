@@ -2,59 +2,60 @@
 
 ## Assembly checks
 
-Files: `ACwing_Mech_A1_assembly_checks_<tray>_<indoor|gps>.json` (2026-11-07).
+Files: `ACwing_Mech_A1_assembly_checks_<tray>_<indoor|gps>.json` (2026-11-08).
 
-Each key in `checks` is a pair of parts. The value is the overlap volume in mm³, sampled on the signed-distance models
-with h = 0.06–0.15 mm, only in the cells where both parts can be inside. `cables` gives the wire lengths between the
-plug housings, in mm. `cover` gives the cover heights and the stack screw (length, head seat, tip).
+Every pair of parts is intersected as a mesh boolean (manifold3d): `unexpected_overlaps_mm3` lists the pairs that
+overlap and are not an assembly interface, `assembly_interfaces_mm3` the expected contacts (sleeve in holder, screw in
+insert, board on spacer, plug on its header, …). `clearances_mm` gives the minimum distance between selected parts.
+`cables_wire_mm` gives the wire lengths between the plug housings; `stack_screws` the spacer and screw sizes, head
+seat and tip.
 
 **Inputs:**
-- ACwing_HW rev A boards, all 1.6 mm (ESC layout of branch `esc-j1-corner`, 2026-11-07);
-- frame A1 (motors at RM 51) with the new cable C slot; ESC 1S J1 at (+13.3, +16.08), toward the front corner;
-- flow board turned 90° (connectors toward +X);
-- electronics cover A1 with 0.8 mm walls (indoor or GPS);
-- silicone grommets H 6.0 with a 1.6 mm groove.
+- ACwing_HW rev A boards, all 1.0 mm (STEP models of 2026-11-08, every part of every board);
+- frame A1 at RM 52 with the A2 guard rings; ESC 1S J1 and FC J2 at (−10.5, +16.85);
+- flow board turned 90° (connectors toward +X), optical cones of the PMW3901 (46°) and VL53L1X (31°);
+- electronics cover of 2026-11-08 (indoor or GPS), M2 damping balls, S1 2.57 / S2 3.57 mm;
+- plug envelopes of FC J5 (ELRS), FC J6 (ESC B) and both USB-C plugs (12.4 × 6.5 mm overmold, 26 mm long).
 
-**Result:** every pair is **0** in all four runs (T400 indoor, T400 GPS, T800 indoor, T1200 indoor), except tray ×
-battery: 0.003 mm³ (T400) and 0.036 mm³ (T800), which is the pack resting on the lips.
+**Result:** **no unexpected overlap** in all four runs (T400 indoor, T400 GPS, T800 indoor, T1200 indoor). The battery
+touches the core envelope limit (z −6.7) with T800 / T1200 without entering it. The JST-PH pair of the battery lead
+sits in line with the insertion path: plug it after the pack is in.
 
-The checks include:
-- frame × stack, USB-C plugs, plug housings, wires, hardware, flow board, battery, insertion path;
-- propellers × stack, wires, housings, tray, cover;
-- wires × stack parts and hardware (spacers, grommets, screws);
-- tray × frame, battery, wires, motor leads, flow board, housings;
-- optical cones of the flow board × frame, wires, housings, screws, tray, battery;
-- cover × frame, propellers, stack boards and parts, FC grown 0.8 mm (soft-mount float), wires, plug housings, plug
-  envelopes (USB-C narrowed to the 13.2 mm overmold), screws, grommets;
-- frame × FC J5 (ELRS) and J6 (ESC link B) plug envelopes.
+**Smallest clearances (T400 indoor):**
 
-**Smallest clearances, measured on the models:**
-
-| Cable | Clearance |
+| Part | Clearance |
 |---|---|
-| A | propeller disc 2.8 mm, frame (guard ring) 0.42 mm, cover 1.25 mm |
-| C | frame 0.49 mm, tray 0.69 mm, FC J1 USB-C plug 2.4 mm, motor leads 6.4 mm |
+| Cable A | propeller disc 1.37 mm, frame 4.55 mm, cover 0.51 mm |
+| Cable C | frame 0.51 mm, tray 0.47–0.53 mm, FC USB-C plug 5.4 mm, propeller disc 4.0 mm |
+| Cable D | frame 0.48 mm |
+| Cover | FC 1.36 mm, plug housings 0.52 mm (GPS cover: cable B 1.41 mm) |
+| USB-C plugs | FC plug – frame 3.99 mm, ESC plug – frame 1.14 mm |
+| Frame | propeller disc 0.90 mm (ramps), FC 5.28 mm |
+
+## Guard-ring study
+
+`ACwing_Mech_A1_guard_ring_study.json` (2026-11-08): core mass, free-free modes and the deflection under 5 N side /
+vertical loads on a guard for the closed rings, the open rings with thin ramps, the open rings with steep ramps and
+the adopted A2 rings. See the handoff §11.
 
 ## Weight study
 
-`ACwing_Mech_A1_fe_weight_study.json`: core mass and first 10 free-free modes for each frame variant, and the core mass
-by group. See `../ACwing_Mech_A1_weight_study.md`.
+`ACwing_Mech_A1_fe_weight_study.json` (2026-11-07): core mass and first 10 free-free modes for each frame variant,
+and the core mass by group. See `../ACwing_Mech_A1_weight_study.md`.
 
 ## Vibration
 
-Files: `ACwing_Mech_A1_fe_modes_<case>.json`.
+Files: `ACwing_Mech_A1_fe_modes_<tray>.json` (2026-11-08).
 
-The model is a voxel FE: hex8 elements, h 0.8 mm, PETG with E 2000 MPa. Motors, stack, battery and flow board are
-lumped masses. `modes` gives the free-free frequencies after the 6 rigid modes, with the share of the motors and of
-the hub in each mode.
+Voxel FE: hex8 elements, h 0.6 mm, PETG with E 2000 MPa. Motors (4 × 4.0 g), stack + cover (15.0 g), battery (on the
+tray lips and rails) and flow board are lumped masses. Free-free frequencies after the 6 rigid modes.
 
-| Case | Saddle mode |
+| Case | First mode (saddle) |
 |---|---|
-| Preliminary draft (reference, bay fused to the frame) | 100.8 Hz |
-| A1 + T400 | 125.8 Hz |
-| A1 + T800 | 123.9 Hz |
-| A1 + T1200 | 102.6 Hz |
-| A1 + T400, 0.8 mm motor holders, 1.6 mm stack + cover lumped at 19 g (2026-11-07) | 127.0 Hz |
-| same at RM 53 (weight study, `ACwing_Mech_A1_fe_weight_study.json`) | 121.2 Hz |
+| A1 2026-11-01 (RM 51, closed rings) + T400, same model | 102.5 Hz |
+| A1 RM 52, A2 + T400 | 98.8 Hz |
+| A1 RM 52, A2 + T800 | 91.8 Hz |
+| A1 RM 52, A2 + T1200 | 97.6 Hz |
 
-The A1 rows above were computed at RM 51 with the 1.0 mm stack (12 g).
+The 2026-11-07 values (127 Hz with T400) came from the older model (h 0.8, battery on the whole tray) and are not
+comparable; `ACwing_Mech_A1_fe_modes_preliminary_draft.json` keeps the old reference.
