@@ -1,0 +1,275 @@
+{
+ "date": "2026-11-12",
+ "what": "print-first redesign for a Bambu Lab A1 (0.4 mm nozzle), after the first print of the A2 core failed (guard top rings broke when the supports were removed). Compared at RM 52: A2 ring guards (2026-11-08), proposal P1 (band guard, pointed arches, 45 deg flare) and the adopted P2 wave guard (S ribbon 2.2 mm, 1.2 mm outward bulge, 45 deg ramps with a 1.2 mm rim, closed wire eyelets on the arms).",
+ "fe": {
+  "model": "voxel hex8 h 0.6 mm, PETG E 2000 MPa; core + tray, motors 4 x 4.0 g, stack + cover 15.0 g, battery on the tray lips, flow 1.5 g; free-free",
+  "A2_2026-11-08": {
+   "core_g": 15.55,
+   "modes_Hz": {
+    "T400": [
+     98.8,
+     153.5,
+     164.1,
+     169.5,
+     180.1,
+     191.6,
+     211.1,
+     230.1
+    ],
+    "T800": [
+     91.8,
+     142.7,
+     161.2,
+     166.0,
+     179.0,
+     182.6,
+     189.6,
+     204.5
+    ],
+    "T1200": [
+     97.6,
+     152.7,
+     158.7,
+     163.6,
+     168.2,
+     179.3,
+     186.7,
+     191.4
+    ]
+   }
+  },
+  "P1_band": {
+   "core_g": 18.17,
+   "modes_Hz": {
+    "T400": [
+     93.9,
+     146.3,
+     155.6,
+     166.6,
+     170.9,
+     171.2,
+     180.3,
+     212.7
+    ],
+    "T800": [
+     87.4,
+     137.2,
+     152.4,
+     163.1,
+     169.5,
+     170.1,
+     178.8,
+     182.6
+    ],
+    "T1200": [
+     93.0,
+     148.5,
+     151.5,
+     157.4,
+     165.5,
+     168.7,
+     170.1,
+     179.6
+    ]
+   }
+  },
+  "P2_wave_adopted": {
+   "core_g": 17.63,
+   "modes_Hz": {
+    "T400": [
+     93.9,
+     141.1,
+     153.7,
+     164.1,
+     165.9,
+     169.4,
+     174.6,
+     207.8
+    ],
+    "T800": [
+     87.2,
+     134.5,
+     148.3,
+     161.2,
+     164.8,
+     168.0,
+     172.7,
+     182.4
+    ],
+    "T1200": [
+     92.8,
+     143.4,
+     150.1,
+     156.3,
+     162.7,
+     164.2,
+     168.8,
+     174.5
+    ]
+   }
+  }
+ },
+ "static": {
+  "model": "stack bosses clamped; 5 N on a 1.6 mm patch of the front-left guard (phi 180 = outer side, 90 = side, 60; bridge45 = on the ramp) or 2 N motor thrust; deflection at the load in mm and 99.9th percentile von Mises stress in MPa",
+  "A2_2026-11-08": {
+   "defl_mm": {
+    "outer_side_push_5N": 7.963,
+    "outer_side_push_bottom_5N": 1.601,
+    "side90_push_5N": 7.889,
+    "side90_down_5N": 13.65,
+    "side60_down_5N": 3.873,
+    "bridge45_push_5N": 0.155,
+    "motor_thrust_2N": 1.039
+   },
+   "vm_MPa": {
+    "outer_side_push_5N": 25.78,
+    "outer_side_push_bottom_5N": 6.88,
+    "side90_push_5N": 26.22,
+    "side90_down_5N": 28.12,
+    "side60_down_5N": 13.71,
+    "motor_thrust_2N": 4.22
+   }
+  },
+  "P1_band": {
+   "defl_mm": {
+    "outer_side_push_5N": 3.219,
+    "outer_side_push_bottom_5N": 0.835,
+    "side90_push_5N": 3.57,
+    "side90_down_5N": 7.542,
+    "side60_down_5N": 2.81,
+    "bridge45_push_5N": 0.99,
+    "motor_thrust_2N": 1.034
+   },
+   "vm_MPa": {
+    "outer_side_push_5N": 10.25,
+    "outer_side_push_bottom_5N": 4.69,
+    "side90_push_5N": 15.76,
+    "side90_down_5N": 18.07,
+    "side60_down_5N": 11.02,
+    "bridge45_push_5N": 8.15,
+    "motor_thrust_2N": 4.11
+   }
+  },
+  "P2_wave_adopted": {
+   "defl_mm": {
+    "outer_side_push_5N": 3.568,
+    "outer_side_push_bottom_5N": 0.965,
+    "side90_push_5N": 4.987,
+    "side90_down_5N": 9.057,
+    "side60_down_5N": 3.524,
+    "bridge45_push_5N": 1.969,
+    "motor_thrust_2N": 1.07
+   },
+   "vm_MPa": {
+    "outer_side_push_5N": 12.97,
+    "outer_side_push_bottom_5N": 5.09,
+    "side90_push_5N": 18.4,
+    "side90_down_5N": 20.64,
+    "side60_down_5N": 12.7,
+    "bridge45_push_5N": 11.84,
+    "motor_thrust_2N": 4.27
+   }
+  }
+ },
+ "support_estimate": {
+  "method": "voxel 0.3 mm, 45 deg rule, core upside down; straight strips up to 2.6 x 22 mm anchored at both ends count as bridges; envelope = volume between the unsupported faces and the bed or the part below (not filament)",
+  "A2_2026-11-08": {
+   "need_area_mm2": 2636,
+   "support_envelope_cm3": 28.17,
+   "guard (outer 268 deg)": {
+    "area_mm2": 266,
+    "envelope_cm3": 1.76
+   },
+   "motor holders + legs": {
+    "area_mm2": 392,
+    "envelope_cm3": 8.52
+   },
+   "arms": {
+    "area_mm2": 67,
+    "envelope_cm3": 0.73
+   },
+   "spokes": {
+    "area_mm2": 87,
+    "envelope_cm3": 1.13
+   },
+   "deck, lugs, guard arc at the deck": {
+    "area_mm2": 1825,
+    "envelope_cm3": 16.04
+   }
+  },
+  "P1_band": {
+   "need_area_mm2": 2336,
+   "support_envelope_cm3": 20.93,
+   "bridges": 178,
+   "bridge_area_mm2": 504,
+   "height_mm": 36.4,
+   "guard (outer 268 deg)": {
+    "area_mm2": 0,
+    "envelope_cm3": 0.0
+   },
+   "motor holders + legs": {
+    "area_mm2": 465,
+    "envelope_cm3": 7.18
+   },
+   "arms": {
+    "area_mm2": 68,
+    "envelope_cm3": 0.61
+   },
+   "spokes": {
+    "area_mm2": 2,
+    "envelope_cm3": 0.02
+   },
+   "deck, lugs, guard arc at the deck": {
+    "area_mm2": 1800,
+    "envelope_cm3": 13.12
+   }
+  },
+  "P2_wave_adopted": {
+   "need_area_mm2": 2335,
+   "support_envelope_cm3": 20.79,
+   "bridges": 221,
+   "bridge_area_mm2": 832,
+   "height_mm": 36.4,
+   "guard (outer 268 deg)": {
+    "area_mm2": 7,
+    "envelope_cm3": 0.03
+   },
+   "motor holders + legs": {
+    "area_mm2": 458,
+    "envelope_cm3": 7.03
+   },
+   "arms": {
+    "area_mm2": 70,
+    "envelope_cm3": 0.62
+   },
+   "spokes": {
+    "area_mm2": 2,
+    "envelope_cm3": 0.03
+   },
+   "deck, lugs, guard arc at the deck": {
+    "area_mm2": 1799,
+    "envelope_cm3": 13.08
+   }
+  },
+  "cover_indoor": {
+   "2026-11-08 roof up (raised logo)": 8.22,
+   "2026-11-12 roof down": 0.03
+  },
+  "cover_gps_2026-11-12_roof_down": 0.02,
+  "tray_T400_upright": 3.26,
+  "tray_T1200_upright": 4.49
+ },
+ "guard_P2_print_rule": {
+  "window_sill_bridges_mm": 6.25,
+  "windows_per_guard": 15,
+  "max_bulge_angle_from_vertical_deg": 32,
+  "wall_mm": 0.86,
+  "ribbon_mm": 2.2,
+  "ramp_rim_mm": 1.2,
+  "bulge_mm": 1.2,
+  "bulge_fade_phi_deg": [
+   55,
+   75
+  ]
+ }
+}
