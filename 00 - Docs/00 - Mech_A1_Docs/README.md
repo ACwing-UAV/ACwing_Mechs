@@ -12,7 +12,7 @@
 - the translucent PLA **electronics cover** with the ACwing logo (indoor and GPS versions).
 
 Since 2026-11-12 the core is **print-first**: wave propeller guards that print upside down with no support inside
-the guards and spokes, closed wire eyelets on the arms, and a flat-roof cover that prints roof-down without supports
+the guards and spokes, wire holes in the arms, and a flat-roof cover that prints roof-down without supports
 (handoff §12).
 
 It fits, all boards **1.0 mm** thick (ACwing_HW handoff §0.19–§0.20, 2026-11-08):
@@ -32,7 +32,7 @@ Baseline: indoor flight, no GPS.
 | `Prints/` | **print-ready STL files**, already oriented and placed on the bed (z = 0). Written by the assembly macro. |
 | `ACwing_Mech_A1_BoM.xlsx` / `.csv` | mechanical bill of materials per drone and per tray, masses, print settings (sheet `Print`) |
 | `STEP/` | hardware, cables and battery of the assembly (one file per tray), written by the macro |
-| `Renders/` | path-traced renders (Blender Cycles, one light, boards from the ACwing_HW KiCad models with silkscreen, 2026-11-12): drone T400 (3/4 and side), stack with the indoor / GPS cover and without it, front-left guard with cable A. The older per-tray renders (`*_hero`, `*_3D_overview`, `*_cables`) show the earlier frame and cable routes |
+| `Renders/` | path-traced renders (Blender Cycles, one light, boards from the ACwing_HW KiCad models with silkscreen, 2026-11-13): drone T400 (3/4 and side), stack with the indoor / GPS cover and without it, front-left guard with cable A, motor holder with the foot ring and the wire channel (bare core). The older per-tray renders (`*_hero`, `*_3D_overview`, `*_cables`) show the earlier frame and cable routes |
 | `Checks/` | interference checks and vibration (FE) results |
 | `ACwing_frame_A1_mechanical_handoff.md` | design notes: interfaces, checks, vibration, masses |
 
@@ -46,7 +46,7 @@ The source meshes live in `01 - Frame/` and `02 - Mounts/`. The macro
 
 | # | File (`Prints/`) | Material | Per drone | Mass |
 |---|---|---|---|---|
-| 1 | `ACwing_Mech_A1_01_Frame_core_PETG.stl` | PETG | 1 | 17.6 g |
+| 1 | `ACwing_Mech_A1_01_Frame_core_PETG.stl` | PETG | 1 | 16.7 g |
 | 2 | `ACwing_Mech_A1_02_Tray_T400_PETG.stl` | PETG | 1 (400 mAh pack) | 3.3 g |
 | 2 | `ACwing_Mech_A1_02_Tray_T800_PETG.stl` | PETG | 1 (800 mAh pack) | 3.5 g |
 | 2 | `ACwing_Mech_A1_02_Tray_T1200_PETG.stl` | PETG | 1 (1200 mAh pack) | 4.0 g |
@@ -116,9 +116,10 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
    - 4 in the tray lugs (from below);
    - 2 in the tray flow bosses.
 2. **Motors.** Push the TPU sleeves on the motors and snap them into the holders (2 CW + 2 CCW).
-   - The motors have no connector: **thread the two leads through the 3 closed eyelets** on the arm (holder → deck)
-     before soldering them to the ESC pads. Lead the M2 / M3 wires out on the side shown in the renders, then through
-     the deck slots.
+   - The motors have no connector. Before soldering, thread the two leads: out of the **floor hole** of the holder,
+     into the recess inside the foot ring, through the tunnel into the **channel of the rib** under the arm, out of
+     its teardrop hole, then **woven through the 3 holes** of the arm blade and up through the deck slot to the ESC
+     pads (handoff §13).
 3. **ESC 1S rev A** on the bosses.
 4. **Stack.** Per corner: S1 spacer (2.57 mm), damping ball with the FC rev A in its slot. With the GPS option:
    S2 spacer (3.57 mm) and the GPS rev A on top.
@@ -139,11 +140,11 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 
 | Tray | Pack | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode (FE) |
 |---|---|---|---|---|---|
-| T400 | 400 mAh, 11.5 g | ≈ 69.3 g | 2.02 | × 0.77 | 93.9 Hz |
-| T800 | 800 mAh, ≈ 22 g | ≈ 80.1 g | 1.75 | × 1.23 | 87.2 Hz |
-| T1200 | 1200 mAh, ≈ 30 g | ≈ 88.5 g | 1.58 | × 1.59 | 92.8 Hz |
+| T400 | 400 mAh, 11.5 g | ≈ 68.3 g | 2.05 | × 0.78 | 91.7 Hz |
+| T800 | 800 mAh, ≈ 22 g | ≈ 79.1 g | 1.77 | × 1.26 | 84.9 Hz |
+| T1200 | 1200 mAh, ≈ 30 g | ≈ 87.5 g | 1.60 | × 1.62 | 90.3 Hz |
 
-\* Indoor (no GPS), 1.0 mm boards, with the cover (2.8 g), 2026-11-12. FE model of 2026-11-08 (handoff §5): the
+\* Indoor (no GPS), 1.0 mm boards, with the cover (2.8 g), 2026-11-13. FE model of 2026-11-08 (handoff §5): the
 A2 core of 2026-11-08 gives 98.8 Hz in the same model. Mass budget and lightening options:
 `ACwing_Mech_A1_weight_study.md`.
 - thrust ≈ 140 g;
@@ -158,7 +159,10 @@ A2 core of 2026-11-08 gives 98.8 Hz in the same model. Mass budget and lightenin
 - **2026-11-12: first print of the A2 core** (PETG Matte, upside down) failed: the guard top rings broke while the
   supports were removed. → **print-first redesign**: wave guards with no support inside, straight spokes, closed wire
   eyelets for the connector-less motors, flat-roof cover (handoff §12).
-- **Tap test.** Do it on the first build and set the gyro notch from it. The first frame modes are 87–94 Hz in the
+- **2026-11-13: review in the slicer** → one-piece motor holders (the collar was a separate body), L1 foot ring and
+  a closed wire channel instead of the landing loop (frame 28.0 mm tall), spokes flush with the rims and in line with
+  the bridges, wire holes in the arms, arm roots cleaned up (handoff §13).
+- **Tap test.** Do it on the first build and set the gyro notch from it. The first frame modes are 85–92 Hz in the
   2026-11-08 model, inside the band that matters for the FC soft mount.
 - **ELRS receiver.** In the preliminary draft it sat on the battery-bay rail; its mount on A1 is not modelled yet
   (FC J5 plug envelope checked).

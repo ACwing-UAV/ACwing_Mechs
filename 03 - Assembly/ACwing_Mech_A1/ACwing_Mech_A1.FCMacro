@@ -6,7 +6,7 @@
 #  Mech A1 = frame A1 core + interchangeable battery tray (T400 / T800 / T1200) + stack spacers + TPU motor sleeves
 #  + translucent PLA electronics cover, for the 1S mini drone (indoor, no GPS by default) with ESC 1S rev A, FC rev A,
 #  Flow rev A (GPS rev A optional). All boards 1.0 mm thick (HW handoff 0.19 / 0.20, 2026-11-08).
-#  Frame A1 core with the wave guards of 2026-11-12 (print-first: S ribbon, 1.2 mm outward bulge, open toward the body), motors at RM 52.
+#  Frame A1 core of 2026-11-13: wave guards (print-first), one-piece motor holders with foot ring and wire channel, motors at RM 52.
 #
 #  What it does (Macro > Macros... > select this file > Execute):
 #   1. EXPORT_PRINTS: writes every printable part, already oriented for printing and placed on z = 0, into

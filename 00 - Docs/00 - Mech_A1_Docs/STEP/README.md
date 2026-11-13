@@ -1,7 +1,7 @@
 # Mech A1 – STEP
 
-All files in frame coordinates (z = 0 propeller plane, +Y forward, +X right), mm. Updated 2026-11-12 (1.0 mm boards,
-frame RM 52 with the wave guards, flat-roof cover).
+All files in frame coordinates (z = 0 propeller plane, +Y forward, +X right), mm. Updated 2026-11-13 (1.0 mm boards,
+frame RM 52 with the wave guards and one-piece motor holders, flat-roof cover).
 
 ## Assembly hardware and cables
 
@@ -18,7 +18,7 @@ interference checks and for fitting in other CAD tools:
 
 | File | Facets | Max deviation from the source mesh |
 |---|---|---|
-| `ACwing_Frame_A1_core.step` (RM 52, wave guards; 88 MB) | 80 000 | 0.40 mm (p99 0.17); volume 0.6 % under the source |
+| `ACwing_Frame_A1_core.step` (RM 52, wave guards, one-piece holders; 88 MB) | 80 000 | 0.50 mm (p99 0.16); volume 0.3 % under the source |
 | `ACwing_Tray_A1_T400/T800/T1200.step` | 12 000 | 0.24 mm (p99 0.09) |
 | `ACwing_Cover_A1_indoor.step` (without the engraved logo) | 30 000 | 0.12 mm (p99 0.08) |
 | `ACwing_Cover_A1_gps.step` (without the engraved logo) | 36 000 | 0.14 mm (p99 0.09) |

@@ -63,9 +63,12 @@ tray lips and rails) and flow board are lumped masses. Free-free frequencies aft
 | A1 RM 52, A2 + T400 | 98.8 Hz |
 | A1 RM 52, A2 + T800 | 91.8 Hz |
 | A1 RM 52, A2 + T1200 | 97.6 Hz |
-| **A1 RM 52, wave guards + T400** | **93.9 Hz** |
+| A1 RM 52, wave guards + T400 | 93.9 Hz |
 | A1 RM 52, wave guards + T800 | 87.2 Hz |
 | A1 RM 52, wave guards + T1200 | 92.8 Hz |
+| **A1 RM 52, 2026-11-13 (one-piece holders) + T400** | **91.7 Hz** |
+| A1 RM 52, 2026-11-13 + T800 | 84.9 Hz |
+| A1 RM 52, 2026-11-13 + T1200 | 90.3 Hz |
 
 The 2026-11-07 values (127 Hz with T400) came from the older model (h 0.8, battery on the whole tray) and are not
 comparable; `ACwing_Mech_A1_fe_modes_preliminary_draft.json` keeps the old reference.
