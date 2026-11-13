@@ -544,6 +544,10 @@ screws, now **M2 × 6 nylon** from below, heads recessed in the cover standoffs.
 
 ![Flow board cover](Renders/ACwing_Flow_cover_sketch.png)
 
+![Underside, T400, flow board cover](Renders/ACwing_Mech_A1_T400_below_flow_cover.png)
+
+In the renders the motor leads are the 2026-11-12 reference mesh (outside the holders); the real route is the one above.
+
 **Results** (FE as in §5, statics as in §12, supports as in §12).
 
 | | §13 (2026-11-13 morning) | **Rev R** |
