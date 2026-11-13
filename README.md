@@ -98,6 +98,21 @@ Without Git LFS, a clone gets small pointer files in place of the models.
 STEP and DXF are text and stay in plain Git, so their changes show in diffs. Renders (PNG), GLB views and
 spreadsheets (XLSX) go to Git LFS as well; Markdown, CSV, JSON and the FreeCAD macros are plain text.
 
+## License
+
+The ACwing mechanics are open hardware, licensed under the
+[CERN Open Hardware Licence Version 2 – Strongly Reciprocal](LICENSE) (**CERN-OHL-S-2.0**).
+This covers the CAD models, STEP/STL/DXF exports, FreeCAD data, renders and documentation.
+The FreeCAD macros (`*.FCMacro`) and Python scripts are licensed under the [GNU GPL v3.0 or later](LICENSE-GPL-3.0).
+
+You may use, study, modify, print and sell the parts. If you distribute modified designs, or products made from
+them, you must make the modified sources available under the same licence.
+
+Source location: <https://github.com/ACwing-UAV/ACwing_Mechs>
+
+The ACwing name and logo identify the original project: you may keep them on unmodified parts, but please remove
+them from modified designs so they are not mistaken for official ACwing parts.
+
 ## Author
 
 **Andrea Cirillo** – ACwing mechanical design.
