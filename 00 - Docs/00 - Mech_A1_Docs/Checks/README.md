@@ -8,7 +8,8 @@ cover** and its M2 × 6 flow screws:
   `flow cover - Flow plug` 1.77 mm, `flow cover - cable C` 3.9 mm, `flow cover - tray` 0.40 mm; `battery - core`
   0.47 mm (T400), 0.24 mm (T800, T1200); `core - ESC` 0.0 is the boss contact (deck ribs 0.96 mm from the ESC parts);
 - FE modes: `ACwing_Mech_A1_fe_modes_<tray>.json` (the tray is now modelled screwed on its lugs; see `note_rev_R`);
-- print study: entries `R_2026-11-13` (FE, statics, supports) and `mesh_R`.
+- print study: entries `R_2026-11-13` (FE, statics, supports) and `mesh_R`;
+- motor leads on the rev R route: 0 mm³ against every part (no longer an interface with the core).
 
 The text further down describes the 2026-11-12 runs; the method is unchanged.
 

@@ -7,7 +7,6 @@
  "unexpected_overlaps_mm3": {},
  "assembly_interfaces_mm3": {
   "core x sleeves": 7.9512,
-  "core x leads": 41.3591,
   "core x hw_inserts": 21.4152,
   "tray x battery": 0.5262,
   "tray x hw_flow_inserts": 5.3647,
@@ -15,6 +14,7 @@
   "sleeves x motors": 182.8005,
   "motors x props_front": 14.3893,
   "motors x props_rear": 14.4573,
+  "motors x leads": 0.2767,
   "motors x prop_disc_0": 7.4508,
   "motors x prop_disc_1": 7.4349,
   "motors x prop_disc_2": 7.4892,
@@ -23,7 +23,7 @@
   "props_front x prop_disc_3": 1419.4685,
   "props_rear x prop_disc_0": 1420.5511,
   "props_rear x prop_disc_2": 1420.6901,
-  "leads x ESC": 0.6009,
+  "leads x ESC": 0.0002,
   "FC x hw_grommets": 39.5472,
   "hw_inserts x hw_stack_screws": 8.762,
   "hw_inserts x hw_tray_screws": 8.0881,
@@ -125,6 +125,6 @@
  "notes_rev_R": [
   "core - ESC 0.0 is the contact on the stack bosses (interface); away from the bosses the deck ribs stay 0.96 mm under the lowest ESC part.",
   "flow cover - sensor cones 0.8 mm: the PMW3901 (42 deg) and VL53L1X (27 deg) cones pass the cover openings with 0.8 mm margin.",
-  "core x leads is an interface with the reference motor-lead mesh, which still follows the 2026-11-12 route (the real leads run in the holder channel and the arm holes)."
+  "motor leads on the rev R route (floor hole, rib channel, 3 arm holes, under the blade, rail-cap hole, deck slot): 0 mm3 against the core and every other part."
  ]
 }

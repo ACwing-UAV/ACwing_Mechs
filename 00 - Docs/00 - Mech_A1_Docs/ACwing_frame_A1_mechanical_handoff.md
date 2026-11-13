@@ -60,7 +60,7 @@ rev R ring beam and longer holders). The flow board cover (0.67 g) is an added p
 | Guards | **wave guards** (2026-11-12, §12): 0.86 mm wall bulged 1.2 mm outward, top lip 1.2 × 0.8, lower rim 1.28 × 1.6 (360°), S ribbon 2.2 mm between them with 15 windows; open toward the body for φ ±46° (φ = 0 toward the frame centre) with 45° ramps and a 1.2 mm rim; bottom bridges between neighbouring guards. Before: A2 rings (2026-11-08, §11) |
 | Arms | 2.2 mm blades on the diagonals, from the motor holder into the rail cap; top z −6.2 → −5.6, bottom z −14.75 → −15.0 (rev R) |
 | Spokes | straight, 1.28 × 2.5 mm, top flush with the lower rim, 45° gusset on the holder, three per guard; on the rear guards one inner spoke is turned away to clear the T1200 corners; the ±45° spokes line up with the bridges between the guards (2026-11-13) |
-| Motor leads path | the motors have no connector: floor hole → recess in the foot ring → channel Ø2.0 in the rib under the arm → teardrop exit → woven through 3 teardrop holes Ø1.9 in the arm blade → 4th teardrop hole through the rail cap → deck slot; thread before soldering (2026-11-13; closed eyelets on 2026-11-12) |
+| Motor leads path | the motors have no connector: floor hole → recess in the foot ring → channel Ø2.0 in the rib under the arm → teardrop exit → woven through 3 teardrop holes Ø1.9 in the arm blade → once under the blade at the root → hole through the rail cap → deck slot; thread before soldering (2026-11-13; closed eyelets on 2026-11-12) |
 | Motor leads M2 / M3 | they run along the arm (path above) and enter the deck slot from below. The ESC pads are unchanged. |
 | Deck | no rear notch; cable C slot behind the rear grommets, board (u 20.5 … 23.7, v −13.5 … −10.1) |
 | Motor holders | one revolved body (2026-11-13): wall 0.85 mm from the foot to z −4.3 with a 45° top chamfer, floor 0.7 mm with the Ø3.4 lead hole, oval snap windows at ±90°; **L1 foot ring**, foot at **z −30.0** (rev R; −25.5 in §13) |
@@ -546,7 +546,16 @@ screws, now **M2 × 6 nylon** from below, heads recessed in the cover standoffs.
 
 ![Underside, T400, flow board cover](Renders/ACwing_Mech_A1_T400_below_flow_cover.png)
 
-In the renders the motor leads are the 2026-11-12 reference mesh (outside the holders); the real route is the one above.
+**Motor-lead route (rev R, as in the renders and in `03 - Assembly/ACwing_Mech_A1/reference/ACwing_Ref_motor_leads_x4.stl`).**
+Two wires per motor (Ø0.7 mm with insulation), 83–85 mm from the motor to the ESC pads:
+1. out of the motor bottom, through the floor hole (Ø1.7) into the recess inside the foot ring;
+2. through the tunnel (2 × 1 mm) into the closed channel of the rib, up to the teardrop exit (z −16.2) on the lead side;
+3. woven through the 3 teardrop holes of the arm blade (in and out on alternate sides);
+4. after the 3rd hole the wires are on the side away from the rail: they wrap once under the blade at the arm root;
+5. through the hole in the rail cap (from outside, z −10.8), up through the deck slot, around the ESC board edge to the pads.
+The route clears the core, the boards, plugs, cables and cover (0 mm³); it touches only the motor (where the wires leave it) and the ESC pads.
+
+![Motor leads along the arm](Renders/ACwing_Mech_A1_motor_leads_arm.png)
 
 **Results** (FE as in §5, statics as in §12, supports as in §12).
 
@@ -580,8 +589,6 @@ The core is 1.45 g heavier than in §13 (ring beam, rail caps, 4.5 mm longer hol
 - Battery – frame 0.47 mm (T400), 0.24 mm (T800, T1200) (0.18 / 0.03 / 0.02 mm in §13).
 - Deck ribs – ESC parts 0.96 mm; tray tabs on flat lug faces (0 overlap).
 - Flow cover: optical cones 0.80 mm from the openings, Flow J1 plug 1.77 mm, cable C 3.9 mm, tray 0.40 mm.
-- The reference mesh of the motor leads still follows the 2026-11-12 route (it crosses the core); the real leads run in
-  the holder channel and the arm holes as described above.
 
 **Files.** Core: `01 - Frame/Frame_A1/ACwing_Frame_A1_core.stl` (source), `Prints/ACwing_Mech_A1_01_Frame_core_PETG.stl`
 (upside down), `STEP/Parts/ACwing_Frame_A1_core.step` (80k facets, reference only: print from the STL). Flow cover:
