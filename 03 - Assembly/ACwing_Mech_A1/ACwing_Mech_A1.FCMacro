@@ -6,7 +6,7 @@
 #  Mech A1 = frame A1 core + interchangeable battery tray (T400 / T800 / T1200) + stack spacers + TPU motor sleeves
 #  + translucent PLA electronics cover, for the 1S mini drone (indoor, no GPS by default) with ESC 1S rev A, FC rev A,
 #  Flow rev A (GPS rev A optional). All boards 1.0 mm thick (HW handoff 0.19 / 0.20, 2026-11-08).
-#  Frame A1 core with the A2 guard rings (top ring open toward the body, ramps down to the bottom ring), motors at RM 52.
+#  Frame A1 core with the wave guards of 2026-11-12 (print-first: S ribbon, 1.2 mm outward bulge, open toward the body), motors at RM 52.
 #
 #  What it does (Macro > Macros... > select this file > Execute):
 #   1. EXPORT_PRINTS: writes every printable part, already oriented for printing and placed on z = 0, into
@@ -330,7 +330,7 @@ def build(root, here, D, docs):
             continue
         hx = w['col'].lstrip('#'); col = tuple(int(hx[i:i + 2], 16) / 255.0 for i in (0, 2, 4))
         param.append(add(doc, G['Cables'], 'Cable_%s_pin%d_%s' % (w['cable'], w['pin'], w['sig']), tube(w['pts'], w['r']), col))
-    # ---- cover (translucent PLA, 2026-11-08: canopy with concave sides and a wavy skirt) ----
+    # ---- cover (translucent PLA, 2026-11-12: flat roof with a 45 deg chamfer, concave sides, wavy skirt) ----
     add_mesh(doc, G['Cover'], os.path.join(root, COVERS['gps' if WITH_GPS else 'indoor']),
              'Cover_A1_%s_PLA_translucent' % ('gps' if WITH_GPS else 'indoor'), (0.85, 0.92, 0.97), 60)
     doc.recompute()

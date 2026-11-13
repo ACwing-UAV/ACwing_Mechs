@@ -1,21 +1,40 @@
 {
- "date": "2026-11-08",
- "case": "A1 core RM 52, A2 guard rings, tray T800, 1.0 mm stack",
+ "date": "2026-11-12",
+ "case": "A1 core RM 52, wave guards (2026-11-12), tray T800, 1.0 mm stack",
  "model": "voxel hex8 h 0.6 mm, PETG E 2000 MPa; motors 4 x 4.0 g on the holders, stack + cover 15.0 g on the 4 bosses, battery on the tray lips and rails (latch tongue excluded), flow board 1.5 g on its bosses; free-free",
  "modes_Hz": [
-  91.8,
-  142.7,
+  87.2,
+  134.5,
+  148.3,
   161.2,
-  166.0,
-  179.0,
-  182.6,
-  189.6,
-  204.5
+  164.8,
+  168.0,
+  172.7,
+  182.4
  ],
  "first_mode": "saddle: diagonal motors in phase",
  "reference_same_model": {
-  "case": "A1 core 2026-11-01 (RM 51, closed rings) + T400",
-  "modes_Hz": [
+  "A2 ring guards 2026-11-08": [
+   91.8,
+   142.7,
+   161.2,
+   166.0,
+   179.0,
+   182.6,
+   189.6,
+   204.5
+  ],
+  "P1 band guards (proposal, not adopted)": [
+   87.4,
+   137.2,
+   152.4,
+   163.1,
+   169.5,
+   170.1,
+   178.8,
+   182.6
+  ],
+  "A1 2026-11-01 (RM 51, closed rings) + T400": [
    102.5,
    152.9,
    160.5,

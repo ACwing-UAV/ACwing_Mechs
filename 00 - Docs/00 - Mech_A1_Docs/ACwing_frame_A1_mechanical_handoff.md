@@ -8,7 +8,8 @@
 **Date:** 2026-11-01, **updated 2026-11-06** (§9: rev A stack with 1.6 mm boards, ACwing_Mechs issue #2; electronics cover)
 **2026-11-07** (§10: ESC J1 on the front edge then toward the front corner, cable C and flow board per the HW handoff §0.14–§0.17,
 motors back at RM 51; weight study) and **2026-11-08** (§11: boards back to 1.0 mm, ESC J1 at (−10.5, +16.85) per the HW
-handoff §0.19–§0.20; new **A2 guard rings**, motors at **RM 52**, new electronics cover).
+handoff §0.19–§0.20; new **A2 guard rings**, motors at **RM 52**, new electronics cover) and **2026-11-12** (§12: print-first
+redesign after the first print: **wave guards**, straight spokes, closed wire eyelets, flat-roof cover).
 **Follows:** the preliminary-draft mechanical answer and electronics reply, in ACwing_HW `00 - Docs/04 - System_Docs`. The stack
 (ESC 1S rev A / FC rev A / GPS rev A option), the bosses, the inserts, the corner columns and cables A/B come from
 the preliminary draft unchanged.
@@ -22,12 +23,12 @@ not a new frame.
 
 | Tray | Battery (1S LiPo) | Battery size W × L × H | Tray mass | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode |
 |---|---|---|---|---|---|---|---|
-| T400 | 400 mAh, 11.5 g | 20 × 40 × 8 | 3.30 g | ≈ 67.4 g | 2.08 | × 0.80 | 98.8 Hz** |
-| T800 | 800 mAh, ≈ 22 g | 25 × 45 × 9 | 3.55 g | ≈ 78.2 g | 1.79 | × 1.28 | 91.8 Hz** |
-| T1200 | 1200 mAh, ≈ 30 g | 30 × 64 × 8 | 4.04 g | ≈ 86.6 g | 1.62 | × 1.64 | 97.6 Hz** |
+| T400 | 400 mAh, 11.5 g | 20 × 40 × 8 | 3.30 g | ≈ 69.3 g | 2.02 | × 0.77 | 93.9 Hz** |
+| T800 | 800 mAh, ≈ 22 g | 25 × 45 × 9 | 3.55 g | ≈ 80.1 g | 1.75 | × 1.23 | 87.2 Hz** |
+| T1200 | 1200 mAh, ≈ 30 g | 30 × 64 × 8 | 4.04 g | ≈ 88.5 g | 1.58 | × 1.59 | 92.8 Hz** |
 
-\* Indoor configuration (ESC 1S rev A + FC rev A + Flow rev A, no GPS), boards 1.0 mm, electronics cover (3.0 g),
-2026-11-08. Mass budget and lightening options: `ACwing_Mech_A1_weight_study.md`.
+\* Indoor configuration (ESC 1S rev A + FC rev A + Flow rev A, no GPS), boards 1.0 mm, electronics cover (2.8 g),
+2026-11-12. Mass budget and lightening options: `ACwing_Mech_A1_weight_study.md`.
 \** FE model of 2026-11-08 (§5, battery lumped on the tray lips): the A1 design of 2026-11-01 gives 102.5 Hz in the
 same model, so these values are not comparable with the 127 Hz of the older model.
 - Thrust ≈ 140 g.
@@ -35,11 +36,12 @@ same model, so these values are not comparable with the 127 Hz of the older mode
 - The reference is the preliminary draft (battery bay fused to the frame) with the 400 mAh pack, ≈ 58 g.
 
 Cost of interchangeability, compared with the preliminary draft (frame 15.55 g):
-- core 15.55 g (RM 52, A2 guard rings, 2026-11-08; 14.95 g at RM 51 with the closed rings);
+- core 17.63 g (RM 52, wave guards, 2026-11-12): 2.1 g more than the frame of the preliminary draft (15.55 g with the
+  A2 rings of 2026-11-08, 14.95 g at RM 51 with the closed rings);
 - tray as in the table above;
 - 4 brass inserts + 4 M2 × 5 A4 screws ≈ 1.2 g (estimate, see the BoM; ≈ 0.85 g with titanium screws).
 
-Net mass overhead: **+4.5 g (T400), +4.7 g (T800), +5.2 g (T1200)**.
+Net mass overhead: **+6.6 g (T400), +6.8 g (T800), +7.3 g (T1200)** (2.1 g of it is the print-first guards).
 
 ## 1. Core A1 (changes from the preliminary draft)
 
@@ -51,13 +53,14 @@ Net mass overhead: **+4.5 g (T400), +4.7 g (T800), +5.2 g (T1200)**.
 | Knee braces | blade braces Ø2.4 × 3 mm from each arm (radius 25, z −15) to the nearest lug. They give back the stiffness the bay rails provided in the preliminary draft. |
 | Side spars | 3 mm wide spar on each side, joining the two lugs of that side to the deck |
 | Motors | at **RM 52** from the frame centre (frame (±36.77, ±36.77)) since 2026-11-08 (§11); RM 51 before |
-| Guard rings | **A2** (2026-11-08, §11): bottom ring 360°; top ring only on the outer half (φ 90…270°, φ = 0 toward the frame centre); from φ ±90° it ramps down to the bottom ring at φ ±32° (ramps 1.2 × 1.7 mm); ribs at ±90° and ±150°; bottom bridges between neighbouring rings, no top bridges |
+| Guards | **wave guards** (2026-11-12, §12): 0.86 mm wall bulged 1.2 mm outward, top lip 1.2 × 0.8, lower rim 1.28 × 1.6 (360°), S ribbon 2.2 mm between them with 15 windows; open toward the body for φ ±46° (φ = 0 toward the frame centre) with 45° ramps and a 1.2 mm rim; bottom bridges between neighbouring guards. Before: A2 rings (2026-11-08, §11) |
 | Arms | start at radius 23.5, 10 / 3.5 mm deep |
-| Rear spokes | the inner spokes of the rear rings are at 75° / −75°, clear of the T1200 corners |
+| Spokes | straight, at the level of the lower rim (1.28 × 2.5 mm), three per guard; on the rear guards one inner spoke is turned away to clear the T1200 corners (2026-11-12) |
+| Wire eyelets | 12 closed eyelets on the arms, 3 per arm (hole ≈ 1.6 mm, 45° roof): the motors have no connector, so the leads are threaded before soldering (2026-11-12) |
 | Motor leads M2 / M3 | they leave the holder on the other side of the arm (`LEAD_SIDE`) and enter the deck slot from below. Lead z under the deck is −8.65. The ESC pads are unchanged. |
 | Deck | no rear notch; cable C slot behind the rear grommets, board (u 20.5 … 23.7, v −13.5 … −10.1) |
 | Motor holders | outer wall 0.2 mm thinner where nothing is attached (2026-11-08); floor 1.2 mm |
-| Mass | 15.55 g PETG; 132.9 × 132.9 × 38.0 mm |
+| Mass | 17.63 g PETG (solid); 134.8 × 134.8 × 36.4 mm |
 
 ## 2. Trays
 
@@ -103,7 +106,7 @@ Since 2026-11-08 (§11), boards 1.0 mm.
 
 ## 4. Checks (mesh booleans, mm³; clearances as minimum distance between the models)
 
-Rerun on 2026-11-08 (§11: 1.0 mm boards, RM 52, A2 guard rings, new cover), configurations T400 indoor, T400 GPS,
+Rerun on 2026-11-12 (§12: 1.0 mm boards, RM 52, wave guards, flat-roof cover), configurations T400 indoor, T400 GPS,
 T800 indoor, T1200 indoor. Parts: core, tray, battery and its insertion path, sleeves, motors, propeller discs, ESC /
 FC / GPS / Flow from the ACwing_HW STEP models (every part), plug housings, J5 / J6 and both USB-C plug envelopes,
 every wire, hardware (inserts, spacers, damping balls, screws), optical cones of the flow board, cover.
@@ -119,11 +122,14 @@ and rails (the latch tongue carries none), flow board 1.5 g on its bosses.
 | Case | First mode ("saddle", diagonal motors in phase) | 2nd mode |
 |---|---|---|
 | A1 2026-11-01 (RM 51, closed rings) + T400, same model | 102.5 Hz | 152.9 Hz |
-| **A1 RM 52, A2 guard rings + T400** | **98.8 Hz** | 153.5 Hz |
+| A1 RM 52, A2 guard rings + T400 | 98.8 Hz | 153.5 Hz |
 | A1 RM 52, A2 + T800 | 91.8 Hz | 142.7 Hz |
 | A1 RM 52, A2 + T1200 | 97.6 Hz | 152.7 Hz |
+| **A1 RM 52, wave guards (2026-11-12) + T400** | **93.9 Hz** | 141.1 Hz |
+| A1 RM 52, wave guards + T800 | 87.2 Hz | 134.5 Hz |
+| A1 RM 52, wave guards + T1200 | 92.8 Hz | 143.4 Hz |
 
-−3.7 Hz from the 2026-11-01 design: about −1.4 Hz from the open top rings and the rest from the 1 mm longer arms
+2026-11-12: the wave guards are heavier (+2.1 g) and the first mode drops 4.9 Hz (§12). On 2026-11-08: −3.7 Hz from the 2026-11-01 design: about −1.4 Hz from the open top rings and the rest from the 1 mm longer arms
 (guard-ring study, `Checks/ACwing_Mech_A1_guard_ring_study.json`). Up to 2026-11-07 the battery was lumped on the
 whole tray and h was 0.8 mm; that model gave 127 Hz for the RM 51 frame, so only the differences matter.
 
@@ -145,19 +151,19 @@ Full list: `ACwing_Mech_A1_BoM.xlsx`.
 
 ## 7. Printing
 
-PETG with a **0.4 mm nozzle** for core and trays:
+Bambu Lab A1 (or similar), **PETG Basic or PETG HF** (not Matte) with a **0.4 mm nozzle** for core and trays (§12):
 - 0.42–0.45 mm lines, Arachne walls;
 - 0.12–0.16 mm layers, 3 perimeters;
 - 30–40 % gyroid infill.
 
 Sleeves in TPU 95A with the same nozzle. Print a test coupon for the Ø2.8 insert seats.
 
-Electronics cover in translucent PLA, upright (skirt corners on the bed, logo up), tree supports under the roof and the skirt arches:
+Electronics cover in translucent PLA, roof down (flat roof on the bed), no supports (2026-11-12):
 see `02 - Mounts/Electronics_Cover_A1/README.md`.
 
-- **Core:** print it upside down, with the guard-ring tops on the bed and a 3–5 mm brim.
-  - Tree supports go under the deck (≈ 9 mm), the stack bosses and the motor holders.
-  - Upside down there is about 10 % less overhang than upright, and the supports are much shorter (upright, the deck is 28 mm up).
+- **Core:** print it upside down, with the guard top lips on the bed and a 3–5 mm brim.
+  - Tree supports (build plate only, 40°) go under the deck (≈ 9 mm), the stack bosses, the motor holders and the arms.
+  - **None in the guards and spokes** (§12): block them if the slicer adds any. Bridges at 100 % fan, thick bridges on.
 - **Trays:** print them upright, with the flow bosses on the bed.
   - Tree supports go under the plate, under the rear rail ends (behind the plate) and under the four outboard tabs.
   - The battery cavity stays free of supports.
@@ -172,7 +178,7 @@ see `02 - Mounts/Electronics_Cover_A1/README.md`.
 | `02 - Mounts/Stack_Spacers/`, `02 - Mounts/Motor_Sleeves/` | spacers S1/S2 (1.0 mm boards), TPU sleeves (RM 52) |
 | `02 - Mounts/Electronics_Cover_A1/ACwing_Cover_A1_indoor/gps.stl` | electronics cover, translucent PLA, source meshes |
 | `03 - Assembly/ACwing_Mech_A1/ACwing_Mech_A1.FCMacro` | FreeCAD assembly; writes the print files to `00 - Docs/00 - Mech_A1_Docs/Prints/` |
-| `00 - Docs/00 - Mech_A1_Docs/` | print files, BoM, STEP, renders, checks (incl. the guard-ring study), weight study, this note |
+| `00 - Docs/00 - Mech_A1_Docs/` | print files, BoM, STEP, renders, checks (incl. the guard-ring and print studies), weight study, this note |
 
 ## 9. Rev A stack, 1.6 mm boards (ACwing_Mechs issue #2, 2026-11-06)
 
@@ -274,8 +280,6 @@ New guard design **A2** (proposed by Andrea Cirillo), on all four rings:
 
 The inner arc of the guard faces the body, so it does not protect anything. Around the outer half nothing changes.
 
-![Front-left A2 guard with cable A](Renders/ACwing_Mech_A1_guard_A2_cable_A.png)
-
 | Variant (guard-ring study, RM 51, core + T400) | Core | 1st mode | 2nd mode | Side push 5 N at 90° | Outer push 5 N at 180° |
 |---|---|---|---|---|---|
 | Closed rings (A1) | 15.44 g | 118.5 Hz | 152.3 Hz | 9.0 mm | 9.0 mm |
@@ -335,3 +339,71 @@ Mass 15.55 g. The old bottom bridges stay merged with the new ones, so the side 
 
 **For HW rev B:** keep the low connectors near the board corners; the A2 rings leave room above the board edges, but the
 propeller disc is 27.5 mm from each motor axis.
+
+## 12. Print-first redesign: wave guards, closed wire eyelets, flat-roof cover (2026-11-12)
+
+**Why.** The first print of the 2026-11-08 core (Bambu Lab A1, Bambu PETG Matte, upside down) failed: the top rings
+of the A2 guards hung over air and needed supports, and they broke when the supports were removed. Printed masses: core
+13 g, tray T400 4 g. The rear side has no bracket between the arms and the deck on purpose: it is the insertion path of
+the battery. Goals of the redesign, for a Bambu Lab A1 with a 0.4 mm nozzle: no supports inside the guards, the same
+or better stiffness, the same look. Three proposals were compared; the adopted guard is the wave proposed by Andrea
+Cirillo.
+
+**Wave guards** (all four, φ = 0 toward the frame centre):
+- **wall**: one 0.86 mm shell (2 lines), from the lower rim (z −6.45) to the top lip (z 2.5), **bulged 1.2 mm outward**
+  with a sine meridian (at most 32° from vertical, so it prints without support). The bulge fades to a straight wall for
+  |φ| 75 → 55° (clearance to the ESC USB-C plug);
+- **top lip** 1.2 × 0.8 mm (r 28.6…29.8): the first layer on the bed; **lower rim** 1.28 × 1.6 mm, 360°, with the
+  bottom bridges to the neighbouring guards;
+- **S ribbon**, 2.2 mm tall, between them: it rests on the lower rim (low plateaus, one on the 180° spoke) and merges
+  into the top lip (high plateaus), with smoothstep flanks like the cover skirt. Period 19.3 mm: 7 upper and 8 lower
+  windows per guard;
+- **print rule**: with the core upside down every window sill is either a 45° slope or a straight **6.2 mm bridge**
+  anchored at both ends; small 45° gussets at the foot of the lower windows shorten their bridge from 12 to 6.2 mm;
+- **open toward the body** for |φ| < 46°: the last flank of the ribbon is the ramp, straightened to 45°, with a
+  **1.2 mm deep rim** (r 28.5…29.7). Only the lower rim stays above the board edges, as with the A2 rings;
+- **spokes**: straight, 1.28 × 2.5 mm at the level of the lower rim, printed as 18.6 mm bridges; the motor-holder
+  collars are raised to meet them.
+
+![Front-left guard with cable A](Renders/ACwing_Mech_A1_guard_cable_A.png)
+
+**Closed wire eyelets.** The 8520 motors have no connector, so the open wire clips are closed: 12 eyelets, 3 per arm,
+each with a 45° roof from the arm side to the clip finger (hole about 1.6 mm). Thread both leads through them before
+soldering the leads to the ESC pads.
+
+**Cover.** Flat roof with a 1.8 mm 45° chamfer, logo engraved 0.4 mm; it prints roof-down with no support (indoor
+2.79 g, GPS 4.27 g). Concave sides, wavy skirt, posts and screws unchanged.
+
+**Results** (FE as in §5; statics: 5 N on a 1.6 mm patch of the front-left guard, stack bosses clamped; supports:
+45° overhang analysis of the core upside down, straight strips up to 2.6 × 22 mm anchored at both ends count as
+bridges). Raw data: `Checks/ACwing_Mech_A1_print_study.json`.
+
+| | A2 (2026-11-08) | **Wave (2026-11-12)** |
+|---|---|---|
+| Core, solid | 15.55 g | **17.63 g** |
+| Frame | 132.9 × 132.9 × 38.0 mm | 134.8 × 134.8 × 36.4 mm |
+| First / second mode, T400 | 98.8 / 153.5 Hz | **93.9 / 141.1 Hz** |
+| First mode, T800 / T1200 | 91.8 / 97.6 Hz | 87.2 / 92.8 Hz |
+| Outer push 5 N (φ 180) | 7.96 mm, 25.8 MPa | **3.57 mm, 13.0 MPa** |
+| Side push 5 N (φ 90) | 7.89 mm | 4.99 mm |
+| Vertical 5 N at φ 90 / φ 60 | 13.65 / 3.87 mm | 9.06 / 3.52 mm |
+| Bottom push 5 N | 1.60 mm | 0.97 mm |
+| Push 5 N on the ramp | 0.16 mm | 1.97 mm |
+| Motor thrust 2 N | 1.04 mm | 1.07 mm |
+| Support envelope in the guards + spokes | 2.9 cm³ | **0.06 cm³** |
+| Support envelope, whole core | 28.2 cm³ | 20.8 cm³ |
+
+The guards are stiffer than the A2 rings everywhere (×2.2 at the outer side, ×1.1 at φ 60) except at the ramp (a 5 N push bends it less than 2 mm). The
+first mode drops 4.9 Hz with the heavier guards and stays in the 60–130 Hz band of the FC soft mount: do the tap test.
+Proposal P1 (band guard with pointed arches and a 45° flare, 18.17 g) was stiffer at the side (3.57 mm) but heavier;
+see the weight study §2b.
+
+**Checks** (§4, rerun 2026-11-12, T400 indoor / GPS, T800, T1200): 0 unexpected overlaps. Clearances: cable A – propeller disc 1.37 mm, – frame 4.55 mm, – cover 0.51 mm; cable C – frame 0.51 mm, – tray 0.47–0.53 mm; cable D – frame 0.48 mm; frame – propeller disc 1.00 mm; FC USB-C plug – frame 1.20 mm, ESC USB-C plug – frame 0.77 mm (the bulge fades to a straight wall near the plugs); cover – FC 1.36 mm.
+
+**Printing (Bambu Lab A1, 0.4 mm nozzle).** PETG Basic or PETG HF, not Matte. Core upside down as exported, guard top
+lips on the plate, textured PEI, 3–5 mm brim; tree supports on the build plate only (40°) under the deck, holders and
+arms; none in the guards and spokes (block them if the slicer adds any); bridges at 100 % fan with thick bridges on.
+Full settings in the `Print` sheet of the BoM.
+
+**Mass.** Drone T400 indoor ≈ 69.3 g (+1.9 g: core +2.08 g, cover −0.23 g), T/W 2.02. The printed core should weigh
+about 15 g.
