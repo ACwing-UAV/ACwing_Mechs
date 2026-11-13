@@ -1,5 +1,17 @@
 # Mech A1 – checks
 
+## Rev R (2026-11-13 evening)
+
+All the files below were rerun on the **rev R** core (parametric rebuild, §14 of the handoff) with the **flow board
+cover** and its M2 × 6 flow screws:
+- assembly checks: 0 unexpected overlaps in the four runs; new clearances `flow cover - sensor cones` 0.80 mm,
+  `flow cover - Flow plug` 1.77 mm, `flow cover - cable C` 3.9 mm, `flow cover - tray` 0.40 mm; `battery - core`
+  0.47 mm (T400), 0.24 mm (T800, T1200); `core - ESC` 0.0 is the boss contact (deck ribs 0.96 mm from the ESC parts);
+- FE modes: `ACwing_Mech_A1_fe_modes_<tray>.json` (the tray is now modelled screwed on its lugs; see `note_rev_R`);
+- print study: entries `R_2026-11-13` (FE, statics, supports) and `mesh_R`.
+
+The text further down describes the 2026-11-12 runs; the method is unchanged.
+
 ## Assembly checks
 
 Files: `ACwing_Mech_A1_assembly_checks_<tray>_<indoor|gps>.json` (2026-11-12).

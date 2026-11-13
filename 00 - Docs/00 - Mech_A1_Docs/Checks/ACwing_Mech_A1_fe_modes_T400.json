@@ -1,16 +1,16 @@
 {
  "date": "2026-11-13",
- "case": "A1 core RM 52 of 2026-11-13 (wave guards, one-piece holders with foot ring), tray T400, 1.0 mm stack",
+ "case": "A1 core rev R of 2026-11-13 (parametric rebuild, ring beam, 18.12 g), tray T400, 1.0 mm stack",
  "model": "voxel hex8 h 0.6 mm, PETG E 2000 MPa; motors 4 x 4.0 g on the holders, stack + cover 15.0 g on the 4 bosses, battery on the tray lips and rails (latch tongue excluded), flow board 1.5 g on its bosses; free-free",
  "modes_Hz": [
-  91.7,
-  135.8,
-  145.2,
-  148.1,
-  158.2,
-  160.3,
-  160.6,
-  192.6
+  90.5,
+  139.7,
+  148.5,
+  158.5,
+  162.7,
+  163.1,
+  173.0,
+  205.0
  ],
  "first_mode": "saddle: diagonal motors in phase",
  "reference_same_model": {
@@ -43,6 +43,30 @@
    186.5,
    196.8,
    224.6
+  ],
+  "2026-11-13 morning (section 13), first two modes": [
+   91.7,
+   135.8
   ]
- }
+ },
+ "static_mm": {
+  "outer_side_push_5N": 4.239,
+  "outer_side_push_bottom_5N": 0.778,
+  "side90_push_5N": 5.285,
+  "side90_down_5N": 9.183,
+  "side60_down_5N": 3.841,
+  "bridge45_push_5N": 1.86,
+  "motor_thrust_2N": 0.996
+ },
+ "vm_p99_9_MPa": {
+  "outer_side_push_5N": 13.8,
+  "outer_side_push_bottom_5N": 3.17,
+  "side90_push_5N": 18.27,
+  "side90_down_5N": 17.65,
+  "side60_down_5N": 11.71,
+  "bridge45_push_5N": 11.93,
+  "motor_thrust_2N": 3.53
+ },
+ "tray_joint": "tray screwed to the 4 lugs: modelled as bonded on \u00d85.2 pads at the lug faces (z -9.0); before rev R the bond came from voxel contact only",
+ "note_rev_R": "Rev R: deck ribs + raised rails form a closed ring beam under the stack."
 }

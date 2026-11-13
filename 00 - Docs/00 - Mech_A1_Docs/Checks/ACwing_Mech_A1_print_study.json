@@ -1,6 +1,6 @@
 {
  "date": "2026-11-13",
- "what": "print-first redesign for a Bambu Lab A1 (0.4 mm nozzle), after the first print of the A2 core failed (guard top rings broke when the supports were removed). Compared at RM 52: A2 ring guards (2026-11-08), proposal P1 (band guard, pointed arches, 45 deg flare) and the adopted P2 wave guard (S ribbon 2.2 mm, 1.2 mm outward bulge, 45 deg ramps with a 1.2 mm rim, closed wire eyelets on the arms). 2026-11-13: P3 = P2 with one-piece motor holders (foot ring, wire channel, no landing loop), spokes flush with the rim top, rim-section bridges, wire holes in the arms, remeshed arm roots (adopted).",
+ "what": "print-first redesign for a Bambu Lab A1 (0.4 mm nozzle), after the first print of the A2 core failed (guard top rings broke when the supports were removed). Compared at RM 52: A2 ring guards (2026-11-08), proposal P1 (band guard, pointed arches, 45 deg flare) and the adopted P2 wave guard (S ribbon 2.2 mm, 1.2 mm outward bulge, 45 deg ramps with a 1.2 mm rim, closed wire eyelets on the arms). 2026-11-13: P3 = P2 with one-piece motor holders (foot ring, wire channel, no landing loop), spokes flush with the rim top, rim-section bridges, wire holes in the arms, remeshed arm roots (adopted). Rev R (2026-11-13 evening): the core regenerated from a parametric plan as one smooth body (no mesh surgery), ring beam (deck ribs + raised rails with round caps), holder foot at z -30, clean STL for the slicer (adopted).",
  "fe": {
   "model": "voxel hex8 h 0.6 mm, PETG E 2000 MPa; core + tray, motors 4 x 4.0 g, stack + cover 15.0 g, battery on the tray lips, flow 1.5 g; free-free",
   "A2_2026-11-08": {
@@ -141,6 +141,59 @@
      160.1,
      160.9
     ]
+   }
+  },
+  "R_2026-11-13": {
+   "core_g": 18.12,
+   "modes_Hz": {
+    "T400": [
+     90.5,
+     139.7,
+     148.5,
+     158.5,
+     162.7,
+     163.1,
+     173.0,
+     205.0
+    ],
+    "T800": [
+     76.7,
+     119.0,
+     133.6,
+     139.8,
+     145.4,
+     154.8,
+     161.4,
+     161.9
+    ],
+    "T1200": [
+     62.7,
+     75.7,
+     91.4,
+     134.1,
+     139.6,
+     144.9,
+     146.1,
+     155.6
+    ]
+   },
+   "static_mm": {
+    "outer_side_push_5N": 4.239,
+    "outer_side_push_bottom_5N": 0.778,
+    "side90_push_5N": 5.285,
+    "side90_down_5N": 9.183,
+    "side60_down_5N": 3.841,
+    "bridge45_push_5N": 1.86,
+    "motor_thrust_2N": 0.996
+   },
+   "vm_p99_9_MPa": {
+    "outer_side_push_5N": 13.8,
+    "outer_side_push_bottom_5N": 3.17,
+    "side90_push_5N": 18.27,
+    "side90_down_5N": 17.65,
+    "side60_down_5N": 11.71,
+    "bridge45_push_5N": 11.93,
+    "motor_thrust_2N": 3.53
    }
   }
  },
@@ -352,5 +405,39 @@
    55,
    75
   ]
+ },
+ "supports": {
+  "R_2026-11-13": {
+   "need_area_mm2": 2731,
+   "support_envelope_cm3": 24.16,
+   "bridges": 110,
+   "bridge_area_mm2": 735,
+   "height_mm": 32.5,
+   "guard (outer 268 deg)": {
+    "area_mm2": 31,
+    "envelope_cm3": 0.14
+   },
+   "motor holders + legs": {
+    "area_mm2": 282,
+    "envelope_cm3": 6.17
+   },
+   "arms": {
+    "area_mm2": 179,
+    "envelope_cm3": 1.45
+   },
+   "spokes": {
+    "area_mm2": 0,
+    "envelope_cm3": 0.0
+   },
+   "deck, lugs, guard arc at the deck": {
+    "area_mm2": 2240,
+    "envelope_cm3": 16.4
+   }
+  }
+ },
+ "mesh_R": {
+  "bodies": 1,
+  "watertight_after_stl_round_trip": true,
+  "non_manifold_edges": 0
  }
 }

@@ -19,8 +19,8 @@ plate on z = 0, is `00 - Docs/00 - Mech_A1_Docs/Prints/ACwing_Mech_A1_06_Flow_co
   - PMW3901 lens, Ø6.0 mm on the optical axis (frame 0, 0), with a 0.9 mm 45° outward flare;
   - VL53L1X window 3.0 × 5.4 mm (frame 7.0, 0), R0.6 corners, same flare;
   - status LED D1, Ø1.2 mm (frame 10.65, 1.6).
-  The flares stay outside the 42° (PMW3901) and 27° (VL53L1X) fields of view: the checks run the optical cones against
-  the cover (`Checks/`).
+  The flares stay outside the 46° (PMW3901) and 31° (VL53L1X) fields of view: the checks run the optical cones against
+  the cover (`00 - Docs/00 - Mech_A1_Docs/Checks/`, 0.80 mm margin).
 - **Connector edge (+X).** Open from x 11.4: J1 / J2 (2.9 mm tall) and the Qwiic plugs (cable C) go in as before.
   A 4 mm tongue between the two connectors covers the bridge MCU up to x 17.2.
 - **Standoffs.** Two Ø4.9 standoffs on the flow screw axes (frame 6.6, ±8.0) press the board against the tray bosses.
