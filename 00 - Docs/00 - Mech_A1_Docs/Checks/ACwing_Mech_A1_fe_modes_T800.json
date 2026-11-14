@@ -1,19 +1,29 @@
 {
- "date": "2026-11-12",
- "case": "A1 core RM 52, wave guards (2026-11-12), tray T800, 1.0 mm stack",
+ "date": "2026-11-13",
+ "case": "A1 core rev R of 2026-11-13 (parametric rebuild, ring beam, 18.12 g), tray T800, 1.0 mm stack",
  "model": "voxel hex8 h 0.6 mm, PETG E 2000 MPa; motors 4 x 4.0 g on the holders, stack + cover 15.0 g on the 4 bosses, battery on the tray lips and rails (latch tongue excluded), flow board 1.5 g on its bosses; free-free",
  "modes_Hz": [
-  87.2,
-  134.5,
-  148.3,
-  161.2,
-  164.8,
-  168.0,
-  172.7,
-  182.4
+  76.7,
+  119.0,
+  133.6,
+  139.8,
+  145.4,
+  154.8,
+  161.4,
+  161.9
  ],
- "first_mode": "saddle: diagonal motors in phase",
+ "first_mode": "tray rear overhang with the battery (tray-local)",
  "reference_same_model": {
+  "wave guards 2026-11-12": [
+   87.2,
+   134.5,
+   148.3,
+   161.2,
+   164.8,
+   168.0,
+   172.7,
+   182.4
+  ],
   "A2 ring guards 2026-11-08": [
    91.8,
    142.7,
@@ -24,16 +34,6 @@
    189.6,
    204.5
   ],
-  "P1 band guards (proposal, not adopted)": [
-   87.4,
-   137.2,
-   152.4,
-   163.1,
-   169.5,
-   170.1,
-   178.8,
-   182.6
-  ],
   "A1 2026-11-01 (RM 51, closed rings) + T400": [
    102.5,
    152.9,
@@ -43,6 +43,12 @@
    186.5,
    196.8,
    224.6
+  ],
+  "2026-11-13 morning (section 13), first two modes": [
+   84.9,
+   129.7
   ]
- }
+ },
+ "tray_joint": "tray screwed to the 4 lugs: modelled as bonded on \u00d85.2 pads at the lug faces (z -9.0); before rev R the bond came from voxel contact only",
+ "note_rev_R": "The section 13 core had knee braces 0.6 mm from the tray rails: at h 0.6 mm the voxel model joined them, so the tray rear was held by the core and its first modes (84.9 / 90.3 Hz) were optimistic. Rev R leaves 1.36 mm there: the tray rear end with the battery is free, as in the real part. The model carries the battery as mass only (no pack stiffness), so the tray-local modes are a lower bound: check them with a tap test."
 }

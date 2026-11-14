@@ -1,7 +1,7 @@
 # Mech A1 – STEP
 
-All files in frame coordinates (z = 0 propeller plane, +Y forward, +X right), mm. Updated 2026-11-12 (1.0 mm boards,
-frame RM 52 with the wave guards, flat-roof cover).
+All files in frame coordinates (z = 0 propeller plane, +Y forward, +X right), mm. Updated 2026-11-13 evening (1.0 mm boards,
+frame A1 **rev R**, flat-roof cover, flow board cover with M2 × 6 nylon flow screws).
 
 ## Assembly hardware and cables
 
@@ -12,13 +12,14 @@ assembly data (`03 - Assembly/ACwing_Mech_A1/ACwing_Mech_A1_data.json`); the Fre
 
 ## Printed parts
 
-`Parts/ACwing_<part>.step`: frame A1 core, trays T400 / T800 / T1200, electronics cover (indoor, GPS), in assembly
+`Parts/ACwing_<part>.step`: frame A1 core, trays T400 / T800 / T1200, electronics cover (indoor, GPS), flow board cover, in assembly
 position. These are **faceted solids** made from the source meshes (decimated, one planar face per triangle), for
 interference checks and for fitting in other CAD tools:
 
 | File | Facets | Max deviation from the source mesh |
 |---|---|---|
-| `ACwing_Frame_A1_core.step` (RM 52, wave guards; 88 MB) | 80 000 | 0.40 mm (p99 0.17); volume 0.6 % under the source |
+| `ACwing_Frame_A1_core.step` (rev R; 87 MB) | 80 000 | 0.26 mm (p99 0.17); volume 0.2 % under the source |
+| `ACwing_Flow_Cover_A1.step` (T400 / T1200 position; 1.0 mm lower on T800) | 6 000 | 0.06 mm (p99 0.04) |
 | `ACwing_Tray_A1_T400/T800/T1200.step` | 12 000 | 0.24 mm (p99 0.09) |
 | `ACwing_Cover_A1_indoor.step` (without the engraved logo) | 30 000 | 0.12 mm (p99 0.08) |
 | `ACwing_Cover_A1_gps.step` (without the engraved logo) | 36 000 | 0.14 mm (p99 0.09) |

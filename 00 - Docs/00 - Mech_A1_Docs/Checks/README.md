@@ -1,5 +1,18 @@
 # Mech A1 – checks
 
+## Rev R (2026-11-13 evening)
+
+All the files below were rerun on the **rev R** core (parametric rebuild, §14 of the handoff) with the **flow board
+cover** and its M2 × 6 flow screws:
+- assembly checks: 0 unexpected overlaps in the four runs; new clearances `flow cover - sensor cones` 0.80 mm,
+  `flow cover - Flow plug` 1.77 mm, `flow cover - cable C` 3.9 mm, `flow cover - tray` 0.40 mm; `battery - core`
+  0.47 mm (T400), 0.24 mm (T800, T1200); `core - ESC` 0.0 is the boss contact (deck ribs 0.96 mm from the ESC parts);
+- FE modes: `ACwing_Mech_A1_fe_modes_<tray>.json` (the tray is now modelled screwed on its lugs; see `note_rev_R`);
+- print study: entries `R_2026-11-13` (FE, statics, supports) and `mesh_R`;
+- motor leads on the rev R route: 0 mm³ against every part (no longer an interface with the core).
+
+The text further down describes the 2026-11-12 runs; the method is unchanged.
+
 ## Assembly checks
 
 Files: `ACwing_Mech_A1_assembly_checks_<tray>_<indoor|gps>.json` (2026-11-12).
@@ -63,9 +76,12 @@ tray lips and rails) and flow board are lumped masses. Free-free frequencies aft
 | A1 RM 52, A2 + T400 | 98.8 Hz |
 | A1 RM 52, A2 + T800 | 91.8 Hz |
 | A1 RM 52, A2 + T1200 | 97.6 Hz |
-| **A1 RM 52, wave guards + T400** | **93.9 Hz** |
+| A1 RM 52, wave guards + T400 | 93.9 Hz |
 | A1 RM 52, wave guards + T800 | 87.2 Hz |
 | A1 RM 52, wave guards + T1200 | 92.8 Hz |
+| **A1 RM 52, 2026-11-13 (one-piece holders) + T400** | **91.7 Hz** |
+| A1 RM 52, 2026-11-13 + T800 | 84.9 Hz |
+| A1 RM 52, 2026-11-13 + T1200 | 90.3 Hz |
 
 The 2026-11-07 values (127 Hz with T400) came from the older model (h 0.8, battery on the whole tray) and are not
 comparable; `ACwing_Mech_A1_fe_modes_preliminary_draft.json` keeps the old reference.

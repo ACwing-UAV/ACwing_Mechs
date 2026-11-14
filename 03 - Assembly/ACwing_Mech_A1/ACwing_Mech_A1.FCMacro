@@ -6,7 +6,7 @@
 #  Mech A1 = frame A1 core + interchangeable battery tray (T400 / T800 / T1200) + stack spacers + TPU motor sleeves
 #  + translucent PLA electronics cover, for the 1S mini drone (indoor, no GPS by default) with ESC 1S rev A, FC rev A,
 #  Flow rev A (GPS rev A optional). All boards 1.0 mm thick (HW handoff 0.19 / 0.20, 2026-11-08).
-#  Frame A1 core with the wave guards of 2026-11-12 (print-first: S ribbon, 1.2 mm outward bulge, open toward the body), motors at RM 52.
+#  Frame A1 core rev R of 2026-11-13: clean parametric rebuild (one smooth body), wave guards, holders with foot, RM 52; flow cover.
 #
 #  What it does (Macro > Macros... > select this file > Execute):
 #   1. EXPORT_PRINTS: writes every printable part, already oriented for printing and placed on z = 0, into
@@ -19,7 +19,7 @@
 #                     ACwing_HW repository (never copied here, see README). Not found -> boards skipped (flow board
 #                     drawn as a simple placeholder).
 #        Hardware     inserts, spacers S1/S2, M2 damping balls (FC soft mount), stack screws (ISO 7380), tray screws,
-#                     flow inserts/screws
+#                     flow inserts/screws; flow cover (2026-11-13)
 #        Cover        translucent PLA cover over the stack (indoor or GPS version, 02 - Mounts/Electronics_Cover_A1)
 #        Cables       every wire of cables A (ESC-FC), B (FC-GPS), C (FC-Flow), D (battery pigtail), plug housings
 #   3. EXPORT_STEP: hardware + cables + battery of the assembly to 00 - Docs/00 - Mech_A1_Docs/STEP/
@@ -52,6 +52,7 @@ TRAYS = {t: os.path.join('02 - Mounts', 'Battery_Trays_A1', 'ACwing_Tray_A1_%s.s
 SPACERS = os.path.join('02 - Mounts', 'Stack_Spacers', 'ACwing_Stack_Spacers_A1_S1x4_S2x4.stl')
 SLEEVES = os.path.join('02 - Mounts', 'Motor_Sleeves', 'ACwing_Motor_Sleeve_A1_x4.stl')
 COVERS = {c: os.path.join('02 - Mounts', 'Electronics_Cover_A1', 'ACwing_Cover_A1_%s.stl' % c) for c in ('indoor', 'gps')}
+FLOW_COVER = os.path.join('02 - Mounts', 'Flow_Cover_A1', 'ACwing_Flow_Cover_A1.stl')   # assembly position for a board face at z -20.3 (T400 / T1200)
 # (source, print file, flip upside down?) - orientation: see 00 - Docs/00 - Mech_A1_Docs/README.md
 PRINTS = [(CORE, MECH + '_01_Frame_core_PETG.stl', True),
           (TRAYS['T400'], MECH + '_02_Tray_T400_PETG.stl', False),
@@ -59,8 +60,9 @@ PRINTS = [(CORE, MECH + '_01_Frame_core_PETG.stl', True),
           (TRAYS['T1200'], MECH + '_02_Tray_T1200_PETG.stl', False),
           (SPACERS, MECH + '_03_Stack_Spacers_S1x4_S2x4_PETG.stl', False),
           (SLEEVES, MECH + '_04_Motor_Sleeves_x4_TPU95A.stl', False),
-          (COVERS['indoor'], MECH + '_05_Cover_indoor_PLA.stl', False),
-          (COVERS['gps'], MECH + '_05_Cover_GPS_PLA.stl', False)]
+          (COVERS['indoor'], MECH + '_05_Cover_indoor_PLA.stl', True),       # roof down
+          (COVERS['gps'], MECH + '_05_Cover_GPS_PLA.stl', True),
+          (FLOW_COVER, MECH + '_06_Flow_cover_PETG.stl', False)]
 REFERENCE = [('ACwing_Ref_motors_8520_x4.stl', 'Motors_8520', (0.72, 0.72, 0.72), 0),
              ('ACwing_Ref_props_55mm_front_x2.stl', 'Props_front_green', (0.16, 0.67, 0.31), 40),
              ('ACwing_Ref_props_55mm_rear_x2.stl', 'Props_rear', (0.50, 0.70, 0.90), 55),
@@ -312,8 +314,12 @@ def build(root, here, D, docs):
     if WITH_FLOW:
         fb = Z['FLOW_BACK_Z']; fs = fb - flow_t
         hwl.append(('Inserts_M2x3_brass_flow', [ring(1.5, 0.85, fb, 3.0, x, y) for x, y in D['flow_holes']], (0.79, 0.64, 0.15)))
-        hwl.append(('Screws_M2x4_nylon_flow', [Part.makeCylinder(1.0, 4.0, V(x, y, fs)).fuse(Part.makeCylinder(1.9, 1.3, V(x, y, fs - 1.3)))
+        # M2 x 6 nylon from below through the flow cover (2026-11-13), heads recessed in its standoffs (seat fs - 2.0)
+        hwl.append(('Screws_M2x6_nylon_flow', [Part.makeCylinder(1.0, 6.0, V(x, y, fs - 2.0)).fuse(Part.makeCylinder(1.9, 1.3, V(x, y, fs - 3.3)))
                                               for x, y in D['flow_holes']], (0.97, 0.97, 0.95)))
+        fc = add_mesh(doc, G['Electronics'], os.path.join(root, FLOW_COVER), 'Flow_cover_A1_PETG', (0.20, 0.20, 0.22))
+        if fc is not None:
+            fc.Placement.Base = V(0, 0, fs - (-20.3))
     for nm, lst, col in hwl:
         param.append(add(doc, G['Hardware'], nm, Part.makeCompound(lst), col))
     # ---- cables ----

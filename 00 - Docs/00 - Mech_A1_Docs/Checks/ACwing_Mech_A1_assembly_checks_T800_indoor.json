@@ -1,21 +1,20 @@
 {
- "date": "2026-11-12",
+ "date": "2026-11-13",
  "tray": "T800",
  "gps": false,
- "inputs": "ACwing_HW rev A boards 1.0 mm (STEP of 2026-11-08; silkscreen of 2026-11-12 does not change the geometry), frame A1 RM 52 with the wave guards of 2026-11-12, trays with the turned flow board, flat-roof cover 2026-11-12",
+ "inputs": "ACwing_HW rev A boards 1.0 mm (STEP of 2026-11-08), frame A1 rev R of 2026-11-13 (parametric rebuild: one smooth body, ring beam, holders with foot ring at z -30, wave guards), flow board cover A1 with M2 x 6 nylon flow screws, trays with the turned flow board, flat-roof cover 2026-11-12",
  "method": "manifold3d mesh booleans: overlap volume in mm3 of every pair of parts; min_gap in mm for the pairs of interest",
  "unexpected_overlaps_mm3": {},
  "assembly_interfaces_mm3": {
-  "core x sleeves": 0.0193,
-  "core x leads": 0.9598,
-  "core x ESC": 0.0009,
-  "core x hw_inserts": 21.4226,
+  "core x sleeves": 7.9512,
+  "core x hw_inserts": 21.4152,
   "tray x battery": 0.6488,
   "tray x hw_flow_inserts": 5.3647,
   "battery x battery_path": 8775.0,
   "sleeves x motors": 182.8005,
   "motors x props_front": 14.3893,
   "motors x props_rear": 14.4573,
+  "motors x leads": 0.2767,
   "motors x prop_disc_0": 7.4508,
   "motors x prop_disc_1": 7.4349,
   "motors x prop_disc_2": 7.4892,
@@ -24,7 +23,7 @@
   "props_front x prop_disc_3": 1419.4685,
   "props_rear x prop_disc_0": 1420.5511,
   "props_rear x prop_disc_2": 1420.6901,
-  "leads x ESC": 0.6009,
+  "leads x ESC": 0.0002,
   "FC x hw_grommets": 39.5472,
   "hw_inserts x hw_stack_screws": 8.762,
   "hw_inserts x hw_tray_screws": 8.0881,
@@ -64,13 +63,13 @@
  },
  "clearances_mm": {
   "cable A - props": 1.37,
-  "cable A - core": 4.55,
+  "cable A - core": 4.2,
   "cable A - cover": 0.51,
   "cable C - core": 0.5,
   "cable C - tray": 0.47,
   "cable C - FC USB plug": 5.4,
   "cable C - props": 3.99,
-  "cable D - core": 0.48,
+  "cable D - core": 1.1,
   "cable D - props": 6.0,
   "cover - FC": 1.36,
   "cover - housings": 0.52,
@@ -83,10 +82,14 @@
   "ESC USB plug - props": 3.07,
   "core - props": 1.0,
   "core - ESC": 0.0,
-  "core - FC": 5.28,
-  "battery - core": 0.0,
+  "core - FC": 5.31,
+  "battery - core": 0.24,
   "housings - props": 2.39,
-  "housings - core": 3.5
+  "housings - core": 2.95,
+  "flow cover - sensor cones": 0.8,
+  "flow cover - Flow plug": 1.77,
+  "flow cover - cable C": 3.9,
+  "flow cover - tray": 0.4
  },
  "cables_wire_mm": {
   "A": [
@@ -116,5 +119,12 @@
   "seat": 9.4,
   "L": 14,
   "tip": -4.6
- }
+ },
+ "core_ESC_clearance_away_from_bosses_mm": 0.96,
+ "note_rev_R": "core - ESC 0.0 is the boss contact (interface); away from the bosses the deck ribs are 0.96 mm under the lowest ESC part. flow cover - sensor cones 0.8 mm: the 42 / 27 deg optical cones pass the cover openings with 0.8 mm margin.",
+ "notes_rev_R": [
+  "core - ESC 0.0 is the contact on the stack bosses (interface); away from the bosses the deck ribs stay 0.96 mm under the lowest ESC part.",
+  "flow cover - sensor cones 0.8 mm: the PMW3901 (42 deg) and VL53L1X (27 deg) cones pass the cover openings with 0.8 mm margin.",
+  "motor leads on the rev R route (floor hole, rib channel, 3 arm holes, under the blade, rail-cap hole, deck slot): 0 mm3 against the core and every other part."
+ ]
 }
