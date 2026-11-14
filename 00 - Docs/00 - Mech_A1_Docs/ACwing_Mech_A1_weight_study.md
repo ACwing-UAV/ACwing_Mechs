@@ -9,7 +9,7 @@ Scripts and raw results: `Checks/ACwing_Mech_A1_fe_weight_study.json` (2026-11-0
 
 | Group | Part | Mass (g) | Basis |
 |---|---|---|---|
-| Structure | Frame A1 core rev R (RM 52, wave guards, ring beam, holders to z −30) | 18.12 | mesh × 1.27 g/cm³ |
+| Structure | Frame A1 core rev R (RM 52, wave guards, ring beam, holders to z −30) | 18.10 | mesh × 1.27 g/cm³ |
 | | Tray T400 | 3.30 | mesh |
 | | Electronics cover, indoor (flat roof) | 2.79 | mesh × 1.24 g/cm³ |
 | | Motor sleeves TPU ×4 | 2.18 | mesh × 1.21 g/cm³ |
@@ -26,7 +26,7 @@ Scripts and raw results: `Checks/ACwing_Mech_A1_fe_weight_study.json` (2026-11-0
 | Battery | 1S 400 mAh | 11.5 | |
 | | **Drone** | **≈ 70.4** | T/W 1.99 with 140 g of thrust |
 
-Against §13 of 2026-11-13 (68.3 g): core +1.45 g (ring beam, rail caps, holders 4.5 mm longer), flow cover +0.67 g → **+2.1 g**.
+Against §13 of 2026-11-13 (68.3 g): core +1.43 g (ring beam, rail caps, holders 4.5 mm longer), flow cover +0.67 g → **+2.1 g**.
 Against 2026-11-12 (69.3 g): core −0.96 g (landing loops −0.46 g, one-piece holders, arm-root cleanup) → **−1.0 g**.
 Against 2026-11-08 (67.4 g): core +1.12 g (print-first guards), cover −0.23 g (flat roof) → **+0.9 g**.
 Against 2026-11-07 (71.1 g): boards −4.2 g, core +2.7 g, cover 0 g, tray −0.1 g, cables −0.2 g → **−1.8 g**.
@@ -81,7 +81,7 @@ the core printed upside down). Raw data: `Checks/ACwing_Mech_A1_print_study.json
 | P1: band, pointed arches, 45° flare | 18.17 g | 93.9 / 146.3 Hz | 3.22 mm | 3.57 mm | 7.54 mm | 0.99 mm | 0 | 20.9 cm³ |
 | P2: wave (2026-11-12) | 17.63 g | 93.9 / 141.1 Hz | 3.57 mm | 4.99 mm | 9.06 mm | 1.97 mm | 0.06 cm³ | 20.8 cm³ |
 | P2 + frame fixes (2026-11-13, §13) | 16.67 g | 91.7 / 135.8 Hz | 4.53 mm | 5.63 mm | 10.33 mm | 2.30 mm | 0.04 cm³ | 20.2 cm³ |
-| **Rev R: parametric rebuild (2026-11-13, adopted)** | **18.12 g** | **90.5 / 139.7 Hz** | **4.24 mm** | **5.29 mm** | **9.18 mm** | **1.86 mm** | **0.14 cm³** | **24.2 cm³** |
+| **Rev R: parametric rebuild (2026-11-13/14, adopted)** | **18.10 g** | **90.4 / 139.7 Hz** | **4.27 mm** | **5.32 mm** | **9.11 mm** | **2.15 mm** | **1.4 cm³** | **25.6 cm³** |
 
 P2 is the wave proposed by Andrea Cirillo: an S ribbon between the top lip and the lower rim, the same smoothstep curve
 as the cover skirt, and a 1.2 mm outward bulge. Every window sill is a 45° slope or a 6.2 mm bridge. A first P2 with
@@ -168,9 +168,9 @@ core, frame 28.0 mm tall instead of 36.4 mm (handoff §13).
 ## 9. Result (2026-11-13, rev R)
 
 Drone T400 indoor ≈ 70.4 g, T/W 1.99 (T800 ≈ 81.2 g, T1200 ≈ 89.6 g). The core is generated again from a parametric
-plan as one body (handoff §14): +1.45 g for the ring beam under the stack (deck ribs + raised rails with round caps)
+plan as one body (handoff §14): +1.43 g for the ring beam under the stack (deck ribs + raised rails with round caps)
 and the holders lowered to z −30 (the §13 foot left the flow lens 2.9 mm above the ground). Every static case is
-stiffer than in §13 (motor thrust 1.00 mm instead of 1.15 mm); the frame saddle mode is 90.5 Hz with T400. With T800 /
+stiffer than in §13 (motor thrust 1.00 mm instead of 1.15 mm); the frame saddle mode is 90.4 Hz with T400. With T800 /
 T1200 the first mode is the rear overhang of the tray with the pack (76.7 / 62.7 Hz, lower bound: §13 counted a 0.6 mm
 gap between knee braces and tray as contact). The flow board cover adds 0.67 g.
 

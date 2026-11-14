@@ -80,7 +80,7 @@ The files are exported in the orientation below. It comes from an overhang analy
 
 - **Core A1, upside down.** The top lips of the four guards sit on the bed and the deck is about 9 mm above it.
   - Tree (organic) supports, on the build plate only, threshold 40°: they grow under the deck, the stack bosses,
-    the motor holders and the arms (about 24 cm³ of support envelope, rev R).
+    the motor holders and the arms (about 26 cm³ of support envelope, rev R; the 8 spokes at ±45° print as bridges, keep supports off them).
   - **No support in the guards and spokes**: every window sill is a 45° slope or a short bridge, the bulge leans at
     most 32° from vertical, the spokes are straight bridges. If the slicer adds any there, block it with a support
     blocker: removing supports broke the guards of the 2026-11-08 print.
@@ -144,7 +144,7 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 
 | Tray | Pack | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode (FE) |
 |---|---|---|---|---|---|
-| T400 | 400 mAh, 11.5 g | ≈ 70.4 g | 1.99 | × 0.75 | 90.5 Hz |
+| T400 | 400 mAh, 11.5 g | ≈ 70.4 g | 1.99 | × 0.75 | 90.4 Hz |
 | T800 | 800 mAh, ≈ 22 g | ≈ 81.2 g | 1.72 | × 1.21 | 76.7 Hz (tray rear)** |
 | T1200 | 1200 mAh, ≈ 30 g | ≈ 89.6 g | 1.56 | × 1.56 | 62.7 Hz (tray rear)** |
 
@@ -171,7 +171,7 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
   non-manifold edges: the core is now **generated from scratch from a parametric plan** as one smooth body (ring beam
   under the stack, rail caps at the arm roots, foot at z −30, frame 32.5 mm), clean STL; new **flow board cover**
   (handoff §14).
-- **Tap test.** Do it on the first build and set the gyro notch from it. Frame saddle mode 90.5 Hz (T400) in the
+- **Tap test.** Do it on the first build and set the gyro notch from it. Frame saddle mode 90.4 Hz (T400) in the
   2026-11-08 model; with T800 / T1200 the tray rear with the pack comes first (77 / 63 Hz, lower bound).
 - **ELRS receiver.** In the preliminary draft it sat on the battery-bay rail; its mount on A1 is not modelled yet
   (FC J5 plug envelope checked).

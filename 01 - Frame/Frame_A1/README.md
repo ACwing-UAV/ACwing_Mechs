@@ -1,6 +1,6 @@
 # Frame A1 – core
 
-`ACwing_Frame_A1_core.stl`: the frame A1 core (PETG, **18.12 g** solid, **rev R** of 2026-11-13), source mesh in the **assembly position**
+`ACwing_Frame_A1_core.stl`: the frame A1 core (PETG, **18.10 g** solid, **rev R** of 2026-11-13), source mesh in the **assembly position**
 (z = 0 propeller plane, +Y forward). It is the printing master: the print-ready copy (upside down, on z = 0) is
 written by the Mech A1 macro to `00 - Docs/00 - Mech_A1_Docs/Prints/`.
 
