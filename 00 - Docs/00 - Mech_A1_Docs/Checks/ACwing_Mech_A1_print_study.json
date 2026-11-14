@@ -144,56 +144,56 @@
    }
   },
   "R_2026-11-13": {
-   "core_g": 18.12,
+   "core_g": 18.1,
    "modes_Hz": {
     "T400": [
-     90.5,
+     90.4,
      139.7,
-     148.5,
-     158.5,
-     162.7,
-     163.1,
-     173.0,
-     205.0
+     148.8,
+     158.2,
+     162.3,
+     162.9,
+     173.5,
+     204.3
     ],
     "T800": [
      76.7,
-     119.0,
+     118.9,
      133.6,
      139.8,
-     145.4,
-     154.8,
-     161.4,
-     161.9
+     145.7,
+     154.5,
+     161.1,
+     161.6
     ],
     "T1200": [
      62.7,
      75.7,
      91.4,
-     134.1,
+     134.0,
      139.6,
-     144.9,
+     145.2,
      146.1,
-     155.6
+     155.2
     ]
    },
    "static_mm": {
-    "outer_side_push_5N": 4.239,
-    "outer_side_push_bottom_5N": 0.778,
-    "side90_push_5N": 5.285,
-    "side90_down_5N": 9.183,
-    "side60_down_5N": 3.841,
-    "bridge45_push_5N": 1.86,
-    "motor_thrust_2N": 0.996
+    "outer_side_push_5N": 4.272,
+    "outer_side_push_bottom_5N": 0.787,
+    "side90_push_5N": 5.315,
+    "side90_down_5N": 9.114,
+    "side60_down_5N": 3.88,
+    "bridge45_push_5N": 2.151,
+    "motor_thrust_2N": 0.997
    },
    "vm_p99_9_MPa": {
-    "outer_side_push_5N": 13.8,
-    "outer_side_push_bottom_5N": 3.17,
-    "side90_push_5N": 18.27,
-    "side90_down_5N": 17.65,
-    "side60_down_5N": 11.71,
-    "bridge45_push_5N": 11.93,
-    "motor_thrust_2N": 3.53
+    "outer_side_push_5N": 13.88,
+    "outer_side_push_bottom_5N": 3.18,
+    "side90_push_5N": 18.48,
+    "side90_down_5N": 17.69,
+    "side60_down_5N": 12.18,
+    "bridge45_push_5N": 12.24,
+    "motor_thrust_2N": 3.54
    }
   }
  },
@@ -408,30 +408,30 @@
  },
  "supports": {
   "R_2026-11-13": {
-   "need_area_mm2": 2731,
-   "support_envelope_cm3": 24.16,
-   "bridges": 110,
-   "bridge_area_mm2": 735,
+   "need_area_mm2": 2921,
+   "support_envelope_cm3": 25.58,
+   "bridges": 104,
+   "bridge_area_mm2": 564,
    "height_mm": 32.5,
    "guard (outer 268 deg)": {
-    "area_mm2": 31,
-    "envelope_cm3": 0.14
+    "area_mm2": 35,
+    "envelope_cm3": 0.17
    },
    "motor holders + legs": {
-    "area_mm2": 282,
-    "envelope_cm3": 6.17
+    "area_mm2": 292,
+    "envelope_cm3": 6.25
    },
    "arms": {
     "area_mm2": 179,
     "envelope_cm3": 1.45
    },
    "spokes": {
-    "area_mm2": 0,
-    "envelope_cm3": 0.0
+    "area_mm2": 169,
+    "envelope_cm3": 1.26
    },
    "deck, lugs, guard arc at the deck": {
-    "area_mm2": 2240,
-    "envelope_cm3": 16.4
+    "area_mm2": 2246,
+    "envelope_cm3": 16.44
    }
   }
  },

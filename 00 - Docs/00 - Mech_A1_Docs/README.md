@@ -80,7 +80,7 @@ The files are exported in the orientation below. It comes from an overhang analy
 
 - **Core A1, upside down.** The top lips of the four guards sit on the bed and the deck is about 9 mm above it.
   - Tree (organic) supports, on the build plate only, threshold 40°: they grow under the deck, the stack bosses,
-    the motor holders and the arms (about 24 cm³ of support envelope, rev R).
+    the motor holders and the arms (about 26 cm³ of support envelope, rev R; the 8 spokes at ±45° print as bridges, keep supports off them).
   - **No support in the guards and spokes**: every window sill is a 45° slope or a short bridge, the bulge leans at
     most 32° from vertical, the spokes are straight bridges. If the slicer adds any there, block it with a support
     blocker: removing supports broke the guards of the 2026-11-08 print.
@@ -120,9 +120,9 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 2. **Motors.** Push the TPU sleeves on the motors and snap them into the holders (2 CW + 2 CCW).
    - The motors have no connector. Before soldering, thread the two leads: out of the **floor hole** of the holder,
      into the recess inside the foot ring, through the tunnel into the **channel of the rib** under the arm, out of
-     its teardrop hole, then **woven through the 3 holes** of the arm blade, once under the blade at the arm root,
-     through the hole in the rail cap (from outside) and up through the deck slot to the ESC pads (handoff §14).
-     Leave about 85 mm of lead per wire.
+     its teardrop hole, then **woven through the 3 holes** of the arm blade (out on the rail side), through the hole in
+     the rail cap (from outside) and up through the deck slot to the ESC pads (handoff §14). Leave about 75 mm of lead
+     per wire.
 3. **ESC 1S rev A** on the bosses.
 4. **Stack.** Per corner: S1 spacer (2.57 mm), damping ball with the FC rev A in its slot. With the GPS option:
    S2 spacer (3.57 mm) and the GPS rev A on top.
@@ -144,7 +144,7 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 
 | Tray | Pack | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode (FE) |
 |---|---|---|---|---|---|
-| T400 | 400 mAh, 11.5 g | ≈ 70.4 g | 1.99 | × 0.75 | 90.5 Hz |
+| T400 | 400 mAh, 11.5 g | ≈ 70.4 g | 1.99 | × 0.75 | 90.4 Hz |
 | T800 | 800 mAh, ≈ 22 g | ≈ 81.2 g | 1.72 | × 1.21 | 76.7 Hz (tray rear)** |
 | T1200 | 1200 mAh, ≈ 30 g | ≈ 89.6 g | 1.56 | × 1.56 | 62.7 Hz (tray rear)** |
 
@@ -171,7 +171,7 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
   non-manifold edges: the core is now **generated from scratch from a parametric plan** as one smooth body (ring beam
   under the stack, rail caps at the arm roots, foot at z −30, frame 32.5 mm), clean STL; new **flow board cover**
   (handoff §14).
-- **Tap test.** Do it on the first build and set the gyro notch from it. Frame saddle mode 90.5 Hz (T400) in the
+- **Tap test.** Do it on the first build and set the gyro notch from it. Frame saddle mode 90.4 Hz (T400) in the
   2026-11-08 model; with T800 / T1200 the tray rear with the pack comes first (77 / 63 Hz, lower bound).
 - **ELRS receiver.** In the preliminary draft it sat on the battery-bay rail; its mount on A1 is not modelled yet
   (FC J5 plug envelope checked).

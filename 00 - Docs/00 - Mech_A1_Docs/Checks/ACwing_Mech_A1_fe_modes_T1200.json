@@ -1,16 +1,16 @@
 {
  "date": "2026-11-13",
- "case": "A1 core rev R of 2026-11-13 (parametric rebuild, ring beam, 18.12 g), tray T1200, 1.0 mm stack",
+ "case": "A1 core rev R of 2026-11-13 (parametric rebuild, ring beam, 18.1 g), tray T1200, 1.0 mm stack",
  "model": "voxel hex8 h 0.6 mm, PETG E 2000 MPa; motors 4 x 4.0 g on the holders, stack + cover 15.0 g on the 4 bosses, battery on the tray lips and rails (latch tongue excluded), flow board 1.5 g on its bosses; free-free",
  "modes_Hz": [
   62.7,
   75.7,
   91.4,
-  134.1,
+  134.0,
   139.6,
-  144.9,
+  145.2,
   146.1,
-  155.6
+  155.2
  ],
  "first_mode": "tray rear overhang with the battery (tray-local, 30 g pack on the 64 mm tray); the saddle frame mode follows",
  "reference_same_model": {

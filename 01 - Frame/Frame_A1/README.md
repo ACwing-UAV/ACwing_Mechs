@@ -1,6 +1,6 @@
 # Frame A1 – core
 
-`ACwing_Frame_A1_core.stl`: the frame A1 core (PETG, **18.12 g** solid, **rev R** of 2026-11-13), source mesh in the **assembly position**
+`ACwing_Frame_A1_core.stl`: the frame A1 core (PETG, **18.10 g** solid, **rev R** of 2026-11-13), source mesh in the **assembly position**
 (z = 0 propeller plane, +Y forward). It is the printing master: the print-ready copy (upside down, on z = 0) is
 written by the Mech A1 macro to `00 - Docs/00 - Mech_A1_Docs/Prints/`.
 
@@ -15,8 +15,8 @@ written by the Mech A1 macro to `00 - Docs/00 - Mech_A1_Docs/Prints/`.
   rim), so the board-edge plugs and cable A have free room above them. Straight spokes flush with the lower rim and in
   line with the bridges between the guards (rim section 1.28 × 1.6 mm).
 - **Motor leads**: the motors have no connector, so thread the leads before soldering: floor hole → recess in the foot
-  ring → closed channel in the rib under the arm → woven through 3 teardrop holes (Ø1.9 mm) in the arm → once under the blade
-  at the root → hole through the rail cap → deck slot.
+  ring → closed channel in the rib under the arm → woven through 3 teardrop holes (Ø1.9 mm) in the arm → hole through the rail
+  cap → deck slot.
 - 4 stack bosses (20 × 20 pattern, hot-melt inserts), 4 tray lugs (flat faces at z −9.0, inserts open downwards),
   **ring beam**: side rails (raised top, flared toward the arms, round caps past the arm roots) and deck ribs from the
   stack bosses to the rails; cable C slot behind the rear grommets.

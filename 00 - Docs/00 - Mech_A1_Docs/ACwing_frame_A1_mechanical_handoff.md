@@ -25,7 +25,7 @@ not a new frame.
 
 | Tray | Battery (1S LiPo) | Battery size W × L × H | Tray mass | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode |
 |---|---|---|---|---|---|---|---|
-| T400 | 400 mAh, 11.5 g | 20 × 40 × 8 | 3.30 g | ≈ 70.4 g | 1.99 | × 0.75 | 90.5 Hz** |
+| T400 | 400 mAh, 11.5 g | 20 × 40 × 8 | 3.30 g | ≈ 70.4 g | 1.99 | × 0.75 | 90.4 Hz** |
 | T800 | 800 mAh, ≈ 22 g | 25 × 45 × 9 | 3.55 g | ≈ 81.2 g | 1.72 | × 1.21 | 76.7 Hz*** |
 | T1200 | 1200 mAh, ≈ 30 g | 30 × 64 × 8 | 4.04 g | ≈ 89.6 g | 1.56 | × 1.56 | 62.7 Hz*** |
 
@@ -40,12 +40,12 @@ carries the pack as mass only. See §5 and §14.
 - The reference is the preliminary draft (battery bay fused to the frame) with the 400 mAh pack, ≈ 58 g.
 
 Cost of interchangeability, compared with the preliminary draft (frame 15.55 g):
-- core 18.12 g (rev R, §14): 2.6 g more than the frame of the preliminary draft
+- core 18.10 g (rev R, §14): 2.6 g more than the frame of the preliminary draft
   (16.67 g in §13, 17.63 g on 2026-11-12, 15.55 g with the A2 rings of 2026-11-08, 14.95 g at RM 51 with the closed rings);
 - tray as in the table above;
 - 4 brass inserts + 4 M2 × 5 A4 screws ≈ 1.2 g (estimate, see the BoM; ≈ 0.85 g with titanium screws).
 
-Net mass overhead: **+7.0 g (T400), +7.3 g (T800), +7.9 g (T1200)** (1.1 g of it is the print-first guards, 1.45 g the
+Net mass overhead: **+7.0 g (T400), +7.3 g (T800), +7.9 g (T1200)** (1.1 g of it is the print-first guards, 1.43 g the
 rev R ring beam and longer holders). The flow board cover (0.67 g) is an added part and is not counted here.
 
 ## 1. Core A1 (changes from the preliminary draft)
@@ -60,11 +60,11 @@ rev R ring beam and longer holders). The flow board cover (0.67 g) is an added p
 | Guards | **wave guards** (2026-11-12, §12): 0.86 mm wall bulged 1.2 mm outward, top lip 1.2 × 0.8, lower rim 1.28 × 1.6 (360°), S ribbon 2.2 mm between them with 15 windows; open toward the body for φ ±46° (φ = 0 toward the frame centre) with 45° ramps and a 1.2 mm rim; bottom bridges between neighbouring guards. Before: A2 rings (2026-11-08, §11) |
 | Arms | 2.2 mm blades on the diagonals, from the motor holder into the rail cap; top z −6.2 → −5.6, bottom z −14.75 → −15.0 (rev R) |
 | Spokes | straight, 1.28 × 2.5 mm, top flush with the lower rim, 45° gusset on the holder, three per guard; on the rear guards one inner spoke is turned away to clear the T1200 corners; the ±45° spokes line up with the bridges between the guards (2026-11-13) |
-| Motor leads path | the motors have no connector: floor hole → recess in the foot ring → channel Ø2.0 in the rib under the arm → teardrop exit → woven through 3 teardrop holes Ø1.9 in the arm blade → once under the blade at the root → hole through the rail cap → deck slot; thread before soldering (2026-11-13; closed eyelets on 2026-11-12) |
+| Motor leads path | the motors have no connector: floor hole → recess in the foot ring → channel Ø2.0 in the rib under the arm → teardrop exit → woven through 3 teardrop holes Ø1.9 in the arm blade (out on the rail side) → hole through the rail cap → deck slot; thread before soldering (2026-11-13; closed eyelets on 2026-11-12) |
 | Motor leads M2 / M3 | they run along the arm (path above) and enter the deck slot from below. The ESC pads are unchanged. |
 | Deck | no rear notch; cable C slot behind the rear grommets, board (u 20.5 … 23.7, v −13.5 … −10.1) |
 | Motor holders | one revolved body (2026-11-13): wall 0.85 mm from the foot to z −4.3 with a 45° top chamfer, floor 0.7 mm with the Ø3.4 lead hole, oval snap windows at ±90°; **L1 foot ring**, foot at **z −30.0** (rev R; −25.5 in §13) |
-| Mass | **18.12 g** PETG (solid); 134.8 × 134.8 × **32.5 mm** (rev R) |
+| Mass | **18.10 g** PETG (solid); 134.8 × 134.8 × **32.5 mm** (rev R) |
 | Body | one smooth body generated from a parametric plan (§14): 1 shell, watertight, 0 non-manifold edges after the STL round trip |
 
 ## 2. Trays
@@ -136,7 +136,7 @@ and rails (the latch tongue carries none), flow board 1.5 g on its bosses.
 | **A1 RM 52, 2026-11-13 (§13) + T400** | **91.7 Hz** | 135.8 Hz |
 | A1 RM 52, 2026-11-13 + T800 | 84.9 Hz | 129.7 Hz |
 | A1 RM 52, 2026-11-13 + T1200 | 90.3 Hz | 137.7 Hz |
-| **A1 rev R (§14) + T400** | **90.5 Hz** | 139.7 Hz |
+| **A1 rev R (§14) + T400** | **90.4 Hz** | 139.7 Hz |
 | A1 rev R + T800 | 76.7 Hz (tray rear) | 119.0 Hz |
 | A1 rev R + T1200 | 62.7 Hz (tray rear) | 75.7 Hz |
 
@@ -147,7 +147,7 @@ whole tray and h was 0.8 mm; that model gave 127 Hz for the RM 51 frame, so only
 Rev R (§14): the tray is modelled screwed to the lugs (bonded on Ø5.2 pads at z −9.0). In §13 the knee braces sat
 0.6 mm from the tray rails and the voxel model (h 0.6) joined them, so the T800 / T1200 values of §13 were optimistic.
 With rev R the tray rear end with the battery is free, as in the real part: on T800 / T1200 the first mode is that
-overhang (the pack is mass only in the model, so this is a lower bound). The frame saddle mode is 90.5 Hz with T400.
+overhang (the pack is mass only in the model, so this is a lower bound). The frame saddle mode is 90.4 Hz with T400.
 
 The first modes stay inside the 60–130 Hz band that matters for the FC soft mount. Do a bench **tap test** on the
 printed core with a tray fitted, and set the gyro notch from it.
@@ -180,7 +180,7 @@ see `02 - Mounts/Electronics_Cover_A1/README.md`.
 
 - **Core:** print it upside down, with the guard top lips on the bed and a 3–5 mm brim.
   - Tree supports (build plate only, 40°) go under the deck (≈ 9 mm), the stack bosses, the motor holders and the arms
-    (rev R estimate: 24 cm³ of support envelope).
+    (rev R estimate: 26 cm³ of support envelope; the 8 spokes at ±45° print as 22.7 mm bridges, keep supports off them).
   - **None in the guards and spokes** (§12, §13): block them if the slicer adds any. Bridges at 100 % fan, thick
     bridges on (the spokes bridge 21 mm from the supported holder top to the 45° gusset at the rim).
 - **Mesh.** Since rev R (§14) the core STL is one closed body with 0 non-manifold edges; Bambu Studio should report no
@@ -547,32 +547,44 @@ screws, now **M2 × 6 nylon** from below, heads recessed in the cover standoffs.
 ![Underside, T400, flow board cover](Renders/ACwing_Mech_A1_T400_below_flow_cover.png)
 
 **Motor-lead route (rev R, as in the renders and in `03 - Assembly/ACwing_Mech_A1/reference/ACwing_Ref_motor_leads_x4.stl`).**
-Two wires per motor (Ø0.7 mm with insulation), 83–85 mm from the motor to the ESC pads:
+Two wires per motor (Ø0.7 mm with insulation), 72–74 mm from the motor to the ESC pads:
 1. out of the motor bottom, through the floor hole (Ø1.7) into the recess inside the foot ring;
-2. through the tunnel (2 × 1 mm) into the closed channel of the rib, up to the teardrop exit (z −16.2) on the lead side;
-3. woven through the 3 teardrop holes of the arm blade (in and out on alternate sides);
-4. after the 3rd hole the wires are on the side away from the rail: they wrap once under the blade at the arm root;
-5. through the hole in the rail cap (from outside, z −10.8), up through the deck slot, around the ESC board edge to the pads.
+2. through the tunnel (2 × 1 mm) into the closed channel of the rib, up to the teardrop exit (z −16.2), on the side away
+   from the rail;
+3. woven through the 3 teardrop holes of the arm blade (in and out on alternate sides): they leave the 3rd hole on the
+   rail side;
+4. through the hole in the rail cap (from outside, z −10.8), up through the deck slot, around the ESC board edge to the pads.
+(2026-11-14: the rib exit was moved to the other side, so the wires no longer wrap under the blade at the arm root.)
 The route clears the core, the boards, plugs, cables and cover (0 mm³); it touches only the motor (where the wires leave it) and the ESC pads.
 
 ![Motor leads along the arm](Renders/ACwing_Mech_A1_motor_leads_arm.png)
+
+**Clean-up of 2026-11-14** (review of the rev R core in the slicer):
+- **±45° spokes** (the ones in line with the bridges): they ended with the 45° rise to the guard wall, but at ±45° the guard
+  is already on its low ramp, so the rise stuck out as a tab. They now end flush with the lower rim: spoke – rim – bridge
+  is one straight member.
+- **Guard ramp edges**: the top lip (a revolved ring cut at ±46°) and the square ramp rim met with a step at the top of
+  each ramp, and the ramp rim ended with a square tab at the deck. Both are replaced by **one swept bead with the lip
+  section** (1.2 × 0.8 mm, R0.25), from inside the lip down the ramp edge to inside the lower rim: lip, ramp edge and rim
+  are one continuous edge.
+- **Motor-lead exit** on the other side of the rib (see the route above).
 
 **Results** (FE as in §5, statics as in §12, supports as in §12).
 
 | | §13 (2026-11-13 morning) | **Rev R** |
 |---|---|---|
-| Core, solid | 16.67 g | **18.12 g** |
+| Core, solid | 16.67 g | **18.10 g** |
 | Frame | 134.8 × 134.8 × 28.0 mm | 134.8 × 134.8 × 32.5 mm |
-| First / second mode, T400 | 91.7 / 135.8 Hz | **90.5 / 139.7 Hz** |
+| First / second mode, T400 | 91.7 / 135.8 Hz | **90.4 / 139.7 Hz** |
 | First mode, T800 / T1200 | 84.9 / 90.3 Hz* | 76.7 / 62.7 Hz* |
-| Outer push 5 N (φ 180) | 4.53 mm | **4.24 mm** |
-| Side push 5 N (φ 90) | 5.63 mm | 5.29 mm |
-| Vertical 5 N at φ 90 / φ 60 | 10.33 / 4.25 mm | 9.18 / 3.84 mm |
-| Bottom push 5 N | 0.87 mm | 0.78 mm |
-| Push 5 N on the ramp | 2.30 mm | 1.86 mm |
+| Outer push 5 N (φ 180) | 4.53 mm | **4.27 mm** |
+| Side push 5 N (φ 90) | 5.63 mm | 5.32 mm |
+| Vertical 5 N at φ 90 / φ 60 | 10.33 / 4.25 mm | 9.11 / 3.88 mm |
+| Bottom push 5 N | 0.87 mm | 0.79 mm |
+| Push 5 N on the ramp | 2.30 mm | 2.15 mm |
 | Motor thrust 2 N | 1.15 mm | **1.00 mm** |
-| Support envelope, guards + spokes | 0.04 cm³ | 0.14 cm³ |
-| Support envelope, whole core | 20.2 cm³ | 24.2 cm³ |
+| Support envelope, guards + spokes | 0.04 cm³ | 1.4 cm³** |
+| Support envelope, whole core | 20.2 cm³ | 25.6 cm³ |
 
 \* Not the same thing. In §13 the knee braces sat 0.6 mm from the tray rails and the voxel model (h 0.6 mm) joined
 them, so the core held the rear of the tray: those values were optimistic. Rev R leaves 1.36 mm there and the tray is
@@ -580,8 +592,13 @@ modelled screwed on its four lugs (bonded on Ø5.2 pads at z −9.0). On T800 / 
 overhang of the tray with the battery (the frame saddle follows at 119 / 91 Hz); the pack is mass only in the model,
 so these are lower bounds. Measure them with a tap test on the printed core + tray + pack, and set the gyro notch from it.
 
-The core is 1.45 g heavier than in §13 (ring beam, rail caps, 4.5 mm longer holders) and stiffer in every static case
-(motor thrust −13 %, outer push −6 %, vertical φ 90 −11 %, ramp −19 %). Peak stress stays under 19 MPa for every 5 N case.
+\** The 8 spokes at ±45° (in line with the bridges) end flush with the lower rim since 2026-11-14: they are now 22.7 mm
+bridges (1.28 mm wide) between the holder and the rim, just over the 22 mm limit of the estimate, which therefore counts
+support under them. In Bambu Studio they print as bridges; do not let the slicer add supports there (paint them out or
+use support blockers if it does).
+
+The core is 1.43 g heavier than in §13 (ring beam, rail caps, 4.5 mm longer holders) and stiffer in every static case
+(motor thrust −13 %, outer push −6 %, vertical φ 90 −12 %, ramp −7 %). Peak stress stays under 19 MPa for every 5 N case.
 
 **Checks** (§4, rerun on rev R with the flow cover, T400 indoor / GPS, T800, T1200): **0 unexpected overlaps**.
 - Unchanged: cable A – propeller disc 1.37 mm, frame – propeller disc 1.00 mm, FC / ESC USB-C plug – frame 1.20 / 0.77 mm,

@@ -18,7 +18,7 @@ interference checks and for fitting in other CAD tools:
 
 | File | Facets | Max deviation from the source mesh |
 |---|---|---|
-| `ACwing_Frame_A1_core.step` (rev R; 87 MB) | 80 000 | 0.26 mm (p99 0.17); volume 0.2 % under the source |
+| `ACwing_Frame_A1_core.step` (rev R; 87 MB) | 80 000 | 0.27 mm (p99 0.16); volume 0.2 % under the source |
 | `ACwing_Flow_Cover_A1.step` (T400 / T1200 position; 1.0 mm lower on T800) | 6 000 | 0.06 mm (p99 0.04) |
 | `ACwing_Tray_A1_T400/T800/T1200.step` | 12 000 | 0.24 mm (p99 0.09) |
 | `ACwing_Cover_A1_indoor.step` (without the engraved logo) | 30 000 | 0.12 mm (p99 0.08) |
