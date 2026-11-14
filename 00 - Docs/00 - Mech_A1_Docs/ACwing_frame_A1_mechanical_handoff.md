@@ -60,7 +60,7 @@ rev R ring beam and longer holders). The flow board cover (0.67 g) is an added p
 | Guards | **wave guards** (2026-11-12, §12): 0.86 mm wall bulged 1.2 mm outward, top lip 1.2 × 0.8, lower rim 1.28 × 1.6 (360°), S ribbon 2.2 mm between them with 15 windows; open toward the body for φ ±46° (φ = 0 toward the frame centre) with 45° ramps and a 1.2 mm rim; bottom bridges between neighbouring guards. Before: A2 rings (2026-11-08, §11) |
 | Arms | 2.2 mm blades on the diagonals, from the motor holder into the rail cap; top z −6.2 → −5.6, bottom z −14.75 → −15.0 (rev R) |
 | Spokes | straight, 1.28 × 2.5 mm, top flush with the lower rim, 45° gusset on the holder, three per guard; on the rear guards one inner spoke is turned away to clear the T1200 corners; the ±45° spokes line up with the bridges between the guards (2026-11-13) |
-| Motor leads path | the motors have no connector: floor hole → recess in the foot ring → channel Ø2.0 in the rib under the arm → teardrop exit → woven through 3 teardrop holes Ø1.9 in the arm blade → once under the blade at the root → hole through the rail cap → deck slot; thread before soldering (2026-11-13; closed eyelets on 2026-11-12) |
+| Motor leads path | the motors have no connector: floor hole → recess in the foot ring → channel Ø2.0 in the rib under the arm → teardrop exit → woven through 3 teardrop holes Ø1.9 in the arm blade (out on the rail side) → hole through the rail cap → deck slot; thread before soldering (2026-11-13; closed eyelets on 2026-11-12) |
 | Motor leads M2 / M3 | they run along the arm (path above) and enter the deck slot from below. The ESC pads are unchanged. |
 | Deck | no rear notch; cable C slot behind the rear grommets, board (u 20.5 … 23.7, v −13.5 … −10.1) |
 | Motor holders | one revolved body (2026-11-13): wall 0.85 mm from the foot to z −4.3 with a 45° top chamfer, floor 0.7 mm with the Ø3.4 lead hole, oval snap windows at ±90°; **L1 foot ring**, foot at **z −30.0** (rev R; −25.5 in §13) |
@@ -547,15 +547,27 @@ screws, now **M2 × 6 nylon** from below, heads recessed in the cover standoffs.
 ![Underside, T400, flow board cover](Renders/ACwing_Mech_A1_T400_below_flow_cover.png)
 
 **Motor-lead route (rev R, as in the renders and in `03 - Assembly/ACwing_Mech_A1/reference/ACwing_Ref_motor_leads_x4.stl`).**
-Two wires per motor (Ø0.7 mm with insulation), 83–85 mm from the motor to the ESC pads:
+Two wires per motor (Ø0.7 mm with insulation), 72–74 mm from the motor to the ESC pads:
 1. out of the motor bottom, through the floor hole (Ø1.7) into the recess inside the foot ring;
-2. through the tunnel (2 × 1 mm) into the closed channel of the rib, up to the teardrop exit (z −16.2) on the lead side;
-3. woven through the 3 teardrop holes of the arm blade (in and out on alternate sides);
-4. after the 3rd hole the wires are on the side away from the rail: they wrap once under the blade at the arm root;
-5. through the hole in the rail cap (from outside, z −10.8), up through the deck slot, around the ESC board edge to the pads.
+2. through the tunnel (2 × 1 mm) into the closed channel of the rib, up to the teardrop exit (z −16.2), on the side away
+   from the rail;
+3. woven through the 3 teardrop holes of the arm blade (in and out on alternate sides): they leave the 3rd hole on the
+   rail side;
+4. through the hole in the rail cap (from outside, z −10.8), up through the deck slot, around the ESC board edge to the pads.
+(2026-11-14: the rib exit was moved to the other side, so the wires no longer wrap under the blade at the arm root.)
 The route clears the core, the boards, plugs, cables and cover (0 mm³); it touches only the motor (where the wires leave it) and the ESC pads.
 
 ![Motor leads along the arm](Renders/ACwing_Mech_A1_motor_leads_arm.png)
+
+**Clean-up of 2026-11-14** (review of the rev R core in the slicer):
+- **±45° spokes** (the ones in line with the bridges): they ended with the 45° rise to the guard wall, but at ±45° the guard
+  is already on its low ramp, so the rise stuck out as a tab. They now end flush with the lower rim: spoke – rim – bridge
+  is one straight member.
+- **Guard ramp edges**: the top lip (a revolved ring cut at ±46°) and the square ramp rim met with a step at the top of
+  each ramp, and the ramp rim ended with a square tab at the deck. Both are replaced by **one swept bead with the lip
+  section** (1.2 × 0.8 mm, R0.25), from inside the lip down the ramp edge to inside the lower rim: lip, ramp edge and rim
+  are one continuous edge.
+- **Motor-lead exit** on the other side of the rib (see the route above).
 
 **Results** (FE as in §5, statics as in §12, supports as in §12).
 

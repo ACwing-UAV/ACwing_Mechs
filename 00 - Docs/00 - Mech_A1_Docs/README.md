@@ -120,9 +120,9 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 2. **Motors.** Push the TPU sleeves on the motors and snap them into the holders (2 CW + 2 CCW).
    - The motors have no connector. Before soldering, thread the two leads: out of the **floor hole** of the holder,
      into the recess inside the foot ring, through the tunnel into the **channel of the rib** under the arm, out of
-     its teardrop hole, then **woven through the 3 holes** of the arm blade, once under the blade at the arm root,
-     through the hole in the rail cap (from outside) and up through the deck slot to the ESC pads (handoff §14).
-     Leave about 85 mm of lead per wire.
+     its teardrop hole, then **woven through the 3 holes** of the arm blade (out on the rail side), through the hole in
+     the rail cap (from outside) and up through the deck slot to the ESC pads (handoff §14). Leave about 75 mm of lead
+     per wire.
 3. **ESC 1S rev A** on the bosses.
 4. **Stack.** Per corner: S1 spacer (2.57 mm), damping ball with the FC rev A in its slot. With the GPS option:
    S2 spacer (3.57 mm) and the GPS rev A on top.
