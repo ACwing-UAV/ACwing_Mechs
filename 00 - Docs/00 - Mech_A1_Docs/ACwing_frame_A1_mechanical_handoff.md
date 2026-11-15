@@ -727,6 +727,12 @@ where cable C drops through the deck slot (wire on wire, 0.09 mm³, accepted).
 
 ![Underside: battery + flow tray](Renders/ACwing_Mech_A1_T400_below_tray.png)
 
+![Guard ear, lead drop into the deck gutter, cable A](Renders/ACwing_Mech_A1M_guard_ear_leads.png)
+
+![Pod from below: claw legs, rods and strut](Renders/ACwing_Mech_A1M_pod_underside.png)
+
+![Drone with T1200](Renders/ACwing_Mech_A1_T1200_drone_raytrace.png)
+
 **Assembly order.** Body: press the 4 stack inserts and the 4 tray nuts. Baskets: thread the motor leads (cup floor →
 channel → lead rod → ear → gutter) before soldering; screw each basket to the body (2 × M2 × 6 + nut). Cups: sleeve and
 motor in, push the cup up into the claws until it snaps (strut pin in the deck hole). Stack: S0, ESC, S1, balls, FC,

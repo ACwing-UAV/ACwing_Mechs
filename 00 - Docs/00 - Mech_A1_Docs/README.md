@@ -31,7 +31,7 @@ Baseline: indoor flight, no GPS.
 | `Prints/` | **print-ready STL files**, already oriented and placed on the bed (z = 0). Written by the assembly macro (the whole-set plate file by the design scripts). |
 | `ACwing_Mech_A1_BoM.xlsx` / `.csv` | mechanical bill of materials per drone and per tray, masses, print settings (sheet `Print`) |
 | `STEP/` | hardware, cables and battery of the assembly (one file per tray); `Parts/`: faceted STEP of the printed parts |
-| `Renders/` | path-traced renders (Blender Cycles, one light, boards from the ACwing_HW KiCad models with silkscreen). Rev M (2026-11-15): drone T400 and T1200 (3/4), side, ESC USB-C side, pod with rods and strut, underside with the tray (T400, T1200), motor leads, guard with cable A, stack with the indoor / GPS cover and without it, concept sheet. Files named `A1R_*`, `*_flow_cover*`, `*_holder_foot*` and the per-tray `*_hero`, `*_3D_overview`, `*_cables` show earlier frames |
+| `Renders/` | path-traced renders (Blender Cycles, one light, boards from the ACwing_HW KiCad models with silkscreen). Rev M (2026-11-15): drone T400 and T1200 (3/4), side, ESC USB-C side, pod with rods and strut, pod from below, underside with the tray (T400, T1200), guard ear with the lead drop and cable A, stack with the indoor / GPS cover and without it, concept sheet. Files named `A1R_*`, `*_flow_cover*`, `*_holder_foot*` and the per-tray `*_hero`, `*_3D_overview`, `*_cables` show earlier frames |
 | `Checks/` | interference checks, vibration (FE) and print-study results |
 | `ACwing_frame_A1_mechanical_handoff.md` | design notes: interfaces, checks, vibration, masses (§15 = rev M) |
 
