@@ -45,9 +45,9 @@ The source meshes live in `01 - Frame/` and `02 - Mounts/`. The macro
 
 | # | File (`Prints/`) | Material | Per drone | Mass |
 |---|---|---|---|---|
-| 1 | `ACwing_Mech_A1_01_Frame_set_plate_256x256_PETG.stl` | PETG | the whole frame on one 256 × 256 plate (or print 1a–1c separately) | 18.1 g |
-| 1a | `ACwing_Mech_A1_01a_Frame_body_PETG.stl` | PETG | 1 | 4.9 g |
-| 1b | `ACwing_Mech_A1_01b_Frame_basket_<FL\|FR\|RL\|RR>_PETG.stl` | PETG | 1 of each | 1.75 g each |
+| 1 | `ACwing_Mech_A1_01_Frame_set_plate_256x256_PETG.stl` | PETG | the whole frame on one 256 × 256 plate (or print 1a–1c separately) | 18.2 g |
+| 1a | `ACwing_Mech_A1_01a_Frame_body_PETG.stl` | PETG | 1 | 5.1 g |
+| 1b | `ACwing_Mech_A1_01b_Frame_basket_<FL\|FR\|RL\|RR>_PETG.stl` | PETG | 1 of each | 1.73 g each |
 | 1c | `ACwing_Mech_A1_01c_Frame_cup_<FL\|FR\|RL\|RR>_PETG.stl` | PETG | 1 of each | 1.55 g each |
 | 2 | `ACwing_Mech_A1_02_Tray_T400_PETG.stl` | PETG (black or grey) | 1 (400 mAh pack) | 3.4 g |
 | 2 | `ACwing_Mech_A1_02_Tray_T800_PETG.stl` | PETG (black or grey) | 1 (800 mAh pack) | 3.8 g |
@@ -99,21 +99,22 @@ The full list is in `ACwing_Mech_A1_BoM.xlsx`.
 
 | Part | Qty | Note |
 |---|---|---|
-| Hot-melt insert M2 × 3 × Ø3.0 (Hangtife HLTI-M2-001) | 6 | 4 stack bosses, 2 tray flow bosses (+ 2 per spare tray) |
-| Nut M2 (ISO 4032), A4 | 12 | 4 in the body tray pads, 8 under the ear screws |
+| Hot-melt insert M2 × 3 × Ø3.0 (Hangtife HLTI-M2-001) | 10 | 4 stack bosses, 4 tray pads of the body (from the deck underside), 2 tray flow bosses (+ 2 per spare tray) |
+| Nut M2 (ISO 4032), A4 | 8 | in the hex pockets under the deck, below the ear screws |
 | Damping ball M2 (QUARKZMAN), H 6.0, OD 4.9, slot Ø3.03 × 1.14, bore Ø2.0 | 4 | FC soft mount |
 | Stack screw M2 × 18 ISO 7380, titanium (recommended) or A4 | 4 | from the cover top; M2 × 30 with the GPS option |
-| Ear screw M2 × 6 ISO 7380, A4 or titanium | 8 | 2 per basket, from the top through ear and body pad |
-| Tray screw M2 × 6, A4 or titanium | 4 | from below through the tray posts into the body nuts |
+| Ear screw M2 × 5 ISO 7380, titanium (A4 acceptable) | 8 | 2 per basket, from the top through the head bore of the shoulder, ear and body pad into the nut |
+| Tray screw M2 × 6 ISO 7380, titanium (A4 acceptable) | 4 | from below through the tray posts into the body inserts |
 | Flow board screw M2 × 6, nylon | 2 | from below through the tray pocket floor |
 
 Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 
 ## Build order
 
-1. **Inserts and nuts.** Set the 4 stack inserts (from the top of the bosses) and the 2 flow inserts in the tray bosses
-   with a soldering iron at 220–240 °C, flush. Press the 4 tray nuts into the seats on top of the body pads.
-2. **Baskets on the body.** 2 × M2 × 6 per basket from the top through the ear and the pad, nut under the deck.
+1. **Inserts.** Set the 4 stack inserts (from the top of the bosses), the 4 tray inserts (from the deck underside, in the
+   tray pads) and the 2 flow inserts in the tray bosses with a soldering iron at 220–240 °C, flush.
+2. **Baskets on the body.** Put an M2 nut in each hex pocket under the deck, then 2 × M2 × 5 per basket from the top
+   through the head bore of the shoulder, the ear and the pad.
 3. **Motors.** Push the TPU sleeves on the motors and put them in the cups (2 CW + 2 CCW). The motors have no connector:
    before soldering, thread the two leads out of the cup floor hole, along the channel under the floor, out of the cup
    slot into the lead leg, up the **closed channel of the lead rod**, down through the ear into the **deck gutter** and
@@ -137,9 +138,9 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 
 | Tray | Pack | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode (FE) |
 |---|---|---|---|---|---|
-| T400 | 400 mAh, 11.5 g | ≈ 71.6 g | 1.96 | × 0.73 | 85.9 Hz |
-| T800 | 800 mAh, ≈ 22 g | ≈ 82.6 g | 1.69 | × 1.18 | 85.6 Hz |
-| T1200 | 1200 mAh, ≈ 30 g | ≈ 91.0 g | 1.54 | × 1.53 | 91.1 Hz |
+| T400 | 400 mAh, 11.5 g | ≈ 70.9 g | 1.97 | × 0.74 | 85.9 Hz |
+| T800 | 800 mAh, ≈ 22 g | ≈ 81.9 g | 1.71 | × 1.19 | 85.6 Hz |
+| T1200 | 1200 mAh, ≈ 30 g | ≈ 90.3 g | 1.55 | × 1.54 | 91.1 Hz |
 
 \* Indoor (no GPS), 1.0 mm boards, with the cover (2.8 g), rev M of 2026-11-15. FE model of the handoff §5; the first
 two modes are the motor pods bouncing (handoff §15). Mass budget: `ACwing_Mech_A1_weight_study.md`.

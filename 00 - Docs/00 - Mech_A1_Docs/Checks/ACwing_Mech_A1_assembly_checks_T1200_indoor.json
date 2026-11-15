@@ -2,18 +2,19 @@
  "date": "2026-11-15",
  "tray": "T1200",
  "gps": false,
- "inputs": "ACwing_HW rev A boards 1.0 mm (STEP of 2026-11-08), frame A1 rev M of 2026-11-15 (modular: body + 4 guard baskets + 4 motor cups with deck struts), electronics stack raised 4.5 mm (S0 spacers 4.0 mm, bosses top z -1.5, ESC bottom z 2.5), one-piece battery + flow tray (board slides in from +X, M2 x 6 nylon through the pocket floor), tray screwed into M2 nuts in the body pads, flat-roof cover 2026-11-12 raised 4.5 mm",
+ "inputs": "ACwing_HW rev A boards 1.0 mm (STEP of 2026-11-08), frame A1 rev M of 2026-11-15 (modular: body + 4 guard baskets + 4 motor cups with deck struts), electronics stack raised 4.5 mm (S0 spacers 4.0 mm, bosses top z -1.5, ESC bottom z 2.5), one-piece battery + flow tray (board slides in from +X, M2 x 6 nylon through the pocket floor), tray screwed into hot-melt inserts in the body pads, baskets on M2 x 5 ear screws into nuts in hex pockets under the deck (modelled), flat-roof cover 2026-11-12 raised 4.5 mm",
  "method": "manifold3d mesh booleans: overlap volume in mm3 of every pair of parts; min_gap in mm for the pairs of interest",
  "unexpected_overlaps_mm3": {
-  "leads x wire_C1": 0.0332,
-  "leads x wire_C2": 0.091,
-  "leads x wire_C3": 0.0031
+  "leads x wire_C1": 0.0334,
+  "leads x wire_C2": 0.0908,
+  "leads x wire_C3": 0.0033
  },
  "assembly_interfaces_mm3": {
   "core x tray": 22.3665,
   "core x sleeves": 9.2098,
-  "core x leads": 0.1688,
-  "core x hw_inserts": 11.1646,
+  "core x leads": 0.169,
+  "core x hw_inserts": 22.3291,
+  "core x hw_ear_nuts": 1.2672,
   "tray x hw_flow_inserts": 5.5823,
   "sleeves x motors": 182.8005,
   "motors x props_front": 14.3893,
@@ -30,7 +31,8 @@
   "leads x ESC": 0.0002,
   "FC x hw_grommets": 39.5472,
   "hw_inserts x hw_stack_screws": 8.762,
-  "hw_inserts x hw_tray_screws": 7.8638,
+  "hw_inserts x hw_tray_screws": 9.7731,
+  "hw_ear_screws x hw_ear_nuts": 3.5214,
   "hw_grommets x hw_stack_screws": 72.8006,
   "hw_flow_inserts x hw_flow_screws": 3.2015,
   "ESC_J1_plug x wire_A1": 0.0767,
@@ -65,7 +67,7 @@
  "clearances_mm": {
   "cover - core": 6.0,
   "cover - leads": 6.0,
-  "ESC USB plug - leads": 1.86,
+  "ESC USB plug - leads": 2.34,
   "FC USB plug - leads": 6.0,
   "ESC USB plug - cover": 3.55,
   "cover - cable D": 6.0,
@@ -100,7 +102,7 @@
   "core - FC": 6.0,
   "battery - core": 0.24,
   "housings - props": 4.03,
-  "housings - core": 6.0
+  "housings - core": 5.78
  },
  "cables_wire_mm": {
   "A": [
@@ -134,9 +136,8 @@
  },
  "notes_rev_M": [
   "the only unexpected contacts are motor lead wires against cable C wires where cable C drops through the deck slot (wire on wire, 0.09 mm3): accepted",
-  "ESC USB-C plug envelope (12.4 x 6.5 mm overmold, 26 mm long) clears the frame by 0.28 mm (ear shoulders of the +X lobe), the cover by 3.55 mm and the motor leads by 1.86 mm: the charging port is free",
-  "battery_path check removed: the pack is dropped into the tray while the tray is off the frame (no rear insertion since rev M)",
   "tray - core 0.0 and battery - tray 0.0 are the screwed post faces and the pack seat (interfaces)",
-  "core = body + 4 baskets + 4 cups as one mesh for the checks"
+  "core = body + 4 baskets + 4 cups as one mesh for the checks",
+  "ear screws (M2 x 5, heads on the ears in the shoulder head bores) and nuts are part of the check: no contact, 0.4 mm from the motor leads"
  ]
 }

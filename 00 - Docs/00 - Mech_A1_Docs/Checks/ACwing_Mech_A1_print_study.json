@@ -443,13 +443,13 @@
  "M_2026-11-15": {
   "masses_g": {
    "body": {
-    "g": 4.926,
+    "g": 5.08,
     "bodies": 1,
     "watertight": true,
     "bad_edges": 0
    },
    "basket0": {
-    "g": 1.751,
+    "g": 1.732,
     "bodies": 1,
     "watertight": true,
     "bad_edges": 0
@@ -461,7 +461,7 @@
     "bad_edges": 0
    },
    "basket1": {
-    "g": 1.751,
+    "g": 1.732,
     "bodies": 1,
     "watertight": true,
     "bad_edges": 0
@@ -473,7 +473,7 @@
     "bad_edges": 0
    },
    "basket2": {
-    "g": 1.751,
+    "g": 1.732,
     "bodies": 1,
     "watertight": true,
     "bad_edges": 0
@@ -485,7 +485,7 @@
     "bad_edges": 0
    },
    "basket3": {
-    "g": 1.751,
+    "g": 1.732,
     "bodies": 1,
     "watertight": true,
     "bad_edges": 0
@@ -498,7 +498,7 @@
    },
    "overlap_body_baskets": -0.0,
    "overlap_baskets_cups": 0.0,
-   "total_g": 18.11
+   "total_g": 18.19
   },
   "fe": {
    "modes_Hz": {
@@ -537,17 +537,17 @@
   },
   "support_estimate": {
    "body (deck on the bed)": {
-    "need_area_mm2": 0,
-    "support_envelope_cm3": 0.0,
-    "bridges": 11,
-    "bridge_area_mm2": 11,
+    "need_area_mm2": 56,
+    "support_envelope_cm3": 0.05,
+    "bridges": 15,
+    "bridge_area_mm2": 24,
     "height_mm": 4.7
    },
    "basket FL (guard top on the bed)": {
-    "need_area_mm2": 0,
-    "support_envelope_cm3": 0.0,
-    "bridges": 18,
-    "bridge_area_mm2": 99,
+    "need_area_mm2": 6,
+    "support_envelope_cm3": 0.03,
+    "bridges": 16,
+    "bridge_area_mm2": 98,
     "height_mm": 31.5
    },
    "cup FL (flange on the bed)": {
@@ -558,9 +558,9 @@
     "height_mm": 25.7
    },
    "basket FR (guard top on the bed)": {
-    "need_area_mm2": 0,
-    "support_envelope_cm3": 0.0,
-    "bridges": 18,
+    "need_area_mm2": 6,
+    "support_envelope_cm3": 0.03,
+    "bridges": 16,
     "bridge_area_mm2": 100,
     "height_mm": 31.5
    },
@@ -572,9 +572,9 @@
     "height_mm": 25.7
    },
    "basket RL (guard top on the bed)": {
-    "need_area_mm2": 0,
-    "support_envelope_cm3": 0.0,
-    "bridges": 20,
+    "need_area_mm2": 6,
+    "support_envelope_cm3": 0.03,
+    "bridges": 18,
     "bridge_area_mm2": 100,
     "height_mm": 31.5
    },
@@ -586,9 +586,9 @@
     "height_mm": 25.7
    },
    "basket RR (guard top on the bed)": {
-    "need_area_mm2": 0,
-    "support_envelope_cm3": 0.0,
-    "bridges": 17,
+    "need_area_mm2": 6,
+    "support_envelope_cm3": 0.03,
+    "bridges": 15,
     "bridge_area_mm2": 98,
     "height_mm": 31.5
    },
@@ -621,6 +621,6 @@
     "height_mm": 18.2
    }
   },
-  "note": "estimator rule: 45 deg from vertical, bridges up to 2.6 mm wide and 22 mm long count as bridges. The tray \"need\" areas are the two wide bridges of the upside-down print: box-floor strips 2.4 mm wide spanning 21.6 / 26.6 / 31.6 mm (T400 / T800 / T1200) and the 22.7 mm pocket floor with the optical windows; no support material is planned (bridge settings, see the Mech A1 README)."
+  "note": "estimator rule: 45 deg from vertical, bridges up to 2.6 mm wide and 22 mm long count as bridges. The tray \"need\" areas are the two wide bridges of the upside-down print: box-floor strips 2.4 mm wide spanning 21.6 / 26.6 / 31.6 mm (T400 / T800 / T1200) and the 22.7 mm pocket floor with the optical windows; no support material is planned (bridge settings, see the Mech A1 README). Body and baskets (2026-11-15 evening): the remaining \"need\" areas are the ceilings of the tray insert seats (\u00d82.8) and of the ear nut pockets (AF 4.25) on the body bed face, and the ear faces inside the \u00d83.9 head bores of the baskets: short bridges, no support."
  }
 }
