@@ -1,18 +1,18 @@
 {
- "date": "2026-11-13",
- "case": "A1 core rev R of 2026-11-13 (parametric rebuild, ring beam, 18.1 g), tray T800, 1.0 mm stack",
- "model": "voxel hex8 h 0.6 mm, PETG E 2000 MPa; motors 4 x 4.0 g on the holders, stack + cover 15.0 g on the 4 bosses, battery on the tray lips and rails (latch tongue excluded), flow board 1.5 g on its bosses; free-free",
+ "date": "2026-11-15",
+ "case": "A1 rev M of 2026-11-15 (modular frame: body + 4 baskets + 4 cups with deck struts, 18.1 g), one-piece battery + flow tray T800, stack 4.5 mm higher",
+ "model": "voxel hex8 h 0.6 mm, PETG E 2000 MPa; frame parts fused at the screwed / snapped interfaces (ears on the body pads, cups in the basket claws, strut feet on the deck); motors 4 x 4.0 g in the cups, stack + cover 15.0 g on the 4 bosses, battery in the tray box, flow board 1.5 g on its bosses; free-free",
  "modes_Hz": [
-  76.7,
-  118.9,
-  133.6,
-  139.8,
-  145.7,
-  154.5,
-  161.1,
-  161.6
+  85.6,
+  86.7,
+  104.4,
+  107.0,
+  107.6,
+  112.2,
+  126.5,
+  128.6
  ],
- "first_mode": "tray rear overhang with the battery (tray-local)",
+ "first_mode": "motor pods bouncing (vertical), pairs in / out of phase; then guard-ring modes from 104 Hz",
  "reference_same_model": {
   "wave guards 2026-11-12": [
    87.2,
@@ -47,8 +47,16 @@
   "2026-11-13 morning (section 13), first two modes": [
    84.9,
    129.7
+  ],
+  "rev R 2026-11-13 (one-piece core, tray A1 on lugs)": [
+   76.7,
+   118.9,
+   133.6,
+   139.8,
+   145.7,
+   154.5,
+   161.1,
+   161.6
   ]
- },
- "tray_joint": "tray screwed to the 4 lugs: modelled as bonded on \u00d85.2 pads at the lug faces (z -9.0); before rev R the bond came from voxel contact only",
- "note_rev_R": "The section 13 core had knee braces 0.6 mm from the tray rails: at h 0.6 mm the voxel model joined them, so the tray rear was held by the core and its first modes (84.9 / 90.3 Hz) were optimistic. Rev R leaves 1.36 mm there: the tray rear end with the battery is free, as in the real part. The model carries the battery as mass only (no pack stiffness), so the tray-local modes are a lower bound: check them with a tap test."
+ }
 }

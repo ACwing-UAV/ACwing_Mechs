@@ -11,7 +11,9 @@ motors back at RM 51; weight study) and **2026-11-08** (§11: boards back to 1.0
 handoff §0.19–§0.20; new **A2 guard rings**, motors at **RM 52**, new electronics cover) and **2026-11-12** (§12: print-first
 redesign after the first print: **wave guards**, straight spokes, closed wire eyelets, flat-roof cover) and **2026-11-13**
 (§13: one-piece motor holders with foot ring and wire channel, no landing loop, aligned spokes and bridges, wire holes;
-**§14 rev R**: core redrawn as one parametric body, ring beam under the stack, foot at z −30, flow board cover).
+**§14 rev R**: core redrawn as one parametric body, ring beam under the stack, foot at z −30, flow board cover) and
+**2026-11-15** (**§15 rev M**: modular frame printed without supports, body + 4 guard baskets + 4 motor cups; stack 4.5 mm
+higher for the ESC USB-C; one-piece battery + flow tray).
 **Follows:** the preliminary-draft mechanical answer and electronics reply, in ACwing_HW `00 - Docs/04 - System_Docs`. The stack
 (ESC 1S rev A / FC rev A / GPS rev A option), the bosses, the inserts, the corner columns and cables A/B come from
 the preliminary draft unchanged.
@@ -19,34 +21,36 @@ the preliminary draft unchanged.
 
 ## 0. Summary
 
-The battery bay is not part of the printed frame. Frame A1 is a **core** with four lugs under the deck, and the
-battery rides in a **screw-on tray**. There are three trays, so a bigger pack only needs a new tray (3.4–4.2 g of PETG),
-not a new frame.
+The battery bay is not part of the printed frame. Frame A1 (rev M, §15) is a **body + 4 guard baskets + 4 motor cups**
+with four tray pads under the deck, and the battery rides in a **screw-on battery + flow tray**. There are three trays, so a
+bigger pack only needs a new tray (3.4–4.4 g of PETG), not a new frame.
 
 | Tray | Battery (1S LiPo) | Battery size W × L × H | Tray mass | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode |
 |---|---|---|---|---|---|---|---|
-| T400 | 400 mAh, 11.5 g | 20 × 40 × 8 | 3.30 g | ≈ 70.4 g | 1.99 | × 0.75 | 90.4 Hz** |
-| T800 | 800 mAh, ≈ 22 g | 25 × 45 × 9 | 3.55 g | ≈ 81.2 g | 1.72 | × 1.21 | 76.7 Hz*** |
-| T1200 | 1200 mAh, ≈ 30 g | 30 × 64 × 8 | 4.04 g | ≈ 89.6 g | 1.56 | × 1.56 | 62.7 Hz*** |
+| T400 | 400 mAh, 11.5 g | 20 × 40 × 8 | 3.42 g | ≈ 71.6 g | 1.96 | × 0.73 | 85.9 Hz** |
+| T800 | 800 mAh, ≈ 22 g | 25 × 45 × 9 | 3.82 g | ≈ 82.6 g | 1.69 | × 1.18 | 85.6 Hz** |
+| T1200 | 1200 mAh, ≈ 30 g | 30 × 64 × 8 | 4.39 g | ≈ 91.0 g | 1.54 | × 1.53 | 91.1 Hz** |
 
-\* Indoor configuration (ESC 1S rev A + FC rev A + Flow rev A with its cover, no GPS), boards 1.0 mm, electronics cover (2.8 g),
-rev R of 2026-11-13. Mass budget and lightening options: `ACwing_Mech_A1_weight_study.md`.
+\* Indoor configuration (ESC 1S rev A + FC rev A + Flow rev A in the tray pocket, no GPS), boards 1.0 mm, electronics cover
+(2.8 g), **rev M of 2026-11-15** (trays carry the flow board, §15). Mass budget and lightening options: `ACwing_Mech_A1_weight_study.md`.
 \** FE model of 2026-11-08 (§5, battery lumped on the tray lips): the A1 design of 2026-11-01 gives 102.5 Hz in the
 same model, so these values are not comparable with the 127 Hz of the older model.
-\*** Tray-local mode: the rear end of the long tray with the battery (frame saddle mode above it). Lower bound: the model
-carries the pack as mass only. See §5 and §14.
+Rev M (§15): the first modes are the motor pods bouncing; the closed battery box removed the rev R tray-overhang mode
+(76.7 / 62.7 Hz on T800 / T1200).
 - Thrust ≈ 140 g.
 - Hover power ∝ m^1.5, with the same usable fraction of the capacity.
 - The reference is the preliminary draft (battery bay fused to the frame) with the 400 mAh pack, ≈ 58 g.
 
 Cost of interchangeability, compared with the preliminary draft (frame 15.55 g):
-- core 18.10 g (rev R, §14): 2.6 g more than the frame of the preliminary draft
+- frame 18.11 g (rev M, §15: body + 4 baskets + 4 cups; 18.10 g one-piece in rev R, §14): 2.6 g more than the frame of the preliminary draft
   (16.67 g in §13, 17.63 g on 2026-11-12, 15.55 g with the A2 rings of 2026-11-08, 14.95 g at RM 51 with the closed rings);
 - tray as in the table above;
-- 4 brass inserts + 4 M2 × 5 A4 screws ≈ 1.2 g (estimate, see the BoM; ≈ 0.85 g with titanium screws).
+- 4 M2 nuts + 4 M2 × 6 A4 tray screws ≈ 1.1 g; since rev M also 8 M2 × 6 ear screws + nuts ≈ 1.4 g and 4 S0 spacers 0.24 g
+  (estimates, see the BoM).
 
 Net mass overhead: **+7.0 g (T400), +7.3 g (T800), +7.9 g (T1200)** (1.1 g of it is the print-first guards, 1.43 g the
-rev R ring beam and longer holders). The flow board cover (0.67 g) is an added part and is not counted here.
+rev R ring beam and longer holders); rev M adds ≈ 1.2 g (ear hardware, S0 spacers, longer stack screws) minus 0.3–0.55 g
+on the trays, which now also replace the flow board cover.
 
 ## 1. Core A1 (changes from the preliminary draft)
 
@@ -612,3 +616,130 @@ The core is 1.43 g heavier than in §13 (ring beam, rail caps, 4.5 mm longer hol
 `02 - Mounts/Flow_Cover_A1/`, `Prints/ACwing_Mech_A1_06_Flow_cover_PETG.stl`, `STEP/Parts/ACwing_Flow_Cover_A1.step`.
 The assembly STEP files with hardware and cables (`STEP/*_hardware_cables.step`) are rewritten with the M2 × 6 flow
 screws.
+
+## 15. Rev M: modular frame without supports, stack 4.5 mm higher, battery + flow tray (2026-11-15)
+
+**Why.** The one-piece rev R core is hard to print: it needs about 26 cm³ of support under the deck, the holders and
+the arms, and the first prints failed on it. Request (Andrea Cirillo): split the frame so that every part prints with
+little or no support, central body separate from the motor blocks and guard rings, coupled for stiffness and looks;
+3 rods per motor to save weight; check the board connectors; closed lead channel. Sketches first (concept sheet below),
+then the model.
+
+![Concept sheet, rev M](Renders/ACwing_Mech_A1M_concept_sheet.png)
+
+**Parts (frame).** 9 printed parts instead of 1, each printed in its natural orientation, **no supports**:
+
+| Part | Files | Mass (PETG, solid) | Print |
+|---|---|---|---|
+| Body | `01 - Frame/Frame_A1/ACwing_Frame_A1_body.stl` | 4.93 g | deck on the bed |
+| Guard basket × 4 | `…_basket_FL / FR / RL / RR.stl` | 1.75 g each | guard top on the bed |
+| Motor cup × 4 | `…_cup_FL / FR / RL / RR.stl` | 1.55 g each | foot flange on the bed |
+| **Frame** | | **18.11 g** (rev R 18.10 g) | 256 × 256 plate: `Prints/ACwing_Mech_A1_01_Frame_set_plate_256x256_PETG.stl` |
+
+- **Body.** Flat deck (z −6.2 … −5.0) with four lobes on the axes that carry the basket ears; stack bosses (top z −1.5),
+  ring beam (rails x ±20, deck ribs, tip beams 4.5 mm wide from the bosses to the lobes), 4 tray pads with M2 nut seats,
+  8 ear pads, a wire gutter per motor on the deck, cable C slot, cable D slot in the rear lobe (the rear tip beam is
+  split in two rails around it), blind pin holes for the cup struts.
+- **Guard basket.** The rev R wave guard (C ring, open toward the body), with two **ears** at φ ±46° (45° shoulders
+  under them, so they print) and **two rods** from the ears down to the cup (Ø2.4; the lead-side rod Ø3.2 with the closed
+  lead channel inside). Each rod ends in a **claw leg** that hugs the cup; the cup snaps into notches in the legs.
+- **Motor cup.** The rev R holder bore (TPU sleeve, snap windows at ±90°), foot flange at z −30, floor with a 45° cone
+  under it and the lead channel, and a **strut** from the flange up to the underside of the deck at the rail end
+  (± 19.5, ± 9.4), located by a Ø1.5 pin in a blind hole. The strut works in compression under thrust.
+- **Joint body – basket.** 2 × M2 × 6 (titanium or A4) per basket, from the top through the ear and the body pad, nut
+  under the deck. The cups are pushed up into the claws until they snap; the strut pin then sits in the deck.
+
+**Why 2 rods + 1 strut (the "3 per motor").** With 3 rods all on the guard ring the frame was soft: motor thrust 2 N →
+2.41 mm, first mode 52 Hz. The ring is not tied to the body: the whole basket hinges about the line through its two ears,
+so a rod to the far side of the ring supports nothing. The third member must land on the body: the strut from the cup
+to the deck. Load-path study (thrust 2 N on one motor, voxel FE):
+
+| Variant | Thrust 2 N | Frame |
+|---|---|---|
+| 3 rods on the ring (first model) | 2.41 mm | 17.32 g |
+| 2 rods + strut to the deck | 1.60 mm | 17.55 g |
+| + tip beams 4.5 mm | 1.31 mm | 17.75 g |
+| + strut base at r 11.2 (steeper, 45°) | **1.11 mm** (adopted) | 18.07 g |
+| 3 rods + strut | 1.28 mm, same first mode, ring modes 133 Hz instead of 104 Hz | +0.85 g |
+
+The ear thickness has no effect (1.2 → 2.4 mm: −2 %): the compliance is in the body lobes, so the joint is 1 screw per ear.
+
+**Electronics stack 4.5 mm higher.** The ESC USB-C is the charging port and must stay free. The basket ears on the
+right lobe sit in the path of the plug, so the whole stack (ESC, FC, GPS, cover) moves up 4.5 mm: bosses +0.5 mm
+(top z −1.5) and new **S0 spacers 4.0 mm** (×4) between the boss and the ESC. ESC bottom z 2.5, FC bottom z 8.5,
+cover roof z 15.8 (indoor) / 25.75 (GPS); stack screws **M2 × 18** (indoor, tip 2.6 mm in the insert) and **M2 × 30**
+(GPS). The cover meshes are unchanged; the assembly mounts them 4.5 mm higher. Cables A and B are unchanged; cable C
+route 53–56 mm (60 mm wire, as before), cable D route 25.7 mm (make it 30 mm), motor leads 79–82 mm.
+
+**Battery + flow tray (one part).** With the rods of the rear baskets the battery can no longer slide in from the rear
+on T800 / T1200, so the tray becomes one part that carries the battery and houses the flow board (the flow cover is
+gone):
+- **battery box** open toward the deck, closed at both ends, ladder floor (2.4 mm strips), diamond windows; the pack is
+  dropped in while the tray is off the frame and is held between the floor and the deck (0.5 mm foam); notch in the rear
+  wall for the battery leads and cable D;
+- **flow pocket** under the floor: the board slides in from +X, sensor side down, back flat on the two floor bosses
+  (inserts), held by 2 × M2 × 6 nylon from below through the pocket floor; lens Ø6, ToF window 3.0 × 5.4 and LED Ø1.2
+  as on the old cover; the connector edge stays open for the plugs; floor 3.3 mm under the sensor face (sliding clearance);
+- **4 posts** to the body pads, M2 × 6 from below into the nuts in the body;
+- printed **upside down** (wall tops, lugs and posts on the bed), no supports: the floor strips and the pocket floor are
+  bridges (21.6 / 26.6 / 31.6 mm on T400 / T800 / T1200, pocket 22.7 mm).
+
+| Tray | Mass | was tray + flow cover | First mode (rev M) | rev R |
+|---|---|---|---|---|
+| T400 | 3.42 g | 3.97 g | 85.9 Hz | 90.4 Hz |
+| T800 | 3.82 g | 4.22 g | 85.6 Hz | 76.7 Hz |
+| T1200 | 4.39 g | 4.71 g | 91.1 Hz | 62.7 Hz |
+
+The closed box removes the tray-overhang mode that limited T800 / T1200 in rev R. On every tray the first two modes are
+now the motor pods bouncing (pairs in / out of phase), then the guard rings from 104 Hz.
+
+**Results** (FE as in §5, statics as in §12; T400).
+
+| | Rev R | **Rev M** |
+|---|---|---|
+| Frame, solid | 18.10 g (1 part) | **18.11 g** (9 parts) |
+| First / second mode | 90.4 / 139.7 Hz | 85.9 / 89.3 Hz (pods), rings from 104 Hz |
+| Motor thrust 2 N | 1.00 mm | 1.11 mm |
+| Outer push 5 N (φ 180) | 4.27 mm | 4.85 mm |
+| Side push 5 N (φ 90) | 5.32 mm | 7.75 mm |
+| Vertical 5 N at φ 90 / φ 60 | 9.11 / 3.88 mm | 6.59 / 1.83 mm |
+| Bottom push 5 N | 0.79 mm | 4.26 mm |
+| Push 5 N on the ramp (φ 45) | 2.15 mm | 0.25 mm |
+| Support | 25.6 cm³ | **0** (bridges only) |
+
+The guard rings are softer for side and bottom pushes (the ring is held only at the ears) and stiffer for vertical loads
+and at the ramps. Peak stress under 22 MPa for every 5 N case.
+
+**Checks** (§4, T400 indoor / GPS, T800, T1200, with the cover): the only contact left is motor lead against cable C
+where cable C drops through the deck slot (wire on wire, 0.09 mm³, accepted).
+- ESC USB-C plug: frame 0.28 mm (ear shoulders), cover 3.55 mm, motor leads 1.86 mm, propeller disc 3.43 mm.
+  FC USB-C plug: frame 5.4 mm.
+- Cover: frame and baskets > 6 mm, FC 1.36 mm, plug housings 0.52 mm, cable A 0.51 mm, cable C 1.54 mm, motor leads > 6 mm,
+  propeller discs > 6 mm; GPS cover – GPS 0.09 mm (as in rev R).
+- Tray: sensor cones 0.62 mm, Flow J1 plug 1.38 mm, cable C 1.56 mm; posts on the body pads and pack seat are interfaces.
+- Frame – propeller disc 0.67 mm; cable D – frame 0.04 mm (it passes the rear-lobe slot).
+
+![Drone, rev M](Renders/ACwing_Mech_A1_T400_drone_raytrace.png)
+
+![ESC USB-C free](Renders/ACwing_Mech_A1M_ESC_USB_free.png)
+
+![Pod: basket rods, cup and strut](Renders/ACwing_Mech_A1M_pod_strut.png)
+
+![Underside: battery + flow tray](Renders/ACwing_Mech_A1_T400_below_tray.png)
+
+![Guard ear, lead drop into the deck gutter, cable A](Renders/ACwing_Mech_A1M_guard_ear_leads.png)
+
+![Pod from below: claw legs, rods and strut](Renders/ACwing_Mech_A1M_pod_underside.png)
+
+![Drone with T1200](Renders/ACwing_Mech_A1_T1200_drone_raytrace.png)
+
+**Assembly order.** Body: press the 4 stack inserts and the 4 tray nuts. Baskets: thread the motor leads (cup floor →
+channel → lead rod → ear → gutter) before soldering; screw each basket to the body (2 × M2 × 6 + nut). Cups: sleeve and
+motor in, push the cup up into the claws until it snaps (strut pin in the deck hole). Stack: S0, ESC, S1, balls, FC,
+(S2, GPS), cover, M2 × 18 / × 30. Tray: flow board in from +X, 2 × M2 × 6 nylon, pack in, foam, tray on with 4 × M2 × 6.
+
+**Files.** Frame parts in `01 - Frame/Frame_A1/` (the rev R core is retired); trays in `02 - Mounts/Battery_Trays_A1/`
+(same names, new parts); `02 - Mounts/Flow_Cover_A1/` removed; spacers `ACwing_Stack_Spacers_A1_S0x4_S1x4_S2x4.stl`;
+print copies in `Prints/` (01a body, 01b baskets, 01c cups, 01 whole set on one plate); `STEP/Parts/` (faceted, body
+40k, baskets 20k, cups and trays as meshed); assembly STEP with S0, ear and tray nuts and the new screws; data, macro,
+BoM, checks and FE JSON updated.

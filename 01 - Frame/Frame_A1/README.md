@@ -1,29 +1,32 @@
-# Frame A1 – core
+# Frame A1 – modular frame (rev M)
 
-`ACwing_Frame_A1_core.stl`: the frame A1 core (PETG, **18.10 g** solid, **rev R** of 2026-11-13), source mesh in the **assembly position**
-(z = 0 propeller plane, +Y forward). It is the printing master: the print-ready copy (upside down, on z = 0) is
-written by the Mech A1 macro to `00 - Docs/00 - Mech_A1_Docs/Prints/`.
+Rev M of 2026-11-15: the frame is **9 printed parts** (PETG), each printed without supports. Source meshes in the
+**assembly position** (z = 0 propeller plane, +Y forward). Print copies (oriented, on z = 0): `00 - Docs/00 - Mech_A1_Docs/Prints/`.
 
-- Fits ESC 1S rev A, FC rev A, GPS rev A (option) and Flow rev A, all 1.0 mm (ACwing_HW handoff §0.19–§0.20,
-  2026-11-08), with the A1 battery trays.
-- Motors at **RM 52** (frame 134.8 × 134.8 × **32.5 mm**), 4 one-piece holders for 8.5 mm motors in TPU sleeves
-  (2026-11-13): 0.85 mm wall with a 45° top chamfer, snap windows at ±90°, floor with the lead hole and an **L1 foot
-  ring** at z −30 (the drone stands on the four holders; no landing loop).
-- **Wave prop guards** (2026-11-12, print-first): a 0.86 mm wall bulged 1.2 mm outward, with a top lip, a lower rim and
-  an S ribbon between them (the curve of the cover skirt), 15 windows per guard. Every window sill is a 45° slope or a
-  6.2 mm bridge, so the guards print upside down with no support inside. Open toward the body (45° ramps with a 1.2 mm
-  rim), so the board-edge plugs and cable A have free room above them. Straight spokes flush with the lower rim and in
-  line with the bridges between the guards (rim section 1.28 × 1.6 mm).
-- **Motor leads**: the motors have no connector, so thread the leads before soldering: floor hole → recess in the foot
-  ring → closed channel in the rib under the arm → woven through 3 teardrop holes (Ø1.9 mm) in the arm → hole through the rail
-  cap → deck slot.
-- 4 stack bosses (20 × 20 pattern, hot-melt inserts), 4 tray lugs (flat faces at z −9.0, inserts open downwards),
-  **ring beam**: side rails (raised top, flared toward the arms, round caps past the arm roots) and deck ribs from the
-  stack bosses to the rails; cable C slot behind the rear grommets.
-- Design notes: [`ACwing_frame_A1_mechanical_handoff.md`](../../00%20-%20Docs/00%20-%20Mech_A1_Docs/ACwing_frame_A1_mechanical_handoff.md) §11–§14.
-- Mesh (rev R): about 0.61 M triangles. **Generated from scratch** from a parametric plan (no mesh surgery on older
-  cores): deck, bosses, ribs, rails, lugs, arms as one smooth signed-distance body with 0.8 mm blend fillets, fused with
-  the exact holders, guards, spokes and bridges; holes cut last. One body, watertight, 0 non-manifold edges, checked
-  after the float32 STL round trip (what the slicer reads).
-- Print: upside down, guard top lips on the bed; tree supports only under the deck, holders and arms. PETG Basic / HF,
-  not Matte (see the Mech A1 README).
+| File | Part | Mass (solid) | Print orientation |
+|---|---|---|---|
+| `ACwing_Frame_A1_body.stl` | central body | 4.93 g | deck on the bed |
+| `ACwing_Frame_A1_basket_FL/FR/RL/RR.stl` | guard basket, one per motor | 1.75 g each | upside down, guard top on the bed |
+| `ACwing_Frame_A1_cup_FL/FR/RL/RR.stl` | motor cup with deck strut, one per motor | 1.55 g each | upright, foot flange on the bed |
+| | **frame** | **18.11 g** | whole set on one 256 × 256 plate: `Prints/ACwing_Mech_A1_01_Frame_set_plate_256x256_PETG.stl` |
+
+FL = front-left (−X, +Y), FR = front-right, RL = rear-left, RR = rear-right. The four baskets differ in the lead rod
+(on the ESC side of each motor) and the four cups in the mirrored strut.
+
+- **Body.** Deck z −6.2 … −5.0 with four lobes on the axes, stack bosses (top z −1.5, hot-melt inserts), ring beam (rails
+  x ±20, deck ribs, tip beams 4.5 mm), 4 tray pads with M2 nut seats, 8 ear pads, a wire gutter per motor, cable C slot,
+  cable D slot in the rear lobe, blind pin holes for the cup struts.
+- **Basket.** The wave prop guard (C ring open toward the body), two ears at φ ±46° on 45° shoulders, two rods to the cup
+  (Ø2.4 / Ø3.2 on the lead side, with the closed lead channel), each ending in a claw leg with a snap notch.
+- **Cup.** Bore for the TPU motor sleeve (snap windows at ±90°), foot flange at z −30, 45° cone under the floor with the
+  lead channel, 2 snap bumps, strut to the deck underside at (±19.5, ±9.4) with a Ø1.5 locating pin.
+- **Joints.** Basket → body: 2 × M2 × 6 (A4 or titanium) per basket through ear and pad, nut under the deck. Cup →
+  basket: pushed up into the claws until it snaps; the strut pin seats in the deck.
+- **Motor leads.** Cup floor hole → channel under the floor → cup slot → lead rod channel → down through the ear → deck
+  gutter → up at the ESC corner to the pads (79–82 mm per wire). Thread them before soldering.
+- Frame 134.8 × 134.8 × 32.5 mm, motors at RM 52. Results (FE, statics, checks) and the reasons for the layout: handoff
+  [§15](../../00%20-%20Docs/00%20-%20Mech_A1_Docs/ACwing_frame_A1_mechanical_handoff.md).
+- Meshes: one body each, watertight, 0 non-manifold edges after the float32 STL round trip. Generated by the parametric
+  design script `frameM.py` (signed-distance body for the deck, exact parts for guards, rods, cups); kept with the design files.
+
+The one-piece rev R core (2026-11-13, 18.10 g, about 26 cm³ of support) is retired; it is in the git history.
