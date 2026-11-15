@@ -10,7 +10,13 @@ comes back in the bulge of the wave guards).
 | `ACwing_Cover_A1_indoor.stl` | ESC + FC | 52 × 52 mm, concave sides | z 6.2 → 11.3 | 2.79 g | 4 × M2 × 14 ISO 7380 |
 | `ACwing_Cover_A1_gps.stl` | ESC + FC + GPS | 52 × 52 mm, concave sides | z 6.2 → 21.25 | 4.27 g | 4 × M2 × 25 ISO 7380 |
 
-The meshes are in assembly position (frame coordinates: z = 0 propeller plane, +Y forward). The print files, on z = 0,
+> **Rev M (2026-11-15).** The electronics stack sits **4.5 mm higher** (S0 spacers) so that the ESC USB-C stays free for
+> charging. The cover shape is unchanged; it is mounted 4.5 mm higher (indoor z 10.7 → 15.8, GPS z 10.7 → 25.75) with
+> **M2 × 18** (indoor) / **M2 × 30** (GPS) stack screws. The meshes below stay at the rev R height; the assembly applies
+> the offset. Checks with the cover (handoff §15): FC 1.36 mm, plug housings 0.52 mm, cable A 0.51 mm, ESC USB-C plug 3.55 mm,
+> frame and propeller discs > 6 mm.
+
+The meshes are in assembly position (frame coordinates: z = 0 propeller plane, +Y forward). (rev R stack height) The print files, on z = 0,
 are written by the assembly macro to `00 - Docs/00 - Mech_A1_Docs/Prints/`.
 
 ## Shape

@@ -15,10 +15,10 @@
 ---
 
 <p align="center">
-  <img alt="ACwing Mech A1, 1S indoor drone with the wave propeller guards, battery tray T400 and the translucent electronics cover (path-traced render)" src="00%20-%20Docs/00%20-%20Mech_A1_Docs/Renders/ACwing_Mech_A1_T400_drone_raytrace.png" width="720">
+  <img alt="ACwing Mech A1 rev M, 1S indoor drone with the modular frame (guard baskets, motor cups), battery + flow tray T400 and the translucent electronics cover (path-traced render)" src="00%20-%20Docs/00%20-%20Mech_A1_Docs/Renders/ACwing_Mech_A1_T400_drone_raytrace.png" width="720">
   <br>
-  <em>Mech A1 with the print-first wave guards, tray T400, the rev A stack (ESC 1S + FC, 1.0 mm) and the translucent
-  electronics cover. Path-traced render (Blender Cycles, one light).</em>
+  <em>Mech A1 rev M: modular frame printed without supports, tray T400, the rev A stack (ESC 1S + FC, 1.0 mm) and the
+  translucent electronics cover. Path-traced render (Blender Cycles, one light).</em>
 </p>
 
 **ACwing** is an open project for small multirotors. This repository holds the
@@ -72,13 +72,13 @@ the **STL/3MF** with material, layer height and orientation.
 
 | Release | Contents | Fits | Docs |
 |---|---|---|---|
-| **Mech A1** | frame A1 core, battery trays T400 / T800 / T1200, stack spacers, TPU motor sleeves, translucent electronics cover | ESC 1S rev A, FC rev A (layout 2026-11-08, 1.0 mm boards), Flow rev A, GPS rev A (option); frame RM 52 with the wave guards (print-first, 2026-11-12) | [`00 - Docs/00 - Mech_A1_Docs`](00%20-%20Docs/00%20-%20Mech_A1_Docs/README.md) · macro [`03 - Assembly/ACwing_Mech_A1`](03%20-%20Assembly/ACwing_Mech_A1/README.md) |
+| **Mech A1** | modular frame A1 (body, 4 guard baskets, 4 motor cups; rev M 2026-11-15, printed without supports), battery + flow trays T400 / T800 / T1200, stack spacers, TPU motor sleeves, translucent electronics cover | ESC 1S rev A, FC rev A (layout 2026-11-08, 1.0 mm boards), Flow rev A, GPS rev A (option); frame RM 52 with the wave guards (print-first, 2026-11-12) | [`00 - Docs/00 - Mech_A1_Docs`](00%20-%20Docs/00%20-%20Mech_A1_Docs/README.md) · macro [`03 - Assembly/ACwing_Mech_A1`](03%20-%20Assembly/ACwing_Mech_A1/README.md) |
 
 ```
 00 - Docs/00 - Mech_A1_Docs/       README (print + build guide), BoM (xlsx/csv), Prints/, STEP/, Renders/, Checks/, design notes
-01 - Frame/Frame_A1/               ACwing_Frame_A1_core.stl
+01 - Frame/Frame_A1/               ACwing_Frame_A1_body.stl, _basket_<pos>.stl, _cup_<pos>.stl
 02 - Mounts/Battery_Trays_A1/      ACwing_Tray_A1_T400/T800/T1200.stl
-02 - Mounts/Stack_Spacers/         ACwing_Stack_Spacers_A1_S1x4_S2x4.stl
+02 - Mounts/Stack_Spacers/         ACwing_Stack_Spacers_A1_S0x4_S1x4_S2x4.stl
 02 - Mounts/Electronics_Cover_A1/  ACwing_Cover_A1_indoor.stl, ACwing_Cover_A1_gps.stl
 02 - Mounts/Motor_Sleeves/         ACwing_Motor_Sleeve_A1_x4.stl
 03 - Assembly/ACwing_Mech_A1/      ACwing_Mech_A1.FCMacro, ACwing_Mech_A1_data.json, reference/ (motors, props, leads)

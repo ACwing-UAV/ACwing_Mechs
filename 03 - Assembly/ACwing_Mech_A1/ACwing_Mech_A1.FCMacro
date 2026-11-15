@@ -3,23 +3,25 @@
 #  ACwing Mech A1  -  FreeCAD assembly macro (FreeCAD 0.21 / 1.0)
 #  Repository: https://github.com/ACwing-UAV/ACwing_Mechs   -   Author: Andrea Cirillo (ACwing)
 # ---------------------------------------------------------------------------------------------------------------------
-#  Mech A1 = frame A1 core + interchangeable battery tray (T400 / T800 / T1200) + stack spacers + TPU motor sleeves
+#  Mech A1 = modular frame A1 (body + 4 guard baskets + 4 motor cups) + interchangeable battery & flow tray (T400 / T800 /
+#  T1200) + stack spacers + TPU motor sleeves
 #  + translucent PLA electronics cover, for the 1S mini drone (indoor, no GPS by default) with ESC 1S rev A, FC rev A,
 #  Flow rev A (GPS rev A optional). All boards 1.0 mm thick (HW handoff 0.19 / 0.20, 2026-11-08).
-#  Frame A1 core rev R of 2026-11-13: clean parametric rebuild (one smooth body), wave guards, holders with foot, RM 52; flow cover.
+#  Frame A1 rev M of 2026-11-15: modular, printed without supports (body, baskets with 2 rods to the body ears, cups with a
+#  strut to the deck); electronics stack 4.5 mm higher (S0 spacers, ESC USB-C free); one-piece battery + flow tray.
 #
 #  What it does (Macro > Macros... > select this file > Execute):
 #   1. EXPORT_PRINTS: writes every printable part, already oriented for printing and placed on z = 0, into
 #        00 - Docs/00 - Mech_A1_Docs/Prints/
 #      (all three trays are written, whatever TRAY is set to).
 #   2. Builds the assembly with the selected TRAY in a new document, in groups:
-#        Frame        core A1 + tray (meshes from 01 - Frame / 02 - Mounts), battery as a box
+#        Frame        body, 4 baskets, 4 cups + tray (meshes from 01 - Frame / 02 - Mounts), battery as a box
 #        Propulsion   TPU sleeves (02 - Mounts) + reference motors, propellers (front pair green), motor leads
 #        Electronics  ESC 1S rev A, FC rev A, GPS rev A (if WITH_GPS), Flow rev A: STEP models read from the
 #                     ACwing_HW repository (never copied here, see README). Not found -> boards skipped (flow board
 #                     drawn as a simple placeholder).
-#        Hardware     inserts, spacers S1/S2, M2 damping balls (FC soft mount), stack screws (ISO 7380), tray screws,
-#                     flow inserts/screws; flow cover (2026-11-13)
+#        Hardware     inserts, spacers S0/S1/S2, M2 damping balls (FC soft mount), stack screws (ISO 7380), ear screws and
+#                     nuts, tray screws and nuts, flow inserts/screws
 #        Cover        translucent PLA cover over the stack (indoor or GPS version, 02 - Mounts/Electronics_Cover_A1)
 #        Cables       every wire of cables A (ESC-FC), B (FC-GPS), C (FC-Flow), D (battery pigtail), plug housings
 #   3. EXPORT_STEP: hardware + cables + battery of the assembly to 00 - Docs/00 - Mech_A1_Docs/STEP/
@@ -47,22 +49,26 @@ SAVE_FCSTD = False         # assembly document -> 00 - Docs/00 - Mech_A1_Docs/CA
 
 MECH = 'ACwing_Mech_A1'
 DOCS_REL = os.path.join('00 - Docs', '00 - Mech_A1_Docs')
-CORE = os.path.join('01 - Frame', 'Frame_A1', 'ACwing_Frame_A1_core.stl')
+POS = ('FL', 'FR', 'RL', 'RR')
+BODY = os.path.join('01 - Frame', 'Frame_A1', 'ACwing_Frame_A1_body.stl')
+BASKETS = {p: os.path.join('01 - Frame', 'Frame_A1', 'ACwing_Frame_A1_basket_%s.stl' % p) for p in POS}
+CUPS = {p: os.path.join('01 - Frame', 'Frame_A1', 'ACwing_Frame_A1_cup_%s.stl' % p) for p in POS}
 TRAYS = {t: os.path.join('02 - Mounts', 'Battery_Trays_A1', 'ACwing_Tray_A1_%s.stl' % t) for t in ('T400', 'T800', 'T1200')}
-SPACERS = os.path.join('02 - Mounts', 'Stack_Spacers', 'ACwing_Stack_Spacers_A1_S1x4_S2x4.stl')
+SPACERS = os.path.join('02 - Mounts', 'Stack_Spacers', 'ACwing_Stack_Spacers_A1_S0x4_S1x4_S2x4.stl')
 SLEEVES = os.path.join('02 - Mounts', 'Motor_Sleeves', 'ACwing_Motor_Sleeve_A1_x4.stl')
 COVERS = {c: os.path.join('02 - Mounts', 'Electronics_Cover_A1', 'ACwing_Cover_A1_%s.stl' % c) for c in ('indoor', 'gps')}
-FLOW_COVER = os.path.join('02 - Mounts', 'Flow_Cover_A1', 'ACwing_Flow_Cover_A1.stl')   # assembly position for a board face at z -20.3 (T400 / T1200)
 # (source, print file, flip upside down?) - orientation: see 00 - Docs/00 - Mech_A1_Docs/README.md
-PRINTS = [(CORE, MECH + '_01_Frame_core_PETG.stl', True),
-          (TRAYS['T400'], MECH + '_02_Tray_T400_PETG.stl', False),
-          (TRAYS['T800'], MECH + '_02_Tray_T800_PETG.stl', False),
-          (TRAYS['T1200'], MECH + '_02_Tray_T1200_PETG.stl', False),
-          (SPACERS, MECH + '_03_Stack_Spacers_S1x4_S2x4_PETG.stl', False),
+PRINTS = [(BODY, MECH + '_01a_Frame_body_PETG.stl', False)] + \
+         [(BASKETS[p], MECH + '_01b_Frame_basket_%s_PETG.stl' % p, True) for p in POS] + \
+         [(CUPS[p], MECH + '_01c_Frame_cup_%s_PETG.stl' % p, False) for p in POS] + [
+
+          (TRAYS['T400'], MECH + '_02_Tray_T400_PETG.stl', True),          # upside down since rev M
+          (TRAYS['T800'], MECH + '_02_Tray_T800_PETG.stl', True),
+          (TRAYS['T1200'], MECH + '_02_Tray_T1200_PETG.stl', True),
+          (SPACERS, MECH + '_03_Stack_Spacers_S0x4_S1x4_S2x4_PETG.stl', False),
           (SLEEVES, MECH + '_04_Motor_Sleeves_x4_TPU95A.stl', False),
           (COVERS['indoor'], MECH + '_05_Cover_indoor_PLA.stl', True),       # roof down
-          (COVERS['gps'], MECH + '_05_Cover_GPS_PLA.stl', True),
-          (FLOW_COVER, MECH + '_06_Flow_cover_PETG.stl', False)]
+          (COVERS['gps'], MECH + '_05_Cover_GPS_PLA.stl', True)]
 REFERENCE = [('ACwing_Ref_motors_8520_x4.stl', 'Motors_8520', (0.72, 0.72, 0.72), 0),
              ('ACwing_Ref_props_55mm_front_x2.stl', 'Props_front_green', (0.16, 0.67, 0.31), 40),
              ('ACwing_Ref_props_55mm_rear_x2.stl', 'Props_rear', (0.50, 0.70, 0.90), 55),
@@ -264,7 +270,10 @@ def build(root, here, D, docs):
         G[g] = doc.addObject('App::DocumentObjectGroup', g)
     param = []
     # ---- printed parts and reference parts (meshes) ----
-    add_mesh(doc, G['Frame'], os.path.join(root, CORE), 'Frame_A1_core_PETG', (0.91, 0.89, 0.85))
+    add_mesh(doc, G['Frame'], os.path.join(root, BODY), 'Frame_A1_body_PETG', (0.91, 0.89, 0.85))
+    for p in POS:
+        add_mesh(doc, G['Frame'], os.path.join(root, BASKETS[p]), 'Frame_A1_basket_%s_PETG' % p, (0.95, 0.94, 0.90))
+        add_mesh(doc, G['Frame'], os.path.join(root, CUPS[p]), 'Frame_A1_cup_%s_PETG' % p, (0.88, 0.86, 0.80))
     add_mesh(doc, G['Frame'], os.path.join(root, TRAYS[TRAY]), 'Tray_A1_%s_PETG' % TRAY, (0.94, 0.79, 0.29))
     W_, L_, H_, zb = TD['battery']
     param.append(add(doc, G['Frame'], 'Battery_1S_%dmAh' % TD['mAh'], Part.makeBox(W_, L_, H_, V(-W_ / 2, -L_ / 2, zb)), (0.35, 0.42, 0.48)))
@@ -289,12 +298,13 @@ def build(root, here, D, docs):
     elif WITH_FLOW:
         param.append(add(doc, G['Electronics'], 'Flow_rev_A_placeholder', flow_placeholder(D, Z, flow_t), (0.12, 0.42, 0.23)))
     # ---- hardware ----
-    ins, s1, s2, gr, sc = [], [], [], [], []
+    ins, s0, s1, s2, gr, sc = [], [], [], [], [], []
     CV = D['covers']['gps' if WITH_GPS else 'indoor']
     L, seat = CV['screw_L'], CV['seat']
     for x, y in D['bosses']:
         ins.append(ring(D['insert']['D'] / 2, 0.85, Z['BOSS_TOP'] - D['insert']['L'], D['insert']['L'], x, y))
         s1.append(ring(2.25, 1.15, Z['ESC_Z1'], Z['FC_Z0'] - Z['BALL_H'] - Z['ESC_Z1'], x, y))
+        s0.append(ring(2.25, 1.15, Z['BOSS_TOP'], Z['ESC_Z0'] - Z['BOSS_TOP'], x, y))     # rev M: stack 4.5 mm higher
         gr.append(grommet(D, Z, x, y))
         top_ball = Z['FC_Z1'] + Z['BALL_H']
         if WITH_GPS:
@@ -303,23 +313,27 @@ def build(root, here, D, docs):
         sc.append(Part.makeCylinder(1.0, L, V(x, y, seat - L)).fuse(Part.makeCylinder(1.75, 1.1, V(x, y, seat))))
     s1_l = Z['FC_Z0'] - Z['BALL_H'] - Z['ESC_Z1']
     hwl = [('Inserts_M2x3_brass_stack', ins, (0.79, 0.64, 0.15)), ('Spacers_S1_%s_PETG' % ('%.2f' % s1_l).rstrip('0').rstrip('.').replace('.', 'p'), s1, (0.95, 0.94, 0.90)),
+           ('Spacers_S0_%s_PETG' % ('%.2f' % (Z['ESC_Z0'] - Z['BOSS_TOP'])).rstrip('0').rstrip('.').replace('.', 'p'), s0, (0.95, 0.94, 0.90)),
            ('Damping_balls_M2_QUARKZMAN', gr, (0.12, 0.12, 0.12)), ('Screws_M2x%d_ISO7380_titanium_or_A4' % L, sc, (0.62, 0.62, 0.66))]
     if WITH_GPS:
         s2_l = Z['GPS_Z0'] - Z['FC_Z1'] - Z['BALL_H']
         hwl.append(('Spacers_S2_%s_PETG' % ('%.2f' % s2_l).rstrip('0').rstrip('.').replace('.', 'p'), s2, (0.95, 0.94, 0.90)))
-    tz, tt = Z['TAB_Z1'], Z['TAB_T']
-    hwl.append(('Inserts_M2x3_brass_tray_lugs', [ring(1.5, 0.85, tz, 3.0, x, y) for x, y in D['lugs']], (0.79, 0.64, 0.15)))
-    hwl.append(('Screws_M2x5_A4_tray', [Part.makeCylinder(1.0, 5.0, V(x, y, tz - tt)).fuse(Part.makeCylinder(1.9, 1.3, V(x, y, tz - tt - 1.3)))
-                                       for x, y in D['lugs']], (0.72, 0.73, 0.75)))
+    # rev M: tray screws from below through the tray posts (z -9.3) into M2 nuts seated in the body pads
+    nz = D['tray_lugs']['nut_z0']; pz = Z['TRAY_POST_Z0']
+    def hexnut(x, y, z0):
+        return Part.Face(Part.makePolygon([V(x + 2.31 * math.cos(math.radians(30 + 60 * k)), y + 2.31 * math.sin(math.radians(30 + 60 * k)), z0) for k in range(7)])).extrude(V(0, 0, 1.6))
+    hwl.append(('Nuts_M2_A4_tray_in_body_pads', [hexnut(x, y, nz) for x, y in D['lugs']], (0.72, 0.73, 0.75)))
+    hwl.append(('Screws_M2x6_A4_tray', [Part.makeCylinder(1.0, 6.0, V(x, y, pz)).fuse(Part.makeCylinder(1.75, 1.1, V(x, y, pz - 1.1))) for x, y in D['lugs']], (0.72, 0.73, 0.75)))
+    # ear screws: 2 per basket, from the top through the ear and the body pad, nut under the deck
+    es = [Part.makeCylinder(1.0, 6.0, V(x, y, -7.6)).fuse(Part.makeCylinder(1.75, 1.1, V(x, y, -2.6))) for x, y in D['ear_screws']['xy']]
+    hwl.append(('Nuts_M2_A4_ears', [hexnut(x, y, -7.8) for x, y in D['ear_screws']['xy']], (0.72, 0.73, 0.75)))
+    hwl.append(('Screws_M2x6_titanium_or_A4_ears', es, (0.62, 0.62, 0.66)))
     if WITH_FLOW:
-        fb = Z['FLOW_BACK_Z']; fs = fb - flow_t
+        fb = Z['FLOW_BACK_Z']; fs = fb - flow_t; zbot = fs - D['tray_pocket']['floor_below_sensor_face'] - D['tray_pocket']['pocket_floor_t']
         hwl.append(('Inserts_M2x3_brass_flow', [ring(1.5, 0.85, fb, 3.0, x, y) for x, y in D['flow_holes']], (0.79, 0.64, 0.15)))
-        # M2 x 6 nylon from below through the flow cover (2026-11-13), heads recessed in its standoffs (seat fs - 2.0)
-        hwl.append(('Screws_M2x6_nylon_flow', [Part.makeCylinder(1.0, 6.0, V(x, y, fs - 2.0)).fuse(Part.makeCylinder(1.9, 1.3, V(x, y, fs - 3.3)))
+        # M2 x 6 nylon from below through the tray pocket floor (rev M, 2026-11-15), heads in the 1.4 mm counterbores
+        hwl.append(('Screws_M2x6_nylon_flow', [Part.makeCylinder(1.0, 6.0, V(x, y, zbot + 1.0)).fuse(Part.makeCylinder(1.9, 1.3, V(x, y, zbot - 0.3)))
                                               for x, y in D['flow_holes']], (0.97, 0.97, 0.95)))
-        fc = add_mesh(doc, G['Electronics'], os.path.join(root, FLOW_COVER), 'Flow_cover_A1_PETG', (0.20, 0.20, 0.22))
-        if fc is not None:
-            fc.Placement.Base = V(0, 0, fs - (-20.3))
     for nm, lst, col in hwl:
         param.append(add(doc, G['Hardware'], nm, Part.makeCompound(lst), col))
     # ---- cables ----
@@ -337,8 +351,10 @@ def build(root, here, D, docs):
         hx = w['col'].lstrip('#'); col = tuple(int(hx[i:i + 2], 16) / 255.0 for i in (0, 2, 4))
         param.append(add(doc, G['Cables'], 'Cable_%s_pin%d_%s' % (w['cable'], w['pin'], w['sig']), tube(w['pts'], w['r']), col))
     # ---- cover (translucent PLA, 2026-11-12: flat roof with a 45 deg chamfer, concave sides, wavy skirt) ----
-    add_mesh(doc, G['Cover'], os.path.join(root, COVERS['gps' if WITH_GPS else 'indoor']),
-             'Cover_A1_%s_PLA_translucent' % ('gps' if WITH_GPS else 'indoor'), (0.85, 0.92, 0.97), 60)
+    cv = add_mesh(doc, G['Cover'], os.path.join(root, COVERS['gps' if WITH_GPS else 'indoor']),
+                  'Cover_A1_%s_PLA_translucent' % ('gps' if WITH_GPS else 'indoor'), (0.85, 0.92, 0.97), 60)
+    if cv is not None:
+        cv.Placement.Base = V(0, 0, CV.get('z_offset', 0.0))   # the cover mesh is stored at the rev R stack height
     doc.recompute()
     if EXPORT_STEP:
         try:

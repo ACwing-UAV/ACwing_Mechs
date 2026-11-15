@@ -1,18 +1,18 @@
 {
- "date": "2026-11-13",
- "case": "A1 core rev R of 2026-11-13 (parametric rebuild, ring beam, 18.1 g), tray T400, 1.0 mm stack",
- "model": "voxel hex8 h 0.6 mm, PETG E 2000 MPa; motors 4 x 4.0 g on the holders, stack + cover 15.0 g on the 4 bosses, battery on the tray lips and rails (latch tongue excluded), flow board 1.5 g on its bosses; free-free",
+ "date": "2026-11-15",
+ "case": "A1 rev M of 2026-11-15 (modular frame: body + 4 baskets + 4 cups with deck struts, 18.1 g), one-piece battery + flow tray T400, stack 4.5 mm higher",
+ "model": "voxel hex8 h 0.6 mm, PETG E 2000 MPa; frame parts fused at the screwed / snapped interfaces (ears on the body pads, cups in the basket claws, strut feet on the deck); motors 4 x 4.0 g in the cups, stack + cover 15.0 g on the 4 bosses, battery in the tray box, flow board 1.5 g on its bosses; free-free",
  "modes_Hz": [
-  90.4,
-  139.7,
-  148.8,
-  158.2,
-  162.3,
-  162.9,
-  173.5,
-  204.3
+  85.9,
+  89.3,
+  104.4,
+  107.1,
+  107.7,
+  112.4,
+  127.8,
+  129.6
  ],
- "first_mode": "saddle: diagonal motors in phase",
+ "first_mode": "motor pods bouncing (vertical), pairs in / out of phase; then guard-ring modes from 104 Hz",
  "reference_same_model": {
   "wave guards 2026-11-12": [
    93.9,
@@ -47,26 +47,35 @@
   "2026-11-13 morning (section 13), first two modes": [
    91.7,
    135.8
+  ],
+  "rev R 2026-11-13 (one-piece core, tray A1 on lugs)": [
+   90.4,
+   139.7,
+   148.8,
+   158.2,
+   162.3,
+   162.9,
+   173.5,
+   204.3
   ]
  },
  "static_mm": {
-  "outer_side_push_5N": 4.272,
-  "outer_side_push_bottom_5N": 0.787,
-  "side90_push_5N": 5.315,
-  "side90_down_5N": 9.114,
-  "side60_down_5N": 3.88,
-  "bridge45_push_5N": 2.151,
-  "motor_thrust_2N": 0.997
+  "outer_side_push_5N": 4.848,
+  "outer_side_push_bottom_5N": 4.256,
+  "side90_push_5N": 7.749,
+  "side90_down_5N": 6.594,
+  "side60_down_5N": 1.828,
+  "bridge45_push_5N": 0.249,
+  "motor_thrust_2N": 1.107
  },
  "vm_p99_9_MPa": {
-  "outer_side_push_5N": 13.88,
-  "outer_side_push_bottom_5N": 3.18,
-  "side90_push_5N": 18.48,
-  "side90_down_5N": 17.69,
-  "side60_down_5N": 12.18,
-  "bridge45_push_5N": 12.24,
-  "motor_thrust_2N": 3.54
+  "outer_side_push_5N": 17.12,
+  "outer_side_push_bottom_5N": 16.92,
+  "side90_push_5N": 21.14,
+  "side90_down_5N": 15.06,
+  "side60_down_5N": 9.44,
+  "bridge45_push_5N": 2.95,
+  "motor_thrust_2N": 3.45
  },
- "tray_joint": "tray screwed to the 4 lugs: modelled as bonded on \u00d85.2 pads at the lug faces (z -9.0); before rev R the bond came from voxel contact only",
- "note_rev_R": "Rev R: deck ribs + raised rails form a closed ring beam under the stack."
+ "load_path_study": "thrust 2 N on one motor: 3 rods on the guard ring 2.41 mm (the ring is not grounded: the basket hinges about the ear line); 2 rods + cup strut to the deck 1.60 mm; + tip beams 4.5 mm wide 1.31 mm; + strut base at r 11.2 (steeper strut) 1.11 mm (adopted). 3 rods + strut: same first mode, guard-ring modes 133 Hz instead of 104 Hz, +0.85 g"
 }

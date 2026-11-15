@@ -1,6 +1,6 @@
 {
- "date": "2026-11-13",
- "what": "print-first redesign for a Bambu Lab A1 (0.4 mm nozzle), after the first print of the A2 core failed (guard top rings broke when the supports were removed). Compared at RM 52: A2 ring guards (2026-11-08), proposal P1 (band guard, pointed arches, 45 deg flare) and the adopted P2 wave guard (S ribbon 2.2 mm, 1.2 mm outward bulge, 45 deg ramps with a 1.2 mm rim, closed wire eyelets on the arms). 2026-11-13: P3 = P2 with one-piece motor holders (foot ring, wire channel, no landing loop), spokes flush with the rim top, rim-section bridges, wire holes in the arms, remeshed arm roots (adopted). Rev R (2026-11-13 evening): the core regenerated from a parametric plan as one smooth body (no mesh surgery), ring beam (deck ribs + raised rails with round caps), holder foot at z -30, clean STL for the slicer (adopted).",
+ "date": "2026-11-15",
+ "what": "print-first redesign for a Bambu Lab A1 (0.4 mm nozzle), after the first print of the A2 core failed (guard top rings broke when the supports were removed). Compared at RM 52: A2 ring guards (2026-11-08), proposal P1 (band guard, pointed arches, 45 deg flare) and the adopted P2 wave guard (S ribbon 2.2 mm, 1.2 mm outward bulge, 45 deg ramps with a 1.2 mm rim, closed wire eyelets on the arms). 2026-11-13: P3 = P2 with one-piece motor holders (foot ring, wire channel, no landing loop), spokes flush with the rim top, rim-section bridges, wire holes in the arms, remeshed arm roots (adopted). Rev R (2026-11-13 evening): the core regenerated from a parametric plan as one smooth body (no mesh surgery), ring beam (deck ribs + raised rails with round caps), holder foot at z -30, clean STL for the slicer (adopted). Rev M (2026-11-15): modular frame printed without supports: body (deck on the bed), 4 guard baskets (guard top on the bed), 4 motor cups with the deck strut (flange on the bed); one-piece battery + flow tray printed upside down (adopted).",
  "fe": {
   "model": "voxel hex8 h 0.6 mm, PETG E 2000 MPa; core + tray, motors 4 x 4.0 g, stack + cover 15.0 g, battery on the tray lips, flow 1.5 g; free-free",
   "A2_2026-11-08": {
@@ -439,5 +439,188 @@
   "bodies": 1,
   "watertight_after_stl_round_trip": true,
   "non_manifold_edges": 0
+ },
+ "M_2026-11-15": {
+  "masses_g": {
+   "body": {
+    "g": 4.926,
+    "bodies": 1,
+    "watertight": true,
+    "bad_edges": 0
+   },
+   "basket0": {
+    "g": 1.751,
+    "bodies": 1,
+    "watertight": true,
+    "bad_edges": 0
+   },
+   "cup0": {
+    "g": 1.547,
+    "bodies": 1,
+    "watertight": true,
+    "bad_edges": 0
+   },
+   "basket1": {
+    "g": 1.751,
+    "bodies": 1,
+    "watertight": true,
+    "bad_edges": 0
+   },
+   "cup1": {
+    "g": 1.547,
+    "bodies": 1,
+    "watertight": true,
+    "bad_edges": 0
+   },
+   "basket2": {
+    "g": 1.751,
+    "bodies": 1,
+    "watertight": true,
+    "bad_edges": 0
+   },
+   "cup2": {
+    "g": 1.547,
+    "bodies": 1,
+    "watertight": true,
+    "bad_edges": 0
+   },
+   "basket3": {
+    "g": 1.751,
+    "bodies": 1,
+    "watertight": true,
+    "bad_edges": 0
+   },
+   "cup3": {
+    "g": 1.547,
+    "bodies": 1,
+    "watertight": true,
+    "bad_edges": 0
+   },
+   "overlap_body_baskets": -0.0,
+   "overlap_baskets_cups": 0.0,
+   "total_g": 18.11
+  },
+  "fe": {
+   "modes_Hz": {
+    "T400": [
+     85.9,
+     89.3,
+     104.4,
+     107.1,
+     107.7,
+     112.4,
+     127.8,
+     129.6
+    ],
+    "T800": [
+     85.6,
+     86.7,
+     104.4,
+     107.0,
+     107.6,
+     112.2,
+     126.5,
+     128.6
+    ],
+    "T1200": [
+     91.1,
+     95.6,
+     104.7,
+     107.3,
+     108.0,
+     112.3,
+     129.1,
+     133.3
+    ]
+   },
+   "motor_thrust_2N_mm": 1.107
+  },
+  "support_estimate": {
+   "body (deck on the bed)": {
+    "need_area_mm2": 0,
+    "support_envelope_cm3": 0.0,
+    "bridges": 11,
+    "bridge_area_mm2": 11,
+    "height_mm": 4.7
+   },
+   "basket FL (guard top on the bed)": {
+    "need_area_mm2": 0,
+    "support_envelope_cm3": 0.0,
+    "bridges": 18,
+    "bridge_area_mm2": 99,
+    "height_mm": 31.5
+   },
+   "cup FL (flange on the bed)": {
+    "need_area_mm2": 0,
+    "support_envelope_cm3": 0.0,
+    "bridges": 6,
+    "bridge_area_mm2": 8,
+    "height_mm": 25.7
+   },
+   "basket FR (guard top on the bed)": {
+    "need_area_mm2": 0,
+    "support_envelope_cm3": 0.0,
+    "bridges": 18,
+    "bridge_area_mm2": 100,
+    "height_mm": 31.5
+   },
+   "cup FR (flange on the bed)": {
+    "need_area_mm2": 0,
+    "support_envelope_cm3": 0.0,
+    "bridges": 5,
+    "bridge_area_mm2": 7,
+    "height_mm": 25.7
+   },
+   "basket RL (guard top on the bed)": {
+    "need_area_mm2": 0,
+    "support_envelope_cm3": 0.0,
+    "bridges": 20,
+    "bridge_area_mm2": 100,
+    "height_mm": 31.5
+   },
+   "cup RL (flange on the bed)": {
+    "need_area_mm2": 0,
+    "support_envelope_cm3": 0.0,
+    "bridges": 8,
+    "bridge_area_mm2": 9,
+    "height_mm": 25.7
+   },
+   "basket RR (guard top on the bed)": {
+    "need_area_mm2": 0,
+    "support_envelope_cm3": 0.0,
+    "bridges": 17,
+    "bridge_area_mm2": 98,
+    "height_mm": 31.5
+   },
+   "cup RR (flange on the bed)": {
+    "need_area_mm2": 0,
+    "support_envelope_cm3": 0.0,
+    "bridges": 3,
+    "bridge_area_mm2": 6,
+    "height_mm": 25.7
+   },
+   "tray T400 (upside down)": {
+    "need_area_mm2": 575,
+    "support_envelope_cm3": 5.59,
+    "bridges": 17,
+    "bridge_area_mm2": 303,
+    "height_mm": 18.2
+   },
+   "tray T800 (upside down)": {
+    "need_area_mm2": 1057,
+    "support_envelope_cm3": 10.73,
+    "bridges": 10,
+    "bridge_area_mm2": 33,
+    "height_mm": 19.2
+   },
+   "tray T1200 (upside down)": {
+    "need_area_mm2": 1491,
+    "support_envelope_cm3": 13.2,
+    "bridges": 5,
+    "bridge_area_mm2": 11,
+    "height_mm": 18.2
+   }
+  },
+  "note": "estimator rule: 45 deg from vertical, bridges up to 2.6 mm wide and 22 mm long count as bridges. The tray \"need\" areas are the two wide bridges of the upside-down print: box-floor strips 2.4 mm wide spanning 21.6 / 26.6 / 31.6 mm (T400 / T800 / T1200) and the 22.7 mm pocket floor with the optical windows; no support material is planned (bridge settings, see the Mech A1 README)."
  }
 }

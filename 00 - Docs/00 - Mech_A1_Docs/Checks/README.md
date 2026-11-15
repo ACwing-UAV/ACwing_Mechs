@@ -1,6 +1,18 @@
 # Mech A1 – checks
 
-## Rev R (2026-11-13 evening)
+## Rev M (2026-11-15)
+
+All the files below were rerun on **rev M** (modular frame: body + 4 baskets + 4 cups, stack 4.5 mm higher, battery +
+flow trays; handoff §15):
+- assembly checks: the only unexpected contact is motor lead against cable C where cable C drops through the deck
+  slot (wire on wire, 0.09 mm³); new clearances `ESC USB plug - core` 0.28 mm, `ESC USB plug - cover` 3.55 mm,
+  `ESC USB plug - leads` 1.86 mm, `cover - core` and `cover - leads` > 6 mm, `tray - sensor cones` 0.62 mm,
+  `tray - Flow plug` 1.38 mm, `tray - cable C` 1.56 mm; the battery-path check is gone (the pack goes in with the tray off);
+- FE modes: `ACwing_Mech_A1_fe_modes_<tray>.json` (frame parts fused at the screwed / snapped joints; the rev R values
+  are kept under `reference_same_model`); `load_path_study` in the T400 file;
+- print study: entry `M_2026-11-15` (masses, modes, support estimate per part).
+
+## Rev R (2026-11-13 evening, superseded)
 
 All the files below were rerun on the **rev R** core (parametric rebuild, §14 of the handoff) with the **flow board
 cover** and its M2 × 6 flow screws:
