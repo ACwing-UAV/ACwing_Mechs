@@ -29,6 +29,7 @@ Baseline: indoor flight, no GPS.
 | Path | What |
 |---|---|
 | `../../01 - Frame/Frame_A1/ACwing_Mech_A1M.3mf` | **Bambu Studio project** (A1, PETG Matte): frame set and trays on 4 plates with the print settings below |
+| `../../01 - Frame/Frame_A1/ACwing_Mech_A1M_print_test.3mf` | **print test** with the same settings, one plate (≈ 51 min, 5.5 g); print it before the frame, see "Before the first full print". `Prints/Print_test/`: its 6 STL files |
 | `Prints/` | **print-ready STL files**, already oriented and placed on the bed (z = 0). Written by the assembly macro (the whole-set plate file by the design scripts). |
 | `ACwing_Mech_A1_BoM.xlsx` / `.csv` | mechanical bill of materials per drone and per tray, masses, print settings (sheet `Print`) |
 | `STEP/` | hardware, cables and battery of the assembly (one file per tray); `Parts/`: faceted STEP of the printed parts |
@@ -104,8 +105,26 @@ The files are exported in the orientation below; the overhang analysis of the me
 
 ### Before the first full print
 
-1. Print a small coupon with a few Ø2.8 holes. Set one Hangtife M2 insert and tune the XY hole compensation of the slicer.
-2. Print one basket and one cup: the cup must snap into the claw legs, and the strut pin must sit in the deck hole of the body.
+Print `01 - Frame/Frame_A1/ACwing_Mech_A1M_print_test.3mf` (2026-11-16): 6 small parts with the critical features of the
+frame, sliced with the same settings as the frame project (Bambu Studio CLI: no warnings, ≈ 51 min, 5.5 g of PETG Matte).
+Render: `Renders/ACwing_Mech_A1M_print_test.png`.
+
+| # | Part | What it checks | Good result | If not |
+|---|---|---|---|---|
+| 1 | First layer 30 × 30 × 0.44 | adhesion and Z offset on the textured PEI plate | lines fused, no gaps, flat corners; measures 30.0 ± 0.15 mm | gaps or round lines: run the bed levelling, wash the plate; ridges: nozzle too low |
+| 2 | Bridges 6 / 10 / 15 / 20 mm, 1.2 mm thick | bridges of the nut pockets, insert seats, tray floor windows | 6 and 10 mm flat underneath; 15 mm sag ≤ 0.5 mm | more cooling on bridges, bridge flow 0.80, nozzle 230 °C |
+| 3 | Overhangs 30 / 45 / 55 / 65° from vertical, 6 mm tall | rods, claw legs, cup flanges (45° and less) | 30° and 45° clean; 55° slightly rough; 65° shows the limit | slower overhang speeds, check the PETG is dry |
+| 4 | Rods at 45° (Ø2.4 solid, Ø3.2 with Ø1.9 bore), Ø2.4 pin 12 mm, 0.8 mm wall | basket rods and the lead bore; stringing; layer bond | rods round, bore open over the whole length (a motor lead passes), few strings between the rods and the pin; the wall tears with a rough break when bent | stringing: dry the PETG, retraction 1.0 mm; clean break along a layer: nozzle 240–245 °C |
+| 5 | Joint pad: 2.4 mm ear pad with Ø2.2 hole and the M2 nut hex pocket (AF 4.25 × 0.9) on the bed face; 4.0 mm boss with the blind Ø2.8 × 3.4 insert seat | body pads (ear nuts, tray inserts) | the nut presses in by hand and does not turn; an M2 screw passes freely; the insert sets flush at 220–240 °C without breaking the 0.6 mm roof | tight hole or nut: X-Y hole compensation +0.05 mm; loose insert: −0.05 mm |
+| 6 | Ear tab 1.2 mm with Ø2.2 hole, 0.8 mm wall to the edge | basket ear | screw tab 6 onto pad 5 with an M2 × 5 and the nut: the wall does not crack | more walls on the ears (4), or 245 °C for the bond |
+
+Then print one basket and one cup: the cup must snap into the claw legs, and the strut pin must sit in the deck hole of
+the body.
+
+**MakerWorld.** The test project can be uploaded as a print profile. Open it in Bambu Studio, slice the plate (this adds
+the plate thumbnail) and save it, then upload it from the MakerWorld page or with *Publish* in Bambu Studio. MakerWorld
+asks for at least one real photo of the printed parts, and the profile name must not contain claims such as "best",
+"perfect" or "fast".
 
 ## Hardware (per drone)
 
