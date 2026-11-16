@@ -74,16 +74,17 @@ Open it and keep the project settings.
 
 | | Value | Why |
 |---|---|---|
-| Process | 0.12 mm Fine @BBL A1, 3 walls, 25 % infill (cups 100 %), supports **off** | the parts are designed without supports |
+| Process | 0.12 mm Fine @BBL A1, 3 walls, 25 % infill (cups and spacers 100 %), supports **off** | the parts are designed without supports |
 | Fan | min 40 %, max 90 % (layers under 30 s), **100 % on overhangs and bridges** | PETG at 30–50 % sags on bridges and droops on overhangs |
 | Layer cooling | slow down below 12 s per layer, down to 10 mm/s | the rods and claw legs have tiny layers |
 | Bridges | flow 0.85, 20 mm/s, thick bridges on | tighter, less sag |
 | Overhangs | 50 / 30 / 15 / 10 mm/s (10–25 / 25–50 / 50–75 / 75–100 %) | |
 | Walls | outer 60 mm/s, inner 100 mm/s | |
 | Stringing | 235 °C, retraction 0.8 mm at 40 mm/s, wipe, spiral Z-hop 0.4 mm, avoid crossing walls, seam at the back away from overhangs | |
-| Brim | 3 mm outer brim on the baskets only | they touch the bed with the guard top only |
+| First layer | 0.20 mm high, 0.5 mm lines, 30 mm/s walls / 40 mm/s infill, nozzle 245 °C, textured PEI plate 75 °C, fan off for 3 layers | 0.12 mm × 0.3 mm lines did not fill the texture and stuck poorly (2026-11-16) |
+| Brim | 3 mm outer brim on the baskets, the cups and the spacers | baskets touch the bed with the guard top only; cups and spacers are small |
 
-Dry the PETG (65 °C, 6–8 h) before printing: wet PETG strings and blobs whatever the settings. PETG Basic / HF bond
+Wash the plate with warm water and dish soap before printing (no fingers on it afterwards). Dry the PETG (65 °C, 6–8 h) before printing: wet PETG strings and blobs whatever the settings. PETG Basic / HF bond
 better between layers than PETG Matte; with Matte, go to 240 °C if the rods break when removing the parts.
 
 ### Orientation (no supports)
