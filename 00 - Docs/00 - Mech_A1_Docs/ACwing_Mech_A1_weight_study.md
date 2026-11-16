@@ -1,4 +1,4 @@
-# Mech A1 – weight study (2026-11-07, updated 2026-11-08, 2026-11-12, 2026-11-13 rev R and 2026-11-15 rev M)
+# Mech A1 – weight study (2026-11-07, updated 2026-11-08, 2026-11-12, 2026-11-13 rev R, 2026-11-15 rev M and 2026-11-16 steel screws)
 
 Mass budget of the drone and a list of what could make the structure lighter. Since 2026-11-12: boards 1.0 mm, frame
 at RM 52 with the print-first wave guards and one-piece motor holders (foot ring, no landing loop), flat-roof cover (§2b). Each frame option was checked with a voxel FE model of core + T400 tray.
@@ -9,13 +9,13 @@ Scripts and raw results: `Checks/ACwing_Mech_A1_fe_weight_study.json` (2026-11-0
 
 | Group | Part | Mass (g) | Basis |
 |---|---|---|---|
-| Structure | Frame A1 rev M: body 5.08 + 4 baskets 6.93 + 4 cups 6.19 | 18.19 | mesh × 1.27 g/cm³ |
+| Structure | Frame A1 rev M: body 5.17 + 4 baskets 7.68 + 4 cups 6.19 | 19.03 | mesh × 1.27 g/cm³ |
 | | Battery + flow tray T400 (replaces tray + flow cover) | 3.42 | mesh |
 | | Electronics cover, indoor (flat roof) | 2.79 | mesh × 1.24 g/cm³ |
 | | Motor sleeves TPU ×4 | 2.18 | mesh × 1.21 g/cm³ |
 | | Spacers S0 ×4, S1 ×4 | 0.39 | volume |
-| | Inserts ×10, M2 nuts ×8, damping balls ×4, screws (titanium: stack M2 × 18, ears M2 × 5 ×8, tray M2 × 6; flow nylon M2 × 6) | 3.9 | estimates |
-| | **Structure total** | **30.9** | **44 %** |
+| | Inserts ×10, M2 nuts ×8, damping balls ×4, screws (stack M2 × 18 A4; ears M2 × 5 ×8 and tray M2 × 6 alloy steel; flow nylon M2 × 6) | 5.3 | estimates |
+| | **Structure total** | **33.1** | **45 %** |
 | Propulsion | Motors 8520 ×4 | 14.4 | |
 | | Propellers 55 mm ×4 | ≈ 2.0 | estimate, weigh |
 | Electronics | FC rev A, 1.0 mm, with parts | ≈ 5.0 | HW handoff (−1.8 g from 1.6 mm) |
@@ -23,10 +23,11 @@ Scripts and raw results: `Checks/ACwing_Mech_A1_fe_weight_study.json` (2026-11-0
 | | Flow rev A, 1.0 mm | ≈ 1.5 | HW handoff |
 | | Cables A, C, pigtail | ≈ 0.8 | estimate (cable A now 10 mm) |
 | Battery | 1S 400 mAh | 11.5 | |
-| | **Drone** | **≈ 70.9** | T/W 1.97 with 140 g of thrust |
+| | **Drone** | **≈ 73.1** | T/W 1.92 with 140 g of thrust |
 
-Against rev R of 2026-11-13 (70.4 g): frame +0.09 g (9 parts instead of 1), tray − flow cover −0.55 g, S0 spacers +0.24 g,
-longer stack screws +0.16 g, titanium ear screws and nuts +1.0 g, titanium tray screws −0.56 g → **+0.5 g**.
+Against rev R of 2026-11-13 (70.4 g): frame +0.93 g (9 parts instead of 1; wider ears 2026-11-16), tray − flow cover −0.55 g, S0 spacers +0.24 g,
+longer stack screws +0.16 g, titanium ear screws and nuts +1.0 g, titanium tray screws −0.56 g → **+1.3 g** (71.7 g).
+2026-11-16: steel screws instead of titanium (stack A4 +0.88 g, ears and tray alloy steel +0.52 g) → **+1.4 g** (73.1 g).
 Against §13 of 2026-11-13 (68.3 g): core +1.43 g (ring beam, rail caps, holders 4.5 mm longer), flow cover +0.67 g → **+2.1 g**.
 Against 2026-11-12 (69.3 g): core −0.96 g (landing loops −0.46 g, one-piece holders, arm-root cleanup) → **−1.0 g**.
 Against 2026-11-08 (67.4 g): core +1.12 g (print-first guards), cover −0.23 g (flat roof) → **+0.9 g**.
@@ -121,8 +122,8 @@ Lightening the holders costs nothing in stiffness.
 |---|---|---|
 | Cover walls and roof 1.2 → 0.8 mm (2 lines of 0.4) | −1.6 | **adopted** (4.4 → 2.8 g; the roof is also 0.6 mm lower now that no cable runs over the FC) |
 | No cover at all | −2.8 more | possible, but the stack screws then need washers, and no standard length fits well indoor (see the cover README) |
-| Titanium instead of A4 for the 4 stack screws | −0.6 | recommended (also non-magnetic) |
-| Titanium tray screws M2 × 5 | −0.3 | optional |
+| Titanium instead of A4 for the 4 stack screws | −0.9 | not planned (2026-11-16: steel screws); A4 keeps the stack non-magnetic |
+| Titanium ear and tray screws instead of alloy steel | −0.5 | not planned (2026-11-16) |
 | Flow inserts → thread-forming screws into the PETG bosses | −0.2 | optional; the flow board is rarely removed |
 | TPU sleeves 0.6 → 0.45 mm | ≈ −0.5 | needs a print test for motor retention |
 | Print settings | ≈ −0.5 to −1.0 | the masses above are solid-mesh masses. With 3 perimeters and 30–40 % gyroid, the thick parts (bosses, lugs, holder floors) print lighter. Weigh the first print |
@@ -178,8 +179,8 @@ gap between knee braces and tray as contact). The flow board cover adds 0.67 g.
 
 ## 10. Result (2026-11-15, rev M)
 
-Drone T400 indoor ≈ 70.9 g, T/W 1.97 (T800 ≈ 81.9 g, T1200 ≈ 90.3 g). The frame is split into body, 4 guard baskets and
-4 motor cups that print without supports (rev R needed about 26 cm³ of support); solid frame mass 18.19 g.
-The joints add ≈ 1.0 g of hardware (8 titanium ear screws and nuts); the one-piece battery + flow tray saves 0.3–0.55 g against
+Drone T400 indoor ≈ 73.1 g, T/W 1.92 (T800 ≈ 84.1 g, T1200 ≈ 92.5 g; 2026-11-16 with steel screws, 71.7 / 82.7 / 91.1 g on the titanium basis). The frame is split into body, 4 guard baskets and
+4 motor cups that print without supports (rev R needed about 26 cm³ of support); solid frame mass 19.03 g.
+The joints add ≈ 1.0 g of hardware (8 ear screws and nuts; 1.3 g in alloy steel); the one-piece battery + flow tray saves 0.3–0.55 g against
 tray + flow cover. First modes 85.9 / 85.6 / 91.1 Hz (T400 / T800 / T1200): the motor pods bouncing; the closed battery
 box removed the rev R tray-overhang mode (76.7 / 62.7 Hz). Lighter option: cups with 2 instead of 3 perimeters. Handoff §15.

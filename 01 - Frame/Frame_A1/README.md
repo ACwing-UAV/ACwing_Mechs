@@ -5,10 +5,10 @@ Rev M of 2026-11-15: the frame is **9 printed parts** (PETG), each printed witho
 
 | File | Part | Mass (solid) | Print orientation |
 |---|---|---|---|
-| `ACwing_Frame_A1_body.stl` | central body | 5.08 g | deck on the bed |
-| `ACwing_Frame_A1_basket_FL/FR/RL/RR.stl` | guard basket, one per motor | 1.73 g each | upside down, guard top on the bed |
+| `ACwing_Frame_A1_body.stl` | central body | 5.17 g | deck on the bed |
+| `ACwing_Frame_A1_basket_FL/FR/RL/RR.stl` | guard basket, one per motor | 1.92 g each | upside down, guard top on the bed |
 | `ACwing_Frame_A1_cup_FL/FR/RL/RR.stl` | motor cup with deck strut, one per motor | 1.55 g each | upright, foot flange on the bed |
-| | **frame** | **18.19 g** | whole set on one 256 × 256 plate: `Prints/ACwing_Mech_A1_01_Frame_set_plate_256x256_PETG.stl` |
+| | **frame** | **19.03 g** | whole set on one 256 × 256 plate: `Prints/ACwing_Mech_A1_01_Frame_set_plate_256x256_PETG.stl` |
 
 FL = front-left (−X, +Y), FR = front-right, RL = rear-left, RR = rear-right. The four baskets differ in the lead rod
 (on the ESC side of each motor) and the four cups in the mirrored strut.
@@ -20,7 +20,7 @@ FL = front-left (−X, +Y), FR = front-right, RL = rear-left, RR = rear-right. T
   (Ø2.4 / Ø3.2 on the lead side, with the closed lead channel), each ending in a claw leg with a snap notch.
 - **Cup.** Bore for the TPU motor sleeve (snap windows at ±90°), foot flange at z −30, 45° cone under the floor with the
   lead channel, 2 snap bumps, strut to the deck underside at (±19.5, ±9.4) with a Ø1.5 locating pin.
-- **Joints.** Basket → body: 2 × M2 × 5 (titanium, A4 acceptable) per basket from the top through the head bore of the
+- **Joints.** Basket → body: 2 × M2 × 5 (alloy steel 10.9 / 12.9, A4 acceptable) per basket from the top through the head bore of the
   shoulder, the ear and the pad, into an M2 nut in a hex pocket under the deck. Cup →
   basket: pushed up into the claws until it snaps; the strut pin seats in the deck.
 - **Motor leads.** Cup floor hole → channel under the floor → cup slot → lead rod channel → down through the ear → deck

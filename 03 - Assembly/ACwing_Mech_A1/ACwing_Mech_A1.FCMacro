@@ -314,7 +314,7 @@ def build(root, here, D, docs):
     s1_l = Z['FC_Z0'] - Z['BALL_H'] - Z['ESC_Z1']
     hwl = [('Inserts_M2x3_brass_stack', ins, (0.79, 0.64, 0.15)), ('Spacers_S1_%s_PETG' % ('%.2f' % s1_l).rstrip('0').rstrip('.').replace('.', 'p'), s1, (0.95, 0.94, 0.90)),
            ('Spacers_S0_%s_PETG' % ('%.2f' % (Z['ESC_Z0'] - Z['BOSS_TOP'])).rstrip('0').rstrip('.').replace('.', 'p'), s0, (0.95, 0.94, 0.90)),
-           ('Damping_balls_M2_QUARKZMAN', gr, (0.12, 0.12, 0.12)), ('Screws_M2x%d_ISO7380_titanium_or_A4' % L, sc, (0.62, 0.62, 0.66))]
+           ('Damping_balls_M2_QUARKZMAN', gr, (0.12, 0.12, 0.12)), ('Screws_M2x%d_ISO7380_A4' % L, sc, (0.62, 0.62, 0.66))]
     if WITH_GPS:
         s2_l = Z['GPS_Z0'] - Z['FC_Z1'] - Z['BALL_H']
         hwl.append(('Spacers_S2_%s_PETG' % ('%.2f' % s2_l).rstrip('0').rstrip('.').replace('.', 'p'), s2, (0.95, 0.94, 0.90)))
@@ -323,12 +323,12 @@ def build(root, here, D, docs):
     def hexnut(x, y, z0):
         return Part.Face(Part.makePolygon([V(x + 2.31 * math.cos(math.radians(30 + 60 * k)), y + 2.31 * math.sin(math.radians(30 + 60 * k)), z0) for k in range(7)])).extrude(V(0, 0, 1.6))
     hwl.append(('Inserts_M2x3_brass_tray_pads', [ring(1.5, 0.85, D['tray_lugs']['insert_z0'], 3.0, x, y) for x, y in D['lugs']], (0.79, 0.64, 0.15)))
-    hwl.append(('Screws_M2x6_titanium_tray', [Part.makeCylinder(1.0, 6.0, V(x, y, pz)).fuse(Part.makeCylinder(1.75, 1.1, V(x, y, pz - 1.1))) for x, y in D['lugs']], (0.72, 0.73, 0.75)))
+    hwl.append(('Screws_M2x6_steel_tray', [Part.makeCylinder(1.0, 6.0, V(x, y, pz)).fuse(Part.makeCylinder(1.75, 1.1, V(x, y, pz - 1.1))) for x, y in D['lugs']], (0.72, 0.73, 0.75)))
     # ear screws: 2 per basket, from the top through the ear and the body pad, nut under the deck
     ES = D['ear_screws']; hz = ES['head_seat_z']
     es = [Part.makeCylinder(1.0, 5.0, V(x, y, hz - 5.0)).fuse(Part.makeCylinder(1.75, 1.1, V(x, y, hz))) for x, y in ES['xy']]
     hwl.append(('Nuts_M2_A4_ears', [hexnut(x, y, ES['nut_z0']) for x, y in ES['xy']], (0.72, 0.73, 0.75)))
-    hwl.append(('Screws_M2x5_titanium_ears', es, (0.62, 0.62, 0.66)))
+    hwl.append(('Screws_M2x5_steel_ears', es, (0.62, 0.62, 0.66)))
     if WITH_FLOW:
         fb = Z['FLOW_BACK_Z']; fs = fb - flow_t; zbot = fs - D['tray_pocket']['floor_below_sensor_face'] - D['tray_pocket']['pocket_floor_t']
         hwl.append(('Inserts_M2x3_brass_flow', [ring(1.5, 0.85, fb, 3.0, x, y) for x, y in D['flow_holes']], (0.79, 0.64, 0.15)))

@@ -1,18 +1,18 @@
 {
- "date": "2026-11-15",
+ "date": "2026-11-16",
  "tray": "T800",
  "gps": false,
  "inputs": "ACwing_HW rev A boards 1.0 mm (STEP of 2026-11-08), frame A1 rev M of 2026-11-15 (modular: body + 4 guard baskets + 4 motor cups with deck struts), electronics stack raised 4.5 mm (S0 spacers 4.0 mm, bosses top z -1.5, ESC bottom z 2.5), one-piece battery + flow tray (board slides in from +X, M2 x 6 nylon through the pocket floor), tray screwed into hot-melt inserts in the body pads, baskets on M2 x 5 ear screws into nuts in hex pockets under the deck (modelled), flat-roof cover 2026-11-12 raised 4.5 mm",
  "method": "manifold3d mesh booleans: overlap volume in mm3 of every pair of parts; min_gap in mm for the pairs of interest",
  "unexpected_overlaps_mm3": {
-  "leads x wire_C1": 0.0342,
-  "leads x wire_C2": 0.0891,
-  "leads x wire_C3": 0.0033
+  "leads x wire_C1": 0.0587,
+  "leads x wire_C2": 0.0966,
+  "leads x wire_C3": 0.0032
  },
  "assembly_interfaces_mm3": {
   "core x tray": 21.4608,
   "core x sleeves": 9.2098,
-  "core x leads": 0.169,
+  "core x leads": 0.1709,
   "core x hw_inserts": 22.3291,
   "core x hw_ear_nuts": 1.2672,
   "tray x hw_flow_inserts": 5.5823,

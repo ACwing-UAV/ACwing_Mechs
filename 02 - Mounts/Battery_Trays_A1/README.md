@@ -12,7 +12,7 @@ A1 trays and the flow board cover). Source meshes in the assembly position.
 - **Battery box**, open toward the deck and closed at both ends: the pack is dropped in while the tray is off the frame
   and is held between the box floor (2.4 mm strips) and the deck; put 0.5 mm foam on top. Notch in the rear wall for the
   pack leads and cable D. To change the pack, unscrew the tray.
-- **Fixing:** 4 posts (Ø6, z −9.3 … −6.2) under the body pads, **M2 × 6** (titanium) from below into the hot-melt inserts in the body pads.
+- **Fixing:** 4 posts (Ø6, z −9.3 … −6.2) under the body pads, **M2 × 6** (alloy steel 10.9 / 12.9) from below into the hot-melt inserts in the body pads.
 - **Flow pocket** under the box: the board **slides in from +X** (connector edge last), sensor side down, back flat on the
   two floor bosses (frame 6.6, ±8.0; M2 hot-melt inserts), clamped by **2 × M2 × 6 nylon** from below through the pocket
   floor (counterbores Ø4.0 × 1.4). Pocket floor 3.3 mm under the sensor face; openings only for the PMW3901 lens (Ø6,

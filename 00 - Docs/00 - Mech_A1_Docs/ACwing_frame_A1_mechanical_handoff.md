@@ -27,9 +27,9 @@ bigger pack only needs a new tray (3.4–4.4 g of PETG), not a new frame.
 
 | Tray | Battery (1S LiPo) | Battery size W × L × H | Tray mass | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode |
 |---|---|---|---|---|---|---|---|
-| T400 | 400 mAh, 11.5 g | 20 × 40 × 8 | 3.42 g | ≈ 70.9 g | 1.97 | × 0.74 | 85.9 Hz** |
-| T800 | 800 mAh, ≈ 22 g | 25 × 45 × 9 | 3.82 g | ≈ 81.9 g | 1.71 | × 1.19 | 85.6 Hz** |
-| T1200 | 1200 mAh, ≈ 30 g | 30 × 64 × 8 | 4.39 g | ≈ 90.3 g | 1.55 | × 1.54 | 91.1 Hz** |
+| T400 | 400 mAh, 11.5 g | 20 × 40 × 8 | 3.42 g | ≈ 73.1 g | 1.92 | × 0.73 | 85.9 Hz** |
+| T800 | 800 mAh, ≈ 22 g | 25 × 45 × 9 | 3.82 g | ≈ 84.1 g | 1.66 | × 1.17 | 85.6 Hz** |
+| T1200 | 1200 mAh, ≈ 30 g | 30 × 64 × 8 | 4.39 g | ≈ 92.5 g | 1.51 | × 1.52 | 91.1 Hz** |
 
 \* Indoor configuration (ESC 1S rev A + FC rev A + Flow rev A in the tray pocket, no GPS), boards 1.0 mm, electronics cover
 (2.8 g), **rev M of 2026-11-15** (trays carry the flow board, §15). Mass budget and lightening options: `ACwing_Mech_A1_weight_study.md`.
@@ -42,14 +42,14 @@ Rev M (§15): the first modes are the motor pods bouncing; the closed battery bo
 - The reference is the preliminary draft (battery bay fused to the frame) with the 400 mAh pack, ≈ 58 g.
 
 Cost of interchangeability, compared with the preliminary draft (frame 15.55 g):
-- frame 18.19 g (rev M, §15: body + 4 baskets + 4 cups; 18.10 g one-piece in rev R, §14): 2.6 g more than the frame of the preliminary draft
+- frame 19.03 g (rev M, §15: body + 4 baskets + 4 cups; 18.10 g one-piece in rev R, §14): 2.6 g more than the frame of the preliminary draft
   (16.67 g in §13, 17.63 g on 2026-11-12, 15.55 g with the A2 rings of 2026-11-08, 14.95 g at RM 51 with the closed rings);
 - tray as in the table above;
-- 4 tray inserts in the body + 4 M2 × 6 titanium tray screws ≈ 0.6 g; since rev M also 8 M2 × 5 titanium ear screws + nuts ≈ 1.0 g and 4 S0 spacers 0.24 g
+- 4 tray inserts in the body + 4 M2 × 6 alloy steel tray screws ≈ 0.8 g; since rev M also 8 M2 × 5 alloy steel ear screws + nuts ≈ 1.4 g and 4 S0 spacers 0.24 g
   (estimates, see the BoM).
 
-Net mass overhead: **+7.0 g (T400), +7.3 g (T800), +7.9 g (T1200)** (1.1 g of it is the print-first guards, 1.43 g the
-rev R ring beam and longer holders); rev M adds ≈ 0.5 g (ear hardware, S0 spacers, longer stack screws, all titanium)
+Net mass overhead: **+8.4 g (T400), +8.7 g (T800), +9.3 g (T1200)** (1.1 g of it is the print-first guards, 1.43 g the
+rev R ring beam and longer holders); rev M adds ≈ 0.5 g (ear hardware, S0 spacers, longer stack screws; titanium basis)
 minus 0.3–0.55 g on the trays, which now also replace the flow board cover.
 
 ## 1. Core A1 (changes from the preliminary draft)
@@ -631,10 +631,10 @@ then the model.
 
 | Part | Files | Mass (PETG, solid) | Print |
 |---|---|---|---|
-| Body | `01 - Frame/Frame_A1/ACwing_Frame_A1_body.stl` | 5.08 g | deck on the bed |
-| Guard basket × 4 | `…_basket_FL / FR / RL / RR.stl` | 1.73 g each | guard top on the bed |
+| Body | `01 - Frame/Frame_A1/ACwing_Frame_A1_body.stl` | 5.17 g | deck on the bed |
+| Guard basket × 4 | `…_basket_FL / FR / RL / RR.stl` | 1.92 g each | guard top on the bed |
 | Motor cup × 4 | `…_cup_FL / FR / RL / RR.stl` | 1.55 g each | foot flange on the bed |
-| **Frame** | | **18.19 g** (rev R 18.10 g) | 256 × 256 plate: `Prints/ACwing_Mech_A1_01_Frame_set_plate_256x256_PETG.stl` |
+| **Frame** | | **19.03 g** (rev R 18.10 g) | 256 × 256 plate: `Prints/ACwing_Mech_A1_01_Frame_set_plate_256x256_PETG.stl` |
 
 - **Body.** Flat deck (z −6.2 … −5.0) with four lobes on the axes that carry the basket ears; stack bosses (top z −1.5),
   ring beam (rails x ±20, deck ribs, tip beams 4.5 mm wide from the bosses to the lobes), 4 tray pads with hot-melt inserts (set from the deck underside),
@@ -646,9 +646,9 @@ then the model.
 - **Motor cup.** The rev R holder bore (TPU sleeve, snap windows at ±90°), foot flange at z −30, floor with a 45° cone
   under it and the lead channel, and a **strut** from the flange up to the underside of the deck at the rail end
   (± 19.5, ± 9.4), located by a Ø1.5 pin in a blind hole. The strut works in compression under thrust.
-- **Joint body – basket.** 2 × M2 × 5 (titanium, A4 acceptable) per basket, from the top through a Ø3.9 head bore in the
+- **Joint body – basket.** 2 × M2 × 5 (alloy steel 10.9 / 12.9, A4 acceptable) per basket, from the top through a Ø3.9 head bore in the
   shoulder, the ear and the body pad, into an M2 nut held in a hex pocket under the deck (0.9 mm deep). The screw sits 3°
-  toward the body from the ear centre and the lead drop 3° the other way, so the head clears the lead drop (wall 1.4 mm). The cups are pushed up into the claws until they snap; the strut pin then sits in the deck.
+  toward the body from the ear centre and the lead drop 3.5° the other way, so the head clears the lead drop (wall 1.5 mm). The cups are pushed up into the claws until they snap; the strut pin then sits in the deck.
 
 **Why 2 rods + 1 strut (the "3 per motor").** With 3 rods all on the guard ring the frame was soft: motor thrust 2 N →
 2.41 mm, first mode 52 Hz. The ring is not tied to the body: the whole basket hinges about the line through its two ears,
@@ -698,7 +698,7 @@ now the motor pods bouncing (pairs in / out of phase), then the guard rings from
 
 | | Rev R | **Rev M** |
 |---|---|---|
-| Frame, solid | 18.10 g (1 part) | **18.19 g** (9 parts) |
+| Frame, solid | 18.10 g (1 part) | **19.03 g** (9 parts) |
 | First / second mode | 90.4 / 139.7 Hz | 85.9 / 89.3 Hz (pods), rings from 104 Hz |
 | Motor thrust 2 N | 1.00 mm | 1.11 mm |
 | Outer push 5 N (φ 180) | 4.27 mm | 4.85 mm |
@@ -749,6 +749,16 @@ BoM, checks and FE JSON updated.
 deck underside (seat Ø2.8 × 3.4), so the tray screws (M2 × 6) need no loose nuts. The ear screws become **M2 × 5** into nuts
 held in **hex pockets** under the deck. A screw-head check found that the ISO 7380 head (Ø3.5) did not fit under the ear
 shoulder and touched the lead drop: the shoulder now has a Ø3.9 head bore, the screw moved 3° toward the body and the lead
-drop 3° away from it (ear screws and nuts ≥ 0.4 mm from the leads). Body 5.08 g, baskets 1.73 g, frame 18.19 g; the ear screws and nuts are now
+drop 3° away from it (ear screws and nuts ≥ 0.4 mm from the leads). Body 5.17 g, baskets 1.92 g, frame 19.03 g; the ear screws and nuts are now
 part of the interference checks. Use titanium screws for the stack, the ears and the tray (A4 acceptable away from the
-FC); nylon only for the flow board (no structural load).
+FC); nylon only for the flow board (no structural load). *Superseded 2026-11-16, see "screw material" below.*
+
+**Update 2026-11-16: ear walls.** In Bambu Studio the ear screw hole broke out of the ear edge (0.1 mm wall toward the
+outside) and the head bore left thin slivers on the shoulder slope, which the slicer reported as floating regions on all
+four baskets. Ears now ±8° wide (were ±5°) with the plate running to r 35.4 (0.8 mm past the shoulder base, which stays at
+r 34.6 for the ESC USB-C clearance); the head bore is a slot open on the outer slope; body pads ±9.5° to r 36.2; the
+lead gutter starts at y 6.3 (0.9 mm from the screw hole). Every wall around the ear hole, the pad hole and the nut pocket
+is ≥ 0.8 mm; the Bambu Studio slicer (CLI) reports no floating region. Baskets 1.92 g, frame 19.03 g.
+
+
+**Update 2026-11-16: screw material.** The screws will be **alloy steel** instead of titanium. Alloy steel (10.9 / 12.9) is ferromagnetic, so it is used only where it is far from the compasses: the 8 ear screws (r ≈ 33 mm, z −2.6) and the 4 tray screws (under the deck). The 4 stack screws pass through the FC next to its compass (and next to the GPS compass with the GPS option): use **A4 stainless** there (non-magnetic, same mass as steel). Nuts stay A4, the flow board screws nylon. Mass against the titanium basis: stack +0.88 g, ears +0.32 g, tray +0.20 g → **+1.4 g**: drone T400 ≈ 73.1 g (T/W 1.92), T800 ≈ 84.1 g, T1200 ≈ 92.5 g. Calibrate the magnetometers with every screw in place.

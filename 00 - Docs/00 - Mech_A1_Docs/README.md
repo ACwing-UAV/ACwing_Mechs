@@ -28,6 +28,7 @@ Baseline: indoor flight, no GPS.
 
 | Path | What |
 |---|---|
+| `../../01 - Frame/Frame_A1/ACwing_Mech_A1M.3mf` | **Bambu Studio project** (A1, PETG Matte): frame set and trays on 4 plates with the print settings below |
 | `Prints/` | **print-ready STL files**, already oriented and placed on the bed (z = 0). Written by the assembly macro (the whole-set plate file by the design scripts). |
 | `ACwing_Mech_A1_BoM.xlsx` / `.csv` | mechanical bill of materials per drone and per tray, masses, print settings (sheet `Print`) |
 | `STEP/` | hardware, cables and battery of the assembly (one file per tray); `Parts/`: faceted STEP of the printed parts |
@@ -45,9 +46,9 @@ The source meshes live in `01 - Frame/` and `02 - Mounts/`. The macro
 
 | # | File (`Prints/`) | Material | Per drone | Mass |
 |---|---|---|---|---|
-| 1 | `ACwing_Mech_A1_01_Frame_set_plate_256x256_PETG.stl` | PETG | the whole frame on one 256 × 256 plate (or print 1a–1c separately) | 18.2 g |
-| 1a | `ACwing_Mech_A1_01a_Frame_body_PETG.stl` | PETG | 1 | 5.1 g |
-| 1b | `ACwing_Mech_A1_01b_Frame_basket_<FL\|FR\|RL\|RR>_PETG.stl` | PETG | 1 of each | 1.73 g each |
+| 1 | `ACwing_Mech_A1_01_Frame_set_plate_256x256_PETG.stl` | PETG | the whole frame on one 256 × 256 plate (or print 1a–1c separately) | 19.0 g |
+| 1a | `ACwing_Mech_A1_01a_Frame_body_PETG.stl` | PETG | 1 | 5.2 g |
+| 1b | `ACwing_Mech_A1_01b_Frame_basket_<FL\|FR\|RL\|RR>_PETG.stl` | PETG | 1 of each | 1.92 g each |
 | 1c | `ACwing_Mech_A1_01c_Frame_cup_<FL\|FR\|RL\|RR>_PETG.stl` | PETG | 1 of each | 1.55 g each |
 | 2 | `ACwing_Mech_A1_02_Tray_T400_PETG.stl` | PETG (black or grey) | 1 (400 mAh pack) | 3.4 g |
 | 2 | `ACwing_Mech_A1_02_Tray_T800_PETG.stl` | PETG (black or grey) | 1 (800 mAh pack) | 3.8 g |
@@ -61,17 +62,29 @@ The baskets and cups come in four versions (FL, FR, RL, RR): the lead rod and th
 solid parts (mesh volume × density); the printed mass depends on walls and infill. The flow board cover of rev R is
 no longer used (the tray pocket replaces it).
 
-### Print settings (Bambu Lab A1, 0.4 mm nozzle)
+### Print settings (Bambu Lab A1, 0.4 mm nozzle, Bambu PETG Matte)
 
-| | Frame parts and trays (PETG) | Spacers (PETG) | Sleeves (TPU 95A) |
-|---|---|---|---|
-| Line width | 0.42–0.45 mm, Arachne walls | 0.42 mm | 0.45 mm |
-| Layer | 0.12–0.16 mm | 0.12 mm | 0.16 mm |
-| Perimeters | 3 | solid | 3 |
-| Infill | 25–40 % gyroid (cups 100 %) | 100 % | 20 % |
-| Material | **PETG Basic or PETG HF** (not PETG Matte: weaker layer bonding) | PETG | TPU 95A |
-| Bridges | 100 % fan, thick bridges on: guard window sills 6.2 mm, tray floor strips 21.6–31.6 mm, tray pocket floor 22.7 mm | – | – |
-| Bed | textured PEI; 3 mm brim on the baskets (only the guard top touches the bed) | – | – |
+**Bambu Studio project:** `01 - Frame/Frame_A1/ACwing_Mech_A1M.3mf` (2026-11-16) has 4 plates with these settings:
+- plate 1: the frame set;
+- plate 2: tray T400 and the spacers;
+- plate 3: tray T800;
+- plate 4: tray T1200.
+
+Open it and keep the project settings.
+
+| | Value | Why |
+|---|---|---|
+| Process | 0.12 mm Fine @BBL A1, 3 walls, 25 % infill (cups 100 %), supports **off** | the parts are designed without supports |
+| Fan | min 40 %, max 90 % (layers under 30 s), **100 % on overhangs and bridges** | PETG at 30–50 % sags on bridges and droops on overhangs |
+| Layer cooling | slow down below 12 s per layer, down to 10 mm/s | the rods and claw legs have tiny layers |
+| Bridges | flow 0.85, 20 mm/s, thick bridges on | tighter, less sag |
+| Overhangs | 50 / 30 / 15 / 10 mm/s (10–25 / 25–50 / 50–75 / 75–100 %) | |
+| Walls | outer 60 mm/s, inner 100 mm/s | |
+| Stringing | 235 °C, retraction 0.8 mm at 40 mm/s, wipe, spiral Z-hop 0.4 mm, avoid crossing walls, seam at the back away from overhangs | |
+| Brim | 3 mm outer brim on the baskets only | they touch the bed with the guard top only |
+
+Dry the PETG (65 °C, 6–8 h) before printing: wet PETG strings and blobs whatever the settings. PETG Basic / HF bond
+better between layers than PETG Matte; with Matte, go to 240 °C if the rods break when removing the parts.
 
 ### Orientation (no supports)
 
@@ -102,9 +115,9 @@ The full list is in `ACwing_Mech_A1_BoM.xlsx`.
 | Hot-melt insert M2 × 3 × Ø3.0 (Hangtife HLTI-M2-001) | 10 | 4 stack bosses, 4 tray pads of the body (from the deck underside), 2 tray flow bosses (+ 2 per spare tray) |
 | Nut M2 (ISO 4032), A4 | 8 | in the hex pockets under the deck, below the ear screws |
 | Damping ball M2 (QUARKZMAN), H 6.0, OD 4.9, slot Ø3.03 × 1.14, bore Ø2.0 | 4 | FC soft mount |
-| Stack screw M2 × 18 ISO 7380, titanium (recommended) or A4 | 4 | from the cover top; M2 × 30 with the GPS option |
-| Ear screw M2 × 5 ISO 7380, titanium (A4 acceptable) | 8 | 2 per basket, from the top through the head bore of the shoulder, ear and body pad into the nut |
-| Tray screw M2 × 6 ISO 7380, titanium (A4 acceptable) | 4 | from below through the tray posts into the body inserts |
+| Stack screw M2 × 18 ISO 7380, **A4 stainless** (non-magnetic: it passes through the FC next to its compass; no alloy steel here) | 4 | from the cover top; M2 × 30 with the GPS option |
+| Ear screw M2 × 5 ISO 7380, alloy steel 10.9 / 12.9 (A4 acceptable) | 8 | 2 per basket, from the top through the head bore of the shoulder, ear and body pad into the nut |
+| Tray screw M2 × 6 ISO 7380, alloy steel 10.9 / 12.9 (A4 acceptable) | 4 | from below through the tray posts into the body inserts |
 | Flow board screw M2 × 6, nylon | 2 | from below through the tray pocket floor |
 
 Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
@@ -138,9 +151,9 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 
 | Tray | Pack | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode (FE) |
 |---|---|---|---|---|---|
-| T400 | 400 mAh, 11.5 g | ≈ 70.9 g | 1.97 | × 0.74 | 85.9 Hz |
-| T800 | 800 mAh, ≈ 22 g | ≈ 81.9 g | 1.71 | × 1.19 | 85.6 Hz |
-| T1200 | 1200 mAh, ≈ 30 g | ≈ 90.3 g | 1.55 | × 1.54 | 91.1 Hz |
+| T400 | 400 mAh, 11.5 g | ≈ 73.1 g | 1.92 | × 0.73 | 85.9 Hz |
+| T800 | 800 mAh, ≈ 22 g | ≈ 84.1 g | 1.66 | × 1.17 | 85.6 Hz |
+| T1200 | 1200 mAh, ≈ 30 g | ≈ 92.5 g | 1.51 | × 1.52 | 91.1 Hz |
 
 \* Indoor (no GPS), 1.0 mm boards, with the cover (2.8 g), rev M of 2026-11-15. FE model of the handoff §5; the first
 two modes are the motor pods bouncing (handoff §15). Mass budget: `ACwing_Mech_A1_weight_study.md`.
