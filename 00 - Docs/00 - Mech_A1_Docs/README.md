@@ -56,8 +56,8 @@ The source meshes live in `01 - Frame/` and `02 - Mounts/`. The macro
 | 2 | `ACwing_Mech_A1_02_Tray_T1200_PETG.stl` | PETG (black or grey) | 1 (1200 mAh pack) | 4.4 g |
 | 3 | `ACwing_Mech_A1_03_Stack_Spacers_S0x4_S1x4_S2x4_PETG.stl` | PETG | 1 plate (4 × S0, 4 × S1; the 4 × S2 only with GPS) | 0.6 g |
 | 4 | `ACwing_Mech_A1_04_Motor_Sleeves_x4_TPU95A.stl` | TPU 95A | 1 plate (4 sleeves) | 2.2 g |
-| 5 | `ACwing_Mech_A1_05_Cover_indoor_PLA.stl` | PLA translucent | 1 (indoor) | 2.8 g |
-| 5 | `ACwing_Mech_A1_05_Cover_GPS_PLA.stl` | PLA translucent | 1 (GPS option, instead of the indoor one) | 4.3 g |
+| 5 | `ACwing_Mech_A1_05_Cover_indoor_PLA.stl` | PLA translucent | 1 (indoor) | 2.9 g |
+| 5 | `ACwing_Mech_A1_05_Cover_GPS_PLA.stl` | PLA translucent | 1 (GPS option, instead of the indoor one) | 4.5 g |
 
 The baskets and cups come in four versions (FL, FR, RL, RR): the lead rod and the cup strut are mirrored. Masses are for
 solid parts (mesh volume × density); the printed mass depends on walls and infill. The flow board cover of rev R is
@@ -116,7 +116,7 @@ Render: `Renders/ACwing_Mech_A1M_print_test.png`.
 | 3 | Overhangs 30 / 45 / 55 / 65° from vertical, 6 mm tall | rods, claw legs, cup flanges (45° and less) | 30° and 45° clean; 55° slightly rough; 65° shows the limit | slower overhang speeds, check the PETG is dry |
 | 4 | Rods at 45° (Ø2.4 solid, Ø3.2 with Ø1.9 bore), Ø2.4 pin 12 mm, 0.8 mm wall | basket rods and the lead bore; stringing; layer bond | rods round, bore open over the whole length (a motor lead passes), few strings between the rods and the pin; the wall tears with a rough break when bent | stringing: dry the PETG, retraction 1.0 mm; clean break along a layer: nozzle 240–245 °C |
 | 5 | Joint pad: 2.4 mm ear pad with Ø2.2 hole and the M2 nut hex pocket (AF 4.25 × 0.9) on the bed face; 4.0 mm boss with the blind Ø2.8 × 3.4 insert seat | body pads (ear nuts, tray inserts) | the nut presses in by hand and does not turn; an M2 screw passes freely; the insert sets flush at 220–240 °C without breaking the 0.6 mm roof | tight hole or nut: X-Y hole compensation +0.05 mm; loose insert: −0.05 mm |
-| 6 | Ear tab 1.2 mm with Ø2.2 hole, 0.8 mm wall to the edge | basket ear | screw tab 6 onto pad 5 with an M2 × 5 and the nut: the wall does not crack | more walls on the ears (4), or 245 °C for the bond |
+| 6 | Ear tab 1.2 mm with Ø2.2 hole, 0.8 mm wall to the edge | basket ear | screw tab 6 onto pad 5 with an M2 × 6 and the nut: the wall does not crack | more walls on the ears (4), or 245 °C for the bond |
 
 Then print one basket and one cup: the cup must snap into the claw legs, and the strut pin must sit in the deck hole of
 the body.
@@ -133,20 +133,22 @@ The full list is in `ACwing_Mech_A1_BoM.xlsx`.
 | Part | Qty | Note |
 |---|---|---|
 | Hot-melt insert M2 × 3 × Ø3.0 (Hangtife HLTI-M2-001) | 10 | 4 stack bosses, 4 tray pads of the body (from the deck underside), 2 tray flow bosses (+ 2 per spare tray) |
-| Nut M2 (ISO 4032), A4 | 8 | in the hex pockets under the deck, below the ear screws |
+| Nut M2, carbon steel (from the M2 kit) | 8 | in the hex pockets under the deck, below the ear screws |
 | Damping ball M2 (QUARKZMAN), H 6.0, OD 4.9, slot Ø3.03 × 1.14, bore Ø2.0 | 4 | FC soft mount |
-| Stack screw M2 × 18 ISO 7380, **A4 stainless** (non-magnetic: it passes through the FC next to its compass; no alloy steel here) | 4 | from the cover top; M2 × 30 with the GPS option |
-| Ear screw M2 × 5 ISO 7380, alloy steel 10.9 / 12.9 (A4 acceptable) | 8 | 2 per basket, from the top through the head bore of the shoulder, ear and body pad into the nut |
-| Tray screw M2 × 6 ISO 7380, alloy steel 10.9 / 12.9 (A4 acceptable) | 4 | from below through the tray posts into the body inserts |
+| Stack screw M2 × 20, **nylon** DIN 84 cheese head (Enkotrade, non-magnetic: it passes through the FC next to its compass) | 4 | from the cover top, head in the Ø4.4 counterbore; M2 × 30 nylon or A4 with the GPS option. A steel M2 × 20 from the kit fits too, but it is magnetic: calibrate the compass |
+| Ear screw M2 × 6 button head, carbon steel black (Moqinai M2 kit, 1520 pcs) | 8 | 2 per basket, from the top through the head bore of the shoulder (Ø3.9: head ≤ 3.7 mm, measure it), ear and body pad into the nut; tip 1.4 mm clear below |
+| Tray screw M2 × 6 button head, carbon steel black (same M2 kit) | 4 | from below through the tray posts into the body inserts |
 | Flow board screw M2 × 6, nylon | 2 | from below through the tray pocket floor |
 
-Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
+2026-11-18: screws from cheap kits (see `ACwing_Mech_A1_screws_kit.xlsx`). The kit has no M2 × 5 and no M2 × 18, so the ears take
+M2 × 6 and the stack M2 × 20 (cover counterbore 0.4 mm higher and Ø4.4). Keep steel and cheap "304" screws (often slightly
+magnetic) away from the compasses: the stack screws are nylon.
 
 ## Build order
 
 1. **Inserts.** Set the 4 stack inserts (from the top of the bosses), the 4 tray inserts (from the deck underside, in the
    tray pads) and the 2 flow inserts in the tray bosses with a soldering iron at 220–240 °C, flush.
-2. **Baskets on the body.** Put an M2 nut in each hex pocket under the deck, then 2 × M2 × 5 per basket from the top
+2. **Baskets on the body.** Put an M2 nut in each hex pocket under the deck, then 2 × M2 × 6 per basket from the top
    through the head bore of the shoulder, the ear and the pad.
 3. **Motors.** Push the TPU sleeves on the motors and put them in the cups (2 CW + 2 CCW). The motors have no connector:
    before soldering, thread the two leads out of the cup floor hole, along the channel under the floor, out of the cup
@@ -159,7 +161,7 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
    - Cable A (ESC J1 → FC J2, 10 mm, 1:1), as before.
    - Cable C (FC J4 → Flow J1, 60 mm, wires twisted): down through the deck slot to Flow J1 (connector edge to +X).
    - Cable D (battery pigtail, 30 mm): through the slot in the rear lobe, then through the notch of the tray rear wall.
-6. **Cover.** Put it on and drive the four M2 × 18 (GPS: M2 × 30) screws from the top into the boss inserts. Stop when
+6. **Cover.** Put it on and drive the four M2 × 20 nylon (GPS: M2 × 30) screws from the top into the boss inserts. Stop when
    the heads seat in the counterbores: do not crush the balls.
 7. **Flow board in the tray.** Slide Flow rev A in from the +X side, sensor side down, until it stops; 2 × M2 × 6 nylon from
    below through the pocket floor.
@@ -171,11 +173,11 @@ Do not use plain steel or A2 / 304 screws near the compasses: ferromagnetic.
 
 | Tray | Pack | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode (FE) |
 |---|---|---|---|---|---|
-| T400 | 400 mAh, 11.5 g | ≈ 73.1 g | 1.92 | × 0.73 | 85.9 Hz |
-| T800 | 800 mAh, ≈ 22 g | ≈ 84.1 g | 1.66 | × 1.17 | 85.6 Hz |
-| T1200 | 1200 mAh, ≈ 30 g | ≈ 92.5 g | 1.51 | × 1.52 | 91.1 Hz |
+| T400 | 400 mAh, 11.5 g | ≈ 71.7 g | 1.95 | × 0.73 | 85.9 Hz |
+| T800 | 800 mAh, ≈ 22 g | ≈ 82.7 g | 1.69 | × 1.17 | 85.6 Hz |
+| T1200 | 1200 mAh, ≈ 30 g | ≈ 91.1 g | 1.54 | × 1.52 | 91.1 Hz |
 
-\* Indoor (no GPS), 1.0 mm boards, with the cover (2.8 g), rev M of 2026-11-15. FE model of the handoff §5; the first
+\* Indoor (no GPS), 1.0 mm boards, with the cover (2.9 g), rev M of 2026-11-15, kit screws of 2026-11-18 (nylon stack). FE model of the handoff §5; the first
 two modes are the motor pods bouncing (handoff §15). Mass budget: `ACwing_Mech_A1_weight_study.md`.
 - thrust ≈ 140 g;
 - hover power ∝ m^1.5;

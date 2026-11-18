@@ -27,9 +27,9 @@ bigger pack only needs a new tray (3.4–4.4 g of PETG), not a new frame.
 
 | Tray | Battery (1S LiPo) | Battery size W × L × H | Tray mass | Drone mass* | T/W* | Flight time vs the preliminary draft + 400 mAh* | First frame mode |
 |---|---|---|---|---|---|---|---|
-| T400 | 400 mAh, 11.5 g | 20 × 40 × 8 | 3.42 g | ≈ 73.1 g | 1.92 | × 0.73 | 85.9 Hz** |
-| T800 | 800 mAh, ≈ 22 g | 25 × 45 × 9 | 3.82 g | ≈ 84.1 g | 1.66 | × 1.17 | 85.6 Hz** |
-| T1200 | 1200 mAh, ≈ 30 g | 30 × 64 × 8 | 4.39 g | ≈ 92.5 g | 1.51 | × 1.52 | 91.1 Hz** |
+| T400 | 400 mAh, 11.5 g | 20 × 40 × 8 | 3.42 g | ≈ 71.7 g | 1.95 | × 0.73 | 85.9 Hz** |
+| T800 | 800 mAh, ≈ 22 g | 25 × 45 × 9 | 3.82 g | ≈ 82.7 g | 1.69 | × 1.17 | 85.6 Hz** |
+| T1200 | 1200 mAh, ≈ 30 g | 30 × 64 × 8 | 4.39 g | ≈ 91.1 g | 1.54 | × 1.52 | 91.1 Hz** |
 
 \* Indoor configuration (ESC 1S rev A + FC rev A + Flow rev A in the tray pocket, no GPS), boards 1.0 mm, electronics cover
 (2.8 g), **rev M of 2026-11-15** (trays carry the flow board, §15). Mass budget and lightening options: `ACwing_Mech_A1_weight_study.md`.
@@ -762,3 +762,5 @@ is ≥ 0.8 mm; the Bambu Studio slicer (CLI) reports no floating region. Baskets
 
 
 **Update 2026-11-16: screw material.** The screws will be **alloy steel** instead of titanium. Alloy steel (10.9 / 12.9) is ferromagnetic, so it is used only where it is far from the compasses: the 8 ear screws (r ≈ 33 mm, z −2.6) and the 4 tray screws (under the deck). The 4 stack screws pass through the FC next to its compass (and next to the GPS compass with the GPS option): use **A4 stainless** there (non-magnetic, same mass as steel). Nuts stay A4, the flow board screws nylon. Mass against the titanium basis: stack +0.88 g, ears +0.32 g, tray +0.20 g → **+1.4 g**: drone T400 ≈ 73.1 g (T/W 1.92), T800 ≈ 84.1 g, T1200 ≈ 92.5 g. Calibrate the magnetometers with every screw in place.
+
+**Update 2026-11-18: screws from cheap kits.** The A4 / ISO 7380 BoM was too expensive. New sourcing (Amazon.it, `ACwing_Mech_A1_screws_kit.xlsx`): one **M2 button-head kit** in black carbon steel (Moqinai, 1520 pcs: M2 × 4/6/8/10/12/16/20, nuts, washers) for the ears, the tray and the nuts, and **nylon DIN 84 M2 × 20** for the stack (non-magnetic, next to the FC compass). The kits have no M2 × 5 and no M2 × 18, so: ears **M2 × 6** (tip z −8.6, 1.4 mm clear of the frame, 1.5 mm of the T1200 tray, 2.5 mm of the leads); stack **M2 × 20** with the cover seat **0.4 mm higher** (z 14.3, tip −5.7: 3 mm in the insert, 0.5 mm above the T800 tray wall). Cover: counterbore Ø4.0 → Ø4.4 (kit heads, DIN 84 dk 3.8), posts Ø5.0 → Ø6.0 (0.8 mm wall), indoor 2.92 g, GPS 4.48 g (`cover_P2.py`). Assembly checks T800 indoor and T400 GPS: no new overlaps; cover – FC 1.04 mm (was 1.36), other cover gaps unchanged. Measure the kit button heads before use: the ear head bore is Ø3.9, heads up to 3.7 mm fit. Mass against the 2026-11-16 basis: stack −1.72 g (nylon), ears +0.16 g, cover +0.13 g → **−1.4 g**: T400 ≈ 71.7 g (T/W 1.95), T800 ≈ 82.7 g, T1200 ≈ 91.1 g. With the steel M2 × 20 of the kit in the stack instead of nylon: +1.7 g and a magnetic stack.

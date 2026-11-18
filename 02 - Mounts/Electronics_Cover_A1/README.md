@@ -15,6 +15,11 @@ comes back in the bulge of the wave guards).
 > **M2 × 18** (indoor) / **M2 × 30** (GPS) stack screws. The meshes below stay at the rev R height; the assembly applies
 > the offset. Checks with the cover (handoff §15): FC 1.36 mm, plug housings 0.52 mm, cable A 0.51 mm, ESC USB-C plug 3.55 mm,
 > frame and propeller discs > 6 mm.
+>
+> **Update 2026-11-18 (kit screws).** Counterbores Ø4.0 → **Ø4.4** (kit button heads and nylon DIN 84 heads, dk 3.8) and
+> posts Ø5.0 → **Ø6.0** (0.8 mm wall around the counterbore); indoor seat **0.4 mm higher** for the **M2 × 20 nylon**
+> stack screws (no M2 × 18 in the kits): seat z 14.3, tip z −5.7, 3 mm in the insert, 0.5 mm above the T800 tray wall.
+> Mass indoor 2.9 g, GPS 4.5 g. Checks: FC 1.04 mm (was 1.36), housings 0.52 mm, GPS 0.09 mm (unchanged).
 
 The meshes are in assembly position (frame coordinates: z = 0 propeller plane, +Y forward). (rev R stack height) The print files, on z = 0,
 are written by the assembly macro to `00 - Docs/00 - Mech_A1_Docs/Prints/`.

@@ -20,7 +20,7 @@ The macro:
 | Option | Default | Meaning |
 |---|---|---|
 | `TRAY` | `'T400'` | `'T400'` / `'T800'` / `'T1200'` |
-| `WITH_GPS` | `True` | GPS rev A, cable B, S2 spacers, GPS cover, M2 × 30 screws (outdoor variant). `False`: indoor cover, M2 × 18 |
+| `WITH_GPS` | `True` | GPS rev A, cable B, S2 spacers, GPS cover, M2 × 30 screws (outdoor variant). `False`: indoor cover, M2 × 20 nylon (2026-11-18) |
 | `WITH_FLOW` | `True` | Flow rev A board and cable C |
 | `WITH_ELECTRONICS` | `True` | board STEP models from ACwing_HW |
 | `HW_DIR` | `''` | path to an ACwing_HW clone; empty = look for `../ACwing_HW` or `../hw` next to this repository |
