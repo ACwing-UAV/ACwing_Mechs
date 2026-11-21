@@ -75,14 +75,14 @@ Open it and keep the project settings.
 
 | | Value | Why |
 |---|---|---|
-| Base | Andrea's tuned print test of 2026-11-21 (`ACwing_Mech_A1M_print_test_2`): 0.12 mm Fine @BBL A1, line width 0.42 mm, 4 walls, 35 % gyroid, 5 top layers, supports **off** | the 2026-11-20 settings (0.3 mm lines, fast walls, 230 °C) printed worse |
+| Base | Andrea's tuned print test of 2026-11-21 (`ACwing_Mech_A1M_print_test_2`): 0.12 mm Fine @BBL A1, line width 0.42 mm, 4 walls, 35 % gyroid, 7 top layers, top **monotonic line** / bottom **monotonic** (2026-11-21: Hilbert curve left pinholes on the bridge tops and gaps on the first layer), supports **off** | the 2026-11-20 settings (0.3 mm lines, fast walls, 230 °C) printed worse |
 | Speeds | outer wall 25 mm/s (acceleration 800), inner wall 45 mm/s, top surface 35 mm/s, max flow 10 mm³/s | slow walls: clean thin rods and overhangs |
 | Fan | **constant 40 %** (min = max), 100 % on overhangs and bridges | the fan no longer changes when the short layers start (body and cups end at z ≈ 9 mm, basket-only layers above): a fan jump left a step on the 45° rods of the print test |
 | Layer cooling | slow down below 12 s per layer, down to 10 mm/s | |
 | Bridges | flow 0.85, 20 mm/s, thick bridges on | |
-| Overhangs | 50 / 30 / 15 / 10 mm/s | |
+| Overhangs | 25 / 20 / 15 / 10 mm/s | never faster than the outer wall (25): with 50 / 30 the speed changed around the 45° rods and left bands (2026-11-21) |
 | Stringing | 235 °C, retraction 0.8 mm at 40 mm/s, wipe, spiral Z-hop 0.4 mm, avoid crossing walls, seam at the back | |
-| First layer | 0.20 mm high, 0.42 mm lines, 30 mm/s walls / 40 mm/s infill, nozzle 245 °C, textured PEI plate 75 °C, fan off for 3 layers | |
+| First layer | 0.20 mm high, 0.5 mm lines, 30 mm/s walls / 40 mm/s infill, nozzle 245 °C, textured PEI plate 75 °C, fan off for 3 layers | |
 | Brim | 3 mm outer brim on the baskets, the cups and the spacers | baskets touch the bed with the guard top only; cups and spacers are small |
 
 Wash the plate with warm water and dish soap before printing (no fingers on it afterwards). Dry the PETG (65 °C, 6–8 h) before printing: wet PETG strings and blobs whatever the settings. PETG Basic / HF bond
