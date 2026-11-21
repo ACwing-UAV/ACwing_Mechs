@@ -65,7 +65,7 @@ no longer used (the tray pocket replaces it).
 
 ### Print settings (Bambu Lab A1, 0.4 mm nozzle, Bambu PETG Matte)
 
-**Bambu Studio project:** `01 - Frame/Frame_A1/ACwing_Mech_A1M.3mf` (2026-11-20) has 4 plates with these settings:
+**Bambu Studio project:** `01 - Frame/Frame_A1/ACwing_Mech_A1M.3mf` (2026-11-21) has 4 plates with these settings:
 - plate 1: the frame set;
 - plate 2: tray T400 and the spacers;
 - plate 3: tray T800;
@@ -75,14 +75,14 @@ Open it and keep the project settings.
 
 | | Value | Why |
 |---|---|---|
-| Process | 0.12 mm Fine @BBL A1, 3 walls, 25 % infill (cups and spacers 100 %), **8 top layers (0.96 mm)**, supports **off** | the parts are designed without supports; with 8 top layers the 1.2 mm ears, bridges and tray floors print solid (2026-11-20: 5 top layers left a skin over sparse infill and craters on the 15 / 20 mm bridges) |
-| Fan | min 40 %, max 100 % (layers under 30 s), **100 % on overhangs and bridges** | PETG at 30–50 % sags on bridges and droops on overhangs |
-| Layer cooling | slow down below 10 s per layer, down to 20 mm/s | the rods and claw legs have tiny layers; at 10 mm/s the nozzle dwelt on the 45° rods and left blobs (2026-11-20) |
-| Bridges | flow 0.85, 25 mm/s, thick bridges on | tighter, less time hot before the fan freezes the strand |
-| Overhangs | 50 / 30 / 15 / 10 mm/s (10–25 / 25–50 / 50–75 / 75–100 %) | |
-| Walls | outer 60 mm/s, inner 100 mm/s | |
-| Stringing and blobs | **230 °C**, retraction **1.0 mm** at 40 mm/s, wipe, **slope Z-hop 0.2 mm**, avoid crossing walls, seam at the back away from overhangs, **scarf seam on the outer walls** | 2026-11-20: blobs and strings on the 45° rods with 235 °C, 0.8 mm and spiral Z-hop 0.4 mm |
-| First layer | 0.20 mm high, 0.5 mm lines, 30 mm/s walls / 40 mm/s infill, nozzle 245 °C, textured PEI plate 75 °C, fan off for 3 layers | 0.12 mm × 0.3 mm lines did not fill the texture and stuck poorly (2026-11-16) |
+| Base | Andrea's tuned print test of 2026-11-21 (`ACwing_Mech_A1M_print_test_2`): 0.12 mm Fine @BBL A1, line width 0.42 mm, 4 walls, 35 % gyroid, 5 top layers, supports **off** | the 2026-11-20 settings (0.3 mm lines, fast walls, 230 °C) printed worse |
+| Speeds | outer wall 25 mm/s (acceleration 800), inner wall 45 mm/s, top surface 35 mm/s, max flow 10 mm³/s | slow walls: clean thin rods and overhangs |
+| Fan | **constant 40 %** (min = max), 100 % on overhangs and bridges | the fan no longer changes when the short layers start (body and cups end at z ≈ 9 mm, basket-only layers above): a fan jump left a step on the 45° rods of the print test |
+| Layer cooling | slow down below 12 s per layer, down to 10 mm/s | |
+| Bridges | flow 0.85, 20 mm/s, thick bridges on | |
+| Overhangs | 50 / 30 / 15 / 10 mm/s | |
+| Stringing | 235 °C, retraction 0.8 mm at 40 mm/s, wipe, spiral Z-hop 0.4 mm, avoid crossing walls, seam at the back | |
+| First layer | 0.20 mm high, 0.42 mm lines, 30 mm/s walls / 40 mm/s infill, nozzle 245 °C, textured PEI plate 75 °C, fan off for 3 layers | |
 | Brim | 3 mm outer brim on the baskets, the cups and the spacers | baskets touch the bed with the guard top only; cups and spacers are small |
 
 Wash the plate with warm water and dish soap before printing (no fingers on it afterwards). Dry the PETG (65 °C, 6–8 h) before printing: wet PETG strings and blobs whatever the settings. PETG Basic / HF bond
